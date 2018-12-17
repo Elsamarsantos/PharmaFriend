@@ -20,9 +20,16 @@ public class MedicineBusiness {
 	
 	@Transactional 
 	public Medicine consultMedicine(String medicine) {
-		return (Medicine) medicineRepository1.consultEntity(medicine);
+		
+		Medicine medicine2 = medicineRepository1.consultEntity(medicine);
+		
+		return medicine2;
 	}
 	
+	@Transactional 
+	public Medicine consultMedicineId(Long id) {
+		return medicineRepository1.consultEntityId(id);
+	}
 	
 
 }

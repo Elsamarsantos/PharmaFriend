@@ -11,17 +11,17 @@ public class Pharmacy extends BaseEntity{
 	
 	private String pharmacyName;
 	private String location;
-	private List <Medicine> medicineList;
+	//private List <Medicine> medicineList;
 	
 	
 	
-	public List<Medicine> getMedicineList() {
-		return medicineList;
-	}
-
-	public void setMedicineList(List<Medicine> medicineList) {
-		this.medicineList = medicineList;
-	}
+//	public List<Medicine> getMedicineList() {
+//		return medicineList;
+//	}
+//
+//	public void setMedicineList(List<Medicine> medicineList) {
+//		this.medicineList = medicineList;
+//	}
 
 	public String getPharmacyName() {
 		return pharmacyName;

@@ -19,10 +19,18 @@ public class MedicineService {
 	MedicineBusiness medicineBusiness1;
 	
 	@GET
-	@Path("consult/{name}")
+	@Path("consult/{medicineName}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Medicine consutlMedicine(@PathParam("name") String name) {
+	public Medicine consutlMedicine(@PathParam("medicineName") String name) {
+		
 		return medicineBusiness1.consultMedicine(name);
+	}
+	
+	@GET
+	@Path("consultid/{id}")
+	@Produces (MediaType.APPLICATION_JSON)
+	public Medicine consutlMedicineid(@PathParam("id") long id) {
+		return medicineBusiness1.consultMedicineId(id);
 	}
 	
 	@POST

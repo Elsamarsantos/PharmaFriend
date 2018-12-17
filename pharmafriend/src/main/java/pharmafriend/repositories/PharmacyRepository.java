@@ -1,15 +1,20 @@
 package pharmafriend.repositories;
 
-public class PharmacyRepository extends EntityRepository {
+import pharmafriend.models.Pharmacy;
+
+public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	
 	
 	private PharmacyRepository() {}
 	
 	
-	protected Class<PharmacyRepository> getEntityClass() {
-		// TODO Auto-generated method stub
-		return PharmacyRepository.class;
+	protected Class<Pharmacy> getEntityClass() {
+		
+		return Pharmacy.class;
 	}
+
+
+
 	
 	
 	

@@ -1,17 +1,24 @@
 package pharmafriend.repositories;
 
-public class MedicineRepository extends EntityRepository{
+import pharmafriend.models.Medicine;
+
+public class MedicineRepository extends EntityRepository<Medicine>{
 
 	
 	private MedicineRepository() {}
 	
-	@Override
-	protected Class<MedicineRepository> getEntityClass() {
-		// TODO Auto-generated method stub
-		return MedicineRepository.class;
+	
+	protected Class<Medicine> getEntityClass() {
+		return Medicine.class;
 	}
 	
+	protected String getNamedQuery() {
+		return Medicine.QUERYNAME;
+	}
 	
+	protected List<Medicine> getAll(){
+		
+	}
 	
 
 }
