@@ -1,9 +1,12 @@
 package pharmafriend.business;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import pharmafriend.models.Medicine;
+import pharmafriend.models.Pharmacy;
 import pharmafriend.repositories.MedicineRepository;
 
 public class MedicineBusiness {
@@ -21,9 +24,9 @@ public class MedicineBusiness {
 	@Transactional 
 	public Medicine consultMedicine(String medicine) {
 		
-		Medicine medicine2 = medicineRepository1.consultEntity(medicine);
+		return medicineRepository1.getMedicineByName(medicine);
 		
-		return medicine2;
+		
 	}
 	
 	@Transactional 
@@ -31,5 +34,9 @@ public class MedicineBusiness {
 		return medicineRepository1.consultEntityId(id);
 	}
 	
-
+	@Transactional
+	public List<Medicine> consultAll() {
+		return medicineRepository1.getAllEntity();
+		
+	}
 }

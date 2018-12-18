@@ -1,16 +1,19 @@
 package pharmafriend.models;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity
-@NamedQuery(name=Medicine.QUERYNAME, query="SELECT m From m")
+@NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName"),
+				@NamedQuery(name=Medicine.QUERY_ALL, query="SELECT m From Medicine m")})
 public class Medicine extends BaseEntity {
+	
 	
 	private static final long serialVersionUID = 1L;
 	
 	public static final String QUERYNAME = "findByName";
-			
+	public static final String QUERY_ALL = "findAllMedicines";		
 			
 	private String medicineName;
 	private String medicineType;

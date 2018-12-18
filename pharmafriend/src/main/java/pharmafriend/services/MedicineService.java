@@ -1,5 +1,7 @@
 package pharmafriend.services;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -11,8 +13,9 @@ import javax.ws.rs.core.MediaType;
 
 import pharmafriend.business.MedicineBusiness;
 import pharmafriend.models.Medicine;
+import pharmafriend.models.Pharmacy;
 
-@Path("medicine")
+@Path("medicines")
 public class MedicineService {
 	
 	@Inject
@@ -32,6 +35,14 @@ public class MedicineService {
 	public Medicine consutlMedicineid(@PathParam("id") long id) {
 		return medicineBusiness1.consultMedicineId(id);
 	}
+	
+	@GET
+	@Path("consultall")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<Medicine> consultAll() {
+		return medicineBusiness1.consultAll();
+	}
+	
 	
 	@POST
 	@Path("create")

@@ -21,19 +21,14 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 		
 	}
 	
-	public T consultEntity(String entityName) {
-		
-		
-		return em.find(getEntityClass(),entityName);
-	}
 	
 	public T consultEntityId(long id) {
 
 		return em.find(getEntityClass(),id);
 	}
 	
-	public List<T> getAll(){
-		return em.createNamedQuery();
+	public List<T> getAllEntity(){
+		return em.createNamedQuery(getNamedQuery(),getEntityClass()).getResultList();
 	}
 	
 	protected abstract Class<T> getEntityClass();

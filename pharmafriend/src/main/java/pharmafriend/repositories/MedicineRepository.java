@@ -1,5 +1,7 @@
 package pharmafriend.repositories;
 
+import java.util.List;
+
 import pharmafriend.models.Medicine;
 
 public class MedicineRepository extends EntityRepository<Medicine>{
@@ -16,7 +18,13 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		return Medicine.QUERYNAME;
 	}
 	
-	protected List<Medicine> getAll(){
+	protected String getNamedQueryAll() {
+		return Medicine.QUERY_ALL;
+	}
+	
+	public Medicine getMedicineByName(String name){
+		
+		return em.createNamedQuery(Medicine.QUERYNAME, Medicine.class).setParameter("medicineName", name).getSingleResult();
 		
 	}
 	
