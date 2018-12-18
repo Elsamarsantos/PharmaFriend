@@ -3,7 +3,7 @@
 function createPharmacy(p) {
     console.log(p);
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/createPharmacy",
+        url: "http://localhost:8080/pharmaFriend/api/pharmacies/create",
         type: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -19,7 +19,7 @@ function createPharmacy(p) {
 // THIS IS MY AJAX TO GET A MEDICINE
 function searchPharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/" + pharmacyName,
+        url: "http://localhost:8080/pharmaFriend/api/pharmacies/" + pharmacyName,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -29,7 +29,7 @@ function searchPharmacy(p) {
         data: JSON.stringify(p),
         success: function (data) {
             console.log(data);
-            $("#name").val(data.name);
+            $("#name").val(data.pharmaName);
             $("#location").val(data.location);
        
         }
@@ -39,7 +39,7 @@ function searchPharmacy(p) {
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function updatePharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/updatePharmacy",
+        url: "http://localhost:8080/pharmaFriend/api/pharmacies/",
         type: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -56,7 +56,7 @@ function updatePharmacy(p) {
 // THIS IS MY AJAX TO DELETE A MEDICINE
 function deletePharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/" + pharmacyName,
+        url: "http://localhost:8080/pharmaFriend/api/pharmacies" + pharmacyName,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',

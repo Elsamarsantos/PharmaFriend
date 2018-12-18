@@ -68,12 +68,17 @@
     </tr>
     <tr>
       <th scope="row"><input type="text"></th>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
-      <td><input type="text"></td>
+      <td><input id="name" type="text"></td>
+      <td><input id="type" type="text"></td>
+      <td><input id="pvp" type="text"></td>
     </tr>
   </tbody>
 </table>
+
+    <button onclick='btnCreateM()'>CREATE</button> <br> 
+    <button onclick="btnSearchM()" >SEARCH</button> <br>
+     <button onclick="btnUpdateM()" >UPDATE</button> <br>
+     <button onclick="btnDeleteM()">DELETE</button>
    </div>
     </div>
                             
@@ -97,18 +102,20 @@
     <tr>
       <th scope="row">1</th>
       <td>FARMÁCIA CASTELO</td>
-      
       <td>TELHEIRAS</td>
     </tr>
       <tr>
       <th scope="row"><input type="text"></th>
-      <td><input type="text"></td>
-     
-      <td><input type="text"></td>
+      <td><input id="pharmaName" type="text"></td>
+      <td><input id="location" type="text"></td>
     </tr>
   </tbody>
 </table>
-     
+    
+    <button onclick="btnCreateP()">CREATE</button>
+    <button onclick="btnSearchP()" >SEARCH</button>
+     <button onclick="btnUpdateP()" >UPDATE</button>
+     <button onclick="btnDeleteP()">DELETE</button>
         </div>
     </div>
 

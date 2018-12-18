@@ -2,7 +2,7 @@
 function createMedicine(p) {
     console.log(p);
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/createMedicine",
+        url: "http://localhost:8080/pharmaFriend/api/medicines/create",
         type: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -18,7 +18,7 @@ function createMedicine(p) {
 // THIS IS MY AJAX TO GET A MEDICINE
 function searchMedicine(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/" + medicineName,
+        url: "http://localhost:8080/pharmaFriend/api/medicines/consult/" + medicineName,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -38,7 +38,7 @@ function searchMedicine(p) {
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function updateMedicine(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/updateMedicine",
+        url: "http://localhost:8080/pharmaFriend/api/medicines/" +medicineName,
         type: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -55,7 +55,7 @@ function updateMedicine(p) {
 // THIS IS MY AJAX TO DELETE A MEDICINE
 function deleteMedicine(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/" + medicineName,
+        url: "http://localhost:8080/pharmaFriend/api/medicine/" + medicineName,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',
