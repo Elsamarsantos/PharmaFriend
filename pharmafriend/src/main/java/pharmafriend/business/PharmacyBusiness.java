@@ -20,6 +20,12 @@ public class PharmacyBusiness {
 	}
 	
 	@Transactional
+	public Pharmacy consultPharmacyByName(String namePharmacy) {
+		return pharmacyRepository1.getPharmacyByName(namePharmacy);
+		
+	}
+	
+	@Transactional
 	public Pharmacy consultPharmacyByLocation(String namePharmacy) {
 		return pharmacyRepository1.getPharmacyByLocation(namePharmacy);
 		
