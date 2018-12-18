@@ -65,10 +65,10 @@ public class MedicineService {
 	}
 
 	@DELETE
-	@Path("delete")
+	@Path("delete/{name}")
 	@Produces(MediaType.APPLICATION_JSON)
 	
-	public void removeMedicine(String name) {
+	public void removeMedicine(@PathParam("name")String name) {
 		medicineBusiness1.removeMedicine(name);
 	}
 	
