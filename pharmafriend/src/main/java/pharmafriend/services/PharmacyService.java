@@ -42,7 +42,7 @@ public class PharmacyService {
 		return pharmacyBusiness1.consultAll();
 	}
 	
-	
+	//https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/POISaude/FeatureServer/1/query?where=1%3D1&outFields=*&f=pgeojson
 	
 	@POST
 	@Path("create")
