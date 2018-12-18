@@ -29,6 +29,14 @@ public class PharmacyService {
 	}
 	
 	@GET
+	@Path("consult/{pharmacyName}")
+	@Produces (MediaType.APPLICATION_JSON)
+	public Pharmacy consultPharmacyName(@PathParam("pharmacyName") String name) {
+		
+		return pharmacyBusiness1.consultPharmacyByName(name);
+	}
+	
+	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
 	public Pharmacy consutlMedicine(@PathParam("id") long id) {

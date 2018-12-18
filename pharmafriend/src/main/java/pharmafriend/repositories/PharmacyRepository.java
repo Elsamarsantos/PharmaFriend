@@ -22,13 +22,19 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	protected String getNamedQueryAll() {
 		return Pharmacy.QUERY_ALL;
 	}
+	
+	protected String getNamedQuery2() {
+		return Pharmacy.QUERYNAME;
+	}
 
-
-	public Pharmacy getPharmacyByLocation(String locationName) {
-		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("location", locationName).getSingleResult();
+	public Pharmacy getPharmacyByName(String pharmacyName) {
+		return em.createNamedQuery(Pharmacy.QUERYNAME, Pharmacy.class).setParameter("pharmacyName", pharmacyName).getSingleResult();
 		
 	}
 	
-	
+	public Pharmacy getPharmacyByLocation(String location) {
+		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("location", location).getSingleResult();
+		
+	}
 
 }
