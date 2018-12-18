@@ -28,10 +28,10 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 	}
 	
 	public List<T> getAllEntity(){
-		return em.createNamedQuery(getNamedQuery(),getEntityClass()).getResultList();
+		return em.createNamedQuery(getNamedQueryAll(),getEntityClass()).getResultList();
 	}
 	
 	protected abstract Class<T> getEntityClass();
 
-	protected abstract String getNamedQuery();
+	protected abstract String getNamedQueryAll();
 }

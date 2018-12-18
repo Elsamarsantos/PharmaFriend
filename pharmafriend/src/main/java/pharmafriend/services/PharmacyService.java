@@ -21,7 +21,7 @@ public class PharmacyService {
 	PharmacyBusiness pharmacyBusiness1;
 	
 	@GET
-	@Path("consult/pharmacylocation}")
+	@Path("consult/{pharmacylocation}")
 	@Produces (MediaType.APPLICATION_JSON)
 	public Pharmacy consultPharmacy(@PathParam("pharmacylocation") String name) {
 		

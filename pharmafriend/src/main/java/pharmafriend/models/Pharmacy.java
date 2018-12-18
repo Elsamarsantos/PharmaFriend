@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({@NamedQuery(name=Pharmacy.QUERYLOCATION, query="SELECT p From Pharmacy p WHERE p.location= :location"),
-				@NamedQuery(name=Pharmacy.QUERY_ALL, query="SELECT p From Pharmacy p WHERE p.pharmacyName= :pharmacyeName")})
+				@NamedQuery(name=Pharmacy.QUERY_ALL, query="SELECT p From Pharmacy p")})
 
 public class Pharmacy extends BaseEntity{
 	
