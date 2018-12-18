@@ -28,5 +28,10 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 	
-
+	public void remove(String name) {
+		 em.remove(getMedicineByName(name));
+		
+	}
+	
+	
 }
