@@ -17,11 +17,9 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 	
 	public T saveEntity(T entity) {
 		
-		return em.merge(entity);
-		
+		return em.merge(entity);	
 	}
-	
-	
+		
 	public T consultEntityId(long id) {
 
 		return em.find(getEntityClass(),id);
@@ -30,6 +28,11 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 	public List<T> getAllEntity(){
 		return em.createNamedQuery(getNamedQueryAll(),getEntityClass()).getResultList();
 	}
+	
+	public T update(T entity) {
+		return em.merge(entity);
+	}
+	
 	
 	protected abstract Class<T> getEntityClass();
 
