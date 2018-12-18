@@ -1,10 +1,33 @@
 /* THIS IS MY CSS BASED ON BOOTSTRAP */
 body
-{
+{   
+    
     background: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') fixed;
     background-size: cover;
     padding: 0;
     margin: 0;
+    height: 100%;
+}
+
+#holder {
+    min-height: 100%;
+    position: relative;
+}
+
+#body {
+    padding-bottom: 100px;
+    /* height of footer */
+}
+
+footer {
+    font-family: 'Open Sans' , sans-serif;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    color: white; 
 }
 
 header
@@ -24,7 +47,7 @@ hr {
     height: 2px;
     border: 0px;
     border-top: 5px solid rgba(51, 51, 51, 0.644);
-    margin: 2em 0;
+    margin: 1em 0;
     padding: 0; 
 }
 /* table css */
