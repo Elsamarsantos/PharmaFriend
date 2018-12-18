@@ -15,28 +15,27 @@ $("#btnCreateMedicine").click(function btnCreateM() {
     var newMedicine = {"medicineName":$("#name").val(), "medicineType": $("#type").val(), "pvp":parseInt($("#pvp").val())};
  
     createMedicine(newMedicine);
+    
+  $("#medicineTable").append('<tr><td>' + $("#name").val() + 
+      '</td><td>' + $("#type").val() + '</td><td>' + parseInt($("#pvp").val()) + '</td></tr>'); 
 
 })
 //SEARCH
 $("#btnSearchMedicine").click(function btnSearchM() {
-    medicineName = ($("#name").val());
+    medicineName = ($("#searchMedicine").val());
     console.log("Medicine that you're searching for is:" + medicineName);
     searchMedicine();
     
 })
 //UPDATE
 $("#btnUpdateMedicine").click(function btnUpdateM() {
-    var name = ($("#name").val());
-    var type = ($("#type").val());
-    var pvp = parseInt($("#pvp").val());
-    console.log("Your new medicine is like:" + name + type + pvp);
-    myMedicine = new Medicine(name, type, pvp);
+    var myMedicine = {"medicineName":$("#name").val(), "medicineType": $("#type").val(), "pvp":parseInt($("#pvp").val())};
     updateMedicine(myMedicine);
 
 })
 //DELETE
 $("#btnDeleteMedicine").click(function btnDeleteM() {
-        medicineName = ($("#medicineName").val());
+        medicineName = ($("#searchMedicine").val());
         console.log("Medicine to delete is:" + medicineName);
         deleteMedicine();
 })

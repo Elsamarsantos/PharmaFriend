@@ -135,3 +135,12 @@ form.mypharmaform input[type="submit"]:hover
   text-align: center;
   color: rgb(191, 217, 255);
 }
+
+.tableplus {
+    font-size: 13px;
+    color:rgb(0, 0, 0);
+    font-weight: 700; 
+    
+    
+}
+

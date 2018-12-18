@@ -11,25 +11,26 @@ class Pharmacy {
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
 $("#btnCreatePharmacy").click(function btnCreateP() {
-    var pharmaName = ($("#pharmaNname").val());
-    var location = ($("#location").val());
-    newPharmacy = new Medicine(pharmaName, location);
-    createPharmacy(newMPharmacy);
+    
+    var newPharmacy = {"pharmacyName":$("#pharmaName").val(), "location": $("#location").val()};
+    createPharmacy(newPharmacy);
+
+    $("#pharmacyTable").append('<tr><td>' + $("#pharmaName").val() + 
+      '</td><td>' + $("#location").val() + '</td></tr>'); 
+
 })
 //SEARCH
 $("#btnSearchPharmacy").click(function btnSearchP() {
-    pharmacyName = ($("#pharmaName").val());
+    pharmacyName = ($("#searchPharma").val());
     searchPharmacy();
 })
 //UPDATE
 $("#btnUpdatePharmacy").click(function btnUpdateP() {
-    var pharmaName = ($("#pharmaName").val());
-    var location = ($("#location").val());
-    myPharmacy = new Medicine(pharmaName, location);
-    createPharmacy(myMPharmacy);
+    var myPharmacy = {"pharmacyName":$("#pharmaName").val(), "location": $("#location").val()};
+    createPharmacy(myPharmacy);
 })
 //DELETE
 $("#btnDeletePharmacy").click(function btnDeleteP() {
-    pharmacyName = ($("#pharmaName").val());
+    pharmacyName = ($("#searchPharma").val());
     deletePharmacy();
 })

@@ -3,15 +3,15 @@
 function createPharmacy(p) {
     console.log(p);
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/pharmacies/create",
+        url: "http://localhost:8080/pharmafriend/api/pharmacies/create",
         type: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         data: JSON.stringify(p),
-        success: function (n) {
-            console.log(n);
+        success: function (data) {
+            console.log(data);
         }
     })
 }
@@ -19,7 +19,7 @@ function createPharmacy(p) {
 // THIS IS MY AJAX TO GET A MEDICINE
 function searchPharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/pharmacies/" + pharmacyName,
+        url: "http://localhost:8080/pharmafriend/api/pharmacies/" + pharmacyName,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -39,7 +39,7 @@ function searchPharmacy(p) {
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function updatePharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/pharmacies/",
+        url: "http://localhost:8080/pharmafriend/api/pharmacies/",
         type: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -56,7 +56,7 @@ function updatePharmacy(p) {
 // THIS IS MY AJAX TO DELETE A MEDICINE
 function deletePharmacy(p) {
     $.ajax({
-        url: "http://localhost:8080/pharmaFriend/api/pharmacies" + pharmacyName,
+        url: "http://localhost:8080/pharmafriend/api/pharmacies" + pharmacyName,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -64,8 +64,8 @@ function deletePharmacy(p) {
         },
         contentType: 'application/json',
         data: JSON.stringify(p),
-        success: function (n) {
-            console.log(n);
+        success: function (data) {
+            console.log(data);
             
         }
     })
