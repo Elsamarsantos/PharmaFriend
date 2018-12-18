@@ -37,6 +37,17 @@ public class MedicineBusiness {
 	@Transactional
 	public List<Medicine> consultAll() {
 		return medicineRepository1.getAllEntity();
+	}
+	
+	@Transactional 
+	public void removeMedicine(String name) {
+		medicineRepository1.remove(name);
+	}
+	
+	@Transactional 
+	public void updateMedicine(Medicine medicine) {
+		
+		medicineRepository1.update(medicine);
 		
 	}
 }

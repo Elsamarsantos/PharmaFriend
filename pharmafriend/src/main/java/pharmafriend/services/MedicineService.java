@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -51,7 +53,25 @@ public class MedicineService {
 	public void createMedicine(Medicine medicine) {
 		medicineBusiness1.createMedicine(medicine);
 	}
+	
+	@PUT
+	@Path("update")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void updateMedicine(Medicine medicine) {
+		
+		
+		medicineBusiness1.updateMedicine(medicine);
+	}
 
+	@DELETE
+	@Path("delete")
+	@Produces(MediaType.APPLICATION_JSON)
+	
+	public void removeMedicine(String name) {
+		medicineBusiness1.removeMedicine(name);
+	}
+	
 }
 
 

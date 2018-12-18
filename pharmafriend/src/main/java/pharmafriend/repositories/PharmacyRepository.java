@@ -36,5 +36,9 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("location", location).getSingleResult();
 		
 	}
+	public void remove(String name) {
+		 em.remove(getPharmacyByName(name));
+		
+	}
 
 }
