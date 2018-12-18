@@ -18,9 +18,9 @@
     <div class="collapse navbar-collapse">
         <ul>
             <li><a id="homebtn" class="active" href="#home" type="button">Home</a></li>
-            <li><a id="productlistbtn" href="#productlist" type="button" onclick="showProductList()">Product List</a></li>
-            <li><a id="pharmacylistbtn" href="#pharmacylist" type="button" onclick="showPharmaciesList()">Pharmacy List</a></li>
-            <li><a id="ourvisionbtn" href="#ourvision" type="button" onclick="showOurVision()">Our Vision</a></li>
+            <li><a id="productlistbtn" href="#productlist" type="button">Product List</a></li>
+            <li><a id="pharmacylistbtn" href="#pharmacylist" type="button">Pharmacy List</a></li>
+            <li><a id="ourvisionbtn" href="#ourvision" type="button">Our Vision</a></li>
         </ul>
     </div>
 
@@ -48,12 +48,20 @@
         <div class="row">
         
     <a href="" class="white-text mx-3" style="font-size:3rem">
-    <header>MEDICINE</header> </a>
+    <header>MEDICINE</header> </a> <br>
+
+    <center>
+    <a href="#" id="btnCreateMedicine"class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a>
+    <a href="#" id="btnSearchMedicine" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH MEDICINE</a>
+    <a href="#" id="btnUpdateMedicine" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE MEDICINE</a>
+    <a href="#" id="btnDeleteMedicine" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE MEDICINE</a>
+    </center>
+    <br>
 
     <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+   
       <th scope="col">NAME</th>
       <th scope="col">TYPE</th>
       <th scope="col">PVP</th>
@@ -61,13 +69,13 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
+    
       <td>BRUFEN</td>
       <td>AINE</td>
       <td>2,99€</td>
     </tr>
     <tr>
-      <th scope="row"><input type="text"></th>
+   
       <td><input id="name" type="text"></td>
       <td><input id="type" type="text"></td>
       <td><input id="pvp" type="text"></td>
@@ -75,10 +83,8 @@
   </tbody>
 </table>
 
-    <button onclick='btnCreateM()'>CREATE</button> <br> 
-    <button onclick="btnSearchM()" >SEARCH</button> <br>
-     <button onclick="btnUpdateM()" >UPDATE</button> <br>
-     <button onclick="btnDeleteM()">DELETE</button>
+  
+    
    </div>
     </div>
                             
@@ -86,36 +92,33 @@
     <div class="container" id="tabpharmacy">
         <div class="row">
     <a href="" class="white-text mx-3" style="font-size:3rem"> 
-    <header>PHARMACY</header>   </a>
+    <header>PHARMACY</header>   </a> <br>
+<center>
+    <a href="#" id="btnCreatePharmacy"class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a>
+    <a href="#" id="btnSearchPharmacy" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH PHARMACY</a>
+    <a href="#" id="btnUpdatePharmacy" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE PHARMACY</a>
+    <a href="#" id="btnDeletePharmacy" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE PHARMACY</a>
+</center> <br>
     
      
       <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">NAME</th>
-   
       <th scope="col">LOCATION</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
       <td>FARMÁCIA CASTELO</td>
       <td>TELHEIRAS</td>
     </tr>
       <tr>
-      <th scope="row"><input type="text"></th>
       <td><input id="pharmaName" type="text"></td>
       <td><input id="location" type="text"></td>
     </tr>
   </tbody>
 </table>
-    
-    <button onclick="btnCreateP()">CREATE</button>
-    <button onclick="btnSearchP()" >SEARCH</button>
-     <button onclick="btnUpdateP()" >UPDATE</button>
-     <button onclick="btnDeleteP()">DELETE</button>
         </div>
     </div>
 

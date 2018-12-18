@@ -10,7 +10,7 @@ class Medicine {
 }
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
-function btnCreateM() {
+$("#btnCreateMedicine").click(function btnCreateM() {
     var name = ($("#name").val());
     var type = ($("#type").val());
     var pvp = parseInt($("#pvp").val());
@@ -18,15 +18,16 @@ function btnCreateM() {
     console.log("Your medicine is like:" + name + type + pvp);
     createMedicine(newMedicine);
     console.log("Medicine Created");
-}
+})
 //SEARCH
-function btnSearchM() {
-    medicineName = ($("#search").val());
-    searchMedicine();
+$("#btnSearchMedicine").click(function btnSearchM() {
+    medicineName = ($("#name").val());
     console.log("Medicine that you're searching for is:" + medicineName);
-}
+    searchMedicine();
+    
+})
 //UPDATE
-function btnUpdateM() {
+$("#btnUpdateMedicine").click(function btnUpdateM() {
     var name = ($("#name").val());
     var type = ($("#type").val());
     var pvp = parseInt($("#pvp").val());
@@ -34,10 +35,10 @@ function btnUpdateM() {
     myMedicine = new Medicine(name, type, pvp);
     updateMedicine(myMedicine);
 
-}
+})
 //DELETE
-function btnDeleteM() {
-        medicineName = ($("#medicineNameField").val());
+$("#btnDeleteMedicine").click(function btnDeleteM() {
+        medicineName = ($("#medicineName").val());
         console.log("Medicine to delete is:" + medicineName);
         deleteMedicine();
-}
+})

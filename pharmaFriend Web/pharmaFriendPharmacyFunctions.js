@@ -2,36 +2,34 @@
 
 //THIS IS MY PHARMACY CLASS
 class Pharmacy {
-    constructor (pharmaName, location, medicine){
+    constructor (pharmaName, location){
     this.pharmaName = pharmaName;
     this.location = location;
-    this.medicine = medicine;
+
     }
 }
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
-function btnCreateP() {
-    var pharmaName = ($("#name").val());
+$("#btnCreatePharmacy").click(function btnCreateP() {
+    var pharmaName = ($("#pharmaNname").val());
     var location = ($("#location").val());
-    var medicine = ($("#medicine").val());
-    newPharmacy = new Medicine(pharmaName, location, medicine);
+    newPharmacy = new Medicine(pharmaName, location);
     createPharmacy(newMPharmacy);
-}
+})
 //SEARCH
-function btnSearchP() {
-    pharmacyName = ($("#search").val());
+$("#btnSearchPharmacy").click(function btnSearchP() {
+    pharmacyName = ($("#pharmaName").val());
     searchPharmacy();
-}
+})
 //UPDATE
-function btnUpdateP() {
-    var pharmaName = ($("#name").val());
+$("#btnUpdatePharmacy").click(function btnUpdateP() {
+    var pharmaName = ($("#pharmaName").val());
     var location = ($("#location").val());
-    var medicine = ($("#medicine").val());
-    myPharmacy = new Medicine(pharmaName, location, medicine);
+    myPharmacy = new Medicine(pharmaName, location);
     createPharmacy(myMPharmacy);
-}
+})
 //DELETE
-function btnDeleteP() {
-    pharmacyName = ($("#pharmacyNameField").val());
+$("#btnDeletePharmacy").click(function btnDeleteP() {
+    pharmacyName = ($("#pharmaName").val());
     deletePharmacy();
-}
+})
