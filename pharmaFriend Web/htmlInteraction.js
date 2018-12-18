@@ -18,7 +18,7 @@ function home (){
     $("#Home").show();
 }
 
-function productlist (){
+function productlist (){<h5>By DreamTeam</h5>
     $("#Home").hide();
     $("#tabpharmacy").hide();
     $("#tabmedicine").show();
