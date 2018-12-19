@@ -2,22 +2,27 @@
 
 //THIS IS MY MEDICINE CLASS
 class Medicine {
-    constructor (name, type, pvp){
+    constructor (name, dose, units, pvp, rrate){
     this.name = name;
-    this.type = type;
+    this.dose = dose;
+    this.units = units;
     this.pvp = pvp;
+    this.rrate = rrate;
     }
 }
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
 $("#btnCreateMedicine").click(function btnCreateM() {
-    console.log("click");
-    var newMedicine = {"medicineName":$("#name").val(), "medicineType": $("#type").val(), "pvp":parseInt($("#pvp").val())};
+console.log("Medicine Created.")
+    var newMedicine = {"medicineName":$("#name").val(), "dose": $("#dose").val(),
+    "units": $("#units").val(), "pvp":parseInt($("#pvp").val()), "rrate": parseInt($("#rrate").val())};
  
     createMedicine(newMedicine);
     
-  $("#medicineTable").append('<tr><td>' + $("#name").val() + 
-      '</td><td>' + $("#type").val() + '</td><td>' + parseInt($("#pvp").val()) + '</td></tr>'); 
+  $("#medicineTable").append('<tr><td>' + $("#name").val() + '</td><td>' + $("#dose").val() + 
+                            '</td><td>' + $("#units").val() + '</td><td>' +
+                            parseInt($("#pvp").val()) + '</td><td>' + 
+                            parseInt($("#rrate").val()) + '</td></tr>'); 
 
 })
 //SEARCH
@@ -29,7 +34,7 @@ $("#btnSearchMedicine").click(function btnSearchM() {
 })
 //UPDATE
 $("#btnUpdateMedicine").click(function btnUpdateM() {
-    var myMedicine = {"medicineName":$("#name").val(), "medicineType": $("#type").val(), "pvp":parseInt($("#pvp").val())};
+    var myMedicine = {"medicineName":$("#name").val(), "dose": $("#dose").val(),"units": $("#units").val(), "pvp":parseInt($("#pvp").val()), "rRate": parseInt($("#rrate").val())};
     updateMedicine(myMedicine);
 
 })

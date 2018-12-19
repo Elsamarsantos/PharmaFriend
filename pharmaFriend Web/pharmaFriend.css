@@ -1,22 +1,10 @@
 /* THIS IS MY CSS BASED ON BOOTSTRAP */
-body
-{   
-    
+body {   
     background: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') fixed;
     background-size: cover;
     padding: 0;
     margin: 0;
     height: 100%;
-}
-
-#holder {
-    min-height: 100%;
-    position: relative;
-}
-
-#body {
-    padding-bottom: 100px;
-    /* height of footer */
 }
 
 footer {
@@ -52,6 +40,7 @@ hr {
 }
 /* table css */
 ul {
+    
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -64,6 +53,8 @@ li {
 }
   
 li a {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 15px;
     display: block;
     color: white;
     text-align: center;
@@ -79,14 +70,12 @@ li a:hover {
     background-color: #4CAF50;
 }
  
-form
-{
+form {
     width: 500px;
     margin: 0 auto;
 }
 
-form.mypharmaform input[type="text"], form.mypharmaform input[type="text"]
-{
+form.mypharmaform input[type="text"], form.mypharmaform input[type="text"] {
     width: 100%;
     margin: 0;
     padding: 5px 10px;
@@ -103,8 +92,7 @@ form.mypharmaform input[type="text"], form.mypharmaform input[type="text"]
     outline: 0;
 }
 
-form.mypharmaform input[type="submit"]
-{
+form.mypharmaform input[type="submit"] {
     width: 100%;
     font-size: 23px;
     text-transform: uppercase;
@@ -115,8 +103,7 @@ form.mypharmaform input[type="submit"]
     letter-spacing: 1px;
 }
 
-form.mypharmaform input[type="submit"]:hover
-{
+form.mypharmaform input[type="submit"]:hover {
     transition: background-color 0.5s ease;
 }
 
@@ -137,10 +124,25 @@ form.mypharmaform input[type="submit"]:hover
 }
 
 .tableplus {
-    font-size: 13px;
-    color:rgb(0, 0, 0);
+    font-size: 15px;
+    color:rgba(12, 10, 10, 0.644);
     font-weight: 700; 
-    
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+
+.modalBox {
+    margin-top: 170px;
     
 }
 
+.modalEdit {
+    font-family:'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    color: rgb(191, 217, 255);
+    border:10px solid rgba(51, 51, 51, 0.644);
+    font-size: 30px;
+}

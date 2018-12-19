@@ -31,8 +31,11 @@ function searchMedicine(p) {
             console.log(data);
 
             $("#name").val(data.name);
-            $("#type").val(data.type);
-            $("#pvp").val(data.pvp);
+            $("#name").val(data.dose);
+            $("#name").val(data.units);
+            $("#type").val(data.pvp);
+            $("#pvp").val(data.rrate);
+
         }
     })
 }

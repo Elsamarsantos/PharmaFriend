@@ -1,176 +1,177 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-
-    <title>PharmaFriend - Find your medicine.</title>
-
+    <title>PF - Simplify your search</title>
 </head>
-
 <body>
-
 
     <!-- THIS IS MY NAVIGATION BAR -->
     <div class="collapse navbar-collapse">
         <ul>
-            <li><a id="homebtn" class="active" href="#home" type="button">Home</a></li>
-            <li><a id="productlistbtn" href="#productlist" type="button">Product List</a></li>
-            <li><a id="pharmacylistbtn" href="#pharmacylist" type="button">Pharmacy List</a></li>
-            <li><a id="ourvisionbtn" href="#ourvision" type="button">Our Vision</a></li>
+            <li><a id="homeBtn" class="active" href="#home" type="button">HOME</a></li>
+            <li><a id="medicineListBtn" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
+            <li><a id="pharmacyListBtn" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
+            <li><a id="ourVisionBtn" class="hover" href="#ourVision" type="button">OUR VISION</a></li>
         </ul>
     </div>
 
-    <!-- THIS IS MY HEADER -->
-    <div class="container" id="Home">
+    <!-- THIS IS MY HOME PAGE -->
+    <div class="container" id="home">
         <div class="row text-center">
-            <div class="col-sm-3"></div>
-                <br> <br>
-                <header> PharmaFriend <br> </header>
+            <div class="col-sm-3"></div> <br> <br>
+                <header> PharmaFriend </header> <br>
                 <h1>Simplify your search.</h1> <br> <br> <br> <br> <br>
                 <form class="mypharmaform">
-                    <input id="productName"style="text-align: center" type="text" placeholder="What is the product?" />
-                    <input id="myLocation" style="text-align: center" type="text" placeholder="What is your location?" />
-                    <input type="submit" value="Search" class="btn btn-success btn-sm" />
-                </form>
+                    <input id="medicineName"style="text-align: center" type="text" placeholder="What is the medicine?" />
+                    <input id="myLocation" style="text-align: center" type="text" placeholder="What is your location?" /> <br><br>
+                    <button value="submit" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#homeOutput">SUBMIT</button>
+                </form>        
             <div class="col-sm-3"></div>
         </div>
     </div>
 
+    <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH -->
+
+<div class="modal fade modalBox" id="homeOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+      <div class="modal-body modalEdit"> 
+       <h2 class="modal-title ">WE FOUND THOSE PHARMACIES</h2> <hr> 
+      <h3>  Pharmacy Castelo, TELHEIRAS - [0.2km]<br> <br>
+            Pharmacy Areias, PONTINHA [2.2km]   <br> <br>
+            Pharmacy Varandas, BENFICA [3.7km]  </h3> <hr>
+            <form class="mypharmaform">
+               <input id="emailId"style="text-align: center" type="text" placeholder="email@example.pf" />
+            </form>        
+            
+        <button value="submit" class="btn btn-success btn-lg btn-block" >SEND</button>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
+   
+    
 
-    <!-- TABLE FOR MY MEDICINES-->
-    <div class="container" id="tabmedicine">
+    <!-- THIS IS MY MEDICINES PAGE-->
+    <div class="container" id="tabMedicine">
         <div class="row">
-        
-    <a href="" class="white-text mx-3" style="font-size:3rem">
-    <header>MEDICINE</header> </a> <br>
+            <a href="" class="white-text mx-3" style="font-size:3rem">
+                <header>MEDICINE</header> </a> <br>
+                <center>
+                <a href="#"  id="btnCreateMedicine" class="btn btn-primary btn-success" ><span class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a>
+                <a href="#" id="btnSearchMedicine" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH MEDICINE</a>
+                <a href="#" id="btnUpdateMedicine" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE MEDICINE</a>
+                <a href="#" id="btnDeleteMedicine" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE MEDICINE</a><br> <br> 
+                <input class="myInput" id="searchMedicine" type="text" placeholder="Medicine Name">
+                </center> <br>
 
-    <center>
-
-    <a href="#"  id="btnCreateMedicine" class="btn btn-primary btn-success" ><span class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a>
-    <a href="#" id="btnSearchMedicine" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH MEDICINE</a>
-    <a href="#" id="btnUpdateMedicine" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE MEDICINE</a>
-    <a href="#" id="btnDeleteMedicine" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE MEDICINE</a>
-    <br> <br> 
-    
-    
-    <input class="myInput" id="searchMedicine" type="text" placeholder="Medicine Name">
-    </center>
-    <br>
-
-
-
-    
+    <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
     <table id="medicineTable" class="table tableplus">
-  <thead>
-    <tr>
-   
-      <th scope="col">NAME</th>
-      <th scope="col">TYPE</th>
-      <th scope="col">PVP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>BRUFEN</td>
-      <td>AINE</td>
-      <td>2,99€</td>
-    </tr>
-    <tr>
-   
-      <td><input id="name" type="text"></td>
-      <td><input id="type" type="text"></td>
-      <td><input id="pvp" type="text"></td>
-    </tr>
-  </tbody>
-</table>
+        <thead>
+            <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">DOSE</th>
+            <th scope="col">VOLUME UNITS</th>
+            <th scope="col">PVP</th>
+            <th scope="col">REIMBURSEMENT</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>BRUFEN</td>
+            <td>10 MG</td>
+            <td>10 UNITS</td>
+            <td>5€</td>
+            <td>0%</td>
+            </tr>
 
-  
-    
-   </div>
+            <tr>
+            <td><input id="name" type="text"></td>
+            <td><input id="dose" type="text"></td>
+            <td><input id="units" type="text"></td>
+            <td><input id="pvp" type="text"></td>
+            <td><input id="rrate" type="text"></td> 
+            </tr>
+            </tbody>
+    </table>
+        </div>
     </div>
                             
-    <!-- TABEL FOR MY PHARMACY -->
-    <div class="container" id="tabpharmacy">
+    <!-- TABEL FOR MY PHARMACY PAGE-->
+    <div class="container" id="tabPharmacy">
         <div class="row">
-    <a href="" class="white-text mx-3" style="font-size:3rem"> 
-    <header>PHARMACY</header>   </a> <br>
-<center>
-    <a href="#" id="btnCreatePharmacy"class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a>
-    <a href="#" id="btnSearchPharmacy" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH PHARMACY</a>
-    <a href="#" id="btnUpdatePharmacy" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE PHARMACY</a>
-    <a href="#" id="btnDeletePharmacy" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE PHARMACY</a>
-    <br> <br> <input class="myInput" id="searchPharma" type="text" placeholder="Pharmacy Name">
-</center> <br>
-    
-     
-      <table id="pharmacyTable" class="table tableplus">
-  <thead>
-    <tr>
-      <th scope="col">NAME</th>
-      <th scope="col">LOCATION</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>FARMÁCIA CASTELO</td>
-      <td>89.115.29.122</td>
-    </tr>
-      <tr>
-      <td><input id="pharmaName" type="text"></td>
-      <td><input id="location" type="text"></td>
-    </tr>
-  </tbody>
-</table>
+            <a href="" class="white-text mx-3" style="font-size:3rem"> 
+            <header>PHARMACY</header>   </a> <br>
+            <center>
+            <a href="#" id="btnCreatePharmacy"class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a>
+            <a href="#" id="btnSearchPharmacy" class="btn btn-primary btn-info"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH PHARMACY</a>
+            <a href="#" id="btnUpdatePharmacy" class="btn btn-primary btn-primmary"><span class="glyphicon glyphicon-refresh"></span> UPDATE PHARMACY</a>
+            <a href="#" id="btnDeletePharmacy" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span> DELETE PHARMACY</a><br> <br> 
+            <input class="myInput" id="searchPharma" type="text" placeholder="Pharmacy Name">
+            </center> <br>
+
+    <!-- THIS IS MY PHARMACY PAGE: DINAMIC TABALE -->
+    <table id="pharmacyTable" class="table tableplus">
+        <thead>
+            <tr>
+            <th scope="col">NAME</th>
+            <th scope="col">LOCATION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>FARMÁCIA CASTELO</td>
+            <td>Rua do Castelo, 23</td>
+            </tr>
+            
+            <tr>
+            <td><input id="pharmaName" type="text"></td>
+            <td><input id="location" type="text"></td>
+            </tr>
+        </tbody>
+    </table>
         </div>
     </div>
 
-
-
+     <!-- THIS IS OUR VISION PAGE-->
+    <div class="container" id="ourVision">
+        <div class="row text-center">
+            <div class="col-sm-3"></div>   
+                <header> Our Vision <br> </header> <br> <br> 
+                <h3  style="color:rgb(43, 46, 43)"> Have you ever needed a medication <br> and it's not available in your usual pharmacy?</h3> <br>
+                <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let us help you find your medicine.</h3> <br>
+               
+                <h1 style="color:white">PharmaFriend <br> <br> Simplify your search.</h1>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
 
     <!-- THIS IS MY FOOTER -->
     <footer>
-            <hr>
-            <h5>By EDA</h5>        
-            <h5>2018-2019</h5>
+        <hr><h5>By EDA</h5>
+        <h5>2018-2019</h5>
     </footer>
 
-    <!-- THIS IS OUR VISION -->
-    <div class="container" id="ourvision">
-        <div class="row text-center">
-            <div class="col-sm-3"></div>
-                
-                <header> PharmaFriend <br> </header>
-
-            <h3>Our aim is to help you when you must need.
-            Let us help you find your medicine.</h3>
 
 
-                <h2>Simplify your search.</h2>
-                </form>
-            <div class="col-sm-3"></div>
-        </div>
-    </div>
-
-
-        <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-            crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
-        <script src="pharmaFriendMedicineAJAX.js"></script>
-        <script src="pharmaFriendPharmacyAJAX.js"></script>
-         <script src="pharmaFriendMedicineFunctions.js"></script>
-          <script src="pharmaFriendPharmacyFunctions.js"></script>
-        <script src="pharmaFriendMain.js"></script> 
-        <script src="htmlInteraction.js"></script>
+    <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
+    <script src="pharmaFriendMedicineAJAX.js"></script>
+    <script src="pharmaFriendPharmacyAJAX.js"></script>
+    <script src="pharmaFriendMedicineFunctions.js"></script>
+    <script src="pharmaFriendPharmacyFunctions.js"></script>
+    <script src="pharmaFriendMain.js"></script> 
+    <script src="htmlInteraction.js"></script>
 </body>
-
 </html>
