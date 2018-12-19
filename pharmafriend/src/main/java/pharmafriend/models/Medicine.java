@@ -16,9 +16,10 @@ public class Medicine extends BaseEntity {
 	public static final String QUERY_ALL = "findAllMedicines";		
 			
 	private String medicineName;
-	private String medicineType;
+	private String dose;
+	private String volumeUnit;
 	private double pvp;
-	
+	private int reImbursementRate;
 	
 	
 	public String getMedicineName() {
@@ -27,11 +28,17 @@ public class Medicine extends BaseEntity {
 	public void setMedicineName(String medicineName) {
 		this.medicineName = medicineName;
 	}
-	public String getMedicineType() {
-		return medicineType;
+	public String getDose() {
+		return dose;
 	}
-	public void setMedicineType(String medicineType) {
-		this.medicineType = medicineType;
+	public void setDose(String dose) {
+		this.dose = dose;
+	}
+	public String getVolumeUnit() {
+		return volumeUnit;
+	}
+	public void setVolumeUnit(String volumeUnit) {
+		this.volumeUnit = volumeUnit;
 	}
 	public double getPvp() {
 		return pvp;
@@ -39,6 +46,14 @@ public class Medicine extends BaseEntity {
 	public void setPvp(double pvp) {
 		this.pvp = pvp;
 	}
+	public int getReImbursementRate() {
+		return reImbursementRate;
+	}
+	public void setReimbursementRate(int reimbursementRate) {
+		this.reImbursementRate = reimbursementRate;
+	}
+	
+	
 	
 	
 

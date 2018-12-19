@@ -32,8 +32,8 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 	}
 	
-	public Pharmacy getPharmacyByLocation(String location) {
-		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("location", location).getSingleResult();
+	public Pharmacy getPharmacyByLocation(double lon, double lat) {
+		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("lonLocation", lon).setParameter("latLocation", lat).getSingleResult();
 		
 	}
 	public void remove(String name) {
