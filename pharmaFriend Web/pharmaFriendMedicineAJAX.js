@@ -9,8 +9,8 @@ function createMedicine(p) {
             'Content-Type': 'application/json'
         },
         data: JSON.stringify(p),
-        success: function (p) {
-            console.log(p);
+        success: function (data) {
+            console.log(data);
         }
     })
 }
