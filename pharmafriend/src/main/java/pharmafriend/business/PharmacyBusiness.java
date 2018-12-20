@@ -16,45 +16,52 @@ public class PharmacyBusiness {
 	@Inject
 	PharmacyRepository pharmacyRepository1; 
 
-	
+	//create a pharmacy
 	@Transactional
 	public void createPharmacy(Pharmacy newpharmacy) {
 		pharmacyRepository1.saveEntity(newpharmacy);
-		
 	}
 	
+	//consult pharmacy by name
 	@Transactional
 	public Pharmacy consultPharmacyByName(String namePharmacy) {
 		return pharmacyRepository1.getPharmacyByName(namePharmacy);
-		
 	}
 	
+	//consult pharmacy by location
 	@Transactional
 	public Pharmacy consultPharmacyByLocation(double lon, double lat) {
 		return pharmacyRepository1.getPharmacyByLocation(lon,lat);
 		
 	}
+	
+	//consult pharmacy by Id
 	@Transactional
 	public Pharmacy consultPharmacyById(long id) {
 		return pharmacyRepository1.consultEntityId(id);
 		
 	}
 	
+	//to get all the pharmacies on the DB
 	@Transactional
 	public List<Pharmacy> consultAll() {
 		return pharmacyRepository1.getAllEntity();
 	}
 	
+	//to remove pharmacy
 	@Transactional 
 	public void removePharmacy(String name) {
 		pharmacyRepository1.remove(name);
 	}
 	
+	//it´s not working 
 	@Transactional 
 	public void updatePharmacy(Pharmacy pharmacy) {
 		pharmacyRepository1.update(pharmacy);
 	}
 	
+	
+	//method to get the list of pharmacies nearest to the user
 	@Transactional 
 	public List<Pharmacy> getTheNeartsPharmacy(double userLon, double userLat) {
 		
