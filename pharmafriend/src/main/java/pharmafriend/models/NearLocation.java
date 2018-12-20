@@ -31,7 +31,8 @@ public class NearLocation {
         // each degree on a great circle of Earth is 60 nautical miles
         double nauticalMiles = 60 * Math.toDegrees(angle);
         double statuteMiles = STATUTE_MILES_PER_NAUTICAL_MILE * nauticalMiles;
-        return statuteMiles;
+        double distanceInKm = statuteMiles * (1.609344); //get in Km
+        return distanceInKm;
         
     }
 	// return string representation of this point
