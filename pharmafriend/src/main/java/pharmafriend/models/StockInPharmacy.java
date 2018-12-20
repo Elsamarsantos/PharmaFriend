@@ -13,19 +13,10 @@ import pharmafriend.repositories.MedicineRepository;
 
 public class StockInPharmacy {
 	 
-	@Inject
-	private MedicineRepository medicineRepository1;
-	
-	
-	public int stock = (int) Math.random()+1;
-	private List<Medicine> medicineStock;
-	
-	
-	Iterator<Medicine> listmedicine=  medicineRepository1.getAllEntity().iterator();
 		
+	public int stock = (int) Math.random()*10;
+	public Medicine medicine;
 	
-	while (listmedicine.hasNext()) {
-		medicineStock.add(listmedicine.next());
-	}
+	
 	
 }
