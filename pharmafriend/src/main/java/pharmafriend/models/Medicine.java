@@ -19,7 +19,7 @@ public class Medicine extends BaseEntity {
 	private String dose;
 	private String volumeUnit;
 	private double pvp;
-	private int reImbursementRate;
+	private String reImbursementRate;
 	
 	
 	public String getMedicineName() {
@@ -46,10 +46,10 @@ public class Medicine extends BaseEntity {
 	public void setPvp(double pvp) {
 		this.pvp = pvp;
 	}
-	public int getReImbursementRate() {
+	public String getReImbursementRate() {
 		return reImbursementRate;
 	}
-	public void setReimbursementRate(int reimbursementRate) {
+	public void setReimbursementRate(String reimbursementRate) {
 		this.reImbursementRate = reimbursementRate;
 	}
 	

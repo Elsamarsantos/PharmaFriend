@@ -65,7 +65,7 @@ public class PharmacyBusiness {
 	
 	//method to get the list of pharmacies nearest to the user
 	@Transactional 
-	public List<Pharmacy> getTheNeartsPharmacy(double userLon, double userLat) {
+	public List<Pharmacy> getTheNeartsPharmacy(double userLon, double userLat, double userdistance) {
 		
 		
 		Iterator <Pharmacy> pharmacyList = pharmacyRepository1.getAllEntity().iterator();
@@ -82,7 +82,7 @@ public class PharmacyBusiness {
 			
 			double distance= pharmacy.distanceTo(userlocation);
 			
-			if(distance<1) {
+			if(distance<userdistance) {
 				nearestList.add(pharmacyToAdd);
 			}
 		}
