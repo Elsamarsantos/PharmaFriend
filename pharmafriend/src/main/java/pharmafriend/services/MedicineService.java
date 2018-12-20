@@ -32,6 +32,15 @@ public class MedicineService {
 		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
 	}
 	
+	
+	@GET
+	@Path("consultbyname")
+	@Produces (MediaType.APPLICATION_JSON)
+	public Medicine consutlMedicine(@QueryParam("medicineName") String name) {
+		
+		return medicineBusiness1.consultMedicine(name);
+	}
+	
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
