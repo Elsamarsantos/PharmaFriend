@@ -54,6 +54,14 @@ public class MedicineBusiness {
 		medicineRepository1.remove(name);
 	}
 	
+	//remove medicine by id 
+		@Transactional 
+		public void removeMedicineById(long id) {
+			Medicine medicineToRemove= medicineRepository1.consultEntityId(id);
+			
+			medicineRepository1.remove(medicineToRemove.getMedicineName());
+		}
+	
 	//its not working
 	@Transactional 
 	public void updateMedicine(Medicine medicine) {
