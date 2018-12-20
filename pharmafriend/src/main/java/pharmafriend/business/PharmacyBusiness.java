@@ -57,6 +57,8 @@ public class PharmacyBusiness {
 	//it´s not working 
 	@Transactional 
 	public void updatePharmacy(Pharmacy pharmacy) {
+		
+		
 		pharmacyRepository1.update(pharmacy);
 	}
 	

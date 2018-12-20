@@ -1,12 +1,15 @@
 package pharmafriend.business;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
+import pharmafriend.models.StockInPharmacy;
 import pharmafriend.repositories.MedicineRepository;
 
 public class MedicineBusiness {
@@ -14,11 +17,16 @@ public class MedicineBusiness {
 	@Inject
 	private MedicineRepository medicineRepository1;
 	
+	@Inject
+	StockInPharmacy stockInPharmacy1;
+	
+
 	
 	//create new medicine
 	@Transactional
 	public void createMedicine(Medicine medicine){
 		medicineRepository1.saveEntity(medicine);
+		
 	}
 	
 	//consult medicine by name
