@@ -11,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import pharmafriend.business.PharmacyBusiness;
@@ -24,11 +25,11 @@ public class PharmacyService {
 	PharmacyBusiness pharmacyBusiness1;
 	
 	@GET
-	@Path("consult/{pharmacylocation}")
+	@Path("consult")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Pharmacy consultPharmacy(@PathParam("pharmacylocation") String name) {
+	public Pharmacy consultPharmacy(@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat) {
 		
-		return pharmacyBusiness1.consultPharmacyByLocation(name);
+		return pharmacyBusiness1.consultPharmacyByLocation(lon,lat);
 	}
 	
 	@GET
@@ -53,15 +54,17 @@ public class PharmacyService {
 		return pharmacyBusiness1.consultAll();
 	}
 	
-	//https://services.arcgis.com/1dSrzEWVQn5kHHyK/arcgis/rest/services/POISaude/FeatureServer/1/query?where=1%3D1&outFields=*&f=pgeojson
+	
 	
 	@POST
 	@Path("create")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void createMedicine(Pharmacy pharmacy1) {
+	public Pharmacy createMedicine(Pharmacy pharmacy1) {
 		pharmacyBusiness1.createPharmacy(pharmacy1);
+		return pharmacy1;
 	}
+	
 	
 	@PUT
 	@Path("update")
@@ -81,5 +84,14 @@ public class PharmacyService {
 		pharmacyBusiness1.removePharmacy(name);
 	}
 
+	@GET
+	@Path("consultnear/{lonlocation}/{latlocation}")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<Pharmacy> consultnear(@PathParam("lonlocation") double lon,@PathParam("latlocation") double lat) {
+		
+		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat);
+	}
+	
+	
 	
 }

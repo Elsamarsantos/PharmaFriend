@@ -50,8 +50,9 @@ public class MedicineService {
 	@Path("create")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void createMedicine(Medicine medicine) {
+	public Medicine createMedicine(Medicine medicine) {
 		medicineBusiness1.createMedicine(medicine);
+		return medicine;
 	}
 	
 	@PUT
@@ -71,6 +72,9 @@ public class MedicineService {
 	public void removeMedicine(@PathParam("name")String name) {
 		medicineBusiness1.removeMedicine(name);
 	}
+	
+	
+	
 	
 }
 
