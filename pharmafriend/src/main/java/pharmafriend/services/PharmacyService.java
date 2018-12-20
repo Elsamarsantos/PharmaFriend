@@ -85,11 +85,11 @@ public class PharmacyService {
 	}
 
 	@GET
-	@Path("consultnear/{lonlocation}/{latlocation}")
+	@Path("consultnear/{lonlocation}/{latlocation}/{userDistance}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<Pharmacy> consultnear(@PathParam("lonlocation") double lon,@PathParam("latlocation") double lat) {
+	public List<Pharmacy> consultnear(@PathParam("lonlocation") double lon,@PathParam("latlocation") double lat, @PathParam("userDistance") double distance) {
 		
-		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat);
+		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance);
 	}
 	
 	

@@ -74,6 +74,13 @@ public class MedicineService {
 	}
 	
 	
+	@DELETE
+	@Path("delete/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	
+	public void removeMedicine(@PathParam("id")long id) {
+		medicineBusiness1.removeMedicineById(id);
+	}
 	
 	
 }
