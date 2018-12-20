@@ -6,6 +6,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName"),
+				@NamedQuery(name=Medicine.QUERY_NAME_DOSE, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName and m.dose= :dose and m.volumeUnit= :volumeUnit"),
 				@NamedQuery(name=Medicine.QUERY_ALL, query="SELECT m From Medicine m")})
 public class Medicine extends BaseEntity {
 	
@@ -13,6 +14,8 @@ public class Medicine extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	
 	public static final String QUERYNAME = "findByName";
+	public static final String QUERY_NAME_DOSE= "findByNameDose";
+	
 	public static final String QUERY_ALL = "findAllMedicines";		
 			
 	private String medicineName;

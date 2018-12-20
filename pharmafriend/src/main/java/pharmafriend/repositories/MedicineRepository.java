@@ -28,8 +28,15 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 	
-	public void remove(String name) {
-		 em.remove(getMedicineByName(name));
+	
+	public Medicine getMedicineByNameDose(String name,String dose, String volumeUnit){
+		
+		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE, Medicine.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
+		
+	}
+	
+	public void remove(String name,String dose, String volumeUnit) {
+		 em.remove(getMedicineByNameDose(name,dose,volumeUnit));
 		
 	}
 	

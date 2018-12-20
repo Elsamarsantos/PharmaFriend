@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
+import javax.ws.rs.QueryParam;
 
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
@@ -31,10 +32,12 @@ public class MedicineBusiness {
 	
 	//consult medicine by name
 	@Transactional 
-	public Medicine consultMedicine(String medicine) {
-		return medicineRepository1.getMedicineByName(medicine);
+	public Medicine consultMedicine(String name,String dose, String volumeUnit) {
+		return medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
 	}
-	
+	public Medicine consultMedicine(String name) {
+		return medicineRepository1.getMedicineByName(name);
+	}
 	//consult medicine by Id
 	@Transactional 
 	public Medicine consultMedicineId(Long id) {
@@ -50,8 +53,8 @@ public class MedicineBusiness {
 	
 	//remove medicine by name 
 	@Transactional 
-	public void removeMedicine(String name) {
-		medicineRepository1.remove(name);
+	public void removeMedicine(String name,String dose, String volumeUnit) {
+		medicineRepository1.remove(name,dose,volumeUnit);
 	}
 	
 	//remove medicine by id 
@@ -59,13 +62,14 @@ public class MedicineBusiness {
 		public void removeMedicineById(long id) {
 			Medicine medicineToRemove= medicineRepository1.consultEntityId(id);
 			
-			medicineRepository1.remove(medicineToRemove.getMedicineName());
+			medicineRepository1.remove(medicineToRemove.getMedicineName(),medicineToRemove.getDose(),medicineToRemove.getVolumeUnit());
 		}
 	
-	//its not working
+	
 	@Transactional 
 	public void updateMedicine(Medicine medicine) {
-		medicineRepository1.update(medicine);
+		
+		 medicineRepository1.update(medicine);
 	}
 	
 }

@@ -11,6 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import pharmafriend.business.MedicineBusiness;
@@ -24,11 +25,11 @@ public class MedicineService {
 	MedicineBusiness medicineBusiness1;
 	
 	@GET
-	@Path("consult/{medicineName}")
+	@Path("consult")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Medicine consutlMedicine(@PathParam("medicineName") String name) {
+	public Medicine consutlMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
 		
-		return medicineBusiness1.consultMedicine(name);
+		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
 	}
 	
 	@GET
@@ -59,19 +60,12 @@ public class MedicineService {
 	@Path("update")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void updateMedicine(Medicine medicine) {
+	public void updateMedicine( Medicine medicine) {
 		
 		
 		medicineBusiness1.updateMedicine(medicine);
 	}
 
-	@DELETE
-	@Path("delete/{name}")
-	@Produces(MediaType.APPLICATION_JSON)
-	
-	public void removeMedicine(@PathParam("name")String name) {
-		medicineBusiness1.removeMedicine(name);
-	}
 	
 	
 	@DELETE
