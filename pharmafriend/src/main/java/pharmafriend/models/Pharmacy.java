@@ -2,6 +2,8 @@ package pharmafriend.models;
 
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -24,6 +26,7 @@ public class Pharmacy extends BaseEntity{
 	private String address;
 	private double lonLocation;
 	private double latLocation;
+	private List<StockInPharmacy>  listStock;
 	
 	
 	
