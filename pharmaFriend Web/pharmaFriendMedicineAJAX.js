@@ -1,6 +1,6 @@
 // THIS IS MY AJAX TO CREATE A MEDICINE
 function createMedicine(p) {   
-   
+    console.log("Preparing for sucess:" + p);
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/create",
         type: 'POST',
@@ -10,38 +10,33 @@ function createMedicine(p) {
         },
         data: JSON.stringify(p),
         success: function (data) {
-            console.log(data);
+            console.log("Sucess:" + data);
         }
     })
 }
 
 // THIS IS MY AJAX TO GET A MEDICINE
 function searchMedicine(p) {
-    
+    console.log("Preparing for sucess:" + p);
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/consult/" + medicineName,
         type: 'GET',
        headers: {
        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+    'Content-Type': 'application/json'
         },
         contentType: 'application/json',
         data: JSON.stringify(p),
         success: function (data) {
-            console.log(data);
-
-            $("#name").val(data.name);
-            $("#name").val(data.dose);
-            $("#name").val(data.units);
-            $("#type").val(data.pvp);
-            $("#pvp").val(data.rrate);
-
+            $("#searchMedicineModalDiv").append("Name: " + data.medicineName + '<br>' + "Dose: " + data.dose + '<br>' + 
+            "Volume Units: " + data.volumeUnit + '<br>'+ "PVP: " + data.pvp + '<br>'+ "Reiumbursement: " + data.reImbursementRate); 
         }
     })
 }
 
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function updateMedicine(p) {
+    console.log("Preparing for sucess:" + p);
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/",
         type: 'PUT',
@@ -59,8 +54,9 @@ function updateMedicine(p) {
 
 // THIS IS MY AJAX TO DELETE A MEDICINE
 function deleteMedicine(p) {
+    console.log("Preparing for sucess:" + p);
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicine/" + medicineName,
+        url: "http://localhost:8080/pharmafriend/api/medicine/delete" + medicineId,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',
@@ -72,6 +68,36 @@ function deleteMedicine(p) {
             console.log(n);
             
         }
+    })
+}
+
+// THIS IS MY AJAX TO GET ALL MEDICINES IN MY SQL TABLE
+function searchAllMedicine(p) {
+    
+    $.ajax({
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+        type: 'GET',
+       headers: {
+       'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        contentType: 'application/json',
+        data: JSON.stringify(p),
+        success: function (data) {
+            console.log("Medicine total number is " + data.length + " but I'm showing only 100");
+            for(i=0; i<100; i++) {
+                const element = data[i];
+                var medicine = '<tr><td>' + element.medicineName + '</td><td>' + element.dose + 
+                '</td><td>' +  element.volumeUnit + '</td><td>' +
+                element.pvp + '</td><td>' + 
+                element.reImbursementRate + '</td><td>' +
+                '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span>UPDATE</a>' +
+               ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>' 
+               + '</td></tr>'
+                $("#medicineTable").append(medicine);
+                };
+                    
+            }
     })
 }
 

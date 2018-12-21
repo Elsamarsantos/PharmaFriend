@@ -1,6 +1,5 @@
 //THIS IS MY MAIN PAGE
 $(document).ready(function () {
-    console.log("Ready!");
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
