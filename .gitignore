@@ -2,9 +2,9 @@
 .classpath
 .project
 .settings/
-*/.project
-*/.classpath
-*/.settings
+**/.project
+**/.classpath
+**/.settings
 .recommenders
 .recommenders/
 
@@ -14,12 +14,12 @@
 *.iws
  
 # Mac
-.DS_Store
+**/.DS_Store
  
 # Maven
 log/
 target/
 target/*
-*/target
-*/target/*
+**/target
+**/target/*
 .metadata
