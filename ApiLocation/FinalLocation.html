@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <style>
+               #map {
+                 height: 400px;  
+                 width: 600px;  
+                }
+             </style>
+         
+    <meta charset="utf-8">
+	<title>A sua Localização</title>
+    <link rel="stylesheet" href="/maps/documentation/javascript/cgc/demos.css">
+  </head>
+
+  <body>
+        <br>
+
+        <p><button onclick="geoFindMe()">A minha Localização</button></p>
+        <div id="out"></div>
+        <br><br>
+    <div id="map"></div>
+    
+    <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzK-V9BIgzazCFhQjfnUSnr-ZuecGu_A8
+  &callback=initMap">
+</script>
+
+        <script src="FinalLocation.js"></script>
+  </body>
+</html>
