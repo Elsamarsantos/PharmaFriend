@@ -1,7 +1,5 @@
-// THIS IS MY JQUERY CODE FOR MY MAIN PAGE AND ITS USED FOR ITS MAIN FUNCTION//
-
-$("#btnMainSearch").click(function mainSearch() {
-
+/* ------------------------------------------- LOCALIZATION -------------------------------------- */
+function geoFindMe() {
     var output = document.getElementById("out");
 
     if (!navigator.geolocation) {
@@ -10,8 +8,6 @@ $("#btnMainSearch").click(function mainSearch() {
     }
 
     function success(position) {
-        //$("#mypharmaform1").hide();
-        //$("#homeOutput").show();
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
         output.innerHTML = '<p>Latitude: ' + latitude + '° <br>Longitude: ' + longitude + '°</p>';
@@ -26,64 +22,64 @@ $("#btnMainSearch").click(function mainSearch() {
 
         /* ------------------------------------ MARKER --------------------------------------------*/
 
-
-
+       
+        
         /*---------- Person Marker ---------- */
-        var personMarker = L.AwesomeMarkers.icon({
-            icon: 'street-view',
-            prefix: 'fa'
+         var personMarker = L.AwesomeMarkers.icon({
+         icon: 'street-view',
+         prefix: 'fa'
         });
 
         /*------------ Pharmacy Marker ------------ */
         var pharmacyMarker = L.AwesomeMarkers.icon({
-            icon: 'plus-square',
-            prefix: 'fa',
-            spin: true
+         icon: 'plus-square',
+         prefix: 'fa',
+         spin: true
         });
 
         var pharmacyMarkeroff = L.AwesomeMarkers.icon({
             icon: 'plus-square',
             prefix: 'fa',
+            
+           });
 
-        });
 
-
-        L.marker([latitude, longitude], { icon: personMarker }).addTo(map)
+        L.marker([latitude, longitude], {icon: personMarker}).addTo(map)
             .bindPopup('You ! ')
             .openPopup();
 
-        /* TESTE PHARMACY DOMUS MASSAMA */
-        L.marker([38.7540326, -9.2799262], { icon: pharmacyMarker }).addTo(map)
+            /* TESTE PHARMACY DOMUS MASSAMA */
+        L.marker([38.7540326, -9.2799262], {icon: pharmacyMarker}).addTo(map)
             .bindPopup('Pharmacy ! <br> Nome: Domus ')
-        //  .openPopup();
+          //  .openPopup();
 
-        /* TESTE PHARMACY ONEILL */
-        L.marker([38.7548488, -9.2754248], { icon: pharmacyMarker }).addTo(map)
+            /* TESTE PHARMACY ONEILL */
+            L.marker([38.7548488, -9.2754248], {icon: pharmacyMarker}).addTo(map)
             .bindPopup('Pharmacy Oneill<br><br>Dispõe do medicamento pesquisado! ')
-        // .openPopup();
+           // .openPopup();
 
-        /* TESTE PHARMACY  PINTO LEAL*/
-        L.marker([38.7528643, -9.2843015], { icon: pharmacyMarker }).addTo(map)
+            /* TESTE PHARMACY  PINTO LEAL*/
+            L.marker([38.7528643, -9.2843015], {icon: pharmacyMarker}).addTo(map)
             .bindPopup('Pharmacy ! <br> Nome: Pinto Leal ')
-        // .openPopup();
+           // .openPopup();
 
-        /* TESTE PHARMACY QUINTA DAS FLORES*/
-        L.marker([38.7575282, -9.2804767], { icon: pharmacyMarkeroff }).addTo(map)
+            /* TESTE PHARMACY QUINTA DAS FLORES*/
+            L.marker([38.7575282, -9.2804767], {icon: pharmacyMarkeroff}).addTo(map)
             .bindPopup('Pharmacy ! <br> Nome: Quinta das Flores <br>Horário: Fechado')
-        //.openPopup();
+            //.openPopup();
         /* ------------------------------- ADD PHARMACY -------------------------------------- 
- 
-                            Construtor de localização e MArcadores                            */
 
-        /* var nrPharmacy=x;
-         for (i=0, i==x, i++){
-         var pharmacylat = 
-       
-         L.marker([latitude, longitude]).addTo(map)
-         .bindPopup('Nome farmacia <br> TEXTO etc ')
-         .openPopup();
-         }
-         */
+                            Construtor de localização e MArcadores                            */
+      
+       /* var nrPharmacy=x;
+        for (i=0, i==x, i++){
+        var pharmacylat = 
+      
+        L.marker([latitude, longitude]).addTo(map)
+        .bindPopup('Nome farmacia <br> TEXTO etc ')
+        .openPopup();
+        }
+        */
 
 
     }
@@ -94,11 +90,4 @@ $("#btnMainSearch").click(function mainSearch() {
 
     output.innerHTML = "<p>Getting Location...</p>";
     navigator.geolocation.getCurrentPosition(success, error);
-});
-
-// HERE I WILL WIRTE THE CODE FOR MY GEOLOC API COMBINE MY LOC WITH THE LOC OF MY SURROUUNDING PHARMACIES
-
-
-
-//ONCE I HAVE MY LOC I WILL USE THE CLASS NEAR LOCATION TO FIND THE 3 MOST CLOSE PHARMACIES
-
+}
