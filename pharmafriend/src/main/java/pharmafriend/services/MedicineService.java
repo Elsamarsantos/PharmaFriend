@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.business.MedicineBusiness;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
@@ -27,7 +28,7 @@ public class MedicineService {
 	@GET
 	@Path("consult")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Medicine consutlMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
+	public MedicineDto consutlMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
 		
 		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
 	}
@@ -36,7 +37,7 @@ public class MedicineService {
 	@GET
 	@Path("consultbyname")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Medicine consutlMedicine(@QueryParam("medicineName") String name) {
+	public MedicineDto consutlMedicine(@QueryParam("medicineName") String name) {
 		
 		return medicineBusiness1.consultMedicine(name);
 	}
@@ -44,14 +45,14 @@ public class MedicineService {
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Medicine consutlMedicineid(@PathParam("id") long id) {
+	public MedicineDto consutlMedicineid(@PathParam("id") long id) {
 		return medicineBusiness1.consultMedicineId(id);
 	}
 	
 	@GET
 	@Path("consultall")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<Medicine> consultAll() {
+	public List<MedicineDto> consultAll() {
 		return medicineBusiness1.consultAll();
 	}
 	

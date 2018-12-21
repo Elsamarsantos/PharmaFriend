@@ -37,23 +37,21 @@ public class Pharmacy extends BaseEntity{
 	private double lonLocation;
 	private double latLocation;
 	
+	@ManyToMany(mappedBy = "listPharmacyInMedicine",fetch = FetchType.EAGER)
+	private List<Medicine> listStock;
+			
 	
-//	private List<Medicine> listStock;
-//			
-//	
-//	public List<Medicine> getListStock() {
-//		return listStock;
-//	}
-//
-//	public void setListStock(List<Medicine> listStock) {
-//		this.listStock = listStock;
-//	}
-//
-//	public void setMedicineInStock(Medicine medicine) {
-//		listStock.add(medicine);
-//	}
-	
-	
+	public List<Medicine> getListStock() {
+		return listStock;
+	}
+
+	public void setListStock(List<Medicine> listStock) {
+		this.listStock = listStock;
+	}
+
+	public void setMedicineInStock(Medicine medicine) {
+		listStock.add(medicine);
+	}	
 
 	public String getPharmacyName() {
 		return pharmacyName;

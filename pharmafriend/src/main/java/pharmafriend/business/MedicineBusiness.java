@@ -1,6 +1,8 @@
 package pharmafriend.business;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.QueryParam;
 
+import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
 import pharmafriend.models.StockInPharmacy;
@@ -30,24 +33,53 @@ public class MedicineBusiness {
 		
 	}
 	
-	//consult medicine by name
+	//consult medicine by name,dose,volume
 	@Transactional 
-	public Medicine consultMedicine(String name,String dose, String volumeUnit) {
-		return medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
+	public MedicineDto consultMedicine(String name,String dose, String volumeUnit) {
+		
+		Medicine medicine = medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
+		
+		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		
+		return medicineDto;
+		
+		
 	}
-	public Medicine consultMedicine(String name) {
-		return medicineRepository1.getMedicineByName(name);
+	
+	//consult medicine by name
+	public MedicineDto consultMedicine(String name) {
+		
+		Medicine medicine = medicineRepository1.getMedicineByName(name);
+		
+		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		
+		return medicineDto;
 	}
+	
 	//consult medicine by Id
 	@Transactional 
-	public Medicine consultMedicineId(Long id) {
-		return medicineRepository1.consultEntityId(id);
+	public MedicineDto consultMedicineId(Long id) {
+		
+		Medicine medicine = medicineRepository1.consultEntityId(id);
+		
+		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		
+		return medicineDto;
+		
+	
 	}
 	
 	//consult all medicine on DB
 	@Transactional
-	public List<Medicine> consultAll() {
-		return medicineRepository1.getAllEntity();
+	public List<MedicineDto> consultAll() {
+		Iterator<Medicine> listMedicine = medicineRepository1.getAllEntity().iterator();
+		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
+		
+		while (listMedicine.hasNext()) {
+			Medicine medicine = listMedicine.next();
+			listMedicineDto.add(new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+		}
+		return listMedicineDto;
 	}
 	
 	
