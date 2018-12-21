@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,8 +24,7 @@ import pharmafriend.repositories.MedicineRepository;
 })
 
 public class Pharmacy extends BaseEntity{
-	@Inject
-	MedicineRepository medicineRepository1;
+	
 	
 	private static final long serialVersionUID = 1L;
 	
