@@ -2,11 +2,19 @@ package pharmafriend.models;
 
 
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import pharmafriend.repositories.MedicineRepository;
 
 @Entity
 @NamedQueries({@NamedQuery(name=Pharmacy.QUERYLOCATION, query="SELECT p From Pharmacy p WHERE p.lonLocation= :lonLocation and p.latLocation= :latLocation"),
@@ -15,6 +23,8 @@ import javax.persistence.NamedQuery;
 })
 
 public class Pharmacy extends BaseEntity{
+	@Inject
+	MedicineRepository medicineRepository1;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -26,8 +36,22 @@ public class Pharmacy extends BaseEntity{
 	private String address;
 	private double lonLocation;
 	private double latLocation;
-	private List<StockInPharmacy>  listStock;
 	
+	
+	private List<Medicine> listStock;
+			
+	
+	public List<Medicine> getListStock() {
+		return listStock;
+	}
+
+	public void setListStock(List<Medicine> listStock) {
+		this.listStock = listStock;
+	}
+
+	public void setMedicineInStock(Medicine medicine) {
+		listStock.add(medicine);
+	}
 	
 	
 

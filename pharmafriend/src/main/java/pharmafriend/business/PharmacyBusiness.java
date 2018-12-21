@@ -7,14 +7,21 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import pharmafriend.models.Medicine;
 import pharmafriend.models.NearLocation;
 import pharmafriend.models.Pharmacy;
+import pharmafriend.models.StockInPharmacy;
+import pharmafriend.repositories.MedicineRepository;
 import pharmafriend.repositories.PharmacyRepository;
 
 public class PharmacyBusiness {
 	
 	@Inject
 	PharmacyRepository pharmacyRepository1; 
+	@Inject
+	MedicineRepository medicineRepository1;
+	@Inject
+	StockInPharmacy stockInPharmacy1;
 
 	//create a pharmacy
 	@Transactional
@@ -85,13 +92,19 @@ public class PharmacyBusiness {
 			if(distance<userdistance) {
 				nearestList.add(pharmacyToAdd);
 			}
-		}
-				
-		
-		
+		}	
 		return nearestList;
 	}
 	
-	
+	public void updateAll() {
+		
+		Iterator<Pharmacy> newList = pharmacyRepository1.getAllEntity().iterator();
+		while (newList.hasNext()) {
+			Pharmacy pharmacy = newList.next();
+			stockInPharmacy1.listStockInPharmacy(pharmacy);
+			}
+		
+	}
+
 	
 }

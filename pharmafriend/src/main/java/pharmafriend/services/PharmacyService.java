@@ -93,5 +93,14 @@ public class PharmacyService {
 	}
 	
 	
+	@PUT
+	@Path("updateall")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void updatePharmacyName() {
+		pharmacyBusiness1.updateAll();
+	
+	}
+	
 	
 }
