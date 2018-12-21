@@ -1,3 +1,4 @@
+//THIS IS MY MAIN PAGE
 $(document).ready(function () {
     console.log("Ready!");
     $("#tabmedicine").hide();
@@ -5,26 +6,24 @@ $(document).ready(function () {
     $("#Home").show();
 });
 
-
-//------------ BUTOES ----------------
-
+//------------ BUTTONS ----------------
 $("#homebtn").click(home);
 $("#productlistbtn").click(productlist);
 $("#pharmacylistbtn").click(pharmacylist);
 
-function home (){
+function home() {
     $("#tabmedicine").hide();
     $("#tabpharmacy").hide();
     $("#Home").show();
 }
 
-function productlist (){<h5>By DreamTeam</h5>
+function productlist() {
     $("#Home").hide();
     $("#tabpharmacy").hide();
     $("#tabmedicine").show();
 }
 
-function pharmacylist(){
+function pharmacylist() {
     $("#Home").hide();
     $("#tabmedicine").hide();
     $("#tabpharmacy").show();
