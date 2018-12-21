@@ -37,7 +37,7 @@ public class Pharmacy extends BaseEntity{
 	private double lonLocation;
 	private double latLocation;
 	
-	
+	@ManyToMany(mappedBy = "listPharmacyInMedicine",fetch = FetchType.EAGER)
 	private List<Medicine> listStock;
 			
 	

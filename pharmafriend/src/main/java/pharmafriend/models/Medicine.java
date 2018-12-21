@@ -2,12 +2,7 @@ package pharmafriend.models;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 
 @Entity
 @NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName"),
@@ -28,6 +23,23 @@ public class Medicine extends BaseEntity {
 	private String volumeUnit;
 	private double pvp;
 	private String reImbursementRate;
+	
+	
+	public List<Pharmacy> getListPharmacyInMedicine() {
+		return listPharmacyInMedicine;
+	}
+	public void setListPharmacyInMedicine(List<Pharmacy> listPharmacyInMedicine) {
+		this.listPharmacyInMedicine = listPharmacyInMedicine;
+	}
+	
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "pharmacy_medicine",
+    joinColumns = @JoinColumn(name = "pharmacy_id"),
+    inverseJoinColumns = @JoinColumn(name = "medicine_id")
+)
+	private List<Pharmacy> listPharmacyInMedicine;
+	
 	
 	
 	public String getMedicineName() {

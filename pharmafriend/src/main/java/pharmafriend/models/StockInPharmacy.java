@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import pharmafriend.repositories.MedicineRepository;
 
@@ -13,9 +14,10 @@ public class StockInPharmacy {
 	@Inject
 	MedicineRepository medicineRepository1;
 	
-	public void listStockInPharmacy(Pharmacy pharmacy){
+	@Transactional
+	public Pharmacy listStockInPharmacy(Pharmacy pharmacy){
 
-		long number = pharmacy.getId();
+		long number = 10;
 
 		List<Medicine> medicineInPharmacy = new ArrayList<Medicine>();
 
@@ -26,8 +28,12 @@ public class StockInPharmacy {
 
 			if(medicine1.getId()%Math.abs(number-3)==0) {
 				medicineInPharmacy.add(medicine1);
+				medicine1.getListPharmacyInMedicine().add(pharmacy);
+				
 			}
 		}
-		pharmacy.setListStock(medicineInPharmacy);		
+		pharmacy.setListStock(medicineInPharmacy);	
+		return pharmacy;
+				
 	}
 }

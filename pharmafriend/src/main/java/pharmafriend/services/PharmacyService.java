@@ -14,6 +14,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+import pharmafriend.Dtos.MedicineDto;
+import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.business.PharmacyBusiness;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
@@ -27,7 +29,7 @@ public class PharmacyService {
 	@GET
 	@Path("consult")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Pharmacy consultPharmacy(@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat) {
+	public PharmacyDto consultPharmacy(@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat) {
 		
 		return pharmacyBusiness1.consultPharmacyByLocation(lon,lat);
 	}
@@ -35,7 +37,7 @@ public class PharmacyService {
 	@GET
 	@Path("consult/{pharmacyName}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Pharmacy consultPharmacyName(@PathParam("pharmacyName") String name) {
+	public PharmacyDto consultPharmacyName(@PathParam("pharmacyName") String name) {
 		
 		return pharmacyBusiness1.consultPharmacyByName(name);
 	}
@@ -43,14 +45,14 @@ public class PharmacyService {
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Pharmacy consutlPharmacy(@PathParam("id") long id) {
+	public PharmacyDto consutlPharmacy(@PathParam("id") long id) {
 		return pharmacyBusiness1.consultPharmacyById(id);
 	}
 	
 	@GET
 	@Path("consultall")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<Pharmacy> consultAll() {
+	public List<PharmacyDto> consultAll() {
 		return pharmacyBusiness1.consultAll();
 	}
 	
@@ -98,9 +100,21 @@ public class PharmacyService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void updatePharmacyName() {
-		pharmacyBusiness1.updateAll();
-	
+		
+		 pharmacyBusiness1.updateAll();
+
 	}
+	
+
+	
+	@GET
+	@Path("consultstock/{id}")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<MedicineDto> consultStock(@PathParam("id") long id) {
+		
+		return pharmacyBusiness1.getStockListPharmacy(id);
+	}
+	
 	
 	
 }
