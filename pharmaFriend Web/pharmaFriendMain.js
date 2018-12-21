@@ -2,6 +2,7 @@
 
 $("#btnMainSearch").click(function mainSearch() {
     console.log("Calculating position...");
+    
 });
 
 // HERE I WILL WIRTE THE CODE FOR MY GEOLOC API COMBINE MY LOC WITH THE LOC OF MY SURROUUNDING PHARMACIES

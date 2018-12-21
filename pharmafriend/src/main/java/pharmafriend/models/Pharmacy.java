@@ -38,20 +38,20 @@ public class Pharmacy extends BaseEntity{
 	private double latLocation;
 	
 	
-	private List<Medicine> listStock;
-			
-	
-	public List<Medicine> getListStock() {
-		return listStock;
-	}
-
-	public void setListStock(List<Medicine> listStock) {
-		this.listStock = listStock;
-	}
-
-	public void setMedicineInStock(Medicine medicine) {
-		listStock.add(medicine);
-	}
+//	private List<Medicine> listStock;
+//			
+//	
+//	public List<Medicine> getListStock() {
+//		return listStock;
+//	}
+//
+//	public void setListStock(List<Medicine> listStock) {
+//		this.listStock = listStock;
+//	}
+//
+//	public void setMedicineInStock(Medicine medicine) {
+//		listStock.add(medicine);
+//	}
 	
 	
 

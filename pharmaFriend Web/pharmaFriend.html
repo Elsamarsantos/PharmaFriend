@@ -26,7 +26,10 @@
                 <h1>Simplify your search.</h1> <br> <br> <br> <br> <br>
                 <form class="mypharmaform">
                     <input id="medicineName" type="text" placeholder="What medicine are you looking for?" />
-                    <input id="myLocation" type="text" placeholder="What is your location?" /> <br><br>
+                    
+                    <h1>LONG: <input type="text" id="longNumber"></h1> 
+                    <h1>LAT: <input type="text" id="latNumber"> </h1>
+                    
                     <a href="#" data-toggle="modal" data-target="#homeOutput" id="btnMainSearch" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH</a>                    
                 </form>        
             <div class="col-sm-3"></div>
@@ -45,9 +48,7 @@
         <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
           <div class="modal-body modalEdit"> 
             <h2 class="modal-title" style="color:white"> <br> WE FOUND THOSE PHARMACIES</h2> <br>
-                <h3>  Pharmacy Castelo, TELHEIRAS - 0.2km<br> <br>
-            Pharmacy Areias, PONTINHA - 2.2km   <br> <br>
-            Pharmacy Varandas, BENFICA - 3.7km  </h3> <hr>
+             <div id="myResults"></div> <br>
                 <form class="mypharmaform">
                 <input id="emailId" type="text" placeholder="email@example.pf" />
                 </form> 
@@ -275,6 +276,7 @@
     <script src="pharmaFriendPharmacyAJAX.js"></script>
     <script src="pharmaFriendMedicineFunctions.js"></script>
     <script src="pharmaFriendPharmacyFunctions.js"></script>
+    <script src="pharmaFriendMainAJAX.js"></script> 
     <script src="pharmaFriendMain.js"></script> 
     <script src="htmlInteraction.js"></script>
 </body>

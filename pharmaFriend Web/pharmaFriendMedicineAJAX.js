@@ -19,7 +19,7 @@ function createMedicine(p) {
 function searchMedicine(p) {
     console.log("Preparing for sucess:" + p);
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consult/" + medicineName,
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultbyname?medicineName=" + medicineName,
         type: 'GET',
        headers: {
        'Accept': 'application/json',
@@ -91,7 +91,7 @@ function searchAllMedicine(p) {
                 '</td><td>' +  element.volumeUnit + '</td><td>' +
                 element.pvp + '</td><td>' + 
                 element.reImbursementRate + '</td><td>' +
-                '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span>UPDATE</a>' +
+                '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
                ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>' 
                + '</td></tr>'
                 $("#medicineTable").append(medicine);

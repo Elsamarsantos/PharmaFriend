@@ -93,7 +93,7 @@ function searchAllPharmacy(p) {
             '</td><td>' + element.address + 
             '</td><td>' + element.lonLocation + 
             '</td><td>' + element.latLocation +  '</td><td>' +
-             '<a href="#" id="btnUpdatePharmacy" data-toggle="modal" data-target="#updatePharmacyModal" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span>UPDATE</a>' +
+             '<a href="#" id="btnUpdatePharmacy" data-toggle="modal" data-target="#updatePharmacyModal" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
             ' <a href="#" id="btnDeletePharmacy" data-toggle="modal" data-target="#deletePharmacyModal" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>' 
             + '</td></tr>'
             $("#pharmacyTable").append(pharmacy);
