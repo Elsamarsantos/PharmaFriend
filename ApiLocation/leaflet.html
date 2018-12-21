@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
+    crossorigin='anonymous'>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+
+
+  <style>
+    #map {
+      height: 500px;
+      width: 700px
+    }
+
+    .fa-street-view {
+      font-size: 40px;
+      margin-top: 5px;
+      margin-left: 20px;
+    }
+
+    
+    .fa-plus-square {
+      font-size:40px;
+      color:green;
+      margin-top: 10px;
+      margin-left: -15px;
+    }
+
+  </style>
+
+  <title>A sua Localização</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+
+<body>
+  <br>
+
+  <p><button class="fas fa-apple-alt" onclick="geoFindMe()"> My Location </button></p>
+  <div id="out"></div>
+  <br><br>
+
+  <div id="map"></div>
+
+</body>
+
+
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js">
+</script>
+<script src="leaflet.awesome-markers.js"></script>
+<script src="leaflet.js"> </script>
+
+</html>

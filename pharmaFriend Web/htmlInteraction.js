@@ -1,30 +1,55 @@
 //THIS IS MY MAIN PAGE
 $(document).ready(function () {
-    console.log("Ready!");
-    $("#tabmedicine").hide();
-    $("#tabpharmacy").hide();
-    $("#Home").show();
+    $("#ourVision").hide();
+    $("#tabMedicine").hide();
+    $("#tabPharmacy").hide();
+    $("#home").show();
+  
 });
 
 //------------ BUTTONS ----------------
-$("#homebtn").click(home);
-$("#productlistbtn").click(productlist);
-$("#pharmacylistbtn").click(pharmacylist);
+$("#homeBtn").click(home);
+$("#medicineListBtn").click(medicineList);
+$("#pharmacyListBtn").click(pharmacyList);
+$("#ourVisionBtn").click(ourVision);
 
 function home() {
-    $("#tabmedicine").hide();
-    $("#tabpharmacy").hide();
-    $("#Home").show();
+
+    $("#ourVision").hide();
+    $("#tabMedicine").hide();
+    $("#tabPharmacy").hide();
+    $("#home").show();
+    $(".active").removeClass( "active" ).addClass( "hover" );
+    $('#homeBtn').addClass( "active" );
+    
 }
 
-function productlist() {
-    $("#Home").hide();
-    $("#tabpharmacy").hide();
-    $("#tabmedicine").show();
+function medicineList() {
+    $("#ourVision").hide();
+    $("#home").hide();
+    $("#tabPharmacy").hide();
+    $("#tabMedicine").show();
+    $(".active").removeClass( "active" ).addClass( "hover" );
+    $('#medicineListBtn').addClass( "active" );
+
+    
 }
 
-function pharmacylist() {
-    $("#Home").hide();
-    $("#tabmedicine").hide();
-    $("#tabpharmacy").show();
+function pharmacyList() {
+    $("#ourVision").hide();
+    $("#home").hide();
+    $("#tabMedicine").hide();
+    $("#tabPharmacy").show();
+    $(".active").removeClass( "active" ).addClass( "hover" );
+    $('#pharmacyListBtn').addClass( "active" );
+}
+
+function ourVision() {
+    $("#tabMedicine").hide();
+    $("#tabPharmacy").hide();
+    $("#home").hide();
+    $("#ourVision").show();
+    $(".active").removeClass( "active" ).addClass( "hover" );
+    $('#ourVisionBtn').addClass( "active" );
+
 }

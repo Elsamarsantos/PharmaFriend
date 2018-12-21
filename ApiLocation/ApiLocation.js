@@ -1,6 +1,6 @@
-$(document).ready(function () {
+/* $(document).ready(function () {
   console.log("Ready for Google Location!");
-});
+});*/
 
 
 function geoFindMe() {
