@@ -31,7 +31,7 @@ public class PharmacyService {
 	@Produces (MediaType.APPLICATION_JSON)
 	public PharmacyDto consultPharmacy(@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat) {
 		
-		return pharmacyBusiness1.consultPharmacyByLocation(lon,lat);
+		return pharmacyBusiness1.consultPharmacy(lon,lat);
 	}
 	
 	@GET
@@ -39,14 +39,14 @@ public class PharmacyService {
 	@Produces (MediaType.APPLICATION_JSON)
 	public PharmacyDto consultPharmacyName(@PathParam("pharmacyName") String name) {
 		
-		return pharmacyBusiness1.consultPharmacyByName(name);
+		return pharmacyBusiness1.consultPharmacy(name);
 	}
 	
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
 	public PharmacyDto consutlPharmacy(@PathParam("id") long id) {
-		return pharmacyBusiness1.consultPharmacyById(id);
+		return pharmacyBusiness1.consultPharmacy(id);
 	}
 	
 	@GET

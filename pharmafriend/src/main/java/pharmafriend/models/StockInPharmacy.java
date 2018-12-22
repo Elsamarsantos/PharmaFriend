@@ -17,7 +17,7 @@ public class StockInPharmacy {
 	@Transactional
 	public Pharmacy listStockInPharmacy(Pharmacy pharmacy){
 
-		long number = 10;
+		int number = (int)Math.random()*10;
 
 		List<Medicine> medicineInPharmacy = new ArrayList<Medicine>();
 

@@ -36,7 +36,7 @@ public class PharmacyBusiness {
 	
 	//consult pharmacy by name
 	@Transactional
-	public PharmacyDto consultPharmacyByName(String namePharmacy) {
+	public PharmacyDto consultPharmacy(String namePharmacy) {
 		Pharmacy pharmacy= pharmacyRepository1.getPharmacyByName(namePharmacy);
 		
 		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
@@ -49,7 +49,7 @@ public class PharmacyBusiness {
 	
 	//consult pharmacy by location
 	@Transactional
-	public PharmacyDto consultPharmacyByLocation(double lon, double lat) {
+	public PharmacyDto consultPharmacy(double lon, double lat) {
 		Pharmacy pharmacy= pharmacyRepository1.getPharmacyByLocation(lon,lat);
 		
 		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
@@ -63,7 +63,7 @@ public class PharmacyBusiness {
 	
 	//consult pharmacy by Id
 	@Transactional
-	public PharmacyDto consultPharmacyById(long id) {
+	public PharmacyDto consultPharmacy(long id) {
 		Pharmacy pharmacy= pharmacyRepository1.consultEntityId(id);
 		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
 		
@@ -107,9 +107,6 @@ public class PharmacyBusiness {
 	//method to get the list of pharmacies nearest to the user
 	@Transactional 
 	public List<Pharmacy> getTheNeartsPharmacy(double userLon, double userLat, double userdistance) {
-		
-		
-		
 		
 		Iterator <Pharmacy> pharmacyList = pharmacyRepository1.getAllEntity().iterator();
 		
@@ -159,7 +156,7 @@ public class PharmacyBusiness {
 		
 		while(listMedicine.hasNext()) {
 			Medicine medicine = listMedicine.next();
-			listMedicineDto.add(new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
 		}
 		return listMedicineDto;
 		

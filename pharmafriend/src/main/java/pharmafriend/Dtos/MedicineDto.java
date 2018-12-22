@@ -2,10 +2,10 @@ package pharmafriend.Dtos;
 
 import pharmafriend.models.BaseEntity;
 
-public class MedicineDto extends BaseEntity{
+public class MedicineDto {
 	
-	private static final long serialVersionUID = 1L;
 	
+	private long id;
 	private String medicineName;
 	private String dose;
 	private String volumeUnit;
@@ -15,8 +15,8 @@ public class MedicineDto extends BaseEntity{
 	
 	
 	
-	public MedicineDto(String medicineName, String dose, String volumeUnit, double pvp, String reImbursementRate) {
-		
+	public MedicineDto(long id,String medicineName, String dose, String volumeUnit, double pvp, String reImbursementRate) {
+		this.id=id;
 		this.medicineName = medicineName;
 		this.dose = dose;
 		this.volumeUnit = volumeUnit;

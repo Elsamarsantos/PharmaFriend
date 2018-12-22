@@ -4,17 +4,14 @@ import java.util.List;
 
 import pharmafriend.models.BaseEntity;
 
-public class PharmacyDto extends BaseEntity {
+public class PharmacyDto {
 	
-	private static final long serialVersionUID = 1L;
+	private long id;
 	private String pharmacyName;
 	private String address;
 	private double lonLocation;
 	private double latLocation;
 	private List<MedicineDto> listStock;
-	
-	
-	
 	
 	
 	public PharmacyDto(long id, String pharmacyName, String address, double lonLocation, double latLocation,

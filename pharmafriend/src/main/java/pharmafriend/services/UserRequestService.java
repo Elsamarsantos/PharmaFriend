@@ -8,27 +8,35 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import pharmafriend.business.MedicineBusiness;
-import pharmafriend.business.PharmacyBusiness;
+
+import pharmafriend.business.UserRequestBusiness;
 
 
 @Path("request")
 public class UserRequestService {
 	
-	@Inject
-	PharmacyBusiness pharmacyBusiness1;
-	@Inject
-	MedicineBusiness medicineBusiness1;
+	@Inject 
+	UserRequestBusiness UserRequestBusiness1;
+	
+
+	@GET
+	@Path("test")
+	@Produces (MediaType.APPLICATION_JSON)
+	public String medicineRequest() {
+		
+		
+		return "funciona";
+				}
+	
 	
 	
 	@GET
+//	@Path("{medicinename}/{lonlocation}/{latlocation}/{userdistance}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public String medicineRequest(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit,@PathParam("lonlocation") double lon,@PathParam("latlocation") double lat, @PathParam("userDistance") double distance) {
+	public String medicineRequest(@QueryParam("medicinename") String name,@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat, @QueryParam("userdistance") double distance) {
 		
-		medicineBusiness1.consultMedicine(name, dose, volumeUnit);
-		pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance);
 		
-		return "ola";
+		return "Estas sao as farmacias com o produto" + name + UserRequestBusiness1.userRequeste(name, lon, lat, distance);
 	}
 	
 
