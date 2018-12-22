@@ -39,7 +39,7 @@ public class MedicineBusiness {
 		
 		Medicine medicine = medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
 		
-		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		
 		return medicineDto;
 		
@@ -51,18 +51,18 @@ public class MedicineBusiness {
 		
 		Medicine medicine = medicineRepository1.getMedicineByName(name);
 		
-		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		
 		return medicineDto;
 	}
 	
 	//consult medicine by Id
 	@Transactional 
-	public MedicineDto consultMedicineId(Long id) {
+	public MedicineDto consultMedicine(Long id) {
 		
 		Medicine medicine = medicineRepository1.consultEntityId(id);
 		
-		MedicineDto medicineDto=  new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
+		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		
 		return medicineDto;
 		
@@ -77,7 +77,7 @@ public class MedicineBusiness {
 		
 		while (listMedicine.hasNext()) {
 			Medicine medicine = listMedicine.next();
-			listMedicineDto.add(new MedicineDto(medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
 		}
 		return listMedicineDto;
 	}

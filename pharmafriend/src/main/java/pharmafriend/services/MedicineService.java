@@ -45,8 +45,8 @@ public class MedicineService {
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public MedicineDto consutlMedicineid(@PathParam("id") long id) {
-		return medicineBusiness1.consultMedicineId(id);
+	public MedicineDto consutlMedicineId(@PathParam("id") long id) {
+		return medicineBusiness1.consultMedicine(id);
 	}
 	
 	@GET

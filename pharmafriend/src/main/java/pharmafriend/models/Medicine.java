@@ -35,8 +35,8 @@ public class Medicine extends BaseEntity {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "pharmacy_medicine",
-    joinColumns = @JoinColumn(name = "pharmacy_id"),
-    inverseJoinColumns = @JoinColumn(name = "medicine_id")
+    joinColumns = @JoinColumn(name = "medicine_id"),
+    inverseJoinColumns = @JoinColumn(name = "pharmacy_id")
 )
 	private List<Pharmacy> listPharmacyInMedicine;
 	
