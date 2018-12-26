@@ -25,10 +25,12 @@ public class PharmacyDto {
 		this.listStock = listStock;
 	}
 	
-	public PharmacyDto(long id, String pharmacyName, String address) {
+	public PharmacyDto(long id, String pharmacyName, String address, double lonLocation, double latLocation) {
 		this.id=id;
 		this.pharmacyName = pharmacyName;
 		this.address = address;
+		this.lonLocation = lonLocation;
+		this.latLocation = latLocation;
 	}
 	
 	
