@@ -14,7 +14,6 @@ $("#pharmacyListBtn").click(pharmacyList);
 $("#ourVisionBtn").click(ourVision);
 
 function home() {
-
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
