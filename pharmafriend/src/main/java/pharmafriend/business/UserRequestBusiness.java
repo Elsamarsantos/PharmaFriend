@@ -33,7 +33,7 @@ public class UserRequestBusiness {
 			while(listMedicineInPharmacy.hasNext()) {
 			if(listMedicineInPharmacy.next().getMedicineName().equals(medicine.getMedicineName())) {
 				listToAdd.add(pharmacy);
-				System.out.println("entrou");
+				
 			}	
 			}
 		}
