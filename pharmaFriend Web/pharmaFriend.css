@@ -194,9 +194,9 @@ tbody tr:hover {
 
     #map {
       height: 450px;
-      width: 590px;
+      width: auto;
       text-align: center;
-      position: fixed;
+      position: relative!important;
     }
 
     .fa-street-view {
