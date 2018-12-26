@@ -28,6 +28,17 @@
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
+            <div class="col-sm-3"></div> <br> <br>
+                <header> PharmaFriend </header> <br>
+                <h1>Simplify your search.</h1> <br> <br> <br> <br> <br>
+                <form class="mypharmaform">
+                    <input id="medicineName" type="text" placeholder="What medicine are you looking for?" />
+                    
+                    <h1>LONG: <input type="text" id="longNumber"></h1> 
+                    <h1>LAT: <input type="text" id="latNumber"> </h1>
+                    
+                    <a href="#" data-toggle="modal" data-target="#homeOutput" id="btnMainSearch" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-zoom-in"></span> SEARCH</a>                    
+                </form>        
             <div class="col-sm-3"></div>
             <div class="col-sm-6"><br> <br>
                 <div>
@@ -46,15 +57,17 @@
                     </form>
                 </div>
 
-                <div class="modal fade modalBox" id="mapOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div id="map" class="text-center"></div>
-                        <div id="out"></div>
-                    </div>
-                    <div class="col-sm-3"></div>
-
-                </div>
+    <div class="modal fade modalBox" id="homeOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+          <div class="modal-body modalEdit"> 
+            <h2 class="modal-title" style="color:white"> <br> WE FOUND THOSE PHARMACIES</h2> <br>
+             <div id="myResults"></div> <br>
+                <form class="mypharmaform">
+                <input id="emailId" type="text" placeholder="email@example.pf" />
+                </form> 
+        <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal" aria-label="Close" > SEND </button>
+        <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close" > CLOSE </button>   
             </div>
 
             <footer>
