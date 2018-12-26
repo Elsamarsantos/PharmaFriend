@@ -87,9 +87,9 @@ public class PharmacyService {
 	}
 
 	@GET
-	@Path("consultnear/{lonlocation}/{latlocation}/{userDistance}")
+	@Path("consultnear")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<Pharmacy> consultnear(@PathParam("lonlocation") double lon,@PathParam("latlocation") double lat, @PathParam("userDistance") double distance) {
+	public List<Pharmacy> consultnear(@QueryParam("lon") double lon,@QueryParam("lat") double lat, @QueryParam("distance") double distance) {
 		
 		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance);
 	}

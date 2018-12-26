@@ -17,12 +17,22 @@ public class PharmacyDto {
 	public PharmacyDto(long id, String pharmacyName, String address, double lonLocation, double latLocation,
 			List<MedicineDto> listStock) {
 		
+		this.id=id;
 		this.pharmacyName = pharmacyName;
 		this.address = address;
 		this.lonLocation = lonLocation;
 		this.latLocation = latLocation;
 		this.listStock = listStock;
 	}
+	
+	public PharmacyDto(long id, String pharmacyName, String address) {
+		this.id=id;
+		this.pharmacyName = pharmacyName;
+		this.address = address;
+	}
+	
+	
+	
 	public String getPharmacyName() {
 		return pharmacyName;
 	}
