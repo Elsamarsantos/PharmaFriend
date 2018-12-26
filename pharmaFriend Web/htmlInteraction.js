@@ -14,13 +14,13 @@ $("#pharmacyListBtn").click(pharmacyList);
 $("#ourVisionBtn").click(ourVision);
 
 function home() {
-
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
     $("#home").show();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#homeBtn').addClass( "active" );
+    $("#mypharmaform1").show();
     
 }
 

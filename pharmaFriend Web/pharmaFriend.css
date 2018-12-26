@@ -18,6 +18,17 @@ footer {
     color: white; 
 }
 
+footer {
+    font-family: 'Open Sans' , sans-serif;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    color: white; 
+}
+
 header
 {
     font-family: 'Open Sans' , sans-serif;
@@ -138,8 +149,7 @@ a:hover{
 
 
 .modalBox {
-    margin-top: 190px;
-    
+    margin-top: 300px;
 }
 
 .modalEdit {
@@ -180,6 +190,24 @@ tbody tr:hover {
     background-color: rgba(218, 227, 255, 0.199);
 }
 
+/* MAP AND ICONS PARAMETERS */
 
-    
-	
+    #map {
+      height: 450px;
+      width: 590px;
+      text-align: center;
+      position: fixed;
+    }
+
+    .fa-street-view {
+      font-size: 40px;
+      margin-top: 20px;
+      margin-left: 20px;
+    }
+
+    .fa-plus-square {
+      font-size:40px;
+      color:green;
+      margin-top: 10px;
+      margin-left: -15px;
+    }

@@ -42,61 +42,58 @@ function geoFindMe() {
       name: "OpenStreetMap",
       maxZoom: 18
     }));
-
-
-    /* ------------------------------ MARCADOR -----------------------------------------*/
-
-    /* var vectorLayer = new ol.layer.Vector({
-       source: new ol.source.Vector({
-         features: [new ol.Feature({
-           geometry: new ol.geom.Point(ol.proj.transform([parseFloat(longitude), parseFloat(latitude)])),
-         })]
-       }),
-       style: new ol.style.Style({
-         image: new ol.style.Icon({
-           anchor: [0.5, 0.5],
-           anchorXUnits: "fraction",
-           anchorYUnits: "fraction",
-           src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
-         })
-       })
-     });
-     map.addLayer(vectorLayer);*/
-
-
-    function error() {
-      output.innerHTML = "Unable to retrieve your location";
-    }
-
-    output.innerHTML = "<p>Locating…</p>";
-
-    navigator.geolocation.getCurrentPosition(success, error);
-
-
-
-
-    // ****************** ShowPosition ***************************
-
-
-
-    /* Retrieve longitude and latitude from Position 
-  
-    /* Calculate the OpenStreetMap position 
-    var osmPosition = new OpenLayers.LonLat(longitude, latitude).transform(this.fromProjection, this.toProjection);
-  
-    /* Set the center of the map 
-    this.map.setCenter(osmPosition, this.defaultZoom);
-  
-    if (this.currentPosition === null) { // if this is the first time this method is invoked
-  
-        /* Add a marker to the center 
-        this.markers.addMarker(new OpenLayers.Marker(osmPosition));
-  
-        /* Show POIs only the first time this method is called 
-        this.showPOIs(new OpenLayers.LonLat(plon, plat));
-  
-        /* Keep track of the current position 
-        this.currentPosition = osmPosition;
-    } */
+   /* function add_map_point (latitude, longitude) {
+      var vectorLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [new ol.Feature({
+            geometry: new ol.geom.Point(ol.proj.transform([parseFloat(longitude), parseFloat(latitude)], 'EPSG:4326', 'EPSG:3857')),
+          })]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 0.5],
+            anchorXUnits: "fraction",
+            anchorYUnits: "fraction",
+            src: "https://upload.wikimedia.org/wikipedia/commons/e/ec/RedDot.svg"
+          })
+        })
+      });
+      map.addLayer(vectorLayer);
+    }*/
   }
+
+  function error() {
+    output.innerHTML = "Unable to retrieve your location";
+  }
+
+  output.innerHTML = "<p>Locating…</p>";
+
+  navigator.geolocation.getCurrentPosition(success, error);
+
+
+
+
+  // ****************** ShowPosition ***************************
+
+
+
+  /* Retrieve longitude and latitude from Position 
+
+  /* Calculate the OpenStreetMap position 
+  var osmPosition = new OpenLayers.LonLat(longitude, latitude).transform(this.fromProjection, this.toProjection);
+
+  /* Set the center of the map 
+  this.map.setCenter(osmPosition, this.defaultZoom);
+
+  if (this.currentPosition === null) { // if this is the first time this method is invoked
+
+      /* Add a marker to the center 
+      this.markers.addMarker(new OpenLayers.Marker(osmPosition));
+
+      /* Show POIs only the first time this method is called 
+      this.showPOIs(new OpenLayers.LonLat(plon, plat));
+
+      /* Keep track of the current position 
+      this.currentPosition = osmPosition;
+  } */
 }
