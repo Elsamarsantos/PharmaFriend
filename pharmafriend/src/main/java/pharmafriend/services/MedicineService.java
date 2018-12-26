@@ -71,8 +71,7 @@ public class MedicineService {
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void updateMedicine( Medicine medicine) {
-		
-		
+	
 		medicineBusiness1.updateMedicine(medicine);
 	}
 

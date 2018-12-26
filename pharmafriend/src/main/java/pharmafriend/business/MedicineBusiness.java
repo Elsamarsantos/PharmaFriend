@@ -38,28 +38,22 @@ public class MedicineBusiness {
 	public MedicineDto consultMedicine(String name,String dose, String volumeUnit) {
 		
 		Medicine medicine = medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
-		
 		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
-		
 		return medicineDto;
-		
-		
 	}
+	
 	//consult medicine by name
 		public Medicine consultMedicineWithoutDto(String name) {
 			
 			Medicine medicine = medicineRepository1.getMedicineByName(name);
-			
-			
 			return medicine;
 		}
 	
 	
-	//consult medicine by name
+	//consult medicine by name and return medicineDto
 	public MedicineDto consultMedicine(String name) {
 		
 		Medicine medicine = medicineRepository1.getMedicineByName(name);
-		
 		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		
 		return medicineDto;
