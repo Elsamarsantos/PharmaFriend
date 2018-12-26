@@ -2,7 +2,7 @@ package pharmafriend.Dtos;
 
 import java.util.List;
 
-import pharmafriend.models.BaseEntity;
+
 
 public class PharmacyDto {
 	
@@ -33,6 +33,14 @@ public class PharmacyDto {
 	
 	
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getPharmacyName() {
 		return pharmacyName;
 	}

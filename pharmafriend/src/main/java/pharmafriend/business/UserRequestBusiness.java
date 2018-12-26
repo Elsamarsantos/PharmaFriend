@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
@@ -52,7 +51,7 @@ public class UserRequestBusiness {
 		}
 
 	
-return listToAddDto;
+		return listToAddDto;
 
 	}
 	

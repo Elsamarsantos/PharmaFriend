@@ -1,18 +1,15 @@
 package pharmafriend.business;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import javax.ws.rs.QueryParam;
 
 import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.models.Medicine;
-import pharmafriend.models.Pharmacy;
 import pharmafriend.models.StockInPharmacy;
 import pharmafriend.repositories.MedicineRepository;
 

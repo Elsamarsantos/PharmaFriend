@@ -1,9 +1,7 @@
 package pharmafriend.Dtos;
 
-import pharmafriend.models.BaseEntity;
 
 public class MedicineDto {
-	
 	
 	private long id;
 	private String medicineName;
@@ -23,6 +21,18 @@ public class MedicineDto {
 		this.pvp = pvp;
 		this.reImbursementRate = reImbursementRate;
 	}
+	
+	
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 	public String getMedicineName() {
 		return medicineName;
 	}

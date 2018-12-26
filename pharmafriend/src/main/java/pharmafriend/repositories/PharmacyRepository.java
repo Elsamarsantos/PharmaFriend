@@ -1,6 +1,6 @@
 package pharmafriend.repositories;
 
-import pharmafriend.models.Medicine;
+
 import pharmafriend.models.Pharmacy;
 
 public class PharmacyRepository extends EntityRepository<Pharmacy> {
