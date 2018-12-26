@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import pharmafriend.Dtos.MedicineDto;
+import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
 
@@ -16,24 +17,43 @@ public class UserRequestBusiness {
 	@Inject
 	MedicineBusiness medicineBusiness1;
 	
-	public List<Pharmacy> userRequeste(String name,double lon, double lat, double distance) {
+	public List<PharmacyDto> userRequest(String name,double lon, double lat, double distance) {
 		
-		MedicineDto medicineDto =medicineBusiness1.consultMedicine(name);
-		Iterator<Pharmacy> listp= pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance).iterator();
+		Medicine medicine =medicineBusiness1.consultMedicineWithoutDto(name);
+		
+		Iterator<Pharmacy> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
 		
 		List<Pharmacy> listToAdd =new ArrayList<>();
 		
-		while(listp.hasNext()) {
-			Pharmacy pharmacy =listp.next();
-			Iterator <Medicine> listOfMedicine =listp.next().getListStock().iterator();
-			if(listOfMedicine.next().getMedicineName()==medicineDto.getMedicineName()) {
-				listToAdd.add(pharmacy);
-			};
+		while(listpharmacy.hasNext()) {
 			
+			Pharmacy pharmacy =listpharmacy.next();
+			Iterator <Medicine> listMedicineInPharmacy=pharmacy.getListStock().iterator();
+			
+			while(listMedicineInPharmacy.hasNext()) {
+			if(listMedicineInPharmacy.next().getMedicineName().equals(medicine.getMedicineName())) {
+				listToAdd.add(pharmacy);
+				System.out.println("entrou");
+			}	
+			}
 		}
 		
 		
-		return listToAdd;
-	}
+		Iterator<Pharmacy> listpharmacy1= listToAdd.iterator();
+		
+		List<PharmacyDto> listToAddDto =new ArrayList<>();
+		
+		
+		while (listpharmacy1.hasNext()) {
+			Pharmacy pharmacy1 = listpharmacy1.next();
 
+			PharmacyDto pharmacyDto = new PharmacyDto(pharmacy1.getId(),pharmacy1.getPharmacyName(),pharmacy1.getaddress());
+			listToAddDto.add(pharmacyDto);
+		}
+
+	
+return listToAddDto;
+
+	}
+	
 }

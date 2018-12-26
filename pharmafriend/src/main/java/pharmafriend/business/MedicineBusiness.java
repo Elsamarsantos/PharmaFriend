@@ -45,6 +45,15 @@ public class MedicineBusiness {
 		
 		
 	}
+	//consult medicine by name
+		public Medicine consultMedicineWithoutDto(String name) {
+			
+			Medicine medicine = medicineRepository1.getMedicineByName(name);
+			
+			
+			return medicine;
+		}
+	
 	
 	//consult medicine by name
 	public MedicineDto consultMedicine(String name) {

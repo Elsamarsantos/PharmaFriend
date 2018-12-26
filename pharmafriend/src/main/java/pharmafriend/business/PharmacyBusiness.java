@@ -127,7 +127,7 @@ public class PharmacyBusiness {
 			}		
 		}
 		
-	
+		
 			
 		return nearestList;
 	}
