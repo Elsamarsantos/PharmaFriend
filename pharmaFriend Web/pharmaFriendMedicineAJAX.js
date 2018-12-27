@@ -25,8 +25,6 @@ function searchMedicine(p) {
        'Accept': 'application/json',
     'Content-Type': 'application/json'
         },
-        contentType: 'application/json',
-        data: JSON.stringify(p),
         success: function (data) {
             $("#searchMedicineModalDiv").append("Name: " + data.medicineName + '<br>' + "Dose: " + data.dose + '<br>' + 
             "Volume Units: " + data.volumeUnit + '<br>'+ "PVP: " + data.pvp + '<br>'+ "Reiumbursement: " + data.reImbursementRate); 
@@ -81,8 +79,6 @@ function searchAllMedicine(p) {
        'Accept': 'application/json',
         'Content-Type': 'application/json'
         },
-        contentType: 'application/json',
-        data: JSON.stringify(p),
         success: function (data) {
             console.log("Medicine total number is " + data.length + " but I'm showing only 100");
             for(i=0; i<100; i++) {

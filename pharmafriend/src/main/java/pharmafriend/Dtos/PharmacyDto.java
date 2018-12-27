@@ -2,7 +2,7 @@ package pharmafriend.Dtos;
 
 import java.util.List;
 
-import pharmafriend.models.BaseEntity;
+
 
 public class PharmacyDto {
 	
@@ -25,14 +25,24 @@ public class PharmacyDto {
 		this.listStock = listStock;
 	}
 	
-	public PharmacyDto(long id, String pharmacyName, String address) {
+	public PharmacyDto(long id, String pharmacyName, String address, double lonLocation, double latLocation) {
 		this.id=id;
 		this.pharmacyName = pharmacyName;
 		this.address = address;
+		this.lonLocation = lonLocation;
+		this.latLocation = latLocation;
 	}
 	
 	
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getPharmacyName() {
 		return pharmacyName;
 	}

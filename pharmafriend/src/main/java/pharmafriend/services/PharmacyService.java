@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.business.PharmacyBusiness;
-import pharmafriend.models.Medicine;
+
 import pharmafriend.models.Pharmacy;
 
 

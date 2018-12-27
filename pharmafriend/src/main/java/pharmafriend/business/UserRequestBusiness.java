@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
@@ -47,12 +46,12 @@ public class UserRequestBusiness {
 		while (listpharmacy1.hasNext()) {
 			Pharmacy pharmacy1 = listpharmacy1.next();
 
-			PharmacyDto pharmacyDto = new PharmacyDto(pharmacy1.getId(),pharmacy1.getPharmacyName(),pharmacy1.getaddress());
+			PharmacyDto pharmacyDto = new PharmacyDto(pharmacy1.getId(),pharmacy1.getPharmacyName(),pharmacy1.getaddress(),pharmacy1.getLonLocation(),pharmacy1.getLatLocation());
 			listToAddDto.add(pharmacyDto);
 		}
 
 	
-return listToAddDto;
+		return listToAddDto;
 
 	}
 	

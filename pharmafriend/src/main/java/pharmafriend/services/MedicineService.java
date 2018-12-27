@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
 import pharmafriend.Dtos.MedicineDto;
 import pharmafriend.business.MedicineBusiness;
 import pharmafriend.models.Medicine;
-import pharmafriend.models.Pharmacy;
+
 
 @Path("medicines")
 public class MedicineService {
@@ -45,7 +45,7 @@ public class MedicineService {
 	@GET
 	@Path("consultid/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public MedicineDto consutlMedicineId(@PathParam("id") long id) {
+	public MedicineDto consultMedicineId(@PathParam("id") long id) {
 		return medicineBusiness1.consultMedicine(id);
 	}
 	
