@@ -122,11 +122,20 @@
         <div class="row">
             <header>MEDICINE</header>
             <center>
-                <form class="mypharmaform">
-                    <!-- teste para o search list -->
-                   
-                    <input class="form-control" type="text" id="myInput"  placeholder="Search for your medicine" title="Type in a name">
-                    <ul class="list-group" id="result"></ul>
+                <!-- <form class="mypharmaform"> -->
+                    
+                   <!-- teste para o search list -->
+                    <!--Make sure the form has the autocomplete function switched off:-->
+                    <form autocomplete="off" action="/action_page.php">
+                        <div class="autocomplete" style="width:300px;">
+                            <input id="myInput" type="text" name="myCountry" placeholder="Search for your medicine">
+                        </div>
+                        <input type="submit">
+                    </form>
+
+                    
+
+                    <!-- teste -->
 
                       <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
                         class="glyphicon glyphicon-zoom-in"></span>
