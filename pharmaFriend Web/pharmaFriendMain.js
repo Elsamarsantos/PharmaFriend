@@ -2,6 +2,8 @@
 
 $("#btnMainSearch").click(function mainSearch() {
 
+
+
     if ($("#medicineName").val() != "") {
 
 
@@ -10,6 +12,9 @@ $("#btnMainSearch").click(function mainSearch() {
 
         var output = document.getElementById("out");
 
+        $("#results").fadeIn();
+        $("#mypharmaform1").fadeOut();
+        
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
             return;
@@ -93,7 +98,7 @@ $("#btnMainSearch").click(function mainSearch() {
              .openPopup();
              }
              */
-            
+
             /* ------------------------------- search medicine in pharmacies ------------------     */
             $.ajax({
 
@@ -129,6 +134,8 @@ $("#btnMainSearch").click(function mainSearch() {
         let element = document.getElementById("btnMainSearch");
         element.setAttribute('data-toggle', "");
     }
+
+   
 });
 
 // HERE I WILL WIRTE THE CODE FOR MY GEOLOC API COMBINE MY LOC WITH THE LOC OF MY SURROUUNDING PHARMACIES

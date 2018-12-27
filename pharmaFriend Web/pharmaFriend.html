@@ -28,13 +28,16 @@
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
-            <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 <div>
                     <header> PharmaFriend </header>
                     <h1>Simplify your search.</h1>
                 </div>
-
-                <div id="mypharmaform1">
+            </div>
+        </div>
+        <div class="row text-center">
+            <div id="mypharmaform1" class="col-sm-12 col-md-12 col-lg-12">
+                <div>
                     <form class="mypharmaform">
                         <input id="medicineName" type="text" placeholder="What medicine are you looking for?" />
                         <input id="userdistance" type="text" placeholder="distance?" />
@@ -44,7 +47,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-lg-12">
                 <div id="results">
                     <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
                     <div id="mapOutput">
@@ -60,6 +63,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -119,12 +123,23 @@
             <header>MEDICINE</header>
             <center>
                 <form class="mypharmaform">
-                    <input id="searchMedicine" type="text" placeholder="Search for your medicine" />
+                    <!-- teste para o search list -->
+                   
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for your medicine" title="Type in a name">
+                
+                      <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
+                        class="glyphicon glyphicon-zoom-in"></span>
+                    SEARCH MEDICINE</a>
+                  
+                  <!-- teste -->
+
+                  
+                    <!-- <input id="searchMedicine" type="text" placeholder="Search for your medicine" />
                     <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
                             class="glyphicon glyphicon-zoom-in"></span>
                         SEARCH MEDICINE</a>
-                    <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span
-                            class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
+                    <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span 
+                            class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>-->
                 </form>
             </center> <br>
 
