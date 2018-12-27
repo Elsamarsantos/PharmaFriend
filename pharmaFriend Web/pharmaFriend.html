@@ -28,47 +28,33 @@
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
-
-
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6"><br> <br>
+            <div class="col-sm-12 col-md-6 col-lg-6">
                 <div>
-                    <header> PharmaFriend </header> <br>
+                    <header> PharmaFriend </header>
                     <h1>Simplify your search.</h1>
                 </div>
 
                 <div id="mypharmaform1">
-                    <br> <br> <br> <br> <br> <br> <br>
                     <form class="mypharmaform">
                         <input id="medicineName" type="text" placeholder="What medicine are you looking for?" />
                         <input id="userdistance" type="text" placeholder="distance?" />
-                        <br><br>
                         <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'
                             data-toggle="" data-target="#mapOutput"><i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                             </i></button>
-
                     </form>
                 </div>
-
-                <div class="modal fade modalBox" id="mapOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                            <div class="modal-header">
-                                <h2 class="modal-title" style="color:white"> <br> WE FOUND THOSE PHARMACIES</h2> <br>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
-                                        aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="map"></div>
-                                <div id="out"></div>
-                                <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
-                                    aria-label="Close"> SEND </button>
-                                <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"
-                                    aria-label="Close"> CLOSE </button>
-                            </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div id="results">
+                    <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
+                    <div id="mapOutput">
+                        <div id="map"></div>
+                        <div id="out"></div>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-success"> SEND </button>
+                            <button id="btnclose" type="button" class="btn btn-danger "> CLOSE </button>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -76,11 +62,30 @@
     </div>
 
 
-    <footer>
-        <h5>By EDA</h5>
-        <h5>2018-2019</h5>
-    </footer>
 
+    <!-- <div class="modal fade modalBox" id="mapOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                        <div class="modal-content" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                            <div class="modal-header">
+                                <h3 class="modal-title" style="text-align: center; color:white ">WE FOUND THOSE
+                                    PHARMACIES</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="map"></div>
+                                <div id="out"></div>
+                                <div class="modal-footer">
+                                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
+                                        aria-label="Close"> SEND </button>
+                                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"
+                                        aria-label="Close"> CLOSE </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
 
 
     <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH  -->
@@ -110,8 +115,8 @@
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
     <div class="container" id="tabMedicine">
-        <div class="row"> <br> <br>
-            <header>MEDICINE</header> <br> <br>
+        <div class="row">
+            <header>MEDICINE</header>
             <center>
                 <form class="mypharmaform">
                     <input id="searchMedicine" type="text" placeholder="Search for your medicine" />
@@ -139,6 +144,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
     <!-- THIS IS MY MODAL WHEN I CREATE MY MEDICINE -->
     <div class="modal fade modalBox" id="createMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -218,12 +224,13 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- TABEL FOR MY PHARMACY PAGE--------------------------------------------------------------------->
     <div class="container" id="tabPharmacy">
-        <div class="row"> <br> <br>
-            <header>PHARMACY</header> <br> <br>
+        <div class="row">
+            <header>PHARMACY</header>
             <center>
                 <form class="mypharmaform">
                     <input id="searchPharma" type="text" placeholder="Search for your pharmacy" />
@@ -329,26 +336,22 @@
     <!-- THIS IS OUR VISION PAGE-->
     <div class="container" id="ourVision">
         <div class="row text-center"> <br> <br>
-            <div class="col-sm-3"></div>
-            <header> Our Vision <br> </header> <br> <br>
-            <h3 style="color:rgb(43, 46, 43)"> Have you ever needed a medication <br> and it's not
-                available in
-                your
-                usual pharmacy?</h3> <br>
-            <hr> <br>
-            <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let
-                us help
-                you find
-                your medicine. <br> Simplify your search. </h3> <br>
-            <div class="col-sm-3"></div>
-            <footer>
-                <hr>
-                <h5>By EDA</h5>
-                <h5>2018-2019</h5>
-            </footer>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <header> Our Vision <br> </header> <br> <br>
+                <h3 style="color:rgb(43, 46, 43)"> Have you ever needed a medication <br> and it's not
+                    available in your usual pharmacy?</h3> <br>
+                <hr> <br>
+                <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let
+                    us help you find your medicine. <br> Simplify your search. </h3> <br>
+
+            </div>
         </div>
     </div>
 
+    <footer class="footer">
+        <h5>By EDA</h5>
+        <h5>2018-2019</h5>
+    </footer>
 
     <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
