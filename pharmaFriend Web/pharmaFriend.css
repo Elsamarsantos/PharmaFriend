@@ -15,19 +15,6 @@ footer {
     bottom: 0;
     text-align: center;
     color: white; 
-
-
-}
-
-footer {
-    font-family: 'Open Sans' , sans-serif;
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    text-align: center;
-    color: white; 
 }
 
 header
@@ -51,6 +38,10 @@ hr {
     padding: 0; 
 }
 
+
+#results{
+    display:none;
+}
 /* NAVBAR */
 
 ul {
@@ -83,6 +74,8 @@ li a:hover {
 .active {
     background-color: #4CAF50;
 }
+
+
 
  /* FORM WITH BACKGROUND  */
 
@@ -150,7 +143,7 @@ a:hover{
 
 
 .modalBox {
-    margin-top: 300px;
+
 }
 
 .modalEdit {

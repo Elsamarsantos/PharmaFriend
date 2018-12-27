@@ -21,6 +21,7 @@ function home() {
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#homeBtn').addClass( "active" );
     $("#mypharmaform1").show();
+    $("#btnclose").click(home);
     
 }
 
