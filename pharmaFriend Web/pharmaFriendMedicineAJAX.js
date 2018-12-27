@@ -1,5 +1,5 @@
 // THIS IS MY AJAX TO CREATE A MEDICINE
-function createMedicine(p) {   
+function createMedicine(p) {
     console.log("Preparing for sucess:" + p);
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/create",
@@ -21,13 +21,13 @@ function searchMedicine(p) {
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/consultbyname?medicineName=" + medicineName,
         type: 'GET',
-       headers: {
-       'Accept': 'application/json',
-    'Content-Type': 'application/json'
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
         success: function (data) {
-            $("#searchMedicineModalDiv").append("Name: " + data.medicineName + '<br>' + "Dose: " + data.dose + '<br>' + 
-            "Volume Units: " + data.volumeUnit + '<br>'+ "PVP: " + data.pvp + '<br>'+ "Reiumbursement: " + data.reImbursementRate); 
+            $("#searchMedicineModalDiv").append("Name: " + data.medicineName + '<br>' + "Dose: " + data.dose + '<br>' +
+                "Volume Units: " + data.volumeUnit + '<br>' + "PVP: " + data.pvp + '<br>' + "Reiumbursement: " + data.reImbursementRate);
         }
     })
 }
@@ -64,62 +64,108 @@ function deleteMedicine(p) {
         data: JSON.stringify(p),
         success: function (n) {
             console.log(n);
-            
+
         }
     })
 }
 
 // THIS IS MY AJAX TO GET ALL MEDICINES IN MY SQL TABLE
 function searchAllMedicine(p) {
-    
+
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
         type: 'GET',
-       headers: {
-       'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
         },
         success: function (data) {
             console.log("Medicine total number is " + data.length + " but I'm showing only 100");
-            for(i=0; i<100; i++) {
+            for (i = 0; i < 50; i++) {
                 const element = data[i];
-                var medicine = '<tr><td>' + element.medicineName + '</td><td>' + element.dose + 
-                '</td><td>' +  element.volumeUnit + '</td><td>' +
-                element.pvp + '</td><td>' + 
-                element.reImbursementRate + '</td><td>' +
-                '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
-               ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>' 
-               + '</td></tr>'
+                var medicine = '<tr><td>' + element.medicineName + '</td><td>' + element.dose +
+                    '</td><td>' + element.volumeUnit + '</td><td>' +
+                    element.pvp + '</td><td>' +
+                    element.reImbursementRate + '</td><td>' +
+                    '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
+                    ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
+                    + '</td></tr>'
                 $("#medicineTable").append(medicine);
-                };
-                    
-            }
+            };
+
+        }
     })
 }
 
-function myFunction() {
-    var input, filter, a, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
-        type: 'GET',
-       headers: {
-       'Accept': 'application/json',
-        'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            
-            for(i=0; i<10; i++) {
-                a = data[i].medicineName.getElementsByTagName("a")[0];
+$(document).ready(
+    function myFunction() {
 
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    data[i].medicineName.style.display = "";
-                } else {
-                    data[i].medicineName.style.display = "none";
+        var input, filter, a, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        $("#result").html("");
+
+
+        $.ajax({
+            url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log("show" + data[1].medicineName.getElementsByTagName("a")[0]);
+
+
+                for (i = 0; i < 10; i++) {
+                    a= data[i].medicineName.charAT([0]);
+                   
+                    
+                
+                    txtValue = a.textContent || a.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        $("#result").append('<li class= "list-group-item>' + data[i].medicineName + '</li>');
+
+                        // data[i].medicineName.style.display = "";
+                        //                 } else {
+                        //                     data[i].medicineName.style.display = "none";
+                    }
+
                 }
-
             }
+        })
     }
-}
+)
+
+
+// $(document).ready(function () {
+//     $("#myInput").keyup(function () {
+//         $("#result").html("");
+//         var searchField = $("#search").val();
+//         var expression = new RegExp(searchField, "i");
+//         $.ajax({
+//             url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+//             type: 'GET',
+//             headers: {
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json'
+//             },
+//             success: function (data) {
+
+
+//                 $.each(data, function () {
+//                     console.log(data.medicineName.search(expression))
+//                     if (data.medicineName.search(expression) != -1) {
+//                         $("#result").append('<li class= "list-group-item>' + data.medicineName + '</li>');
+//                     }
+
+
+//                 });
+//             }
+//         });
+
+
+
+
+//     })
+// })

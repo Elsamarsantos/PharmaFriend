@@ -12,8 +12,8 @@ $("#btnMainSearch").click(function mainSearch() {
 
         var output = document.getElementById("out");
 
-        $("#results").fadeIn();
-        $("#mypharmaform1").fadeOut();
+        // $("#results").fadeIn();
+        // $("#mypharmaform1").fadeOut();
         
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -100,6 +100,8 @@ $("#btnMainSearch").click(function mainSearch() {
              */
 
             /* ------------------------------- search medicine in pharmacies ------------------     */
+
+
             $.ajax({
 
                 url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -109,20 +111,23 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Content-Type': 'application/json'
                 },
                 success: function (data) {
-                    console.log("show" + data);
+                        console.log("show" + data[1].pharmacyName +";"+data[1].id);
 
                     for (i = 0; i < data.lenght; i++) {
                         L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
-                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address)
+                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
                     }
 
                 }
+
+              
+
             })
 
         }
 
         function error() {
-            output.innerHTML = "Unable to retrieve your location, please chek your internet connection";
+            output.innerHTML = "Unable to retrieve your location, please check your internet connection";
         }
 
         output.innerHTML = "<p>Getting Location...</p>";
@@ -134,7 +139,7 @@ $("#btnMainSearch").click(function mainSearch() {
         let element = document.getElementById("btnMainSearch");
         element.setAttribute('data-toggle', "");
     }
-
+   
    
 });
 

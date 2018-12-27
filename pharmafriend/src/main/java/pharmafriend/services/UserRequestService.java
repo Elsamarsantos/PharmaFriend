@@ -32,7 +32,6 @@ public class UserRequestService {
 	
 	
 	@GET
-//	@Path("{medicinename}/{lonlocation}/{latlocation}/{userdistance}")
 	@Produces (MediaType.APPLICATION_JSON)
 	public List<PharmacyDto> medicineRequest(@QueryParam("medicinename") String name,@QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat, @QueryParam("userdistance") double distance) {
 		
