@@ -80,7 +80,7 @@ function searchAllMedicine(p) {
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            console.log("Medicine total number is " + data.length + " but I'm showing only 100");
+            console.log("Medicine total number is " + data.length + " but I'm showing only 50");
             for (i = 0; i < 50; i++) {
                 const element = data[i];
                 var medicine = '<tr><td>' + element.medicineName + '</td><td>' + element.dose +
@@ -97,15 +97,13 @@ function searchAllMedicine(p) {
     })
 }
 
-$(document).ready(
-    function myFunction() {
-
-        var input, filter, a, txtValue;
+$(document).ready(function () {
+    $("#myInput").keyup(function () {
+        $("#result").html("");
+        var input, filter, a;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();
-        $("#result").html("");
-
-
+       
         $.ajax({
             url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
             type: 'GET',
@@ -114,28 +112,26 @@ $(document).ready(
                 'Content-Type': 'application/json'
             },
             success: function (data) {
-                console.log("show" + data[1].medicineName.getElementsByTagName("a")[0]);
-
 
                 for (i = 0; i < 10; i++) {
-                    a= data[i].medicineName.charAT([0]);
-                   
-                    
-                
-                    txtValue = a.textContent || a.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        $("#result").append('<li class= "list-group-item>' + data[i].medicineName + '</li>');
 
-                        // data[i].medicineName.style.display = "";
-                        //                 } else {
-                        //                     data[i].medicineName.style.display = "none";
+                    a = data[i].medicineName.charAt(0);
+    
+                    console.log("show:" + a);
+
+                    
+                    if (a.toUpperCase().localeCompare(filter)==0) {
+                        //if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            $("#result").append('<li class= "list-group-item>' + data[i].medicineName + '</li>');
+
+                            //b.style.display = "";
                     }
 
+                    }
                 }
-            }
-        })
-    }
-)
+            })
+    })
+})
 
 
 // $(document).ready(function () {

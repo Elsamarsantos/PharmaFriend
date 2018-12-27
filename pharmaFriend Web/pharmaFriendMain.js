@@ -7,14 +7,14 @@ $("#btnMainSearch").click(function mainSearch() {
     if ($("#medicineName").val() != "") {
 
 
-        let element = document.getElementById("btnMainSearch");
-        element.setAttribute('data-toggle', "modal");
+        //let element = document.getElementById("btnMainSearch");
+        //element.setAttribute('data-toggle', "modal");
 
         var output = document.getElementById("out");
 
         // $("#results").fadeIn();
         // $("#mypharmaform1").fadeOut();
-        
+
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
             return;
@@ -102,6 +102,7 @@ $("#btnMainSearch").click(function mainSearch() {
             /* ------------------------------- search medicine in pharmacies ------------------     */
 
 
+
             $.ajax({
 
                 url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -111,16 +112,17 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Content-Type': 'application/json'
                 },
                 success: function (data) {
-                        console.log("show" + data[1].pharmacyName +";"+data[1].id);
-
-                    for (i = 0; i < data.lenght; i++) {
-                        L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
-                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                 
+                    for (i = 0; i < data.length; i++) {
+                    
+                      L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
+                        .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
                     }
+
 
                 }
 
-              
+
 
             })
 
@@ -136,11 +138,11 @@ $("#btnMainSearch").click(function mainSearch() {
     else {
 
         alert("Please insert a medicine in search field");
-        let element = document.getElementById("btnMainSearch");
-        element.setAttribute('data-toggle', "");
+        //let element = document.getElementById("btnMainSearch");
+        //element.setAttribute('data-toggle', "");
     }
-   
-   
+
+
 });
 
 // HERE I WILL WIRTE THE CODE FOR MY GEOLOC API COMBINE MY LOC WITH THE LOC OF MY SURROUUNDING PHARMACIES
