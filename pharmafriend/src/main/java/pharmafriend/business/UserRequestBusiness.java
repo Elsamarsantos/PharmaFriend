@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import pharmafriend.Dtos.PharmacyDto;
 import pharmafriend.models.Medicine;
@@ -16,6 +17,7 @@ public class UserRequestBusiness {
 	@Inject
 	MedicineBusiness medicineBusiness1;
 	
+	@Transactional
 	public List<PharmacyDto> userRequest(String name,double lon, double lat, double distance) {
 		
 		Medicine medicine =medicineBusiness1.consultMedicineWithoutDto(name);

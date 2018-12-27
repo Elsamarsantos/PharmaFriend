@@ -97,3 +97,29 @@ function searchAllMedicine(p) {
     })
 }
 
+function myFunction() {
+    var input, filter, a, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    $.ajax({
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+        type: 'GET',
+       headers: {
+       'Accept': 'application/json',
+        'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            
+            for(i=0; i<10; i++) {
+                a = data[i].medicineName.getElementsByTagName("a")[0];
+
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    data[i].medicineName.style.display = "";
+                } else {
+                    data[i].medicineName.style.display = "none";
+                }
+
+            }
+    }
+}

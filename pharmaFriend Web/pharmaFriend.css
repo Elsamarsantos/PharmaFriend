@@ -82,6 +82,7 @@ li a:hover {
 form {
     width: 500px;
     margin: 0 auto;
+    padding: 30px;
 }
 
 form.mypharmaform input[type="text"], form.mypharmaform input[type="text"] {
@@ -205,3 +206,7 @@ tbody tr:hover {
       margin-top: 10px;
       margin-left: -15px;
     }
+
+
+ 
+    
