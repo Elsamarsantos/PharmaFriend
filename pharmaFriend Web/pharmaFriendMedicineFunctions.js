@@ -35,11 +35,11 @@ $("#btnCreateMedicine").click(function btnCreateM() {
 })
 //SEARCH
 $("#btnSearchMedicine").click(function btnSearchM() {
-    medicineName = ($("#searchMedicine").val());
+    medicineName = $("#myInput").val();
     searchMedicine(medicineName);
     
-    
 })
+
 //UPDATE
 $("#btnUpdateMedicine").click(function btnUpdateM() {
     var myMedicine = {"id": 1, "medicineName":$("#name").val(), "dose": $("#dose").val(),

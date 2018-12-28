@@ -16,13 +16,7 @@ $("#btnCreatePharmacy").click(function btnCreateP() {
     
     var newPharmacy = {"id": 160, "pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
     createPharmacy(newPharmacy);
-    // {   DEFAULT
-    //     "id": 160,
-    //     "pharmacyName": "Farmácia Ocidental",
-    //     "address": "Rua Dom Jerónimo Osório 18D",
-    //     "lonLocation": -9.225590639892273,
-    //     "latLocation": 38.700443615433436
-    // }
+   
 
     $("#pharmacyTable").append('<tr><td>' + $("#pharmaName").val() + 
       '</td><td>' + $("#location").val() + + 

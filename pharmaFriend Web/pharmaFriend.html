@@ -38,14 +38,17 @@
         <div class="row text-center">
             <div id="mypharmaform1" class="col-sm-12 col-md-6 col-lg-6">
                 <div>
-                    <form class="mypharmaform">
-                        <input id="medicineName" type="text" placeholder="What medicine are you looking for?" />
+                    <form class="mypharmaform" autocomplete="off">
+                        <input class="autocomplete" id="medicineName" type="text" placeholder="What medicine are you looking for?" />
                         <input id="userdistance" type="text" placeholder="distance?" />
                         <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'
                             data-toggle="" data-target="#mapOutput"><i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                             </i></button>
                     </form>
                 </div>
+
+
+
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <div id="results">
@@ -66,91 +69,26 @@
 
 
 
-
-    <!-- <div class="modal fade modalBox" id="mapOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog " role="document">
-                        <div class="modal-content" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                            <div class="modal-header">
-                                <h3 class="modal-title" style="text-align: center; color:white ">WE FOUND THOSE
-                                    PHARMACIES</h3>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span
-                                        aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div id="map"></div>
-                                <div id="out"></div>
-                                <div class="modal-footer">
-                                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
-                                        aria-label="Close"> SEND </button>
-                                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"
-                                        aria-label="Close"> CLOSE </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-
     <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH  -->
 
-    <!-- <div class="modal fade modalBox" id="homeOutput" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color:white"> <br> WE FOUND THOSE PHARMACIES</h2> <br>
-                    <h3> Pharmacy Castelo, TELHEIRAS - 0.2km<br> <br>
-                        Pharmacy Areias, PONTINHA - 2.2km <br> <br>
-                        Pharmacy Varandas, BENFICA - 3.7km </h3>
-                    <hr>
-                    
-                    <form class="mypharmaform">
-                        <input id="emailId" type="text" placeholder="email@example.pf" />
-                    </form>
-                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal" aria-label="Close">
-                        SEND </button>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
-                        CLOSE </button>
-                </div>
-            </div>
-        </div>
-    </div>  -->
+
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
     <div class="container" id="tabMedicine">
         <div class="row">
             <header>MEDICINE</header>
             <center>
-                <!-- <form class="mypharmaform"> -->
-                    
-                   <!-- teste para o search list -->
-                    <!--Make sure the form has the autocomplete function switched off:-->
-                    <form autocomplete="off" action="/action_page.php">
-                        <div class="autocomplete" style="width:300px;">
-                            <input id="myInput" type="text" name="myCountry" placeholder="Search for your medicine">
-                        </div>
-                        <input type="submit">
-                    </form>
-
+           <div class="autocomplete">
+                <form class="mypharmaform" autocomplete="off">
+                    <input id="myInput"  type="text" name="medicine" placeholder="Search for your medicine">
                     
 
-                    <!-- teste -->
-
-                      <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
-                        class="glyphicon glyphicon-zoom-in"></span>
-                    SEARCH MEDICINE</a>
-                  
-                  <!-- teste -->
-
-                  
-                    <!-- <input id="searchMedicine" type="text" placeholder="Search for your medicine" />
                     <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
-                            class="glyphicon glyphicon-zoom-in"></span>
-                        SEARCH MEDICINE</a>
-                    <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span 
-                            class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>-->
+                            class="glyphicon glyphicon-zoom-in"></span> SEARCH MEDICINE</a>
+                    <a href="#"  data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span
+                            class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
                 </form>
+            </div>
             </center> <br>
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
@@ -202,7 +140,9 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
-                    <div id="searchMedicineModalDiv"></div> <br>
+                    <div id="searchMedicineModalDiv">
+                       
+                    </div> <br>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
                     </button>
                 </div>
@@ -257,14 +197,17 @@
         <div class="row">
             <header>PHARMACY</header>
             <center>
-                <form class="mypharmaform">
+                <div class="autocomplete">
+                <form class="mypharmaform" autocomplete="off">
                     <input id="searchPharma" type="text" placeholder="Search for your pharmacy" />
+                    
                     <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" id="btnSearchPharmacy" class="btn btn-primary btn-info btn-block"><span
                             class="glyphicon glyphicon-zoom-in"></span>
                         SEARCH PHARMACY</a>
                     <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-block"><span
                             class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                 </form>
+            </div>
             </center> <br>
 
             <!-- THIS IS MY PHARMACY PAGE: DINAMIC TABALE -->

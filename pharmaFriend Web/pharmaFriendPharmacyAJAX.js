@@ -17,19 +17,18 @@ function createPharmacy(p) {
 }
 
 // THIS IS MY AJAX TO GET A PHARMACY
-function searchPharmacy(p) {
-    console.log("Preparing for sucess: Pharmacy " + p);
+function searchPharmacy() {
+    console.log("Preparing for sucess: Pharmacy ");
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/pharmacies/consult/Farmacia " + pharmacyName,
+        url: "http://localhost:8080/pharmafriend/api/pharmacies/consult/" + pharmacyName,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        contentType: 'application/json',
-        data: JSON.stringify(p),
+       
         success: function (data) {
-            console.log("Sucess:" + data.address);         
+                     
            
             $("#searchPharmacyModalDiv").append("Name: " + data.pharmacyName + '<br>' + "Address: " + data.address + '<br>' + 
             "Longitude: " + data.lonLocation + '<br>'+ "Latitude: " + data.latLocation); 
@@ -75,7 +74,7 @@ function deletePharmacy(p) {
 }
 
 // THIS IS MY AJAX TO GET ALL PHARMACY IN MY SQL TABLE
-function searchAllPharmacy(p) {
+function searchAllPharmacy() {
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/pharmacies/consultall",
         type: 'GET',
@@ -83,8 +82,8 @@ function searchAllPharmacy(p) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        contentType: 'application/json',
-        data: JSON.stringify(p),
+       
+       
         success: function (data) {
             console.log("Pharmacy total number is " + data.length);
             for(i=0; i<data.length; i++){
@@ -103,4 +102,24 @@ function searchAllPharmacy(p) {
         }
     })
 }
+function getPharmacyName() {
+    var a = [];
+
+    $.ajax({
+        url: "http://localhost:8080/pharmafriend/api/pharmacies/consultall",
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+
+            for (i = 0; i < data.length; i++) {
+                a.push(data[i].pharmacyName);
+                autocomplete(document.getElementById("searchPharma"), a);
+            }
+        }
+    })
+}
+getPharmacyName();
 
