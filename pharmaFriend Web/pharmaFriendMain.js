@@ -1,4 +1,14 @@
 // THIS IS MY JQUERY CODE FOR MY MAIN PAGE AND ITS USED FOR ITS MAIN FUNCTION//
+$(document).ready(function () {
+    $("#results").hide();
+});
+
+
+$("#btnclose").click(function close() {
+    $("#results").hide();
+});
+
+
 
 $("#btnMainSearch").click(function mainSearch() {
 
@@ -8,7 +18,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
         var output = document.getElementById("out");
 
-    
+
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
             return;
@@ -17,11 +27,11 @@ $("#btnMainSearch").click(function mainSearch() {
         function success(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            output.innerHTML = '<p>Latitude: ' + latitude + '° <br>Longitude: ' + longitude + '°</p>';
+            // output.innerHTML = '<p>Latitude: ' + latitude + '° <br>Longitude: ' + longitude + '°</p>';
             var inputmedicine = $("#medicineName").val();
-             var distance = $("#userdistance").val();
+            var distance = $("#userdistance").val();
 
-
+            $("#results").show();
 
 
             /*  ------------------------------------- MAP ----------------------------------------------- */
@@ -60,26 +70,7 @@ $("#btnMainSearch").click(function mainSearch() {
                 .bindPopup('You ! ')
                 .openPopup();
 
-            /* TESTE PHARMACY DOMUS MASSAMA */
-            L.marker([38.7540326, -9.2799262], { icon: pharmacyMarker }).addTo(map)
-                .bindPopup('Pharmacy ! <br> Nome: Domus ')
-            //  .openPopup();
 
-            /* TESTE PHARMACY ONEILL */
-            L.marker([38.7548488, -9.2754248], { icon: pharmacyMarker }).addTo(map)
-                .bindPopup('Pharmacy Oneill<br><br>Dispõe do medicamento pesquisado! ')
-            // .openPopup();
-
-            /* TESTE PHARMACY  PINTO LEAL*/
-            L.marker([38.7528643, -9.2843015], { icon: pharmacyMarker }).addTo(map)
-                .bindPopup('Pharmacy ! <br> Nome: Pinto Leal ')
-            // .openPopup();
-
-            /* TESTE PHARMACY QUINTA DAS FLORES*/
-            L.marker([38.7575282, -9.2804767], { icon: pharmacyMarkeroff }).addTo(map)
-                .bindPopup('Pharmacy ! <br> Nome: Quinta das Flores <br>Horário: Fechado')
-            //.openPopup();
-    
             $.ajax({
 
                 url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -89,14 +80,20 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Content-Type': 'application/json'
                 },
                 success: function (data) {
-                 
+
                     for (i = 0; i < data.length; i++) {
-                    
-                      L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
-                        .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+
+                        L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
+                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
                     }
                 }
             })
+
+            let element = document.getElementById("search");
+            element.setAttribute('style', "display:true");
+            let element1 = document.getElementById("search1");
+            element1.setAttribute('style', "display:true");
+
 
         }
 
@@ -110,7 +107,7 @@ $("#btnMainSearch").click(function mainSearch() {
     else {
 
         alert("Please insert a medicine in search field");
-        
+
     }
 
 
