@@ -1,20 +1,25 @@
 // THIS IS MY JQUERY CODE FOR MY MAIN PAGE AND ITS USED FOR ITS MAIN FUNCTION//
 $(document).ready(function () {
     $("#results").hide();
+    $("#mypharmaform1").hide();
+    $("#medicineListBtn").hide();
+    $("#pharmacyListBtn").hide();
+    $("#homeBtn").hide();
+    $("#benvindo").hide();
 });
-
 
 $("#btnclose").click(function close() {
+    $("#medicineName").val(""); 
+    $("#userdistance").val("");
     $("#results").hide();
+    home();
 });
-
-
 
 $("#btnMainSearch").click(function mainSearch() {
 
 
 
-    if ($("#medicineName").val() != "") {
+    if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
 
         var output = document.getElementById("out");
 
@@ -101,15 +106,17 @@ $("#btnMainSearch").click(function mainSearch() {
             output.innerHTML = "Unable to retrieve your location, please check your internet connection";
         }
 
-        output.innerHTML = "<p>Getting Location...</p>";
+        //output.innerHTML = "<p>Getting Location...</p>";
         navigator.geolocation.getCurrentPosition(success, error);
     }
     else {
-
-        alert("Please insert a medicine in search field");
-
+        if ($("#medicineName").val() == "") {
+            alert("Please insert a medicine in search field");
+        }
+        else {
+            alert("Please insert some distance");
+        }
     }
-
 
 });
 

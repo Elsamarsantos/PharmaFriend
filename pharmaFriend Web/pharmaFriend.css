@@ -207,6 +207,12 @@ tbody tr:hover {
       margin-left: -15px;
     }
 
+    .fa-plus-squareNav {
+        font-size:55px;
+        color:green;
+       
+      }
+
 
  /*input shearch:*/
     /*the container must be positioned relative:*/
