@@ -34,7 +34,7 @@ public class MedicineBusiness {
 	@Transactional 
 	public MedicineDto consultMedicine(String name,String dose, String volumeUnit) {
 		
-		Medicine medicine = medicineRepository1.getMedicineByNameDose(name,dose,volumeUnit);
+		Medicine medicine = medicineRepository1.getMedicineByNameDoseUnit(name,dose,volumeUnit);
 		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		return medicineDto;
 	}
@@ -103,5 +103,21 @@ public class MedicineBusiness {
 		
 		 medicineRepository1.update(medicine);
 	}
+	
+	@Transactional 
+	public List<MedicineDto> getListMedicinewithEqualName(String name){
+		Iterator<Medicine> listMedicines = medicineRepository1.getListMedicineByName(name).iterator();
+		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
+		
+		while (listMedicines.hasNext()) {
+			Medicine medicine = listMedicines.next();
+			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+		}
+		return listMedicineDto;
+		 
+		
+	}
+	
+	
 	
 }

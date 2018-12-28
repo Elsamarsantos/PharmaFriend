@@ -2,6 +2,8 @@ package pharmafriend.repositories;
 
 
 
+import java.util.List;
+
 import pharmafriend.models.Medicine;
 
 public class MedicineRepository extends EntityRepository<Medicine>{
@@ -27,16 +29,20 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		return em.createNamedQuery(Medicine.QUERYNAME, Medicine.class).setParameter("medicineName", name).getSingleResult();
 		
 	}
-	
-	
-	public Medicine getMedicineByNameDose(String name,String dose, String volumeUnit){
+	public List<Medicine> getListMedicineByName(String name){
 		
-		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE, Medicine.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
+		return em.createNamedQuery(Medicine.QUERYNAME, Medicine.class).setParameter("medicineName", name).getResultList();
+		
+	}
+	
+	public Medicine getMedicineByNameDoseUnit(String name,String dose, String volumeUnit){
+		
+		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE_UNIT, Medicine.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
 		
 	}
 	
 	public void remove(String name,String dose, String volumeUnit) {
-		 em.remove(getMedicineByNameDose(name,dose,volumeUnit));
+		 em.remove(getMedicineByNameDoseUnit(name,dose,volumeUnit));
 		
 	}
 	

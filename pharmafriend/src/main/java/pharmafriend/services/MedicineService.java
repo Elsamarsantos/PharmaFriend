@@ -28,7 +28,7 @@ public class MedicineService {
 	@GET
 	@Path("consult")
 	@Produces (MediaType.APPLICATION_JSON)
-	public MedicineDto consutlMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
+	public MedicineDto consultMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
 		
 		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
 	}
@@ -37,7 +37,7 @@ public class MedicineService {
 	@GET
 	@Path("consultbyname")
 	@Produces (MediaType.APPLICATION_JSON)
-	public MedicineDto consutlMedicine(@QueryParam("medicineName") String name) {
+	public MedicineDto consultMedicine(@QueryParam("medicineName") String name) {
 		
 		return medicineBusiness1.consultMedicine(name);
 	}
@@ -85,7 +85,13 @@ public class MedicineService {
 		medicineBusiness1.removeMedicineById(id);
 	}
 	
-	
+	@GET
+	@Path("listmedicine")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<MedicineDto> consultMedicineName(@QueryParam("medicineName") String name) {
+		
+		return medicineBusiness1.getListMedicinewithEqualName(name);
+	}
 }
 
 
