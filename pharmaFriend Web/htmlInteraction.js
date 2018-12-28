@@ -13,6 +13,26 @@ $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
 $("#ourVisionBtn").click(ourVision);
 
+$("#btnLogin").click(function doLogin(){
+    alert("Login efectuado");
+    home_andre();
+ });
+ 
+ 
+ 
+ function  home_andre(){
+     $("#pharmacyImg").hide();
+    $("#user").hide();
+    $("#password").hide();
+    $("#btnLogin").hide();
+    $("#mypharmaform1").show();
+    $("#medicineListBtn").show();
+    $("#pharmacyListBtn").show();
+    $("#homeBtn").show();
+    $("#benvindo").show();
+    home(); 
+};
+
 function home() {
     $("#ourVision").hide();
     $("#tabMedicine").hide();
@@ -21,8 +41,6 @@ function home() {
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#homeBtn').addClass( "active" );
     $("#mypharmaform1").show();
-    $("#btnclose").click(home);
-    
 }
 
 function medicineList() {
