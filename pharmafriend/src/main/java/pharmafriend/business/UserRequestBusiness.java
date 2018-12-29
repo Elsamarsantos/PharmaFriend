@@ -19,9 +19,9 @@ public class UserRequestBusiness {
 	MedicineBusiness medicineBusiness1;
 	
 	@Transactional
-	public List<PharmacyDto> userRequest(String name,double lon, double lat, double distance) {
+	public List<PharmacyDto> userRequest(String name,String dose,String volumeUnit,double lon, double lat, double distance) {
 		
-		Medicine medicine =medicineBusiness1.consultMedicineWithoutDto(name);
+		Medicine medicine =medicineBusiness1.consultMedicineWithoutDto(name, dose, volumeUnit);
 		
 		Iterator<Pharmacy> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
 		

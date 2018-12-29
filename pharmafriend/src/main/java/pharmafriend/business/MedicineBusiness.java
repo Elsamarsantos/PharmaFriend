@@ -39,6 +39,13 @@ public class MedicineBusiness {
 		return medicineDto;
 	}
 	
+	@Transactional 
+	public Medicine consultMedicineWithoutDto(String name,String dose, String volumeUnit) {
+		
+		Medicine medicine = medicineRepository1.getMedicineByNameDoseUnit(name,dose,volumeUnit);
+		return medicine;
+	}
+	
 	//consult medicine by name
 		public Medicine consultMedicineWithoutDto(String name) {
 			
@@ -120,4 +127,17 @@ public class MedicineBusiness {
 	
 	
 	
+	@Transactional 
+	public List<MedicineDto> getListMedicineByNameDose(String name, String dose){
+		Iterator<Medicine> listMedicines = medicineRepository1.getListMedicineByNameDose(name,dose).iterator();
+		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
+		
+		while (listMedicines.hasNext()) {
+			Medicine medicine = listMedicines.next();
+			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+		}
+		return listMedicineDto;
+		 
+		
+	}
 }
