@@ -229,6 +229,7 @@ tbody tr:hover {
     top: 100%;
     left: 0;
     right: 0;
+    color:black;
   }
   
   .autocomplete-items div {

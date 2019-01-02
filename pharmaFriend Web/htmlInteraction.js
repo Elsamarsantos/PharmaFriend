@@ -60,7 +60,7 @@ function home() {
     $("#home").show();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#homeBtn').addClass( "active" );
-    $("#mypharmaform1").show();
+   
 }
 
 function medicineList() {

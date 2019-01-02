@@ -11,14 +11,17 @@ $(document).ready(function () {
 
 });
 
+
+
 $("#btnMainSearch").click(function mainSearch() {
 
 
 
+
     if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
-
+        
         var output = document.getElementById("out");
-
+        
 
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -28,7 +31,8 @@ $("#btnMainSearch").click(function mainSearch() {
         function success(position) {
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
-            // output.innerHTML = '<p>Latitude: ' + latitude + '° <br>Longitude: ' + longitude + '°</p>';
+            var medicineDose = $("#getDose").val();
+            var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
             var distance = $("#userdistance").val();
 
@@ -74,7 +78,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
             $.ajax({
 
-                url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
                 type: 'GET',
                 headers: {
                     'Accept': 'application/json',
@@ -90,11 +94,6 @@ $("#btnMainSearch").click(function mainSearch() {
                 }
             })
 
-            let element = document.getElementById("search");
-            element.setAttribute('style', "display:true");
-            let element1 = document.getElementById("search1");
-            element1.setAttribute('style', "display:true");
-
 
         }
 
@@ -102,7 +101,7 @@ $("#btnMainSearch").click(function mainSearch() {
             output.innerHTML = "Unable to retrieve your location, please check your internet connection";
         }
 
-        //output.innerHTML = "<p>Getting Location...</p>";
+        
         navigator.geolocation.getCurrentPosition(success, error);
     }
     else {
