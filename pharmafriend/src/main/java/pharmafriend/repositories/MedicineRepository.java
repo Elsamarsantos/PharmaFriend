@@ -50,6 +50,6 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		 em.remove(getMedicineByNameDoseUnit(name,dose,volumeUnit));
 		
 	}
-	
+
 	
 }

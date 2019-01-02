@@ -21,11 +21,19 @@ public class MedicineBusiness {
 	@Inject
 	StockInPharmacy stockInPharmacy1;
 	
-
+	public long getLastId() {
+		
+		return medicineRepository1.getAllEntity().size();
+	}
 	
 	//create new medicine
 	@Transactional
 	public void createMedicine(Medicine medicine){
+		 
+				long lastId= getLastId();
+		long novoId = 1+ lastId;
+		medicine.setId(novoId);
+		
 		medicineRepository1.saveEntity(medicine);
 		
 	}
@@ -111,6 +119,8 @@ public class MedicineBusiness {
 		 medicineRepository1.update(medicine);
 	}
 	
+	//get list of medicines with equal names
+	
 	@Transactional 
 	public List<MedicineDto> getListMedicinewithEqualName(String name){
 		Iterator<Medicine> listMedicines = medicineRepository1.getListMedicineByName(name).iterator();
@@ -125,7 +135,7 @@ public class MedicineBusiness {
 		
 	}
 	
-	
+	//get list of medicines by name and dose
 	
 	@Transactional 
 	public List<MedicineDto> getListMedicineByNameDose(String name, String dose){
@@ -137,7 +147,6 @@ public class MedicineBusiness {
 			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
 		}
 		return listMedicineDto;
-		 
-		
 	}
+		
 }

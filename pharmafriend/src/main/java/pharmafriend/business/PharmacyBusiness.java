@@ -133,7 +133,7 @@ public class PharmacyBusiness {
 	}
 	
 	
-	
+	//this method is to create stock in all pharmacies
 	@Transactional 
 	public void updateAll() {
 		
@@ -147,6 +147,7 @@ public class PharmacyBusiness {
 		
 	}
 
+	//get list of stock in a pharmacy
 	@Transactional
 	public List<MedicineDto> getStockListPharmacy (long id){
 	
@@ -161,4 +162,6 @@ public class PharmacyBusiness {
 		return listMedicineDto;
 		
 	}
+	
+	
 }
