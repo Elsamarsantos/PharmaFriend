@@ -25,9 +25,16 @@ public class PharmacyBusiness {
 	@Inject
 	StockInPharmacy stockInPharmacy1;
 
+	public long getLastId() {
+		return pharmacyRepository1.getAllEntity().size();
+	}
+	
 	//create a pharmacy
 	@Transactional
 	public void createPharmacy(Pharmacy newpharmacy) {
+		long lastId= getLastId();
+		long novoId = 1+ lastId;
+		newpharmacy.setId(novoId);
 		
 		newpharmacy=pharmacyRepository1.saveEntity(newpharmacy);
 		newpharmacy=stockInPharmacy1.listStockInPharmacy(newpharmacy);

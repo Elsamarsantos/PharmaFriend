@@ -30,7 +30,7 @@ public class MedicineBusiness {
 	@Transactional
 	public void createMedicine(Medicine medicine){
 		 
-				long lastId= getLastId();
+		long lastId= getLastId();
 		long novoId = 1+ lastId;
 		medicine.setId(novoId);
 		
