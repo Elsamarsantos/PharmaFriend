@@ -7,6 +7,8 @@ $(document).ready(function () {
     $("#pharmacyListBtn").hide();
     $("#homeBtn").hide();
     $("#benvindo").hide();
+    $("#getDose").on("change", getVolume);
+
 });
 
 $("#btnMainSearch").click(function mainSearch() {
@@ -146,6 +148,7 @@ function autocomplete(inp, arr) {
                 b.addEventListener("click", function (e) {
                 /*insert the value for the autocomplete text field:*/a
                     inp.value = this.getElementsByTagName("input")[0].value;
+                    getDose();
                     /*close the list of autocompleted values,
                     (or any other open lists of autocompleted values:*/
                     closeAllLists();
@@ -228,11 +231,82 @@ function searchByName() {
 
             for (i = 0; i < data.length; i++) {
                 a.push(data[i].medicineName);
-                autocomplete(document.getElementById("medicineName"), a);
+                var uniqueNames = [];
+
+                //to delete equal names
+                $.each(a, function (i, el) {
+                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                });
+
+
+                autocomplete(document.getElementById("medicineName"), uniqueNames);
             }
         }
     })
-}
+};
 searchByName();
 
+
+
+function getDose() {
+
+
+
+    var medicineName = $("#medicineName").val();
+
+
+
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+
+            for (i = 0; i < data.length; i++) {
+
+                $('#getDose').append("<option>" + data[i].dose + "</option>");
+
+            }
+
+
+
+        }
+    })
+
+
+};
+
+function getVolume() {
+
+    var medicineName = $("#medicineName").val();
+    var medicineDose = $("#getDose").val();
+
+
+
+
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/medicines/medicinebydose?medicineName=${medicineName}&dose=${medicineDose}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            console.log("ver data " + data);
+
+            for (i = 0; i < data.length; i++) {
+
+
+                $('#getVolume').append("<option>" + data[i].volumeUnit + "</option>");
+            }
+
+            console.log("ver blister " + data[0].volumeUnit);
+
+        }
+    })
+
+};
 

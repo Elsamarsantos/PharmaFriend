@@ -22,16 +22,22 @@ function searchMedicine() {
     console.log("Preparing for sucess:");
 
     $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/medicines/consultbyname?medicineName=${medicineName}`,
+        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            
-            $("#searchMedicineModalDiv").append("Name: " + data.medicineName + '<br>' + "Dose: " + data.dose + '<br>' +
-                "Volume Units: " + data.volumeUnit + '<br>' + "PVP: " + data.pvp + '<br>' + "Reiumbursement: " + data.reImbursementRate);
+            for (i = 0; i < data.length; i++) {
+
+                var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                    '</td><td>' + data[i].volumeUnit + '</td><td>' +
+                    data[i].pvp + '</td><td>' +
+                    data[i].reImbursementRate + '</td><tr>'
+
+                $('#medicineTablebyName').append(medicine);
+            }
         }
     })
 }
@@ -120,7 +126,12 @@ function getMedicineName() {
             for (i = 0; i < data.length; i++) {
                 console.log("ola");
                 a.push(data[i].medicineName);
-                autocomplete(document.getElementById("myInput"), a);
+                var uniqueNames = [];
+                $.each(a, function (i, el) {
+                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                });
+
+                autocomplete(document.getElementById("myInput"), uniqueNames);
             }
         }
     })

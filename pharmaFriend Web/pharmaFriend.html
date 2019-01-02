@@ -41,18 +41,36 @@
                 </div>
                 <div id="pharmacyImg">
                     <br><br>
-                    <img src="img.jpg" style="border-radius: 150px;">
+                    <img src="img.jpg" style="border-radius: 150px ">
                 </div>
             </div>
         </div>
         <div class="row text-center">
             <div id="mypharmaform1" class="col-sm-12 col-md-12 col-lg-12">
                 <div>
-                    <form class="mypharmaform" autocomplete="off">
-                        <input class="autocomplete" id="medicineName" type="text" placeholder="What medicine are you looking for?" />
-                        <input id="userdistance" type="text" placeholder="distance?" />
+                    <form class="mypharmaformhome" autocomplete="off">
+                        <div class="getSearch">
+                            <label for="getName">Medicine name:</label><br>
+                            <input class="autocomplete" id="medicineName" type="text" />
+                        </div>
+                        <div class="getSearch">
+                            <label for="getDose">Dose:</label>
+                            <select class="form-control" id="getDose">
+                                <option value="" disabled selected>Select one option</option>
+                            </select>
+                        </div>
+                        <div class="getSearch">
+                            <label for="getVolume">Volume Unit:</label>
+                            <select class="form-control" id="getVolume">
+                                <option value="" disabled selected>Select one option</option>
+                            </select>
+                        </div>
+                        <div class="getSearch">
+                            <label for="getDistance">Distance:</label><br>
+                            <input id="userdistance" type="text" />
+                        </div>
                         <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
-                            <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
+                            <i class='fas fa-pills'> </i> SEARCH Pharmacies <i class='fas fa-search'>
                             </i></button>
                     </form>
                 </div>
@@ -73,7 +91,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH  -->
@@ -143,20 +160,33 @@
 
     <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
     <div class="modal fade modalBox" id="searchMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
-                    <div id="searchMedicineModalDiv">
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+            <div class="modal-body modalEdit">
+                <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
+                <div id="searchMedicineModalDiv">
+                        <table id="medicineTablebyName" class="table tableplus">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">NAME</th>
+                                        <th scope="col">DOSE</th>
+                                        <th scope="col">UNITS</th>
+                                        <th scope="col">PVP</th>
+                                        <th scope="col">REIMBURSEMENT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
 
-                    </div> <br>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
-                    </button>
-                </div>
+                </div> <br>
+                <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
+                </button>
             </div>
         </div>
     </div>
+</div>
 
     <!-- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
     <div class="modal fade modalBox" id="updateMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

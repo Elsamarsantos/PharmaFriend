@@ -17,7 +17,9 @@ $("#userLogo").click(function reload(){
 });
 
 $("#btnclose").click(function close() {
-    $("#medicineName").val(""); 
+    $("#medicineName").val("");
+    $("#getDose").empty();
+    $("#getVolume").empty();
     $("#userdistance").val("");
     $("#results").hide();
     home();

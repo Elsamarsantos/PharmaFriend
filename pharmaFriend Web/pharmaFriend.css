@@ -40,10 +40,6 @@ hr {
 }
 
 
-/* #results{
-    display:none;
-} */
-/* NAVBAR */
 
 ul {
     
@@ -252,4 +248,43 @@ tbody tr:hover {
     background-color: DodgerBlue !important; 
     color: #ffffff; 
   }
+
+  form.getSearch{
+    width: 100%;
+    text-align: left;
+    color: rgb(191, 217, 255);
     
+}
+#medicineName,#userdistance{
+    color:black;
+}
+form.mypharmaformhome  {
+    width: 70%;
+    margin: 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    outline: 0;
+    font-style: italic;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+    text-align: left;
+
+}
+
+.getSearch{
+    padding: 1%;
+}
+.getSearch input[type="text"]{
+    border: 0;
+   
+    outline: 0;
+    font-style: italic;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
