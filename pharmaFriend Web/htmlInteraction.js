@@ -12,16 +12,37 @@ $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
 $("#ourVisionBtn").click(ourVision);
+$("#userLogo").click(function reload(){
+    location.reload();
+});
+
+$("#btnclose").click(function close() {
+    $("#medicineName").val(""); 
+    $("#userdistance").val("");
+    $("#results").hide();
+    home();
+});
 
 $("#btnLogin").click(function doLogin(){
+    verificaRegisto();
     alert("Login efectuado");
-    home_andre();
+    home();
  });
+
  
+function verificaRegisto(){
+    var email = $("#user").val();
+    var pass = $("#password").val();
+    // Faz o get para verificar se o utilizador ja existe
+    // Se existir confirma se o utilizador e pass correspondem
+    // Se nao existir pergunta se pretende criar um novo utilizador
+
+};
  
- 
- function  home_andre(){
-     $("#pharmacyImg").hide();
+
+function home() {
+    $("#userLogo").show();
+    $("#pharmacyImg").hide();
     $("#user").hide();
     $("#password").hide();
     $("#btnLogin").hide();
@@ -30,10 +51,7 @@ $("#btnLogin").click(function doLogin(){
     $("#pharmacyListBtn").show();
     $("#homeBtn").show();
     $("#benvindo").show();
-    home(); 
-};
-
-function home() {
+    $("#btnRegistar").hide();
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();

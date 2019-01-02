@@ -1,18 +1,12 @@
 // THIS IS MY JQUERY CODE FOR MY MAIN PAGE AND ITS USED FOR ITS MAIN FUNCTION//
 $(document).ready(function () {
+    $("#userLogo").hide();
     $("#results").hide();
     $("#mypharmaform1").hide();
     $("#medicineListBtn").hide();
     $("#pharmacyListBtn").hide();
     $("#homeBtn").hide();
     $("#benvindo").hide();
-});
-
-$("#btnclose").click(function close() {
-    $("#medicineName").val(""); 
-    $("#userdistance").val("");
-    $("#results").hide();
-    home();
 });
 
 $("#btnMainSearch").click(function mainSearch() {
