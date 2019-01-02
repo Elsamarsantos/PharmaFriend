@@ -14,8 +14,8 @@ class Medicine {
 //CREATE
 $("#btnCreateMedicine").click(function btnCreateM() {
 
-    var newMedicine = {"id": 1, "medicineName":$("#name").val(), "dose": $("#dose").val(),
-    "volumeUnit": $("#units").val(), "pvp": $("#pvp").val(), "reImbursementRate": $("#rrate").val()};
+    var newMedicine = {"medicineName":$("#name").val(),"dose":$("#dose").val(),
+    "volumeUnit":$("#units").val(),"pvp":$("#pvp").val(),"reImbursementRate":$("#rrate").val()};
 
     // { DEFAULT
     //     "id": 1,
@@ -27,11 +27,6 @@ $("#btnCreateMedicine").click(function btnCreateM() {
     // }
     createMedicine(newMedicine);
     
-  $("#medicineTable").append('<tr><td>' + $("#name").val() + '</td><td>' + $("#dose").val() + 
-                            '</td><td>' + $("#units").val() + '</td><td>' +
-                            $("#pvp").val() + '</td><td>' + 
-                            $("#rrate").val() + '</td></tr>'); 
-
 })
 //SEARCH
 $("#btnSearchMedicine").click(function btnSearchM() {

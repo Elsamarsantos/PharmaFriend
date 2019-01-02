@@ -1,19 +1,21 @@
 // THIS IS MY AJAX TO CREATE A MEDICINE
-function createMedicine(p) {
-    console.log("Preparing for sucess:" + p);
+function createMedicine(newMedicine) {
+
+
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/create",
+        url: `http://localhost:8080/pharmafriend/api/medicines/create`,
         type: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        data: JSON.stringify(p),
+        contentType: 'application/json',
+        data: JSON.stringify(newMedicine),
         success: function (data) {
-            console.log("Sucess:" + data);
+            console.log("Sucess:"+ data);
         }
     })
-}
+};
 
 // THIS IS MY AJAX TO GET A MEDICINE
 
@@ -34,7 +36,7 @@ function searchMedicine() {
                 var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
                     '</td><td>' + data[i].volumeUnit + '</td><td>' +
                     data[i].pvp + '</td><td>' +
-                    data[i].reImbursementRate + '</td><tr>'
+                    data[i].reImbursementRate + '</td><tr>';
 
                 $('#medicineTablebyName').append(medicine);
             }
@@ -104,12 +106,15 @@ function searchAllMedicine(p) {
                     ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
                     + '</td></tr>'
                 $("#medicineTable").append(medicine);
+                
             };
-
+$('#medicineTable').DataTable();
         }
+        
+        
     })
+    
 }
-
 
 function getMedicineName() {
     var a = [];

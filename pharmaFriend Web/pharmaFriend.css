@@ -226,10 +226,12 @@ tbody tr:hover {
     border-top: none;
     z-index: 99;
     /*position the autocomplete items to be the same width as the container:*/
-    top: 100%;
+    top: inherit;
     left: 0;
     right: 0;
-    color:black;
+    
+    color:grey;
+    font-size:initial;
   }
   
   .autocomplete-items div {
@@ -257,7 +259,9 @@ tbody tr:hover {
     
 }
 #medicineName,#userdistance{
-    color:black;
+    width: 100%;
+    color:grey;
+    font-size:23px;
 }
 form.mypharmaformhome  {
     width: 70%;
@@ -289,3 +293,20 @@ form.mypharmaformhome  {
     font-weight: 400;
     letter-spacing: 1px;
 }
+
+/*pagination tables*/
+.pagination { display: inline-block; }
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) { background-color: #ddd; }
