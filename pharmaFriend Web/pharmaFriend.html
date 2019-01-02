@@ -17,15 +17,17 @@
     <!-- THIS IS MY NAVIGATION BAR -->
     <div id="navbar" class="collapse navbar-collapse container navbar-fixed-top">
         <ul>
-            <li id="btnLogin"><a class="active" type="button">Login</a></li>
-            <li id="user"><input style="margin-left: 10px; margin-top: 12px;"  placeholder="Email" /> </li>
-            <li id="password"><input style="margin-left: 10px; margin-top: 12px;"  placeholder="Password" /> </li>
+            <li id="btnLogin"><a class="active hover" type="button">Login</a></li>
+            <li id="user"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Email" /> </li>
+            <li id="password"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Password" /> </li>
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
-            <li id="medicineListBtn"><a  onclick="searchAllMedicine()" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
-            <li id="pharmacyListBtn"><a  onclick="searchAllPharmacy()" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
+            <li id="medicineListBtn"><a onclick="searchAllMedicine()" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
+            <li id="pharmacyListBtn"><a onclick="searchAllPharmacy()" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
-            <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR VISION</a></li>
-            <li id="benvindo" class="navbar-center" style="color: white; margin-left: 350px; margin-top: 15px"> Bem Vindo Utilizador </li>
+            <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
+                    VISION</a></li>
+                    <li class="navbar-right"  id="userLogo"><a type="button" class="fas fa-user hover" style='font-size:22px; color:greenyellow'> </a></i>
+            <li id="benvindo" class="navbar-right" style="color: white; margin-left: 10px; margin-right: 10px; margin-top: 15px"> Bem-vindo 'Utilizador' </li>
         </ul>
     </div>
 
@@ -39,7 +41,7 @@
                 </div>
                 <div id="pharmacyImg">
                     <br><br>
-                   <img src="img.jpg"> 
+                    <img src="img.jpg" style="border-radius: 150px;">
                 </div>
             </div>
         </div>
@@ -50,13 +52,10 @@
                         <input class="autocomplete" id="medicineName" type="text" placeholder="What medicine are you looking for?" />
                         <input id="userdistance" type="text" placeholder="distance?" />
                         <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
-                                <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
+                            <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                             </i></button>
                     </form>
                 </div>
-
-
-
             </div>
             <div>
                 <div id="results">
@@ -92,7 +91,8 @@
 
 
                         <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
-                                class="glyphicon glyphicon-zoom-in"></span> SEARCH MEDICINE</a>
+                                class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH MEDICINE</a>
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
                     </form>
