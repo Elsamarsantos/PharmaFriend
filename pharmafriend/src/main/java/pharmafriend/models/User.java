@@ -6,7 +6,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({@NamedQuery(name=User.QUERY_ALL, query="SELECT u From User u"), 
-	@NamedQuery(name=User.QUERYNAME, query="SELECT u From User u WHERE u.UserName= :UserName"),
+	@NamedQuery(name=User.QUERYNAME, query="SELECT u From User u WHERE u.userName= :userName"),
 	@NamedQuery(name=User.QUERY_EMAIL, query="SELECT u From User u WHERE u.login= :login"),
 	@NamedQuery(name=User.QUERY_BIGGEST, query="SELECT MAX(u.id) FROM User u")
 })
@@ -19,7 +19,7 @@ public class User extends BaseEntity{
 	public static final String QUERY_ALL = "findAllUsers";	
 	public static final String QUERY_BIGGEST = "getBiggestIdUser";
 	
-	private String UserName;
+	private String userName;
     private String login;
     private String passWord;
     private boolean userAccess;
@@ -29,11 +29,11 @@ public class User extends BaseEntity{
 	
 
 
-	public String getUserName() {
-		return UserName;
+	public String getuserName() {
+		return userName;
 	}
-	public void setName(String UserName) {
-		this.UserName = UserName;
+	public void setName(String userName) {
+		this.userName = userName;
 	}
 	public String getLogin() {
 		return login;

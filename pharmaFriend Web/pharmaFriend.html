@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
         crossorigin='anonymous'>
-        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
 
 </head>
 
@@ -25,6 +25,7 @@
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a onclick="searchAllMedicine()" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a onclick="searchAllPharmacy()" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
+            <li id="userListBtn"><a onclick="searchAllUser()" class="hover" href="#userList" type="button">USER</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
             <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
                     VISION</a></li>
@@ -51,33 +52,33 @@
         </div>
         <div class="row text-center">
             <div id="mypharmaform1" class="col-sm-12 col-md-12 col-lg-12">
-                
-                    <form class="mypharmaformhome" autocomplete="off">
-                        <div class="getSearch">
-                            <label for="getName">Medicine name:</label><br>
-                            <input class="autocomplete" id="medicineName" type="text" />
-                        </div>
-                        <div class="getSearch">
-                            <label for="getDose">Dose:</label>
-                            <select class="form-control" id="getDose">
-                                <option value="" disabled selected>Select one option</option>
-                            </select>
-                        </div>
-                        <div class="getSearch">
-                            <label for="getVolume">Volume Unit:</label>
-                            <select class="form-control" id="getVolume">
-                                <option value="" disabled selected>Select one option</option>
-                            </select>
-                        </div>
-                        <div class="getSearch">
-                            <label for="getDistance">Distance:</label><br>
-                            <input id="userdistance" type="text" />
-                        </div>
-                        <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
-                            <i class='fas fa-pills'> </i> SEARCH Pharmacies <i class='fas fa-search'>
-                            </i></button>
-                    </form>
-            
+
+                <form class="mypharmaformhome" autocomplete="off">
+                    <div class="getSearch">
+                        <label for="getName">Medicine name:</label><br>
+                        <input class="autocomplete" id="medicineName" type="text" />
+                    </div>
+                    <div class="getSearch">
+                        <label for="getDose">Dose:</label>
+                        <select class="form-control" id="getDose">
+                            <option value="" disabled selected>Select one option</option>
+                        </select>
+                    </div>
+                    <div class="getSearch">
+                        <label for="getVolume">Volume Unit:</label>
+                        <select class="form-control" id="getVolume">
+                            <option value="" disabled selected>Select one option</option>
+                        </select>
+                    </div>
+                    <div class="getSearch">
+                        <label for="getDistance">Distance:</label><br>
+                        <input id="userdistance" type="text" />
+                    </div>
+                    <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
+                        <i class='fas fa-pills'> </i> SEARCH Pharmacies <i class='fas fa-search'>
+                        </i></button>
+                </form>
+
             </div>
             <div>
                 <div id="results">
@@ -343,6 +344,33 @@
         </div>
     </div>
 
+
+    <!-- THIS IS USER PAGE----------------------------------------------------------------------->
+    <div class="container" id="tabUser">
+        <div class="row">
+            <header>USER</header>
+
+
+            <!-- THIS IS User PAGE: DINAMIC TABLE -->
+            <table id="userTable" class="table tableplus">
+                <thead>
+                    <tr>
+                        <th scope="col">NAME</th>
+                        <th scope="col">Login</th>
+                        <th scope="col">PASSWORD</th>
+                        <th scope="col">USERACCESS</th>
+                        <th scope="col">ADDRRESS</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
     <!-- THIS IS OUR VISION PAGE-->
     <div class="container" id="ourVision">
         <div class="row text-center">
@@ -372,7 +400,7 @@
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
     <script src="pharmaFriendMedicineAJAX.js"></script>
@@ -381,13 +409,14 @@
     <script src="pharmaFriendPharmacyFunctions.js"></script>
     <script src="pharmaFriendMain.js"></script>
     <script src="htmlInteraction.js"></script>
+    <script src="UserAjax.js"></script>
 
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
     <script src="DataTables/datatables.min.js"></script>
-<script src="DataTables/jQuery-3.2.1/jquery-3.2.1.min.js"></script>
-<script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
+    <script src="DataTables/jQuery-3.2.1/jquery-3.2.1.min.js"></script>
+    <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
 </body>
 
 

@@ -14,11 +14,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
-import pharmafriend.Dtos.MedicineDto;
+
 import pharmafriend.business.UserBusiness;
-import pharmafriend.models.Medicine;
+
 import pharmafriend.models.User;
-import pharmafriend.repositories.UserRepository;
+
 
 @Path("user")
 public class UserServices {

@@ -3,6 +3,7 @@ $(document).ready(function () {
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
+    $("#tabUser").hide();
     $("#home").show();
   
 });
@@ -11,6 +12,7 @@ $(document).ready(function () {
 $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
+$("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
 $("#userLogo").click(function reload(){
     location.reload();
@@ -51,12 +53,14 @@ function home() {
     $("#mypharmaform1").show();
     $("#medicineListBtn").show();
     $("#pharmacyListBtn").show();
+    $("#userListBtn").show()
     $("#homeBtn").show();
     $("#benvindo").show();
     $("#btnRegistar").hide();
     $("#ourVision").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
+    $("#tabUser").hide();
     $("#home").show();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#homeBtn').addClass( "active" );
@@ -68,6 +72,7 @@ function medicineList() {
     $("#home").hide();
     $("#tabPharmacy").hide();
     $("#tabMedicine").show();
+    $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
 
@@ -79,9 +84,21 @@ function pharmacyList() {
     $("#home").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").show();
+    $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#pharmacyListBtn').addClass( "active" );
 }
+
+function userList() {
+    $("#ourVision").hide();
+    $("#home").hide();
+    $("#tabMedicine").hide();
+    $("#tabPharmacy").hide();
+    $("#tabUser").show();
+    $(".active").removeClass( "active" ).addClass( "hover" );
+    $('#userListBtn').addClass( "active" );
+}
+
 
 function ourVision() {
     $("#tabMedicine").hide();

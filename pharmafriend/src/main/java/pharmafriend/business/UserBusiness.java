@@ -19,8 +19,10 @@ public class UserBusiness {
 	//create new user
 		@Transactional
 		public void createUser(User user){
-			
 			long lastId= userRepository1.getBiggestId();
+			
+			
+			
 			long novoId = 1+ lastId;
 			user.setId(novoId);
 			
@@ -36,11 +38,11 @@ public class UserBusiness {
 		}
 		
 		//consult user by login
-				@Transactional 
-				public User consultByLogin(String name) {
+		@Transactional 
+		public User consultByLogin(String name) {
 					
-					return userRepository1.getUserByEmail(name);
-				}
+			return userRepository1.getUserByEmail(name);
+		}
 		
 		
 		//consult user by Id
@@ -48,8 +50,7 @@ public class UserBusiness {
 		public User consultById(Long id) {
 			
 			return userRepository1.consultEntityId(id);
-			
-		
+	
 		}
 		
 		//consult all user on DB
@@ -68,12 +69,12 @@ public class UserBusiness {
 		}
 		
 		//remove user by id 
-			@Transactional 
-			public void removeUserById(long id) {
+		@Transactional 
+		public void removeUserById(long id) {
 				
-				String userToRemove = userRepository1.consultEntityId(id).getLogin();
-				userRepository1.remove(userToRemove);
-			}
+		String userToRemove = userRepository1.consultEntityId(id).getLogin();
+		userRepository1.remove(userToRemove);
+		}
 		
 		
 		@Transactional 
