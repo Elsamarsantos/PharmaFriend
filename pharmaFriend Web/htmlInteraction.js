@@ -45,6 +45,7 @@ function verificaRegisto(){
  
 
 function home() {
+    $("#userListBtn").show();
     $("#userLogo").show();
     $("#pharmacyImg").hide();
     $("#user").hide();

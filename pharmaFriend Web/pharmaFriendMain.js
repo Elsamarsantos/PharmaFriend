@@ -8,20 +8,16 @@ $(document).ready(function () {
     $("#homeBtn").hide();
     $("#benvindo").hide();
     $("#getDose").on("change", getVolume);
-
+    $("#userListBtn").hide();
 });
 
 var points = [];
 
 $("#btnMainSearch").click(function mainSearch() {
 
-
-
-
     if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
 
         var output = document.getElementById("out");
-
 
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -47,9 +43,7 @@ $("#btnMainSearch").click(function mainSearch() {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-            /* ------------------------------------ MARKER --------------------------------------------*/
-
-
+            /* ------------------------------------ MARKERS --------------------------------------------*/
 
             /*---------- Person Marker ---------- */
             var personMarker = L.AwesomeMarkers.icon({
@@ -90,12 +84,9 @@ $("#btnMainSearch").click(function mainSearch() {
 
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
-                        
-
                     }
                 }
             })
-
 
         }
 
@@ -256,11 +247,7 @@ searchByName();
 
 function getDose() {
 
-
-
     var medicineName = $("#medicineName").val();
-
-
 
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
@@ -277,8 +264,6 @@ function getDose() {
 
             }
 
-
-
         }
     })
 
@@ -289,9 +274,6 @@ function getVolume() {
 
     var medicineName = $("#medicineName").val();
     var medicineDose = $("#getDose").val();
-
-
-
 
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/medicinebydose?medicineName=${medicineName}&dose=${medicineDose}`,
