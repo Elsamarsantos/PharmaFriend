@@ -12,7 +12,7 @@ function createMedicine(newMedicine) {
         contentType: 'application/json',
         data: JSON.stringify(newMedicine),
         success: function (data) {
-            console.log("Sucess:"+ data);
+            console.log("Sucess:" + data);
         }
     })
 };
@@ -103,17 +103,17 @@ function searchAllMedicine(p) {
                     element.pvp + '</td><td>' +
                     element.reImbursementRate + '</td><td>' +
                     '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
-                    ' <a href="#" data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
+                    ' <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
                     + '</td></tr>'
                 $("#medicineTable").append(medicine);
-                
+
             };
-$('#medicineTable').DataTable();
+            $('#medicineTable').DataTable();
         }
-        
-        
+
+
     })
-    
+
 }
 
 function getMedicineName() {

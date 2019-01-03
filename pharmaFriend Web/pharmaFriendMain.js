@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 });
 
-
+var points = [];
 
 $("#btnMainSearch").click(function mainSearch() {
 
@@ -19,9 +19,9 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
     if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
-        
+
         var output = document.getElementById("out");
-        
+
 
         if (!navigator.geolocation) {
             output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
@@ -88,8 +88,10 @@ $("#btnMainSearch").click(function mainSearch() {
 
                     for (i = 0; i < data.length; i++) {
 
-                        L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
+                        var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        
+
                     }
                 }
             })
@@ -97,11 +99,12 @@ $("#btnMainSearch").click(function mainSearch() {
 
         }
 
+
         function error() {
             output.innerHTML = "Unable to retrieve your location, please check your internet connection";
         }
 
-        
+
         navigator.geolocation.getCurrentPosition(success, error);
     }
     else {
@@ -114,6 +117,10 @@ $("#btnMainSearch").click(function mainSearch() {
     }
 
 });
+
+
+    
+
 
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,

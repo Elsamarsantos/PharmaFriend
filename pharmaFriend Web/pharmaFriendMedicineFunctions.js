@@ -37,13 +37,15 @@ $("#btnSearchMedicine").click(function btnSearchM() {
 
 //UPDATE
 $("#btnUpdateMedicine").click(function btnUpdateM() {
-    var myMedicine = {"id": 1, "medicineName":$("#name").val(), "dose": $("#dose").val(),
+    var myMedicine = {"medicineName":$("#name").val(), "dose": $("#dose").val(),
     "volumeUnit": $("#units").val(), "pvp": $("#pvp").val(), "reImbursementRate": $("#rrate").val()};
     updateMedicine(myMedicine);
 
 })
 //DELETE
 $("#btnDeleteMedicine").click(function btnDeleteM() {
+
+    console.log("data:");
         medicineName = ($("#medicineName").val());
         deleteMedicine(medicineName);
       

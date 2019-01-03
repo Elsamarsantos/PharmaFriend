@@ -35,7 +35,6 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 	
 	
 	
-	
 	protected abstract Class<T> getEntityClass();
 
 	protected abstract String getNamedQueryAll();

@@ -21,16 +21,12 @@ public class MedicineBusiness {
 	@Inject
 	StockInPharmacy stockInPharmacy1;
 	
-	public long getLastId() {
-		
-		return medicineRepository1.getAllEntity().size();
-	}
 	
 	//create new medicine
 	@Transactional
 	public void createMedicine(Medicine medicine){
 		 
-		long lastId= getLastId();
+		long lastId= medicineRepository1.getBiggestId();
 		long novoId = 1+ lastId;
 		medicine.setId(novoId);
 		

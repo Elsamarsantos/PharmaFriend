@@ -97,6 +97,7 @@ function searchAllPharmacy() {
             + '</td></tr>'
             $("#pharmacyTable").append(pharmacy);
             }
+            $('#pharmacyTable').DataTable();
 
     
         }

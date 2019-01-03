@@ -51,5 +51,8 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 
+	public long getBiggestId() {
 	
+		return (long) em.createNamedQuery(Medicine.QUERY_BIGGEST).getSingleResult();
+	}
 }
