@@ -133,7 +133,7 @@ function searchAllMedicine() {
 searchAllMedicine();
 setInterval(() => {
     searchAllMedicine();
-    console.log('novo update')
+    console.log('novo update');
 }, 1000*120);
 
 function getListMedicines() {

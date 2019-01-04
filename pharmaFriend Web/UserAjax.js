@@ -84,9 +84,10 @@
 //     })
 // }
 
+
+var listAllUsers = [];
 // THIS IS MY AJAX TO GET ALL USER IN MY SQL TABLE
 function searchAllUser() {
-    console.log("entrou no funcao");
 
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/user/consultall",
@@ -96,27 +97,37 @@ function searchAllUser() {
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            
-            for (i = 0; i < data.length; i++) {
-                console.log("entrou no for");
-                const element = data[i];
-                var user = '<tr><td>' + element.userName + '</td><td>' + element.login +
-                    '</td><td>' + element.passWord + '</td><td>' +
-                    element.userAccess + '</td><td>' +
-                    element.address + '</td><td>' +
-                    '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
-                    ' <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
-                    + '</td></tr>'
-                $("#userTable").append(user);
+            listAllUsers = data;
 
-            };
-            $('#userTable').DataTable();
+
+
         }
 
+    });
+}searchAllUser();
+setInterval(() => {
+    searchAllMedicine();
+   
+}, 1000*120);
 
-    })
+function getListUser() {
+    for (i = 0; i < listAllUsers.length; i++) {
+       
+        const element = listAllUsers[i];
+        var user = '<tr><td>' + element.userName + '</td><td>' + element.login +
+            '</td><td>' + element.passWord + '</td><td>' +
+            element.userAccess + '</td><td>' +
+            element.address + '</td><td>' +
+            '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
+            ' <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
+            + '</td></tr>'
+        $("#userTable").append(user);
 
-};
+    };
+    $('#userTable').DataTable();
+}
+
+
 
 // function getMedicineName() {
 //     var a = [];
