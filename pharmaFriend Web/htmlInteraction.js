@@ -14,7 +14,7 @@ $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
 $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
-$("#userLogo").click(function reload(){
+$("#logoff").click(function reload(){
     location.reload();
 });
 
@@ -45,6 +45,7 @@ function verificaRegisto(){
  
 
 function home() {
+    $("#logoff").show();
     $("#userListBtn").show();
     $("#userLogo").show();
     $("#pharmacyImg").hide();
@@ -69,6 +70,7 @@ function home() {
 }
 
 function medicineList() {
+    $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
     $("#tabPharmacy").hide();
@@ -81,6 +83,7 @@ function medicineList() {
 }
 
 function pharmacyList() {
+    $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
     $("#tabMedicine").hide();
@@ -91,6 +94,7 @@ function pharmacyList() {
 }
 
 function userList() {
+    $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
     $("#tabMedicine").hide();
@@ -102,6 +106,7 @@ function userList() {
 
 
 function ourVision() {
+    $("#mypharmaform1").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
     $("#home").hide();

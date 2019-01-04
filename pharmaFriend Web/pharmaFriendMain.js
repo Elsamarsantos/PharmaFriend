@@ -9,11 +9,14 @@ $(document).ready(function () {
     $("#benvindo").hide();
     $("#getDose").on("change", getVolume);
     $("#userListBtn").hide();
+    $("#logoff").hide();
 });
 
 var points = [];
 
 $("#btnMainSearch").click(function mainSearch() {
+
+   
 
     if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
 
@@ -32,6 +35,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var inputmedicine = $("#medicineName").val();
             var distance = $("#userdistance").val();
 
+            $("#mypharmaform1").hide();
             $("#results").show();
 
 

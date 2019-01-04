@@ -25,14 +25,16 @@
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a onclick="searchAllMedicine()" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a onclick="searchAllPharmacy()" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
-            <li id="userListBtn"><a onclick="searchAllUser()" class="hover" href="#userList" type="button">USER</a></li>
+            <li id="userListBtn"><a onclick="searchAllUser()" class="hover" href="#userList" type="button">USERS</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
             <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
                     VISION</a></li>
-            <li class="navbar-right" id="userLogo"><a type="button" class="fas fa-user hover" style='font-size:22px; color:greenyellow'>
+            <li class="navbar-right" id="logoff"><a type="button" class="fas fa-power-off" style='font-size:22px; color: red'>
                 </a></i>
-            <li id="benvindo" class="navbar-right" style="color: white; margin-left: 10px; margin-right: 10px; margin-top: 15px">
-                Bem-vindo 'Utilizador' </li>
+            <li id="benvindo" class="navbar-right" style="color: white; margin-left: 5px; margin-right: 5px; margin-top: 15px">
+                Wellcome 'USER' </li>
+            <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
+                </a></i>
         </ul>
     </div>
 
@@ -40,18 +42,20 @@
     <div class="container" id="home">
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
-                <div>
-                    <header> PharmaFriend </header>
-                    <h1>Simplify your search.</h1>
-                </div>
-                <div id="pharmacyImg">
-                    <br>
-                    <img src="img.jpg" style="border-radius: 150px ">
-                </div>
+
+                <header> PharmaFriend </header>
+                <h1>Simplify your search.</h1>
+            </div>
+            <div id="pharmacyImg">
+                <br>
+                <img src="img.jpg" style="border-radius: 150px ">
             </div>
         </div>
-        <div class="row text-center">
-            <div id="mypharmaform1" class="col-sm-12 col-md-12 col-lg-12">
+    </div>
+    <div class="row text-center">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-5">
+            <div id="mypharmaform1">
 
                 <form class="mypharmaformhome" autocomplete="off">
                     <div class="getSearch">
@@ -78,24 +82,28 @@
                         <i class='fas fa-pills'> </i> SEARCH Pharmacies <i class='fas fa-search'>
                         </i></button>
                 </form>
-
-            </div>
-            <div>
-                <div id="results">
-                    <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
-                    <div id="mapOutput">
-                        <div id="map"></div>
-                        <div id="out"></div>
-                        <div class="btn-group" role="group" aria-label="Basic example"><br>
-                            <button type="button" class="btn btn-success"> SEND </button>
-                            <button id="btnclose" type="button" class="btn btn-danger "> CLOSE </button>
-                        </div>
-
-                    </div>
-                </div>
+                <div class="col-sm-3"></div>
             </div>
         </div>
     </div>
+
+    <div id="results" >
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
+            <div id="mapOutput" style="text-align:center">
+                <div id="map" style="border-radius: 10px 100px"></div>
+                <div id="out"></div>
+                <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 65px"><br>
+                    <button type="button" class="btn btn-success"> SEND </button>
+                    <button id="btnclose" type="button" class="btn btn-danger "> CLOSE </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+
 
 
     <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH  -->
@@ -348,7 +356,7 @@
     <!-- THIS IS USER PAGE----------------------------------------------------------------------->
     <div class="container" id="tabUser">
         <div class="row">
-            <header>USER</header>
+            <header>USERS</header>
 
 
             <!-- THIS IS User PAGE: DINAMIC TABLE -->
@@ -387,8 +395,7 @@
     </div>
 
     <div>
-        <br><br><br><br>
-        <footer class="footer">
+        <footer id="footer" class="footer">
             <h5>By EDA</h5>
             <h5>2018-2019</h5>
         </footer>
