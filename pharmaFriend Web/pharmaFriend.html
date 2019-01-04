@@ -231,8 +231,13 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> DELETE MEDICINE?</h2> <br>
-                    <a href="#" class="btn btn-primary btn-success" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
+                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS MEDICINE?</h2> <br>
+                    <table id="medicineTableToDelete" class="table tableplus">
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                    <a href="#" id="btnDeleteMedicine"class="btn btn-primary btn-success" onclick="deleteMedicine()"data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
                         YES </a>
                     <a href="#" class="btn btn-primary btn-danger" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span>
                         NO </a>
@@ -342,8 +347,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> DELETE PHARMACY?</h2> <br>
-                    <a href="#" data-dismiss="modal" aria-label="Close" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span>
+                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS PHARMACY?</h2> <br>
+                    <table id="pharmacyTableToDelete" class="table tableplus">
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <a href="#" data-dismiss="modal" aria-label="Close" onclick="deletePharmacy()" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span>
                         YES </a>
                     <a href="#" data-dismiss="modal" aria-label="Close" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span>
                         NO </a>

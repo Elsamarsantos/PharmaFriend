@@ -5,6 +5,7 @@ package pharmafriend.repositories;
 import java.util.List;
 
 import pharmafriend.models.Medicine;
+import pharmafriend.models.User;
 
 public class MedicineRepository extends EntityRepository<Medicine>{
 
@@ -52,7 +53,14 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 	}
 
 	public long getBiggestId() {
-	
-		return (long) em.createNamedQuery(Medicine.QUERY_BIGGEST).getSingleResult();
+		
+		long biggestId = 0;
+		
+		if (em.createNamedQuery(Medicine.QUERY_ALL, User.class).getResultList().size() > 0) {
+			biggestId =(long) em.createNamedQuery(Medicine.QUERY_BIGGEST).getSingleResult();
+		}
+		;
+
+		return biggestId;
 	}
 }

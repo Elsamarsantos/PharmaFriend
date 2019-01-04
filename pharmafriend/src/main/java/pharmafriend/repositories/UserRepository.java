@@ -36,8 +36,16 @@ public class UserRepository extends EntityRepository<User>{
 	}
 
 	public long getBiggestId() {
+		long biggestId = 0;
 		
-		return (long) em.createNamedQuery(User.QUERY_BIGGEST).getSingleResult();
+		if (em.createNamedQuery(User.QUERY_ALL, User.class).getResultList().size() > 0) {
+			biggestId =(long) em.createNamedQuery(User.QUERY_BIGGEST).getSingleResult();
+		}
+		;
+		
+
+		System.out.println(biggestId);
+		return biggestId;
 	}
 	
 }

@@ -19,6 +19,7 @@ public class User extends BaseEntity{
 	public static final String QUERY_ALL = "findAllUsers";	
 	public static final String QUERY_BIGGEST = "getBiggestIdUser";
 	
+	
 	private String userName;
     private String login;
     private String passWord;

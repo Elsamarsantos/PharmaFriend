@@ -19,10 +19,7 @@ public class UserBusiness {
 	//create new user
 		@Transactional
 		public void createUser(User user){
-			long lastId= userRepository1.getBiggestId();
-			
-			
-			
+			long lastId= userRepository1.getBiggestId();	
 			long novoId = 1+ lastId;
 			user.setId(novoId);
 			

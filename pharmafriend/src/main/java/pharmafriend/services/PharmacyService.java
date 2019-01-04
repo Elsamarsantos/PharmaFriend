@@ -79,11 +79,11 @@ public class PharmacyService {
 	
 	
 	@DELETE
-	@Path("delete/{name}")
+	@Path("delete/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	
-	public void removePharmacyName(@PathParam("name")String name1) {
-		pharmacyBusiness1.removePharmacy(name1);
+	public void removePharmacyId(@PathParam("id")long id) {
+		pharmacyBusiness1.removePharmacy(id);
 	}
 
 	@GET

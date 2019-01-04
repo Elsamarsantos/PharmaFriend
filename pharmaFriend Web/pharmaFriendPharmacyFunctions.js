@@ -14,15 +14,9 @@ class Pharmacy {
 //CREATE
 $("#btnCreatePharmacy").click(function btnCreateP() {
     
-    var newPharmacy = {"id": 160, "pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
+    var newPharmacy = {"pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
     createPharmacy(newPharmacy);
    
-
-    $("#pharmacyTable").append('<tr><td>' + $("#pharmaName").val() + 
-      '</td><td>' + $("#location").val() + + 
-      '</td><td>' + $("#longitude").val() + 
-      '</td><td>' + $("#latitude").val() + '</td></tr>'); 
-
 })
 //SEARCH
 $("#btnSearchPharmacy").click(function btnSearchP() {
@@ -33,9 +27,4 @@ $("#btnSearchPharmacy").click(function btnSearchP() {
 $("#btnUpdatePharmacy").click(function btnUpdateP() {
     var myPharmacy = {"id": 160, "pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
     createPharmacy(myPharmacy);
-})
-//DELETE
-$("#btnDeletePharmacy").click(function btnDeleteP() {
-    pharmacyName = ($("#searchPharma").val());
-    deletePharmacy(pharmacyName);
 })

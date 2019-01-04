@@ -3,6 +3,7 @@ package pharmafriend.repositories;
 
 import pharmafriend.models.Medicine;
 import pharmafriend.models.Pharmacy;
+import pharmafriend.models.User;
 
 public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	
@@ -44,7 +45,13 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 
 	public long getBiggestId() {
 		
-		return (long) em.createNamedQuery(Pharmacy.QUERY_BIGGEST).getSingleResult();
+		long biggestId = 0;
+		
+		if (em.createNamedQuery(Pharmacy.QUERY_ALL, User.class).getResultList().size() > 0) {
+			biggestId =(long) em.createNamedQuery(Pharmacy.QUERY_BIGGEST).getSingleResult();
+		};
+		
+		return biggestId;
 	}
 	
 }

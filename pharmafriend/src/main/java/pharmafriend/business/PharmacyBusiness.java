@@ -94,11 +94,14 @@ public class PharmacyBusiness {
 	
 	}
 	
+
+	
 	//to remove pharmacy
-	@Transactional 
-	public void removePharmacy(String name) {
-		pharmacyRepository1.remove(name);
-	}
+		@Transactional 
+		public void removePharmacy(long id) {
+			Pharmacy pharmacy =  pharmacyRepository1.consultEntityId(id);
+			pharmacyRepository1.remove(pharmacy.getPharmacyName());
+		}
 	
 	//it´s not working 
 	@Transactional 

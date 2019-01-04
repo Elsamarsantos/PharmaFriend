@@ -17,14 +17,7 @@ $("#btnCreateMedicine").click(function btnCreateM() {
     var newMedicine = {"medicineName":$("#name").val(),"dose":$("#dose").val(),
     "volumeUnit":$("#units").val(),"pvp":$("#pvp").val(),"reImbursementRate":$("#rrate").val()};
 
-    // { DEFAULT
-    //     "id": 1,
-    //     "medicineName": "Acarbose Bluepharma",
-    //     "dose": "50 mg",
-    //     "volumeUnit": "Blister - 20 unidade(s)",
-    //     "pvp": 3.27,
-    //     "reImbursementRate": "90%"
-    // }
+    
     createMedicine(newMedicine);
     
 })
@@ -42,11 +35,4 @@ $("#btnUpdateMedicine").click(function btnUpdateM() {
     updateMedicine(myMedicine);
 
 })
-//DELETE
-$("#btnDeleteMedicine").click(function btnDeleteM() {
 
-    console.log("data:");
-        medicineName = ($("#medicineName").val());
-        deleteMedicine(medicineName);
-      
-})

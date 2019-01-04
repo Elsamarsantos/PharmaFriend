@@ -53,23 +53,42 @@ function updatePharmacy(p) {
         }
     })
 }
+//prepare to delete 
+function prepareToDeleteP(el) {
 
+    var id =$(el).parent().parent().attr('id') ;
+ 
+     $.ajax({
+         url: `http://localhost:8080/pharmafriend/api/pharmacies/consultid/${id}`,
+         type: 'GET',
+         headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+         },
+         success: function (data) {
+         console.log("ver preparar",data)
+             var pharmacy = `<tr id="${data.id}"><td>` + data.pharmacyName + '</td><td>' + data.address +'</td><tr>';
+ 
+             $('#pharmacyTableToDelete').append(pharmacy);
+  
+         }
+     })
+ 
+ }
 // THIS IS MY AJAX TO DELETE A PHARMACY
-function deletePharmacy(p) {
-    console.log("Preparing for sucess:" + p);
+function deletePharmacy() {
+    var id= $('#pharmacyTableToDelete tr').attr('id');
+    console.log("ver id", id);
+
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/pharmacies/delete/" + pharmacyName,
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/delete/${id}`,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         contentType: 'application/json',
-        data: JSON.stringify(p),
-        success: function (data) {
-            console.log("Sucess:" + data);
-            
-        }
+        
     })
 }
 
@@ -88,12 +107,12 @@ function searchAllPharmacy() {
             console.log("Pharmacy total number is " + data.length);
             for(i=0; i<data.length; i++){
             const element = data[i];
-            var pharmacy = '<tr><td>' + element.pharmacyName + 
+            var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + 
             '</td><td>' + element.address + 
             '</td><td>' + element.lonLocation + 
             '</td><td>' + element.latLocation +  '</td><td>' +
              '<a href="#" id="btnUpdatePharmacy" data-toggle="modal" data-target="#updatePharmacyModal" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
-            ' <a href="#" id="btnDeletePharmacy" data-toggle="modal" data-target="#deletePharmacyModal" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>' 
+            ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>` 
             + '</td></tr>'
             $("#pharmacyTable").append(pharmacy);
             }

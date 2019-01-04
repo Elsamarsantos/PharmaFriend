@@ -25,8 +25,8 @@ public class MedicineBusiness {
 	//create new medicine
 	@Transactional
 	public void createMedicine(Medicine medicine){
-		 
 		long lastId= medicineRepository1.getBiggestId();
+		
 		long novoId = 1+ lastId;
 		medicine.setId(novoId);
 		

@@ -65,22 +65,45 @@ function updateMedicine(p) {
     })
 }
 
-// THIS IS MY AJAX TO DELETE A MEDICINE
-function deleteMedicine(p) {
-    console.log("Preparing for sucess:" + p);
+function prepareToDeleteM(el) {
+
+   var id =$(el).parent().parent().attr('id') ;
+
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicine/delete" + medicineId,
+        url: `http://localhost:8080/pharmafriend/api/medicines/consultid/${id}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+        console.log("ver preparar",data)
+            var medicine = `<tr id="${data.id}"><td>` + data.medicineName + '</td><td>' + data.dose +
+                '</td><td>' + data.volumeUnit + '</td><tr>';
+
+            $('#medicineTableToDelete').append(medicine);
+ 
+        }
+    })
+
+}
+
+// THIS IS MY AJAX TO DELETE A MEDICINE
+function deleteMedicine() {
+
+    var id= $('#medicineTableToDelete tr').attr('id');
+    
+
+    console.log("Preparing to delete:" + id);
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/medicines/delete/${id}`,
         type: 'DELETE',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         contentType: 'application/json',
-        data: JSON.stringify(p),
-        success: function (n) {
-            console.log(n);
-
-        }
+     
     })
 }
 
@@ -98,12 +121,12 @@ function searchAllMedicine(p) {
             console.log("Medicine total number is " + data.length + " but I'm showing only 50");
             for (i = 0; i < 50; i++) {
                 const element = data[i];
-                var medicine = '<tr><td>' + element.medicineName + '</td><td>' + element.dose +
+                var medicine = `<tr id="${element.id}"><td>` + element.medicineName + '</td><td>' + element.dose +
                     '</td><td>' + element.volumeUnit + '</td><td>' +
                     element.pvp + '</td><td>' +
                     element.reImbursementRate + '</td><td>' +
                     '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
-                    ' <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>'
+                    ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
                     + '</td></tr>'
                 $("#medicineTable").append(medicine);
 
