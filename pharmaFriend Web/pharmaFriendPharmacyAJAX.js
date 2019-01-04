@@ -122,6 +122,7 @@ function searchAllPharmacy() {
         }
     })
 }
+
 function getPharmacyName() {
     var a = [];
 
