@@ -1,7 +1,5 @@
 // THIS IS MY AJAX TO CREATE A MEDICINE
 function createMedicine(newMedicine) {
-
-
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/create`,
         type: 'POST',

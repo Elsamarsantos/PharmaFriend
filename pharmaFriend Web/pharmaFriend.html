@@ -32,7 +32,7 @@
             <li class="navbar-right" id="logoff"><a type="button" class="fas fa-power-off" style='font-size:22px; color: red'>
                 </a></i>
             <li id="benvindo" class="navbar-right" style="color: white; margin-left: 5px; margin-right: 5px; margin-top: 15px">
-                Wellcome 'USER' </li>
+                Welcome 'USER' </li>
             <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
                 </a></i>
         </ul>
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-sm-4"></div>
+        <div class="col-sm-4"> </div>
         <div class="col-sm-5">
             <div id="mypharmaform1">
 
@@ -87,20 +87,46 @@
         </div>
     </div>
 
-    <div id="results" >
-        <div class="col-sm-3"></div>
+    <div id="results">
+        <div class="col-sm-3 row">
+            <div id="NearpharmacyList" style="text-align:center; color:white;">
+                <h3> Nearest Pharmacys </h3>
+                <br>
+                <div id="pharmacy1"></div>
+                <div id="pharmacy1loc"></div><br>
+                <div id="pharmacy2"></div>
+                <div id="pharmacy2loc"></div><br>
+                <div id="pharmacy3"></div>
+                <div id="pharmacy3loc"></div><br>
+                <button type="button" class="btn-success" style="border-radius: 20px; border-color: black">
+                    SEND to EMAIL</button>
+
+            </div>
+        </div>
+
         <div class="col-sm-6">
             <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
             <div id="mapOutput" style="text-align:center">
                 <div id="map" style="border-radius: 10px 100px"></div>
                 <div id="out"></div>
-                <div class="btn-group" role="group" aria-label="Basic example" style="margin-bottom: 65px"><br>
-                    <button type="button" class="btn btn-success"> SEND </button>
-                    <button id="btnclose" type="button" class="btn btn-danger "> CLOSE </button>
-                </div>
+                <br>
+                <button id="btnNewSearch" type="button" class="btn-danger" style="border-radius: 20px; margin-bottom: 65px; border-color: black">
+                    NEW SEARCH </button>
+
             </div>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3 row">
+            <div id=" buyMedicine" style="text-align:center; color:white;">
+                <br><br><br><br>
+                <h3>Your Medicine</h3><br>
+                <div id="buyMedName" type="text"></div>
+                <div id="buyMedDose"></div>
+                <div id="buyMedVolume"></div>
+                <p>Price: </p><br>
+                <button id="btnBuy" type="button" class="btn-success" style="border-radius: 20px; border-color: black">
+                    ADD to BUY </button>
+                </div>
+        </div>
     </div>
 
 
@@ -111,7 +137,7 @@
 
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
-    <div class="container" id="tabMedicine">
+    <div class="container" id="tabMedicine" style="margin-bottom: 65px">
         <div class="row">
             <header>MEDICINE</header>
             <center>
@@ -237,7 +263,8 @@
                         </tbody>
                     </table>
 
-                    <a href="#" id="btnDeleteMedicine"class="btn btn-primary btn-success" onclick="deleteMedicine()"data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
+                    <a href="#" id="btnDeleteMedicine" class="btn btn-primary btn-success" onclick="deleteMedicine()"
+                        data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
                         YES </a>
                     <a href="#" class="btn btn-primary btn-danger" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span>
                         NO </a>
@@ -249,7 +276,7 @@
     </div>
 
     <!-- TABEL FOR MY PHARMACY PAGE--------------------------------------------------------------------->
-    <div class="container" id="tabPharmacy">
+    <div class="container" id="tabPharmacy" style="margin-bottom: 65px">
         <div class="row">
             <header>PHARMACY</header>
             <center>
@@ -352,7 +379,8 @@
                         <tbody>
                         </tbody>
                     </table>
-                    <a href="#" data-dismiss="modal" aria-label="Close" onclick="deletePharmacy()" class="btn btn-primary btn-success"><span class="glyphicon glyphicon-ok"></span>
+                    <a href="#" data-dismiss="modal" aria-label="Close" onclick="deletePharmacy()" class="btn btn-primary btn-success"><span
+                            class="glyphicon glyphicon-ok"></span>
                         YES </a>
                     <a href="#" data-dismiss="modal" aria-label="Close" class="btn btn-primary btn-danger"><span class="glyphicon glyphicon-remove"></span>
                         NO </a>
@@ -363,7 +391,7 @@
 
 
     <!-- THIS IS USER PAGE----------------------------------------------------------------------->
-    <div class="container" id="tabUser">
+    <div class="container" id="tabUser" style="margin-bottom: 65px">
         <div class="row">
             <header>USERS</header>
 
@@ -389,7 +417,7 @@
 
 
     <!-- THIS IS OUR VISION PAGE-->
-    <div class="container" id="ourVision">
+    <div class="container" id="ourVision" style="margin-bottom: 65px">
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <header> Our Vision <br> </header> <br> <br>

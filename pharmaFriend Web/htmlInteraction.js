@@ -18,7 +18,7 @@ $("#logoff").click(function reload(){
     location.reload();
 });
 
-$("#btnclose").click(function close() {
+$("#btnNewSearch").click(function close() {
     $("#medicineName").val("");
     $("#getDose").empty();
     $("#getVolume").empty();
@@ -33,6 +33,7 @@ $("#btnLogin").click(function doLogin(){
     home();
  });
 
+
  
 function verificaRegisto(){
     var email = $("#user").val();
@@ -45,6 +46,7 @@ function verificaRegisto(){
  
 
 function home() {
+    $("#results").hide();
     $("#logoff").show();
     $("#userListBtn").show();
     $("#userLogo").show();
@@ -70,6 +72,7 @@ function home() {
 }
 
 function medicineList() {
+    $("#results").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -83,6 +86,7 @@ function medicineList() {
 }
 
 function pharmacyList() {
+    $("#results").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -94,6 +98,7 @@ function pharmacyList() {
 }
 
 function userList() {
+    $("#results").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -106,6 +111,8 @@ function userList() {
 
 
 function ourVision() {
+    $("#tabUser").hide();
+    $("#results").hide();
     $("#mypharmaform1").hide();
     $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
@@ -113,5 +120,4 @@ function ourVision() {
     $("#ourVision").show();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#ourVisionBtn').addClass( "active" );
-
 }
