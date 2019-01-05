@@ -73,6 +73,7 @@ function home() {
 
 function medicineList() {
     $("#results").hide();
+    $("#medicineTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -87,6 +88,7 @@ function medicineList() {
 
 function pharmacyList() {
     $("#results").hide();
+    $("#pharmacyTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -99,6 +101,7 @@ function pharmacyList() {
 
 function userList() {
     $("#results").hide();
+    $("#userTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();

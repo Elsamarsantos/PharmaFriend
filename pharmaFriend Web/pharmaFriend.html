@@ -23,9 +23,9 @@
             <li id="user"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Email" /> </li>
             <li id="password"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Password" /> </li>
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
-            <li id="medicineListBtn"><a onclick="getListMedicines()" class="hover" href="#medicineList" type="button">MEDICINES</a></li>
-            <li id="pharmacyListBtn"><a onclick="getListPharmacies()" class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
-            <li id="userListBtn"><a onclick="getListUser()" class="hover" href="#userList" type="button">USERS</a></li>
+            <li id="medicineListBtn"><a  class="hover" href="#medicineList" type="button">MEDICINES</a></li>
+            <li id="pharmacyListBtn"><a  class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
+            <li id="userListBtn"><a  class="hover" href="#userList" type="button">USERS</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
             <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
                     VISION</a></li>
@@ -141,14 +141,18 @@
         <div class="row">
             <header>MEDICINE</header>
             <center>
-                <div class="autocomplete">
+                <div>
                     <form class="mypharmaform" autocomplete="off">
-                        <input id="myInput" type="text" name="medicine" placeholder="Search for your medicine">
-
-
-                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
+                        <!--<input id="myInput" type="text" name="medicine" placeholder="Search for your medicine">
+                         <a href="#" data-toggle="modal" data-target="#searchMedicineModal" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
                                 class="glyphicon glyphicon-zoom-in"></span>
-                            SEARCH MEDICINE</a>
+                            SEARCH MEDICINE</a> -->
+                        
+                        
+                        <a href="#"  onclick="getListMedicines()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
+                            class="glyphicon glyphicon-zoom-in"></span>
+                        SEARCH MEDICINE</a>
+                    
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
                     </form>
@@ -280,11 +284,15 @@
         <div class="row">
             <header>PHARMACY</header>
             <center>
-                <div class="autocomplete">
+                <div >
                     <form class="mypharmaform" autocomplete="off">
-                        <input id="searchPharma" type="text" placeholder="Search for your pharmacy" />
+                        <!-- <input id="searchPharma" type="text" placeholder="Search for your pharmacy" />
 
                         <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" id="btnSearchPharmacy" class="btn btn-primary btn-info btn-block"><span
+                                class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH PHARMACY</a> -->
+
+                            <a href="#" onclick="getListPharmacies()" id="btnSearchPharmacy" class="btn btn-primary btn-info btn-block"><span
                                 class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH PHARMACY</a>
                         <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-block"><span
@@ -394,7 +402,19 @@
     <div class="container" id="tabUser" style="margin-bottom: 65px">
         <div class="row">
             <header>USERS</header>
+            <center>
+                <div >
+                    <form class="mypharmaform" autocomplete="off">
+                        
 
+                            <a href="#" onclick="getListUser()" id="btnSearchUser" class="btn btn-primary btn-info btn-block"><span
+                                class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH PHARMACY</a>
+                        <a href="#" data-toggle="modal" data-target="#createUserModal" class="btn btn-primary btn-success btn-block"><span
+                                class="glyphicon glyphicon-ok"></span> CREATE USER</a> <br>
+                    </form>
+                </div>
+            </center> <br>
 
             <!-- THIS IS User PAGE: DINAMIC TABLE -->
             <table id="userTable" class="table tableplus">

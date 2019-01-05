@@ -137,6 +137,7 @@ setInterval(() => {
 function getListMedicines() {
 
     console.log(listAllMedicines[1]);
+    $("#medicineTable").show();
 
     for (i = 0; i < listAllMedicines.length; i++) {
 

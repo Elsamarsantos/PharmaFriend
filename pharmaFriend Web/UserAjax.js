@@ -3,7 +3,7 @@
 
 
 //     $.ajax({
-//         url: `http://localhost:8080/pharmafriend/api/medicines/create`,
+//         url: `http://localhost:8080/pharmafriend/api/user/create`,
 //         type: 'POST',
 //         headers: {
 //             'Accept': 'application/json',
@@ -111,6 +111,9 @@ setInterval(() => {
 }, 1000*120);
 
 function getListUser() {
+
+    $("#userTable").show();
+
     for (i = 0; i < listAllUsers.length; i++) {
        
         const element = listAllUsers[i];

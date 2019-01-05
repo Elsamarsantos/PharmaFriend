@@ -117,6 +117,9 @@ setInterval(() => {
 
 
 function getListPharmacies() {
+
+    $("#pharmacyTable").show();
+    
     for (i = 0; i < listAllPharmarcy.length; i++) {
 
         const element = listAllPharmarcy[i];
