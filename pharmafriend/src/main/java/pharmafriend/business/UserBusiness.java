@@ -41,7 +41,11 @@ public class UserBusiness {
 			return userRepository1.getUserByEmail(name);
 		}
 		
-		
+		//consult to login
+		@Transactional
+		public User consultToLogin(String login, String passWord) {
+			return  userRepository1.getUserByEmailAndPass(login,passWord);
+		}
 		//consult user by Id
 		@Transactional 
 		public User consultById(Long id) {

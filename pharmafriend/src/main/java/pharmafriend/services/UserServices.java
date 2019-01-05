@@ -34,6 +34,13 @@ public class UserServices {
 		return userBusiness1.consultByLogin(login);
 	}
 	
+	@GET
+	@Path("consulttologin")
+	@Produces (MediaType.APPLICATION_JSON)
+	public User consultToLogin(@QueryParam("login") String login, @QueryParam("pass") String passWord) {
+		
+		return userBusiness1.consultToLogin(login,passWord);
+	}
 	
 	@GET
 	@Path("consultbyname")

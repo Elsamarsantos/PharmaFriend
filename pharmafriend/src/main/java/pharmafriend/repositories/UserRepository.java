@@ -48,4 +48,8 @@ public class UserRepository extends EntityRepository<User>{
 		return biggestId;
 	}
 	
+	public User getUserByEmailAndPass(String login, String passWord) {
+		return em.createNamedQuery(User.QUERY_TO_LOGIN, User.class).setParameter("login", login).setParameter("passWord", passWord).getSingleResult();
+		
+	}
 }

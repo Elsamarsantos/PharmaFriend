@@ -1,88 +1,68 @@
 // THIS IS MY AJAX TO CREATE A USER
-// function createMedicine(newMedicine) {
+function createUser() {
+    var newUser = {
+        "userName": $("#username"), "login": $("#login"), "passWord": $("#passWord"), "userAccess": $("#userAccess"), "address": $("#address")
+        , "lonLocation": $("#userlonLocation"), "latLocation": $("#userlatLocation")
+    };
 
 
-//     $.ajax({
-//         url: `http://localhost:8080/pharmafriend/api/user/create`,
-//         type: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         contentType: 'application/json',
-//         data: JSON.stringify(newMedicine),
-//         success: function (data) {
-//             console.log("Sucess:" + data);
-//         }
-//     })
-// };
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/user/create`,
+        type: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        contentType: 'application/json',
+        data: JSON.stringify(newUser),
+        success: function (data) {
+            console.log(data);
+        }
+    })
+    home();
+};
 
-// THIS IS MY AJAX TO GET A USER
+// THIS IS MY AJAX TO GET A USER and Password
 
-// function searchMedicine() {
-
-//     console.log("Preparing for sucess:");
-
-//     $.ajax({
-//         url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
-//         type: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         success: function (data) {
-//             for (i = 0; i < data.length; i++) {
-
-//                 var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
-//                     '</td><td>' + data[i].volumeUnit + '</td><td>' +
-//                     data[i].pvp + '</td><td>' +
-//                     data[i].reImbursementRate + '</td><tr>';
-
-//                 $('#medicineTablebyName').append(medicine);
-//             }
-//         }
-//     })
-// }
+$("btnLogin").click(function searchUser() {
 
 
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/user/consultuser?login=${emailUserinput}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+
+            if (data == null) {
+                $("#createUserModal").show();
+            }
+            else {
+                getpassword();
+
+            }
+        }
+    })
+});
+
+function getpassword() {
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/user/consulttologin?login=${emailUserinput}&pass=${passUserinput}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+
+        }
+    })
+};
 
 
-// THIS IS MY AJAX TO UPDATE A MEDICINE
-// function updateMedicine(p) {
-//     console.log("Preparing for sucess:" + p);
-//     $.ajax({
-//         url: "http://localhost:8080/pharmafriend/api/medicines/",
-//         type: 'PUT',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json',
-//         },
-//         contentType: 'application/json',
-//         data: JSON.stringify(p),
-//         success: function (data) {
-//             console.log(data);
-//         }
-//     })
-// }
 
-// THIS IS MY AJAX TO DELETE A USER
-// function deleteMedicine(p) {
-//     console.log("Preparing for sucess:" + p);
-//     $.ajax({
-//         url: "http://localhost:8080/pharmafriend/api/medicine/delete" + medicineId,
-//         type: 'DELETE',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         contentType: 'application/json',
-//         data: JSON.stringify(p),
-//         success: function (n) {
-//             console.log(n);
-
-//         }
-//     })
-// }
 
 
 var listAllUsers = [];
@@ -104,18 +84,18 @@ function searchAllUser() {
         }
 
     });
-}searchAllUser();
+} searchAllUser();
 setInterval(() => {
     searchAllMedicine();
-   
-}, 1000*120);
+
+}, 1000 * 120);
 
 function getListUser() {
 
     $("#userTable").show();
 
     for (i = 0; i < listAllUsers.length; i++) {
-       
+
         const element = listAllUsers[i];
         var user = '<tr><td>' + element.userName + '</td><td>' + element.login +
             '</td><td>' + element.passWord + '</td><td>' +

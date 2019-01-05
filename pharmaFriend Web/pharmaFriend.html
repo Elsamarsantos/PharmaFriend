@@ -20,8 +20,8 @@
     <div id="navbar" class="collapse navbar-collapse container navbar-fixed-top">
         <ul>
             <li id="btnLogin"><a class="active hover" type="button">Login</a></li>
-            <li id="user"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Email" /> </li>
-            <li id="password"><input style="margin-left: 10px; margin-top: 12px;" placeholder="Password" /> </li>
+            <li id="user"><input id="emailUserinput" style="margin-left: 10px; margin-top: 12px;" placeholder="Email" /> </li>
+            <li id="password"><input id="passUserinput" style="margin-left: 10px; margin-top: 12px;" placeholder="Password" /> </li>
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a  class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a  class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
@@ -36,6 +36,27 @@
             <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
                 </a></i>
         </ul>
+    </div>
+
+    <!---login user-->
+    <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                    <h2 class="modal-title" style="color: white"> <br> You aren't registred</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> Do You want sing up?</h2> <br>
+
+                    <a href="#" id="btnUserCreated" class="btn btn-primary btn-success" onclick="createUser()"
+                        data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
+                        YES </a>
+                    <a href="#" class="btn btn-primary btn-danger" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span>
+                        NO </a>
+
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- THIS IS MY HOME PAGE -->
@@ -433,6 +454,30 @@
             </table>
         </div>
 
+    </div>
+    <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                    <h2 class="modal-title" style="color: white"> <br> NEW USER</h2> <br>
+                    <form class="mypharmaform">
+                        <input id="userName" type="text" placeholder="Name" />
+                        <input id="login" type="text" placeholder="email" />
+                        <input id="passWord" type="text" placeholder="passWord" />
+                        <input id="address" type="text" placeholder="Address" />
+                        <input id="userAccess" type="text" placeholder="userAccess" />
+                        <input id="userlongitude" type="text" placeholder="Longitude" />
+                        <input id="userlatitude" type="text" placeholder="Latitude" />
+                       
+                    </form> <br>
+                    <button id="btnCreateUser" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
+                        aria-label="Close">CREATE</button>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+                        CLOSE </button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
