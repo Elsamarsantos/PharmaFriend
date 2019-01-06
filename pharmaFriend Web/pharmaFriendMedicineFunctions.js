@@ -12,27 +12,27 @@ class Medicine {
 }
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
-$("#btnCreateMedicine").click(function btnCreateM() {
+// $("#btnCreateMedicine").click(function btnCreateM() {
 
-    var newMedicine = {"medicineName":$("#name").val(),"dose":$("#dose").val(),
-    "volumeUnit":$("#units").val(),"pvp":$("#pvp").val(),"reImbursementRate":$("#rrate").val()};
+//     var newMedicine = {"medicineName":$("#name").val(),"dose":$("#dose").val(),
+//     "volumeUnit":$("#units").val(),"pvp":$("#pvp").val(),"reImbursementRate":$("#rrate").val()};
 
     
-    createMedicine(newMedicine);
+//     createMedicine(newMedicine);
     
-})
+// })
 //SEARCH
-$("#btnSearchMedicine").click(function btnSearchM() {
-    medicineName = $("#myInput").val();
-    searchMedicine(medicineName);
+// $("#btnSearchMedicine").click(function btnSearchM() {
+//     medicineName = $("#myInput").val();
+//     searchMedicine(medicineName);
     
-})
+// })
 
 //UPDATE
-$("#btnUpdateMedicine").click(function btnUpdateM() {
-    var myMedicine = {"medicineName":$("#name").val(), "dose": $("#dose").val(),
-    "volumeUnit": $("#units").val(), "pvp": $("#pvp").val(), "reImbursementRate": $("#rrate").val()};
-    updateMedicine(myMedicine);
+// $("#btnUpdateMedicine").click(function btnUpdateM() {
+//     var myMedicine = {"medicineName":$("#name").val(), "dose": $("#dose").val(),
+//     "volumeUnit": $("#units").val(), "pvp": $("#pvp").val(), "reImbursementRate": $("#rrate").val()};
+//     updateMedicine(myMedicine);
 
-})
+// })
 

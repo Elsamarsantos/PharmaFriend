@@ -1,5 +1,9 @@
 // THIS IS MY AJAX TO CREATE A MEDICINE
-function createMedicine(newMedicine) {
+$("#btnCreateMedicine").click(function createMedicine(newMedicine) {
+
+    var newMedicine = {"medicineName":$("#name").val(),"dose":$("#dose").val(),
+    "volumeUnit":$("#units").val(),"pvp":$("#pvp").val(),"reImbursementRate":$("#rrate").val()};
+
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/create`,
         type: 'POST',
@@ -13,55 +17,58 @@ function createMedicine(newMedicine) {
             console.log("Sucess:" + data);
         }
     })
-};
+});
 
-// THIS IS MY AJAX TO GET A MEDICINE
+// THIS IS MY AJAX TO GET A MEDICINE -- ja nao e utilizado
 
-function searchMedicine() {
+// function searchMedicine() {
 
-    console.log("Preparing for sucess:");
+//     console.log("Preparing for sucess:");
 
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            for (i = 0; i < data.length; i++) {
+//     $.ajax({
+//         url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
+//         type: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         success: function (data) {
+//             for (i = 0; i < data.length; i++) {
 
-                var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
-                    '</td><td>' + data[i].volumeUnit + '</td><td>' +
-                    data[i].pvp + '</td><td>' +
-                    data[i].reImbursementRate + '</td><tr>';
+//                 var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+//                     '</td><td>' + data[i].volumeUnit + '</td><td>' +
+//                     data[i].pvp + '</td><td>' +
+//                     data[i].reImbursementRate + '</td><tr>';
 
-                $('#medicineTablebyName').append(medicine);
-            }
-        }
-    })
-}
+//                 $('#medicineTablebyName').append(medicine);
+//             }
+//         }
+//     })
+// }
 
 
 
 
 // THIS IS MY AJAX TO UPDATE A MEDICINE
-function updateMedicine(p) {
-    console.log("Preparing for sucess:" + p);
+$("#btnUpdateMedicine").click(function updateMedicine(el) {
+    var id = $(el).parent().parent().attr('id');
+    var myMedicine = {"id":id,"medicineName":$("#updatename").val(), "dose": $("#updatedose").val(),
+    "volumeUnit": $("#updateunits").val(), "pvp": $("#updatepvp").val(), "reImbursementRate": $("#updaterrate").val()};
+
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/",
+        url: `http://localhost:8080/pharmafriend/api/medicines/update`,
         type: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         contentType: 'application/json',
-        data: JSON.stringify(p),
-        success: function (data) {
-            console.log(data);
+        data: JSON.stringify(myMedicine),
+        success: function (myMedicine) {
+            console.log(myMedicine);
         }
     })
-}
+});
 
 function prepareToDeleteM(el) {
 
@@ -148,7 +155,7 @@ function getListMedicines() {
             '</td><td>' + element.volumeUnit + '</td><td>' +
             element.pvp + '</td><td>' +
             element.reImbursementRate + '</td><td>' +
-            '<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>' +
+            `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>`+
             ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
             + '</td></tr>';
         $("#medicineTable").append(medicine);

@@ -1,7 +1,9 @@
 
 // THIS IS MY AJAX TO CREATE A PHARMACY
-function createPharmacy(p) {
-    console.log("Preparing for sucess:" + p);
+$("#btnCreatePharmacy").click(function createPharmacy() {
+    var newPharmacy = {"pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
+    
+    
     $.ajax({
         url: "http://localhost:8080/pharmafriend/api/pharmacies/create",
         type: 'POST',
@@ -9,50 +11,54 @@ function createPharmacy(p) {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        data: JSON.stringify(p),
+        data: JSON.stringify(newPharmacy),
         success: function (data) {
             console.log(data);
         }
     })
-}
+});
 
 // THIS IS MY AJAX TO GET A PHARMACY
-function searchPharmacy() {
-    console.log("Preparing for sucess: Pharmacy ");
-    $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/pharmacies/consult/" + pharmacyName,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
+// function searchPharmacy() {
+//     console.log("Preparing for sucess: Pharmacy ");
+//     $.ajax({
+//         url: "http://localhost:8080/pharmafriend/api/pharmacies/consult/" + pharmacyName,
+//         type: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
 
-        success: function (data) {
+//         success: function (data) {
 
 
-            $("#searchPharmacyModalDiv").append("Name: " + data.pharmacyName + '<br>' + "Address: " + data.address + '<br>' +
-                "Longitude: " + data.lonLocation + '<br>' + "Latitude: " + data.latLocation);
-        }
-    })
-}
+//             $("#searchPharmacyModalDiv").append("Name: " + data.pharmacyName + '<br>' + "Address: " + data.address + '<br>' +
+//                 "Longitude: " + data.lonLocation + '<br>' + "Latitude: " + data.latLocation);
+//         }
+//     })
+// }
 
 // THIS IS MY AJAX TO UPDATE A PHARMACY
-function updatePharmacy(p) {
-    console.log("Preparing for sucess:" + p);
+$("#btnUpdatePharmacy").click(function updatePharmacy() {
+    
+    var id = $(el).parent().parent().attr('id');
+    var myPharmacy = {"id": id, "updatepharmacyName": $("#updatepharmaName").val(), "address": $("#updatelocation").val(), "lonLocation":$("#updatelongitude").val(), "latLocation": $("#updatelatitude").val()};
+   
+    
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/pharmacies/",
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/update`,
         type: 'PUT',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         contentType: 'application/json',
-        data: JSON.stringify(p),
+        data: JSON.stringify(myPharmacy),
         success: function (data) {
             console.log("Sucess:" + data);
         }
     })
-}
+});
 //prepare to delete 
 function prepareToDeleteP(el) {
 

@@ -24,28 +24,28 @@ function createUser() {
 
 // THIS IS MY AJAX TO GET A USER and Password
 
-$("btnLogin").click(function searchUser() {
+// $("btnLogin").click(function searchUser() {
 
 
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/user/consultuser?login=${emailUserinput}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
+//     $.ajax({
+//         url: `http://localhost:8080/pharmafriend/api/user/consultuser?login=${emailUserinput}`,
+//         type: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         success: function (data) {
 
-            if (data == null) {
-                $("#createUserModal").show();
-            }
-            else {
-                getpassword();
+//             if (data == null) {
+//                 $("#createUserModal").show();
+//             }
+//             else {
+//                 getpassword();
 
-            }
-        }
-    })
-});
+//             }
+//         }
+//     })
+// });
 
 function getpassword() {
     $.ajax({
@@ -111,30 +111,3 @@ function getListUser() {
 }
 
 
-
-// function getMedicineName() {
-//     var a = [];
-
-//     $.ajax({
-//         url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
-//         type: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         success: function (data) {
-
-//             for (i = 0; i < data.length; i++) {
-//                 console.log("ola");
-//                 a.push(data[i].medicineName);
-//                 var uniqueNames = [];
-//                 $.each(a, function (i, el) {
-//                     if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-//                 });
-
-//                 autocomplete(document.getElementById("myInput"), uniqueNames);
-//             }
-//         }
-//     })
-// }
-// getMedicineName();

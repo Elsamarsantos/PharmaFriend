@@ -12,19 +12,19 @@ class Pharmacy {
 }
 //THIS ARE MINE AJAX FUNCTIONS
 //CREATE
-$("#btnCreatePharmacy").click(function btnCreateP() {
+// $("#btnCreatePharmacy").click(function btnCreateP() {
     
-    var newPharmacy = {"pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
-    createPharmacy(newPharmacy);
+//     var newPharmacy = {"pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
+//     createPharmacy(newPharmacy);
    
-})
+// })
 //SEARCH
-$("#btnSearchPharmacy").click(function btnSearchP() {
-    pharmacyName = ($("#searchPharma").val());
-    searchPharmacy(pharmacyName);
-})
+// $("#btnSearchPharmacy").click(function btnSearchP() {
+//     pharmacyName = ($("#searchPharma").val());
+//     searchPharmacy(pharmacyName);
+// })
 //UPDATE
-$("#btnUpdatePharmacy").click(function btnUpdateP() {
-    var myPharmacy = {"id": 160, "pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
-    createPharmacy(myPharmacy);
-})
+// $("#btnUpdatePharmacy").click(function btnUpdateP() {
+//     var myPharmacy = {"id": 160, "pharmacyName": $("#pharmaName").val(), "address": $("#location").val(), "lonLocation":$("#longitude").val(), "latLocation": $("#latitude").val()};
+//     createPharmacy(myPharmacy);
+// })
