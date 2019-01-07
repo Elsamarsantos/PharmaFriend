@@ -24,32 +24,32 @@ function createUser() {
 
 // THIS IS MY AJAX TO GET A USER and Password
 
-$("#btnLogin").click(function searchUser() {
-    console.log("esta funcao esta a funcionar");
+// $("#btnLogin").click(function searchUser() {
+//     console.log("esta funcao esta a funcionar");
 
-    var email = $("#emailUserinput").val()
+//     var email = $("#emailUserinput").val()
 
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/user/consultbylogin?login=${email}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            console.log(data);
-            if (data.login !== null) {
-                getpassword();
-            }
+//     $.ajax({
+//         url: `http://localhost:8080/pharmafriend/api/user/consultbylogin?login=${email}`,
+//         type: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         success: function (data) {
+//             console.log(data);
+//             if (data.login !== null) {
+//                 getpassword();
+//             }
 
-        }, error: function (err) {
-            $('#createUserModal').modal('toggle');
-            $('#createUserModal').modal('show');
-            // $('#createUserModal').modal('hide');
+//         }, error: function (err) {
+//             $('#createUserModal').modal('toggle');
+//             $('#createUserModal').modal('show');
+//             // $('#createUserModal').modal('hide');
 
-        }
-    })
-});
+//         }
+//     })
+// });
 
 function getpassword() {
     var email = $("#emailUserinput").val();

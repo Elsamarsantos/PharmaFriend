@@ -27,11 +27,11 @@ $("#btnNewSearch").click(function close() {
     home();
 });
 
-// $("#btnLogin").click(function doLogin(){
-//     verificaRegisto();
-//     alert("Login efectuado");
-//     home();
-//  });
+$("#btnLogin").click(function doLogin(){
+    verificaRegisto();
+    alert("Login efectuado");
+    home();
+ });
 
 
  
