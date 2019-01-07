@@ -25,7 +25,7 @@ public class User extends BaseEntity{
 	private String userName;
     private String login;
     private String passWord;
-    private boolean userAccess;
+    private boolean userAccess=false;
     private String address;
     private double lonLocation;
 	private double latLocation;

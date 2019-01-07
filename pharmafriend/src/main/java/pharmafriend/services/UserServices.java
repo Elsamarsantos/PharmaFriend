@@ -76,6 +76,7 @@ public class UserServices {
 		userBusiness1.createUser(user);
 		return user;
 	}
+	
 
 	@PUT
 	@Path("update")

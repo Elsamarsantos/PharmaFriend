@@ -1,11 +1,11 @@
 //THIS IS MY MAIN PAGE
 $(document).ready(function () {
-    $("#ourVision").hide();
-    $("#tabMedicine").hide();
-    $("#tabPharmacy").hide();
-    $("#tabUser").hide();
-    $("#home").show();
-  
+    // $("#ourVision").show();
+    // $("#tabMedicine").show();
+    // $("#tabPharmacy").show();
+    // $("#tabUser").show();
+    // $("#home").show();
+  home();
 });
 
 //------------ BUTTONS ----------------
@@ -35,14 +35,7 @@ $("#btnNewSearch").click(function close() {
 
 
  
-function verificaRegisto(){
-    var email = $("#user").val();
-    var pass = $("#password").val();
-    // Faz o get para verificar se o utilizador ja existe
-    // Se existir confirma se o utilizador e pass correspondem
-    // Se nao existir pergunta se pretende criar um novo utilizador
 
-};
  
 
 function home() {

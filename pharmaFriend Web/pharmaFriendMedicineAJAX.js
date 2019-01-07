@@ -17,6 +17,7 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
+            
         }
     })
 });
