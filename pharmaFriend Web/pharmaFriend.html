@@ -52,9 +52,10 @@
                     <h2 class="modal-title" style="color: white"> <br> You aren't registred</h2> <br>
                     <h2 class="modal-title" style="color: white"> <br> Do You want sing up?</h2> <br>
 
-                    <a href="#createUserModal" id="btnUserCreated" class="btn btn-primary btn-success" 
-                        data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
+                    <a href="" id="btnUserCreated" class="btn btn-primary btn-success" 
+                        data-dismiss="modal" data-toggle="modal" data-target="#createUserModal1" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
                         YES </a>
+
                     <a href="#" class="btn btn-primary btn-danger" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span>
                         NO </a>
 
@@ -259,11 +260,7 @@
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> UPDATE MEDICINE</h2> <br>
                     <form  class="mypharmaform">
-                        <!-- <input id="updatename" type="text" placeholder="Name" />
-                        <input id="updatedose" type="text" placeholder="Dose" />
-                        <input id="updateunits" type="text" placeholder="Volume Units" />
-                        <input id="updatepvp" type="text" placeholder="PVP" />
-                        <input id="updaterrate" type="text" placeholder="Reiumbursement Rate" /> -->
+                      
                         <table id="tableToUpdate" class="table tableplus">
                             <tbody>
                             </tbody>
@@ -428,7 +425,7 @@
                         <a href="#" onclick="getListUser()" id="btnSearchUser" class="btn btn-primary btn-info btn-block"><span
                                 class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH PHARMACY</a>
-                        <a href="#" data-toggle="modal" data-target="#createUserModal" class="btn btn-primary btn-success btn-block"><span
+                        <a href="#" data-toggle="modal" data-target="#createUserModal1" class="btn btn-primary btn-success btn-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE USER</a> <br>
                     </form>
                 </div>
@@ -452,7 +449,7 @@
         </div>
 
     </div>
-    <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <div class="modal fade modalBox" id="createUserModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
@@ -463,13 +460,12 @@
                         <input id="login" type="text" placeholder="email" />
                         <input id="passWord" type="text" placeholder="passWord" />
                         <input id="address" type="text" placeholder="Address" />
-                        <input id="userAccess" type="text" placeholder="userAccess" />
-                        <input id="userlongitude" type="text" placeholder="Longitude" />
-                        <input id="userlatitude" type="text" placeholder="Latitude" />
+                        <input id="userlonLocation" type="text" placeholder="Longitude" />
+                        <input id="userlatLocation" type="text" placeholder="Latitude" />
 
                     </form> <br>
                     <button id="btnCreateUser" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
-                        aria-label="Close" onclick="createUser()"></button>CREATE</button>
+                        aria-label="Close" onclick="createUser()">CREATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
                 </div>
