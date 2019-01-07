@@ -47,8 +47,8 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 		long biggestId = 0;
 		
-		if (em.createNamedQuery(Pharmacy.QUERY_ALL, User.class).getResultList().size() > 0) {
-			biggestId =(long) em.createNamedQuery(Pharmacy.QUERY_BIGGEST).getSingleResult();
+		if (em.createNamedQuery(Pharmacy.QUERY_ALL, Pharmacy.class).getResultList().size() > 0) {
+			biggestId =(long) em.createNamedQuery(Pharmacy.QUERY_BIGGEST_F).getSingleResult();
 		};
 		
 		return biggestId;

@@ -14,7 +14,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({@NamedQuery(name=Pharmacy.QUERYLOCATION, query="SELECT p From Pharmacy p WHERE p.lonLocation= :lonLocation and p.latLocation= :latLocation"),
 				@NamedQuery(name=Pharmacy.QUERY_ALL, query="SELECT p From Pharmacy p"), 
 				@NamedQuery(name=Pharmacy.QUERYNAME, query="SELECT p From Pharmacy p WHERE p.pharmacyName= :pharmacyName"),
-				@NamedQuery(name=Pharmacy.QUERY_BIGGEST, query="SELECT MAX(p.id) FROM Pharmacy p")
+				@NamedQuery(name=Pharmacy.QUERY_BIGGEST_F, query="SELECT MAX(p.id) FROM Pharmacy p")
 })
 
 public class Pharmacy extends BaseEntity{
@@ -25,7 +25,7 @@ public class Pharmacy extends BaseEntity{
 	public static final String QUERYNAME = "findByPharmacy";
 	public static final String QUERYLOCATION = "findByLocation";
 	public static final String QUERY_ALL = "findAllPharmacy";	
-	public static final String QUERY_BIGGEST = "getBiggestId";
+	public static final String QUERY_BIGGEST_F = "getBiggestId";
 			
 	private String pharmacyName;
 	private String address;

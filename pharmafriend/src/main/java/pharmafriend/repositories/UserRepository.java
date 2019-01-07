@@ -26,7 +26,12 @@ public class UserRepository extends EntityRepository<User>{
 	}
 	
 	public User getUserByEmail(String login) {
-		return em.createNamedQuery(User.QUERY_EMAIL, User.class).setParameter("login", login).getSingleResult();
+		 if(em.createNamedQuery(User.QUERY_EMAIL, User.class).setParameter("login", login).getResultList().size()>0) {
+			 return em.createNamedQuery(User.QUERY_EMAIL, User.class).setParameter("login", login).getSingleResult();
+		 }
+		 else {
+			 return null;
+		 }
 		
 	}
 	

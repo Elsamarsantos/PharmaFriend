@@ -9,8 +9,7 @@ import javax.persistence.NamedQuery;
 	@NamedQuery(name=User.QUERYNAME, query="SELECT u From User u WHERE u.userName= :userName"),
 	@NamedQuery(name=User.QUERY_EMAIL, query="SELECT u From User u WHERE u.login= :login"),
 	@NamedQuery(name=User.QUERY_BIGGEST, query="SELECT MAX(u.id) FROM User u"),
-	@NamedQuery(name=User.QUERY_TO_LOGIN, query="SELECT u FROM User u WHERE u.login= :login and WHERE u.passWord= :passWord")
-	
+	@NamedQuery(name=User.QUERY_TO_LOGIN, query="SELECT u FROM User u WHERE u.login= :login and u.passWord= :passWord")	
 })
 public class User extends BaseEntity{
 

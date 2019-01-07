@@ -24,39 +24,45 @@ function createUser() {
 
 // THIS IS MY AJAX TO GET A USER and Password
 
-// $("btnLogin").click(function searchUser() {
+$("#btnLogin").click(function searchUser() {
+    console.log("esta funcao esta a funcionar");
 
+    var email = $("#emailUserinput").val()
 
-//     $.ajax({
-//         url: `http://localhost:8080/pharmafriend/api/user/consultuser?login=${emailUserinput}`,
-//         type: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         success: function (data) {
-
-//             if (data == null) {
-//                 $("#createUserModal").show();
-//             }
-//             else {
-//                 getpassword();
-
-//             }
-//         }
-//     })
-// });
-
-function getpassword() {
     $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/user/consulttologin?login=${emailUserinput}&pass=${passUserinput}`,
+        url: `http://localhost:8080/pharmafriend/api/user/consultbylogin?login=${email}`,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         success: function (data) {
+            console.log(data);
+            if (data.login !== null) {
+                getpassword();
+            }
 
+        }, error: function (err) {
+            $('#createUserModal').modal('toggle');
+            $('#createUserModal').modal('show');
+            // $('#createUserModal').modal('hide');
+
+        }
+    })
+});
+
+function getpassword() {
+    var email = $("#emailUserinput").val();
+    var pass = $("#passUserinput").val();
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/user/consulttologin?login=${email}&pass=${pass}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            home();
         }
     })
 };
@@ -80,15 +86,15 @@ function searchAllUser() {
             listAllUsers = data;
 
 
-
         }
 
     });
 } searchAllUser();
-setInterval(() => {
-    searchAllMedicine();
 
-}, 1000 * 120);
+setInterval(() => {
+    searchAllUser();
+
+}, 1000 * 360);
 
 function getListUser() {
 

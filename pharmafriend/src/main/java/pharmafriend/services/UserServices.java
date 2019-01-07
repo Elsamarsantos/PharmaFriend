@@ -13,58 +13,61 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-
+import javax.ws.rs.core.Response;
 
 import pharmafriend.business.UserBusiness;
 
 import pharmafriend.models.User;
 
-
 @Path("user")
 public class UserServices {
-	
+
 	@Inject
 	UserBusiness userBusiness1;
-	
+
 	@GET
 	@Path("consultbylogin")
-	@Produces (MediaType.APPLICATION_JSON)
-	public User consultUser(@QueryParam("login") String login) {
-		
-		return userBusiness1.consultByLogin(login);
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response consultUser(@QueryParam("login") String login) {
+		User user = userBusiness1.consultByLogin(login);
+		if (user != null) {
+			return Response.status(200).entity(user).build();
+		}
+		else{
+			return Response.status(401).build();
+		}
 	}
-	
+
 	@GET
 	@Path("consulttologin")
-	@Produces (MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public User consultToLogin(@QueryParam("login") String login, @QueryParam("pass") String passWord) {
-		
-		return userBusiness1.consultToLogin(login,passWord);
+
+		return userBusiness1.consultToLogin(login, passWord);
 	}
-	
+
 	@GET
 	@Path("consultbyname")
-	@Produces (MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public User consultMedicine(@QueryParam("medicineName") String name) {
-		
+
 		return userBusiness1.consultByName(name);
 	}
-	
+
 	@GET
 	@Path("consultid/{id}")
-	@Produces (MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public User consultMedicineId(@PathParam("id") long id) {
 		return userBusiness1.consultById(id);
 	}
-	
+
 	@GET
 	@Path("consultall")
-	@Produces (MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> consultAll() {
 		return userBusiness1.consultAll();
 	}
-	
-	
+
 	@POST
 	@Path("create")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -73,26 +76,22 @@ public class UserServices {
 		userBusiness1.createUser(user);
 		return user;
 	}
-	
+
 	@PUT
 	@Path("update")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void updateUser(User user) {
-	
+
 		userBusiness1.updateUser(user);
 	}
 
-	
-	
 	@DELETE
 	@Path("delete/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	
-	public void removeUser(@PathParam("id")long id) {
+
+	public void removeUser(@PathParam("id") long id) {
 		userBusiness1.removeUserById(id);
 	}
-	
-
 
 }
