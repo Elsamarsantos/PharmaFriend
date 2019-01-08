@@ -68,14 +68,14 @@ public class PharmacyService {
 	}
 	
 	
-//	@PUT
-//	@Path("update/{pharmacy}")
-//	@Produces(MediaType.APPLICATION_JSON)
-//	@Consumes(MediaType.APPLICATION_JSON)
-//	public void updatePharmacyName(@PathParam("pharmacy")Pharmacy pharmacy1) {
-//		pharmacyBusiness1.updatePharmacy(pharmacy1);
-//	
-//	}
+	@PUT
+	@Path("update")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void updatePharmacyName(Pharmacy pharmacy1) {
+		pharmacyBusiness1.updatePharmacy(pharmacy1);
+	
+	}
 	
 	
 	@DELETE
