@@ -6,6 +6,9 @@ $(document).ready(function () {
     // $("#tabUser").show();
     // $("#home").show();
   home();
+  searchAllPharmacy();
+  searchAllMedicine();
+  
 });
 
 //------------ BUTTONS ----------------
@@ -75,6 +78,7 @@ function medicineList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
+    getListMedicines();
 
     
 }
@@ -90,6 +94,7 @@ function pharmacyList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#pharmacyListBtn').addClass( "active" );
+    getListPharmacies();
 }
 
 function userList() {

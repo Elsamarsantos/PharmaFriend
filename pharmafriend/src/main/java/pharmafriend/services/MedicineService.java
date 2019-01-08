@@ -67,7 +67,7 @@ public class MedicineService {
 	}
 	
 	@PUT
-	@Path("update")
+	@Path("update1")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
 	public void updateMedicine( Medicine medicine) {
