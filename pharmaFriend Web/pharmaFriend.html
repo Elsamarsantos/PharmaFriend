@@ -17,65 +17,26 @@
 </head>
 
 <body>
-    <!-- Login Page -->
-
-    <!-- THIS IS MY NAVIGATION BAR -->
+   
     <div id="navbar" class="collapse navbar-collapse container navbar-fixed-top">
         <ul>
-            <!-- <li id="btnLogin"><a class="active hover" type="button">Login</a></li> -->
-            <!-- <li id="user"><input id="emailUserinput" style="margin-left: 10px; margin-top: 12px;" placeholder="Email" />
-            </li>
-            <li id="password"><input id="passUserinput" style="margin-left: 10px; margin-top: 12px;" placeholder="Password" />
-            </li> -->
+          
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
-            <!-- <li id="userListBtn"><a class="hover" href="#userList" type="button">USERS</a></li> -->
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
             <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
                     VISION</a></li>
-            <li class="navbar-right" id="logoff"><a type="button" class="fas fa-power-off" style='font-size:22px; color: red'>
-                </a></i>
-            <!-- <li id="benvindo" class="navbar-right" style="color: white; margin-left: 5px; margin-right: 5px; margin-top: 15px">
-                 </li> -->
-            <!-- <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
-                </a></i> -->
         </ul>
     </div>
 
-    <!---login user-->
-    <!-- <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> You aren't registred</h2> <br>
-                    <h2 class="modal-title" style="color: white"> <br> Do You want sing up?</h2> <br>
-
-                    <a href="" id="btnUserCreated" class="btn btn-primary btn-success" 
-                        data-dismiss="modal" data-toggle="modal" data-target="#createUserModal1" aria-label="Close"><span class="glyphicon glyphicon-ok"></span>
-                        YES </a>
-
-                    <a href="#" class="btn btn-primary btn-danger" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove"></span>
-                        NO </a>
-
-                </div>
-            </div>
-        </div>
-
-    </div> -->
-
+   
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
-
                 <header> PharmaFriend </header>
-                <h1>Simplify your search.</h1>
-            </div>
-            <div id="pharmacyImg">
-                <br>
-                <img src="img.jpg" style="border-radius: 150px ">
+                <h2>Simplify your search.</h2>
             </div>
         </div>
     </div>
@@ -86,27 +47,27 @@
 
                 <form class="mypharmaformhome" autocomplete="off">
                     <div class="getSearch">
-                        <label for="getName">Medicine name:</label><br>
+                        <label  for="getName">MEDICINE NAME</label>
                         <input class="autocomplete" id="medicineName" type="text" />
                     </div>
                     <div class="getSearch">
-                        <label for="getDose">Dose:</label>
+                        <label for="getDose">DOSE</label>
                         <select class="form-control" id="getDose">
                             <option value="" disabled selected>Select one option</option>
                         </select>
                     </div>
                     <div class="getSearch">
-                        <label for="getVolume">Volume Unit:</label>
+                        <label for="getVolume">UNITS</label>
                         <select class="form-control" id="getVolume">
                             <option value="" disabled selected>Select one option</option>
                         </select>
                     </div>
                     <div class="getSearch">
-                        <label for="getDistance">Distance:</label><br>
+                        <label for="getDistance">SEARCH DISTANCE</label>
                         <input id="userdistance" type="text" />
-                    </div>
+                    </div> <br>
                     <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
-                        <i class='fas fa-pills'> </i> SEARCH Pharmacies <i class='fas fa-search'>
+                        <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                         </i></button>
                 </form>
                 <div class="col-sm-3"></div>
@@ -114,53 +75,78 @@
         </div>
     </div>
 
+    <!-- THIS IS THE MAP THAT APPEARS UPPON MEDICINE SEARCH -->
+    <center>
     <div id="results">
-        <div class="col-sm-3 row">
-            <div id="NearpharmacyList" style="text-align:center; color:white;">
-                <h3> Nearest Pharmacys </h3>
+        <div class="col-sm-6"> <br> <br>
+            <div id="mapOutput" class="mapOutputEdit">
+                <div id="map" style="border-radius: 10px 100px"></div>
+                <div id="out"></div>
                 <br>
+                   <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#moreInfo" style="border-radius: 20px; border-color: white">
+                    MORE INFO</button>
+    <button type="button" class="btn-success btn-lg" data-toggle="modal" data-target="#sendToEmail" style="border-radius: 20px; border-color: white">
+                    SEND TO EMAIL</button>
+                
+                <button id="btnNewSearch" type="button" class="btn-danger btn-lg" style="border-radius: 20px; margin-bottom: 65px; border-color: white">
+                    NEW SEARCH </button>
+
+            </div>
+        </div>
+    </div>
+    </center>
+   
+
+    <!-- THIS IS MY MODAL WHEN I PRESS MORE INFO INFO ON THE MAP -->
+    <div class="modal fade modalBox" id="moreInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit" style="font-size:23px">
+                <h2> YOUR MEDICINE</h2> <br>
+                <div id=" buyMedicine" style="text-align:center; color:white;">
+                <div id="buyMedName" type="text"></div>
+                <div id="buyMedDose"></div>
+                <div id="buyMedVolume"></div> <hr>
+                </div>
+                
+                <h2>CLOSEST PHARMACIES</h2> <br>
+            <div id="NearpharmacyList" style="text-align:center; color:white;">
                 <div id="pharmacy1"></div>
                 <div id="pharmacy1loc"></div><br>
                 <div id="pharmacy2"></div>
                 <div id="pharmacy2loc"></div><br>
                 <div id="pharmacy3"></div>
                 <div id="pharmacy3loc"></div><br>
-                <button type="button" class="btn-success" style="border-radius: 20px; border-color: black">
-                    SEND to EMAIL</button>
-
             </div>
+            <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+            CLOSE </button>
         </div>
-
-        <div class="col-sm-6">
-            <h3 class="" style="text-align: center; color:white ">WE FOUND THOSE PHARMACIES</h3>
-            <div id="mapOutput" style="text-align:center">
-                <div id="map" style="border-radius: 10px 100px"></div>
-                <div id="out"></div>
-                <br>
-                <button id="btnNewSearch" type="button" class="btn-danger" style="border-radius: 20px; margin-bottom: 65px; border-color: black">
-                    NEW SEARCH </button>
-
-            </div>
-        </div>
-        <div class="col-sm-3 row">
-            <div id=" buyMedicine" style="text-align:center; color:white;">
-                <br><br><br><br>
-                <h3>Your Medicine</h3><br>
-                <div id="buyMedName" type="text"></div>
-                <div id="buyMedDose"></div>
-                <div id="buyMedVolume"></div>
-                <p>Price: </p><br>
-                <button id="btnBuy" type="button" class="btn-success" style="border-radius: 20px; border-color: black">
-                    ADD to BUY </button>
+           
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- THIS IS MY MODAL WHEN I PRESS SEND TO MY EMAIL -->
 
-
-
-    <!-- THIS IS MY HOME PAGE: DINAMIC RESPONSE UPPON SEARCH  -->
-
+     <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                <br>            
+                        <label>Please enter your email below:</label> <br> 
+                        <input placeholder="example@pharmafriend.js" id="theEmail" type="text" /> <br> <br> <br>
+                 <button value="submit" class="btn btn-success btn-block btn-lg" data-dismiss="modal" aria-label="Close">
+            SEND </button>
+            <button value="submit" class="btn btn-danger btn-block btn-lg" data-dismiss="modal" aria-label="Close">
+            CLOSE </button>    
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>  
 
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->

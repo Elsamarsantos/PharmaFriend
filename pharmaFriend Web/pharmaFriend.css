@@ -22,13 +22,13 @@ footer {
 header
 {
     font-family: 'Open Sans' , sans-serif;
-    font-size: 50px;
+    font-size: 4em;
     font-weight: 600;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 5%;
+    margin-top: 15%;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 0.1em;
 }
 
 hr {
@@ -252,7 +252,7 @@ tbody tr:hover {
 
 form.getSearch{
     width: 100%;
-    text-align: left;
+    text-align: center;
     color: rgb(191, 217, 255);
     
 }
@@ -262,19 +262,20 @@ form.getSearch{
     font-size:23px;
 }
 form.mypharmaformhome  {
-    width: 70%;
+    width: 60%;
     margin: 0;
+    margin-left: 10%;
     background: 0;
     border: 0;
     outline: 0;
-    font-style: italic;
+    /* font-style: italic; */
     font-size: 23px;
     font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 5px;
-    color: #FFFFFF;
+    color: rgba(255, 255, 255, 0.74);
     outline: 0;
-    text-align: left;
+    text-align: center;
 
 }
 
@@ -304,3 +305,11 @@ form.mypharmaformhome  {
 }
 
 .pagination a:hover:not(.active) { background-color: #ddd; }
+
+/* THIS IS THE EDIT OF MAP OUTPUT */
+
+.mapOutputEdit {
+    text-align: center!important;
+    margin: auto!important;
+   
+}
