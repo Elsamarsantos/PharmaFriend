@@ -30,7 +30,7 @@
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
-            <li id="userListBtn"><a class="hover" href="#userList" type="button">USERS</a></li>
+            <!-- <li id="userListBtn"><a class="hover" href="#userList" type="button">USERS</a></li> -->
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
             <li class="navbar-right"><a id="ourVisionBtn" class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
                     VISION</a></li>
@@ -38,13 +38,13 @@
                 </a></i>
             <!-- <li id="benvindo" class="navbar-right" style="color: white; margin-left: 5px; margin-right: 5px; margin-top: 15px">
                  </li> -->
-            <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
-                </a></i>
+            <!-- <li class="navbar-right" id="userLogo"><a class="fas fa-user" style='font-size:22px; color:greenyellow'>
+                </a></i> -->
         </ul>
     </div>
 
     <!---login user-->
-    <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!-- <div class="modal fade modalBox" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
@@ -170,7 +170,7 @@
             <center>
                 <div>
                     <form class="mypharmaform" autocomplete="off">
-                        <a href="#" onclick="getListMedicines()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
+                        <a href="#" onclick="showTable()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-block"><span
                                 class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH MEDICINE</a>
 
@@ -414,7 +414,7 @@
 
 
     <!-- THIS IS USER PAGE----------------------------------------------------------------------->
-    <div class="container" id="tabUser" style="margin-bottom: 65px">
+    <!-- <div class="container" id="tabUser" style="margin-bottom: 65px">
         <div class="row">
             <header>USERS</header>
             <center>
@@ -429,9 +429,9 @@
                                 class="glyphicon glyphicon-ok"></span> CREATE USER</a> <br>
                     </form>
                 </div>
-            </center> <br>
+            </center> <br>-->
 
-            <!-- THIS IS User PAGE: DINAMIC TABLE -->
+            <!-- THIS IS User PAGE: DINAMIC TABLE 
             <table id="userTable" class="table tableplus">
                 <thead>
                     <tr>
@@ -471,7 +471,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- THIS IS OUR VISION PAGE-->
@@ -508,7 +508,7 @@
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
     <script src="DataTables/datatables.min.js"></script>
-    <script src="DataTables/jQuery-3.2.1/jquery-3.2.1.min.js"></script>
+    <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

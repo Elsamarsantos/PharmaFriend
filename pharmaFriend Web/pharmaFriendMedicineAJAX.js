@@ -17,7 +17,7 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
-            
+
         }
     })
 });
@@ -152,12 +152,8 @@ setInterval(() => {
 
 
 
-function getListMedicines() {
 
-   
-    $("#medicineTable").show();
-    
-    
+function getListMedicines() {
 
     for (i = 0; i < listAllMedicines.length; i++) {
 
@@ -171,12 +167,22 @@ function getListMedicines() {
             `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
             ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
             + '</td></tr>';
-            $('#medicineTable').append(medicine);
+        $('#medicineTable').append(medicine);
     }
 
-    $('#medicineTable').DataTable();
+
 
 };
+
+function showTable() {
+
+    
+    $('#medicineTable').clear();
+
+    getListMedicines();
+    $('#medicineTable').DataTable();
+    $('#medicineTable').show();
+}
 
 
 
