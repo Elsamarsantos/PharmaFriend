@@ -22,7 +22,7 @@ footer {
 header
 {
     font-family: 'Open Sans' , sans-serif;
-    font-size: 4em;
+    font-size: 350%;
     font-weight: 600;
     text-align: center;
     color: #FFFFFF;
@@ -57,11 +57,12 @@ li {
   
 li a {
     font-family: 'Open Sans' , sans-serif;
-    font-size: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 18px 18px;
     text-decoration: none;
 }
   
@@ -139,8 +140,6 @@ form.mypharmaform input[type="submit"]:hover {
 a:hover{
     text-decoration: none;
 }
-
-
 
 .modalEdit {
     font-family:'Open Sans', 'Helvetica Neue', sans-serif;
@@ -268,7 +267,7 @@ form.mypharmaformhome  {
     background: 0;
     border: 0;
     outline: 0;
-    /* font-style: italic; */
+   
     font-size: 23px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -289,27 +288,16 @@ form.mypharmaformhome  {
     letter-spacing: 1px;
 }
 
-/*pagination tables*/
-.pagination { display: inline-block; }
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) { background-color: #ddd; }
-
 /* THIS IS THE EDIT OF MAP OUTPUT */
 
 .mapOutputEdit {
-    text-align: center!important;
-    margin: auto!important;
+
+    display: block;
+    margin-left: 20%!important;
+    margin-right: 20%!important;
    
+}
+
+.editMyTables {
+    color:white;
 }

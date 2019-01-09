@@ -18,7 +18,7 @@
 
 <body>
    
-    <div id="navbar" class="collapse navbar-collapse container navbar-fixed-top">
+    <div id="navbar" class="navbar-collapse container navbar-fixed-top">
         <ul>
           
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
@@ -34,9 +34,9 @@
     <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
-            <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-12 col-md-12 col-lg-12"> <br>
                 <header> PharmaFriend </header>
-                <h2>Simplify your search.</h2>
+                <h1>Simplify your search.</h1>
             </div>
         </div>
     </div>
@@ -66,11 +66,17 @@
                         <label for="getDistance">SEARCH DISTANCE</label>
                         <input id="userdistance" type="text" />
                     </div> <br>
-                    <button id="btnMainSearch" class="btn btn-success btn-lg btn-block" style='font-size:24px'>
+                    <button id="btnMainSearch" class="btn btn-success btn-lg btn-inline-block" style='font-size:24px'>
                         <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                         </i></button>
                 </form>
                 <div class="col-sm-3"></div>
+                 <div>
+        <footer id="footer" class="footer">
+            <h5>By EDA</h5>
+            <h5>2018-2019</h5>
+        </footer>
+    </div>
             </div>
         </div>
     </div>
@@ -78,7 +84,7 @@
     <!-- THIS IS THE MAP THAT APPEARS UPPON MEDICINE SEARCH -->
     <center>
     <div id="results">
-        <div class="col-sm-6"> <br> <br>
+        <div class="col-sm-12"> <br> <br>
             <div id="mapOutput" class="mapOutputEdit">
                 <div id="map" style="border-radius: 10px 100px"></div>
                 <div id="out"></div>
@@ -157,7 +163,7 @@
                 <div>
                     <form class="mypharmaform" >
 
-                        <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-block"><span
+                        <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
                     </form>
                 </div>
@@ -186,7 +192,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> NEW MEDICINE</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> NEW MEDICINE</h2>
                     <form class="mypharmaform">
                         <input id="name" type="text" placeholder="Name" />
                         <input id="dose" type="text" placeholder="Dose" />
@@ -194,41 +200,11 @@
                         <input id="pvp" type="text" placeholder="PVP" />
                         <input id="rrate" type="text" placeholder="Reiumbursement Rate" />
                     </form>
-                    <br>
+                    
                     <button id="btnCreateMedicine" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">CREATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
-    <div class="modal fade modalBox" id="searchMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
-                    <div id="searchMedicineModalDiv">
-                        <table id="medicineTablebyName" class="table tableplus">
-                            <thead>
-                                <tr>
-                                    <th scope="col">NAME</th>
-                                    <th scope="col">DOSE</th>
-                                    <th scope="col">UNITS</th>
-                                    <th scope="col">PVP</th>
-                                    <th scope="col">REIMBURSEMENT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-
-                    </div> <br>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
-                    </button>
                 </div>
             </div>
         </div>
@@ -240,7 +216,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> UPDATE MEDICINE</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> UPDATE MEDICINE</h2>
                     <form  class="mypharmaform">
                       
                         <table id="tableToUpdate" class="table tableplus">
@@ -248,7 +224,7 @@
                             </tbody>
                         </table>
                     </form>
-                    <br>
+                    
                     <button id="btnUpdateMedicine" value="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">UPDATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
@@ -264,7 +240,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS MEDICINE?</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS MEDICINE?</h2>
                     <table id="medicineTableToDelete" class="table tableplus">
                         <tbody>
                         </tbody>
@@ -289,7 +265,7 @@
             <center>
                 <div>
                     <form class="mypharmaform">
-                        <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-block"><span
+                        <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                     </form>
                 </div>
@@ -316,32 +292,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> NEW PHARMACY</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> NEW PHARMACY</h2>
                     <form class="mypharmaform">
                         <input id="pharmaName" type="text" placeholder="Name" />
                         <input id="location" type="text" placeholder="Address" />
                         <input id="longitude" type="text" placeholder="Longitude" />
                         <input id="latitude" type="text" placeholder="Latitude" />
-                    </form> <br>
+                    </form>
                     <button id="btnCreatePharmacy" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">CREATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- THIS IS MY MODAL WHEN I SEARCH MY PHARMACY -->
-    <div class="modal fade modalBox" id="searchPharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> YOUR PHARMACY</h2> <br>
-                    <div id="searchPharmacyModalDiv"> </div> <br>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
-                    </button>
                 </div>
             </div>
         </div>
@@ -353,12 +314,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> UPDATE PHARMACY</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> UPDATE PHARMACY</h2>
                     <form class="mypharmaform">
                         <table id="pharmacytoUpdate" class="table tableplus">
                             <tbody></tbody>
                         </table>
-                    </form> <br>
+                    </form>
                     <button id="btnUpdatePharmacy" value="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">UPDATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
@@ -374,7 +335,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS PHARMACY?</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> DELETE THIS PHARMACY?</h2>
                     <table id="pharmacyTableToDelete" class="table tableplus">
                         <tbody>
                         </tbody>
@@ -390,67 +351,6 @@
     </div>
 
 
-    <!-- THIS IS USER PAGE----------------------------------------------------------------------->
-    <!-- <div class="container" id="tabUser" style="margin-bottom: 65px">
-        <div class="row">
-            <header>USERS</header>
-            <center>
-                <div>
-                    <form class="mypharmaform" autocomplete="off">
-
-
-                        <a href="#" onclick="getListUser()" id="btnSearchUser" class="btn btn-primary btn-info btn-block"><span
-                                class="glyphicon glyphicon-zoom-in"></span>
-                            SEARCH PHARMACY</a>
-                        <a href="#" data-toggle="modal" data-target="#createUserModal1" class="btn btn-primary btn-success btn-block"><span
-                                class="glyphicon glyphicon-ok"></span> CREATE USER</a> <br>
-                    </form>
-                </div>
-            </center> <br>-->
-
-            <!-- THIS IS User PAGE: DINAMIC TABLE 
-            <table id="userTable" class="table tableplus">
-                <thead>
-                    <tr>
-                        <th scope="col">NAME</th>
-                        <th scope="col">Login</th>
-                        <th scope="col">PASSWORD</th>
-                        <th scope="col">USERACCESS</th>
-                        <th scope="col">ADDRRESS</th>
-                        <th scope="col">ACTION</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-
-    </div>
-    <div class="modal fade modalBox" id="createUserModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
-                <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> NEW USER</h2> <br>
-                    <form class="mypharmaform">
-                        <input id="userName" type="text" placeholder="Name" />
-                        <input id="login" type="text" placeholder="email" />
-                        <input id="passWord" type="text" placeholder="passWord" />
-                        <input id="address" type="text" placeholder="Address" />
-                        <input id="userlonLocation" type="text" placeholder="Longitude" />
-                        <input id="userlatLocation" type="text" placeholder="Latitude" />
-
-                    </form> <br>
-                    <button id="btnCreateUser" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
-                        aria-label="Close" onclick="createUser()">CREATE</button>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
-                        CLOSE </button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
     <!-- THIS IS OUR VISION PAGE-->
     <div class="container" id="ourVision" style="margin-bottom: 65px">
         <div class="row text-center">
@@ -461,27 +361,24 @@
                 <hr> <br>
                 <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let
                     us help you find your medicine. <br> Simplify your search. </h3> <br>
-
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <footer id="footer" class="footer">
+                 <div>
+            <footer id="footer" class="footer">
             <h5>By EDA</h5>
             <h5>2018-2019</h5>
         </footer>
     </div>
+            </div>
+        </div>
+    </div>
+
+   
 
 
     <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->  
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     
-  
-
-
-   <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
     <script src="DataTables/datatables.min.js"></script>
