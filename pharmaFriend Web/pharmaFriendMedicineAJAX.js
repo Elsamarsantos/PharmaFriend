@@ -56,13 +56,14 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
 });
 
 
-
-
-
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function prepareToUpdate(el) {
 
     $('#tableToUpdate').empty();
+<<<<<<< HEAD
+=======
+
+>>>>>>> Diogo
     var id = $(el).parent().parent().attr('id');
 
     $.ajax({
@@ -86,6 +87,7 @@ function prepareToUpdate(el) {
         }
     })
 }
+
 
 $("#btnUpdateMedicine").click(function updateMedicine() {
 
@@ -115,7 +117,13 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
 });
 
 function prepareToDeleteM(el) {
+<<<<<<< HEAD
     $('#medicineTableToDelete').empty();
+=======
+
+    $('#medicineTableToDelete').empty();
+
+>>>>>>> Diogo
     var id = $(el).parent().parent().attr('id');
 
     $.ajax({

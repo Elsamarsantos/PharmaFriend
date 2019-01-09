@@ -50,6 +50,7 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
 // THIS IS MY AJAX TO UPDATE A PHARMACY
 function prepareToUpdatePharmacy(el) {
 
+    $('#pharmacytoUpdate').empty();
 
     var id = $(el).parent().parent().attr('id');
 
@@ -98,6 +99,8 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
 });
 //prepare to delete 
 function prepareToDeleteP(el) {
+
+    $('#pharmacyTableToDelete').empty();
 
     var id = $(el).parent().parent().attr('id');
 
