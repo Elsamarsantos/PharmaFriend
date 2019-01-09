@@ -56,12 +56,10 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
 });
 
 
-
-
-
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function prepareToUpdate(el) {
 
+    $('#tableToUpdate').empty();
 
     var id = $(el).parent().parent().attr('id');
 
@@ -86,6 +84,7 @@ function prepareToUpdate(el) {
         }
     })
 }
+
 
 $("#btnUpdateMedicine").click(function updateMedicine() {
 
@@ -115,6 +114,8 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
 });
 
 function prepareToDeleteM(el) {
+
+    $('#medicineTableToDelete').empty();
 
     var id = $(el).parent().parent().attr('id');
 
