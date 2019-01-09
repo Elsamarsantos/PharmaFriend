@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
 
+
 </head>
 
 <body>
@@ -86,7 +87,7 @@
     <div id="results">
         <div class="col-sm-12"> <br> <br>
             <div id="mapOutput" class="mapOutputEdit">
-                <div id="map" style="border-radius: 10px 100px"></div>
+                <div id="map" style="border-radius: 20px 20px 20px 20px"></div>
                 <div id="out"></div>
                 <br>
                    <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#moreInfo" style="border-radius: 20px; border-color: white">
@@ -110,9 +111,13 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit" style="font-size:23px">
                 <h2> YOUR MEDICINE</h2> <br>
+                
                 <div id=" buyMedicine" style="text-align:center; color:white;">
+                
                 <div id="buyMedName" type="text"></div>
+        
                 <div id="buyMedDose"></div>
+                
                 <div id="buyMedVolume"></div> <hr>
                 </div>
                 
@@ -134,25 +139,28 @@
         </div>
     </div>
 
-    <!-- THIS IS MY MODAL WHEN I PRESS SEND TO MY EMAIL -->
+   
 
-     <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!-- THIS IS MY MODAL WHEN I WANT TO SEND AN EMAIL WITH THE INFORMATION -->
+
+    <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                <br>            
-                        <label>Please enter your email below:</label> <br> 
-                        <input placeholder="example@pharmafriend.js" id="theEmail" type="text" /> <br> <br> <br>
-                 <button value="submit" class="btn btn-success btn-block btn-lg" data-dismiss="modal" aria-label="Close">
-            SEND </button>
-            <button value="submit" class="btn btn-danger btn-block btn-lg" data-dismiss="modal" aria-label="Close">
-            CLOSE </button>    
-                </div>
+                    <h2 class="modal-title" style="color: white"> <br> PLEASE ENTER YOUR EMAIL</h2>
+                    <form class="mypharmaform">
+                        <input id="theEmail" type="text" placeholder="example@pharmafriend.ps" />
+                    </form>
+                    
+                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
+                        aria-label="Close">SEND</button>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+                        CLOSE </button>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
