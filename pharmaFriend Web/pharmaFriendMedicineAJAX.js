@@ -1,19 +1,20 @@
 var listAllMedicines = [];
-
+var wait = false;
 // THIS IS MY AJAX TO GET ALL MEDICINES IN MY SQL TABLE
 function searchAllMedicine() {
+    wait = true;
 
-    $.ajax({
+    return $.ajax({
         url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
         type: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        success: function (data) {
+        success: (data) => {
 
             listAllMedicines = data;
-
+            this.wait = false;
         }
 
     })
@@ -48,10 +49,10 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
-            listAllMedicines.push(data);
             getListMedicines();
         }
     })
+
 
 });
 
@@ -110,6 +111,7 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
     searchAllMedicine();
     getListMedicines();
 
+
 });
 
 function prepareToDeleteM(el) {
@@ -162,20 +164,25 @@ function deleteMedicine() {
 var t = $('#medicineTable').DataTable();
 
 function getListMedicines() {
+   var promise= searchAllMedicine()
+   promise.then(() => {
+        t.clear().draw();
+        for (i = 0; i < listAllMedicines.length; i++) {
 
-    t.clear().draw();
-    for (i = 0; i < listAllMedicines.length; i++) {
+            const element = listAllMedicines[i];
+            t.row.add([element.medicineName, element.dose, element.volumeUnit, element.pvp, element.reImbursementRate,
+            `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
+            ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+            ]).node().id = element.id;
+            t.draw();
+        }
+        $('#medicineTable').show();
 
-        const element = listAllMedicines[i];
-        t.row.add([element.medicineName, element.dose, element.volumeUnit, element.pvp, element.reImbursementRate,
-        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
-        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
-        ]).node().id = element.id;
-        t.draw();
-    }
-    $('#medicineTable').show();
+    });
+    // while(this.wait);
+
 };
-    
+
 
 
 
