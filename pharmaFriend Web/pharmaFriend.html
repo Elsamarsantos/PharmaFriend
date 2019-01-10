@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
 
+
 </head>
 
 <body>
@@ -71,12 +72,10 @@
                         </i></button>
                 </form>
                 <div class="col-sm-3"></div>
-                 <div>
-        <footer id="footer" class="footer">
-            <h5>By EDA</h5>
-            <h5>2018-2019</h5>
-        </footer>
-    </div>
+                <footer id="footer" class="footer">
+                <h5>By EDA</h5>
+                <h5>2018-2019</h5>
+                </footer>
             </div>
         </div>
     </div>
@@ -86,7 +85,7 @@
     <div id="results">
         <div class="col-sm-12"> <br> <br>
             <div id="mapOutput" class="mapOutputEdit">
-                <div id="map" style="border-radius: 10px 100px"></div>
+                <div id="map" style="border-radius: 20px 20px 20px 20px"></div>
                 <div id="out"></div>
                 <br>
                    <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#moreInfo" style="border-radius: 20px; border-color: white">
@@ -110,9 +109,13 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit" style="font-size:23px">
                 <h2> YOUR MEDICINE</h2> <br>
+                
                 <div id=" buyMedicine" style="text-align:center; color:white;">
+                
                 <div id="buyMedName" type="text"></div>
+        
                 <div id="buyMedDose"></div>
+                
                 <div id="buyMedVolume"></div> <hr>
                 </div>
                 
@@ -134,25 +137,28 @@
         </div>
     </div>
 
-    <!-- THIS IS MY MODAL WHEN I PRESS SEND TO MY EMAIL -->
+   
 
-     <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!-- THIS IS MY MODAL WHEN I WANT TO SEND AN EMAIL WITH THE INFORMATION -->
+
+    <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                <br>            
-                        <label>Please enter your email below:</label> <br> 
-                        <input placeholder="example@pharmafriend.js" id="theEmail" type="text" /> <br> <br> <br>
-                 <button value="submit" class="btn btn-success btn-block btn-lg" data-dismiss="modal" aria-label="Close">
-            SEND </button>
-            <button value="submit" class="btn btn-danger btn-block btn-lg" data-dismiss="modal" aria-label="Close">
-            CLOSE </button>    
-                </div>
+                    <h2 class="modal-title" style="color: white"> <br> PLEASE ENTER YOUR EMAIL</h2>
+                    <form class="mypharmaform">
+                        <input id="theEmail" type="text" placeholder="example@pharmafriend.ps" />
+                    </form>
+                    
+                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
+                        aria-label="Close">SEND</button>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+                        CLOSE </button>
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
@@ -170,7 +176,7 @@
             </center> <br>
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
-            <table id="medicineTable" class="table tableplus">
+            <table id="medicineTable" class="table">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -209,19 +215,16 @@
             </div>
         </div>
     </div>
-
-    <!-- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
+<!--- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
     <div class="modal fade modalBox" id="updateMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> UPDATE MEDICINE</h2>
+                    <h2 class="modal-title" style="color: white"> <br>UPDATE MEDICINE</h2>
                     <form  class="mypharmaform">
-                      
-                        <table id="tableToUpdate" class="table tableplus">
-                            <tbody>
-                            </tbody>
+                        <table id="tableToUpdate" class="table">
+                            <tbody></tbody>
                         </table>
                     </form>
                     
@@ -234,6 +237,8 @@
         </div>
     </div>
 
+     
+
     <!-- THIS IS MY MODAL WHEN I DELETE MY MEDICINE -->
     <div class="modal fade modalBox" id="deleteMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -241,7 +246,7 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> DELETE THIS MEDICINE?</h2>
-                    <table id="medicineTableToDelete" class="table tableplus">
+                    <table id="medicineTableToDelete" class="table myDeleteDisplay">
                         <tbody>
                         </tbody>
                     </table>
@@ -272,7 +277,7 @@
             </center> <br>
 
             <!-- THIS IS MY PHARMACY PAGE: DINAMIC TABALE -->
-            <table id="pharmacyTable" class="table tableplus">
+            <table id="pharmacyTable" class="table">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -308,6 +313,8 @@
         </div>
     </div>
 
+   
+
     <!-- THIS IS MY MODAL WHEN I UPDATE MY PHARMACY -->
     <div class="modal fade modalBox" id="updatePharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -316,7 +323,7 @@
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> UPDATE PHARMACY</h2>
                     <form class="mypharmaform">
-                        <table id="pharmacytoUpdate" class="table tableplus">
+                        <table id="pharmacytoUpdate" class="table">
                             <tbody></tbody>
                         </table>
                     </form>
@@ -336,9 +343,8 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> DELETE THIS PHARMACY?</h2>
-                    <table id="pharmacyTableToDelete" class="table tableplus">
-                        <tbody>
-                        </tbody>
+                    <table id="pharmacyTableToDelete" class="table myDeleteDisplay" >
+                        <tbody></tbody>
                     </table>
                     <a href="#" data-dismiss="modal" aria-label="Close" onclick="deletePharmacy()" class="btn btn-primary btn-success"><span
                             class="glyphicon glyphicon-ok"></span>
@@ -361,18 +367,14 @@
                 <hr> <br>
                 <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let
                     us help you find your medicine. <br> Simplify your search. </h3> <br>
-                 <div>
+                 
             <footer id="footer" class="footer">
             <h5>By EDA</h5>
             <h5>2018-2019</h5>
-        </footer>
-    </div>
+            </footer>
             </div>
         </div>
     </div>
-
-   
-
 
     <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->  
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -388,11 +390,9 @@
 
     <script src="pharmaFriendMedicineAJAX.js"></script>
     <script src="pharmaFriendPharmacyAJAX.js"></script>
-    <script src="pharmaFriendMedicineFunctions.js"></script>
-    <script src="pharmaFriendPharmacyFunctions.js"></script>
     <script src="pharmaFriendMain.js"></script>
     <script src="htmlInteraction.js"></script>
-    <script src="UserAjax.js"></script>
+  
 
  
 </body>

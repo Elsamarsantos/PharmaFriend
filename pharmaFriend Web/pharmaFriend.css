@@ -22,13 +22,14 @@ footer {
 header
 {
     font-family: 'Open Sans' , sans-serif;
-    font-size: 350%;
-    font-weight: 600;
+    font-size: 400%;
+    font-weight: 800;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 15%;
+    margin-top: 13%;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    
 }
 
 hr {
@@ -49,21 +50,25 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: rgba(51, 51, 51, 0.644);
+   
 }
 
 li {
     float: left;
+    
 }
   
 li a {
     font-family: 'Open Sans' , sans-serif;
-    font-size: 0.8em;
+    font-size: 1.1em;
     font-weight: bold;
-    display: block;
+    display: inline-block;
     color: white;
     text-align: center;
     padding: 18px 18px;
     text-decoration: none;
+    
+    
 }
   
 li a:hover {
@@ -298,6 +303,9 @@ form.mypharmaformhome  {
    
 }
 
-.editMyTables {
-    color:white;
+.myDeleteDisplay {
+    font-size: 23px;
+    margin: auto;
+    
 }
+

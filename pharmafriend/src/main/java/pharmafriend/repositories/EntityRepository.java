@@ -33,6 +33,9 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 		return em.merge(entity);
 	}
 	
+	public void delete(T entity) {
+		em.remove(entity);
+	}
 	
 	
 	protected abstract Class<T> getEntityClass();

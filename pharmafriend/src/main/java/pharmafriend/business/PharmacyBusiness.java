@@ -100,7 +100,20 @@ public class PharmacyBusiness {
 		@Transactional 
 		public void removePharmacy(long id) {
 			Pharmacy pharmacy =  pharmacyRepository1.consultEntityId(id);
-			pharmacyRepository1.remove(pharmacy.getPharmacyName());
+			
+			List<Medicine> stock= pharmacy.getListStock();
+			for(Medicine m: stock) {
+				m.getListPharmacyInMedicine().remove(pharmacy);
+				medicineRepository1.update(m);
+			}
+			
+			
+			pharmacy.setListStock(null);
+			pharmacyRepository1.update(pharmacy);
+			
+			pharmacyRepository1.delete(pharmacy);
+			
+
 		}
 	
 	//it´s not working 

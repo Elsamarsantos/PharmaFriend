@@ -94,18 +94,14 @@ public class MedicineBusiness {
 	}
 	
 	
-	//remove medicine by name 
-	@Transactional 
-	public void removeMedicine(String name,String dose, String volumeUnit) {
-		medicineRepository1.remove(name,dose,volumeUnit);
-	}
+
 	
 	//remove medicine by id 
 		@Transactional 
 		public void removeMedicineById(long id) {
 			Medicine medicineToRemove= medicineRepository1.consultEntityId(id);
 			
-			medicineRepository1.remove(medicineToRemove.getMedicineName(),medicineToRemove.getDose(),medicineToRemove.getVolumeUnit());
+			medicineRepository1.delete(medicineToRemove);
 		}
 	
 	

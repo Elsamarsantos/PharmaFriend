@@ -38,10 +38,7 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("lonLocation", lon).setParameter("latLocation", lat).getSingleResult();
 		
 	}
-	public void remove(String name) {
-		 em.remove(getPharmacyByName(name));
-		
-	}
+
 
 	public long getBiggestId() {
 		
