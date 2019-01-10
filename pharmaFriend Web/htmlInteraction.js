@@ -22,12 +22,13 @@ $("#logoff").click(function reload(){
 });
 
 $("#btnNewSearch").click(function close() {
-    $("#medicineName").val("");
-    $("#getDose").empty();
-    $("#getVolume").empty();
-    $("#userdistance").val("");
-    $("#results").hide();
-    home();
+    location.reload();
+  //  $("#medicineName").val("");
+  //  $("#getDose").empty();
+  //  $("#getVolume").empty();
+  //  $("#userdistance").val("");
+  //  $("#results").hide();
+  //  home();
 });
 
 // $("#btnLogin").click(function doLogin(){
