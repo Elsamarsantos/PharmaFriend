@@ -14,6 +14,7 @@ $(document).ready(function () {
 
 var points = [];
 
+
 $("#btnMainSearch").click(function mainSearch() {
 
 
@@ -82,7 +83,6 @@ $("#btnMainSearch").click(function mainSearch() {
                 .bindPopup('You ! ')
                 .openPopup();
 
-
             $.ajax({
 
                 url: `http://localhost:8080/pharmafriend/api/request?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -113,8 +113,12 @@ $("#btnMainSearch").click(function mainSearch() {
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
                     }
                 }
+                
             })
+            map.flyTo([latitude, longitude], 17);
 
+            // map.removeLayer(Layer)
+            // map.flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
         }
 
 
@@ -124,6 +128,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
         navigator.geolocation.getCurrentPosition(success, error);
+
     }
     else {
         if ($("#medicineName").val() == "") {
