@@ -93,11 +93,8 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
 
-
-                    for (i = 0; i < data.length; i++) {
-                        var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
-                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
-                        var name = document.getElementById("pharmacy1");
+                    var i=0;
+                    var name = document.getElementById("pharmacy1");
                         name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
                         var loc = document.getElementById("pharmacy1loc");
                         loc.innerHTML = ("<p>" + data[i].address + "</p>");
@@ -105,12 +102,15 @@ $("#btnMainSearch").click(function mainSearch() {
                         name.innerHTML = ("<p>" + data[i+1].pharmacyName + " </p>");
                         var loc = document.getElementById("pharmacy2loc");
                         loc.innerHTML = ("<p>" + data[i+1].address + " </p>");
-
                         var name = document.getElementById("pharmacy3");
                         name.innerHTML = ("<p>" + data[i+2].pharmacyName + " </p>");
                         var loc = document.getElementById("pharmacy3loc");
                         loc.innerHTML = ("<p>" + data[i+2].address + " </p>");
 
+                    for (i = 0; i < data.length; i++) {
+                        var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
+                            .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        
                     }
                 }
 
