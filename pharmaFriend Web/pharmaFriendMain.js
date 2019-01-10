@@ -51,7 +51,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
             /*  ------------------------------------- MAP ----------------------------------------------- */
 
-            var map = L.map('map').setView([latitude, longitude], 17);
+            var map = L.map('map', { center: [latitude, longitude], zoom: 17 });
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -93,32 +93,35 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
 
-                    var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" + data[0].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy1loc");
-                    loc.innerHTML = ("<p>" + data[0].address + " </p>");
-
-                    var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" + data[2].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy2loc");
-                    loc.innerHTML = ("<p>" + data[2].address + " </p>");
-
-                    var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" + data[3].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy3loc");
-                    loc.innerHTML = ("<p>" + data[3].address + " </p>");
+                    
 
                     for (i = 0; i < data.length; i++) {
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
+                        var loc = document.getElementById("pharmacy1loc");
+                        loc.innerHTML = ("<p>" + data[i].address + "</p>");
+                        var name = document.getElementById("pharmacy2");
+                        name.innerHTML = ("<p>" + data[i+1].pharmacyName + " </p>");
+                        var loc = document.getElementById("pharmacy2loc");
+                        loc.innerHTML = ("<p>" + data[i+1].address + " </p>");
+
+                        var name = document.getElementById("pharmacy3");
+                        name.innerHTML = ("<p>" + data[i+2].pharmacyName + " </p>");
+                        var loc = document.getElementById("pharmacy3loc");
+                        loc.innerHTML = ("<p>" + data[i+2].address + " </p>");
+
                     }
                 }
-                
-            })
-            map.flyTo([latitude, longitude], 17);
 
+            })
+
+            // getCenter()
+            // map.flyTo([latitude, longitude], 17);
             // map.removeLayer(Layer)
             // map.flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
+            // map.distance(<LatLng> latlng1, <LatLng> latlng2)
         }
 
 
