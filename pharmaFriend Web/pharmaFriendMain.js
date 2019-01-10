@@ -93,7 +93,6 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
 
-                    
 
                     for (i = 0; i < data.length; i++) {
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
