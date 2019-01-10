@@ -14,12 +14,15 @@ $(document).ready(function () {
 //------------ BUTTONS ----------------
 $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
+
+$("#medicineListNewBtn").click(medicineListNew);
+
 $("#pharmacyListBtn").click(pharmacyList);
 $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
 //$("#logoff").click(function reload(){
 //    location.reload();
-});
+
 
 $("#btnNewSearch").click(function close() {
     location.reload();
@@ -98,19 +101,32 @@ function pharmacyList() {
     getListPharmacies();
 }
 
-function userList() {
+// function userList() {
+//     $("#results").hide();
+//     $("#userTable").hide();
+//     $("#mypharmaform1").hide();
+//     $("#ourVision").hide();
+//     $("#home").hide();
+//     $("#tabMedicine").hide();
+//     $("#tabPharmacy").hide();
+//     $("#tabUser").show();
+//     $(".active").removeClass( "active" ).addClass( "hover" );
+//     $('#userListBtn').addClass( "active" );
+// }
+
+function medicineListNew() {
     $("#results").hide();
-    $("#userTable").hide();
+    $("#medicineTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
-    $("#tabMedicine").hide();
     $("#tabPharmacy").hide();
-    $("#tabUser").show();
+    $("#tabMedicine").show();
+    $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
-    $('#userListBtn').addClass( "active" );
+    $('#medicineListBtn').addClass( "active" );
+    getListMedicines();
 }
-
 
 function ourVision() {
     $("#tabUser").hide();
