@@ -1,7 +1,10 @@
 var listAllPharmarcy = [];
+var wait = false;
 // THIS IS MY AJAX TO GET ALL PHARMACY IN MY SQL TABLE
 function searchAllPharmacy() {
-    $.ajax({
+    wait = true;
+
+    return $.ajax({
         url: "http://localhost:8080/pharmafriend/api/pharmacies/consultall",
         type: 'GET',
         headers: {
@@ -12,15 +15,15 @@ function searchAllPharmacy() {
 
         success: function (data) {
             listAllPharmarcy = data;
-
+            this.wait = false;
         }
     })
-} 
-searchAllPharmacy();
+}
+
 
 setInterval(() => {
     searchAllPharmacy();
-}, 1000 * 120);
+}, 1000 * 320);
 
 
 
@@ -39,8 +42,8 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         data: JSON.stringify(newPharmacy),
         success: function (data) {
             console.log(data);
-
-            getListPharmacies(); 
+            searchAllPharmacy();
+            getListPharmacies();
         }
     })
 });
@@ -79,7 +82,7 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
     var id = $('#pharmacytoUpdate tr').attr('id');
     console.log("ver id " + id);
 
-    var myPharmacy = {"id": id,"pharmacyName":$("#updatepharmaName").val(),"address":$("#updateaddress").val(),"lonLocation":$("#updatelonLocation").val(),"latLocation":$("#updatelatLocation").val()};
+    var myPharmacy = { "id": id, "pharmacyName": $("#updatepharmaName").val(), "address": $("#updateaddress").val(), "lonLocation": $("#updatelonLocation").val(), "latLocation": $("#updatelatLocation").val() };
     console.log(myPharmacy);
 
     $.ajax({
@@ -95,7 +98,8 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
             console.log("update:" + data);
         }
     })
-    getListPharmacies() ;
+    searchAllPharmacy()
+    getListPharmacies();
 });
 //prepare to delete 
 function prepareToDeleteP(el) {
@@ -144,15 +148,16 @@ var tpharmacy = $('#pharmacyTable').DataTable();
 
 function getListPharmacies() {
 
-    tpharmacy.clear().draw();
+    var promise = searchAllPharmacy();
+    promise.then(() => {
 
-
+        tpharmacy.clear().draw();
         for (i = 0; i < listAllPharmarcy.length; i++) {
 
             const element = listAllPharmarcy[i];
 
-            tpharmacy.row.add([element.pharmacyName, element.address, element.lonLocation, element.latLocation,`<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
-            ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+            tpharmacy.row.add([element.pharmacyName, element.address, element.lonLocation, element.latLocation, `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
+                ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
             ]).node().id = element.id;
             tpharmacy.draw();
         }
@@ -160,5 +165,5 @@ function getListPharmacies() {
 
 
 
+    });
 }
-

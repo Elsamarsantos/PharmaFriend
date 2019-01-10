@@ -161,11 +161,13 @@ function deleteMedicine() {
 
 
 
-var t = $('#medicineTable').DataTable();
+var t = $('#medicineTable').DataTable( {
+    responsive: true
+});
 
 function getListMedicines() {
-   var promise= searchAllMedicine()
-   promise.then(() => {
+    var promise = searchAllMedicine();
+    promise.then(() => {
         t.clear().draw();
         for (i = 0; i < listAllMedicines.length; i++) {
 
@@ -179,7 +181,7 @@ function getListMedicines() {
         $('#medicineTable').show();
 
     });
-    // while(this.wait);
+    
 
 };
 

@@ -12,6 +12,7 @@
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
         crossorigin='anonymous'>
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
+    <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
 
 
@@ -176,7 +177,8 @@
             </center> <br>
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
-            <table id="medicineTable" class="table">
+            
+            <table id="medicineTable" class="responsive nowrap" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -189,6 +191,7 @@
                 </thead> 
                 
             </table>
+        
         </div>
 
     </div>
@@ -386,6 +389,7 @@
     <script src="DataTables/datatables.min.js"></script>
     <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
+    <script type="text/javascript" src="responsive-tables.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="pharmaFriendMedicineAJAX.js"></script>
