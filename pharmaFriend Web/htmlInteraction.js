@@ -19,7 +19,7 @@ $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
 //$("#logoff").click(function reload(){
 //    location.reload();
-});
+
 
 $("#btnNewSearch").click(function close() {
     location.reload();
