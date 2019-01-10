@@ -14,9 +14,6 @@ $(document).ready(function () {
 //------------ BUTTONS ----------------
 $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
-
-$("#medicineListNewBtn").click(medicineListNew);
-
 $("#pharmacyListBtn").click(pharmacyList);
 $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
@@ -114,19 +111,6 @@ function pharmacyList() {
 //     $('#userListBtn').addClass( "active" );
 // }
 
-function medicineListNew() {
-    $("#results").hide();
-    $("#medicineTable").hide();
-    $("#mypharmaform1").hide();
-    $("#ourVision").hide();
-    $("#home").hide();
-    $("#tabPharmacy").hide();
-    $("#tabMedicine").show();
-    $("#tabUser").hide();
-    $(".active").removeClass( "active" ).addClass( "hover" );
-    $('#medicineListBtn').addClass( "active" );
-    getListMedicines();
-}
 
 function ourVision() {
     $("#tabUser").hide();
