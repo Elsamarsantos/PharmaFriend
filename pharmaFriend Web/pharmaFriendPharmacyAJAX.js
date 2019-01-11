@@ -156,7 +156,7 @@ function getListPharmacies() {
 
             const element = listAllPharmarcy[i];
 
-            tpharmacy.row.add([element.pharmacyName, element.address, element.lonLocation, element.latLocation, `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> UPDATE</a>` +
+            tpharmacy.row.add([element.pharmacyName, element.address, element.lonLocation, element.latLocation, `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT </a>` +
                 ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
             ]).node().id = element.id;
             tpharmacy.draw();
