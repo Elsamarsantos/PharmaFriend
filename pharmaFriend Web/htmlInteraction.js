@@ -9,6 +9,8 @@ $(document).ready(function () {
   searchAllPharmacy();
   searchAllMedicine();
   
+
+  
 });
 
 //------------ BUTTONS ----------------
@@ -21,15 +23,15 @@ $("#ourVisionBtn").click(ourVision);
 //    location.reload();
 
 
-$("#btnNewSearch").click(function close() {
-    location.reload();
+// $("#btnNewSearch").click(function close() {
+
   //  $("#medicineName").val("");
   //  $("#getDose").empty();
   //  $("#getVolume").empty();
   //  $("#userdistance").val("");
   //  $("#results").hide();
   //  home();
-});
+
 
 // $("#btnLogin").click(function doLogin(){
 //     verificaRegisto();
