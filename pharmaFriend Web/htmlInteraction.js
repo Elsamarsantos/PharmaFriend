@@ -17,7 +17,7 @@ $(document).ready(function () {
 $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
-$("#userListBtn").click(userList);
+// $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
 //$("#logoff").click(function reload(){
 //    location.reload();
