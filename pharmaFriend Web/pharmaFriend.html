@@ -15,25 +15,20 @@
     <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
 
-
 </head>
-
-<body>
-   
+<!-- THIS IS MY NAVBAR -->
+<body>   
     <div id="navbar" class="navbar-collapse container navbar-fixed-top">
-        <ul>
-          
+        <ul>    
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
-            <li id="ourVisionBtn" class="navbar-right" ><a  class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
-                    VISION</a></li>
+            <li id="ourVisionBtn" class="navbar-right" ><a  class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR VISION</a></li>
         </ul>
     </div>
 
-   
-    <!-- THIS IS MY HOME PAGE -->
+<!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12"> <br>
@@ -112,11 +107,8 @@
                 <h2> YOUR MEDICINE</h2> <br>
                 
                 <div id=" buyMedicine" style="text-align:center; color:white;">
-                
                 <div id="buyMedName" type="text"></div>
-        
                 <div id="buyMedDose"></div>
-                
                 <div id="buyMedVolume"></div> <hr>
                 </div>
                 
@@ -137,11 +129,9 @@
             </div>
         </div>
     </div>
-
-   
+  
 
     <!-- THIS IS MY MODAL WHEN I WANT TO SEND AN EMAIL WITH THE INFORMATION -->
-
     <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -152,7 +142,7 @@
                         <input id="theEmail" type="text" placeholder="example@pharmafriend.ps" />
                     </form>
                     
-                    <button value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
+                    <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">SEND</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
@@ -160,7 +150,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
     <div class="container" id="tabMedicine" style="margin-bottom: 65px">
@@ -176,8 +165,7 @@
                 </div>
             </center> <br>
 
-            <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
-            
+    <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
             <table id="medicineTable" class="responsive nowrap" cellspacing="0" width="100%">
                 <thead>
                     <tr>
@@ -189,12 +177,10 @@
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead> 
-                
             </table>
-        
         </div>
-
     </div>
+
     <!-- THIS IS MY MODAL WHEN I CREATE MY MEDICINE -->
     <div class="modal fade modalBox" id="createMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -218,6 +204,7 @@
             </div>
         </div>
     </div>
+
 <!--- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
     <div class="modal fade modalBox" id="updateMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -290,10 +277,10 @@
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
-            
             </table>
         </div>
     </div>
+
     <!-- THIS IS MY MODAL WHEN I CREATE MY PHARMACY -->
     <div class="modal fade modalBox" id="createPharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -314,9 +301,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-   
+    </div>   
 
     <!-- THIS IS MY MODAL WHEN I UPDATE MY PHARMACY -->
     <div class="modal fade modalBox" id="updatePharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -364,11 +349,19 @@
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <header> Our Vision <br> </header> <br> <br>
-                <h3 style="color:rgb(43, 46, 43)"> Have you ever needed a medication <br> and it's not
-                    available in your usual pharmacy?</h3> <br>
-                <hr> <br>
-                <h3 style="color: rgb(191, 217, 255)">Our aim is to be there when you most need. <br> Let
-                    us help you find your medicine. <br> Simplify your search. </h3> <br>
+                <h3 style="color:rgb(43, 46, 43)">
+                    Why we don’t have always the medicines we need when we need? <br>
+                    When the access to the medicine is denied, the therapeutic success is compromised. </h3>
+                <hr> 
+                <h3 style="color: rgb(191, 217, 255)">
+                We believe that the injured party should never be the customer, especially when we talk about health. <br>
+                Our mission is to accurately communicate where the client can pick up their medicine. <br>
+                An easy access translates into less time spent and an improve in health. <br>
+                
+                Our aim is to be there when you most need. <br> Let
+                    us help you find your medicine. <br> <br> </h3>  
+                   <h1 style="color: rgb(191, 217, 255)"> Pharmafriend <br>
+                    Simplify your search.  <br> </h1>
                  
             <footer id="footer" class="footer">
             <h5>By EDA</h5>
@@ -395,10 +388,14 @@
     <script src="pharmaFriendPharmacyAJAX.js"></script>
     <script src="pharmaFriendMain.js"></script>
     <script src="htmlInteraction.js"></script>
-  
+    
+    <!-- THIS IS HOW I SEND MY EMAILS -->
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+   (function(){
+      emailjs.init("user_N92MFEgFzseQe0k14q0oe");
+   })();
+    </script>
 
- 
 </body>
-
-
 </html>
