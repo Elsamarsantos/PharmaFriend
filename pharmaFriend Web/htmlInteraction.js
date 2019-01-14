@@ -3,7 +3,10 @@ $(document).ready(function () {
 
   home();
   searchAllPharmacy();
-  searchAllMedicine();
+  
+  
+
+  
 });
 
 //------------ BUTTONS ----------------
@@ -12,6 +15,12 @@ $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
 $("#ourVisionBtn").click(ourVision);
 
+
+
+
+ 
+
+ 
 
 function home() {
     $("#results").hide();
@@ -41,7 +50,7 @@ function home() {
 
 function medicineList() {
     $("#results").hide();
-    $("#medicineTable").hide();
+    //$("#medicineTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -50,8 +59,8 @@ function medicineList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
-    getListMedicines();
-
+    
+    getPagiation();
     
 }
 
@@ -68,6 +77,9 @@ function pharmacyList() {
     $('#pharmacyListBtn').addClass( "active" );
     getListPharmacies();
 }
+
+
+
 
 function ourVision() {
     $("#tabUser").hide();

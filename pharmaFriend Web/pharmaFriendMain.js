@@ -93,6 +93,8 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Content-Type': 'application/json'
                 },
                 success: function (data) {
+                    console.log(data);
+                    
 
                     for (i = 0; i < data.length; i++) {
 

@@ -14,21 +14,26 @@
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
     <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
+  
 
 </head>
-<!-- THIS IS MY NAVBAR -->
-<body>   
+
+<body>
+
     <div id="navbar" class="navbar-collapse container navbar-fixed-top">
-        <ul>    
+        <ul>
+
             <li id="homeBtn"><a class="active" href="#home" type="button">HOME</a></li>
             <li id="medicineListBtn"><a class="hover" href="#medicineList" type="button">MEDICINES</a></li>
             <li id="pharmacyListBtn"><a class="hover" href="#pharmacyList" type="button">PHARMACIES</a></li>
             <i class='fas fa-plus-square navbar-right' style='font-size:48px; color: green; margin-top: 0px; margin-left: 0px; margin-right: 5px '></i>
-            <li id="ourVisionBtn" class="navbar-right" ><a  class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR VISION</a></li>
+            <li id="ourVisionBtn" class="navbar-right"><a class="hover" href="#ourVision" type="button" style="margin-right: 5px">OUR
+                    VISION</a></li>
         </ul>
     </div>
 
-<!-- THIS IS MY HOME PAGE -->
+
+    <!-- THIS IS MY HOME PAGE -->
     <div class="container" id="home">
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12"> <br>
@@ -44,7 +49,7 @@
 
                 <form class="mypharmaformhome" autocomplete="off">
                     <div class="getSearch">
-                        <label  for="getName">MEDICINE NAME</label>
+                        <label for="getName">MEDICINE NAME</label>
                         <input class="autocomplete" id="medicineName" type="text" />
                     </div>
                     <div class="getSearch">
@@ -69,8 +74,8 @@
                 </form> <br> <br>
                 <div class="col-sm-3"></div>
                 <footer id="footer" class="footer">
-                <h5>By EDA</h5>
-                <h5>2018-2019</h5>
+                    <h5>By EDA</h5>
+                    <h5>2018-2019</h5>
                 </footer>
             </div>
         </div>
@@ -78,25 +83,27 @@
 
     <!-- THIS IS THE MAP THAT APPEARS UPPON MEDICINE SEARCH -->
     <center>
-    <div id="results">
-        <div class="col-sm-12"> <br> <br>
-            <div id="mapOutput" class="mapOutputEdit">
-                <div id="map" style="border-radius: 20px 20px 20px 20px"></div>
-                <div id="out"></div>
-                <br>
-                   <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#moreInfo" style="border-radius: 20px; border-color: white">
-                    MORE INFO</button>
-    <button type="button" class="btn-success btn-lg" data-toggle="modal" data-target="#sendToEmail" style="border-radius: 20px; border-color: white">
-                    SEND TO EMAIL</button>
-                
-                <button id="btnNewSearch" type="button" class="btn-danger btn-lg" onclick="window.location.reload()" style="border-radius: 20px; margin-bottom: 65px; border-color: white">
-                    NEW SEARCH </button>
+        <div id="results">
+            <div class="col-sm-12"> <br> <br>
+                <div id="mapOutput" class="mapOutputEdit">
+                    <div id="map" style="border-radius: 20px 20px 20px 20px"></div>
+                    <div id="out"></div>
+                    <br>
+                    <button type="button" class="btn-primary btn-lg" data-toggle="modal" data-target="#moreInfo" style="border-radius: 20px; border-color: white">
+                        MORE INFO</button>
+                    <button type="button" class="btn-success btn-lg" data-toggle="modal" data-target="#sendToEmail"
+                        style="border-radius: 20px; border-color: white">
+                        SEND TO EMAIL</button>
 
+                    <button id="btnNewSearch" type="button" class="btn-danger btn-lg" onclick="window.location.reload()"
+                        style="border-radius: 20px; margin-bottom: 65px; border-color: white">
+                        NEW SEARCH </button>
+
+                </div>
             </div>
         </div>
-    </div>
     </center>
-   
+
 
     <!-- THIS IS MY MODAL WHEN I PRESS MORE INFO INFO ON THE MAP -->
     <div class="modal fade modalBox" id="moreInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -126,6 +133,7 @@
         </div>
            
                 </div>
+
             </div>
         </div>
     </div>
@@ -157,7 +165,7 @@
             <header>MEDICINE</header>
             <center>
                 <div>
-                    <form class="mypharmaform" >
+                    <form class="mypharmaform">
 
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
@@ -165,8 +173,9 @@
                 </div>
             </center> <br>
 
-    <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
-            <table id="medicineTable" class="responsive nowrap" cellspacing="0" width="100%">
+            <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
+
+            <table id="medicineTable" class="table" >
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -176,8 +185,19 @@
                         <th scope="col">REIMBURSEMENT</th>
                         <th scope="col">ACTION</th>
                     </tr>
-                </thead> 
+                </thead>
+
             </table>
+
+        </div>
+        <div>
+            <nav aria-label="Page navigation example">
+                <ul id="paginationList"class="pagination justify-content-end">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 
@@ -195,7 +215,7 @@
                         <input id="pvp" type="text" placeholder="PVP" />
                         <input id="rrate" type="text" placeholder="Reiumbursement Rate" />
                     </form>
-                    
+
                     <button id="btnCreateMedicine" value="submit" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">CREATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
@@ -204,20 +224,19 @@
             </div>
         </div>
     </div>
-
-<!--- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
+    <!--- THIS IS MY MODAL WHEN I UPDATE MY MEDICINE -->
     <div class="modal fade modalBox" id="updateMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br>UPDATE MEDICINE</h2>
-                    <form  class="mypharmaform">
+                    <form class="mypharmaform">
                         <table id="tableToUpdate" class="table">
                             <tbody></tbody>
                         </table>
                     </form>
-                    
+
                     <button id="btnUpdateMedicine" value="submit" class="btn btn-primary btn-lg btn-block" data-dismiss="modal"
                         aria-label="Close">UPDATE</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
@@ -227,7 +246,7 @@
         </div>
     </div>
 
-     
+
 
     <!-- THIS IS MY MODAL WHEN I DELETE MY MEDICINE -->
     <div class="modal fade modalBox" id="deleteMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -331,7 +350,7 @@
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> DELETE THIS PHARMACY?</h2>
-                    <table id="pharmacyTableToDelete" class="table myDeleteDisplay" >
+                    <table id="pharmacyTableToDelete" class="table myDeleteDisplay">
                         <tbody></tbody>
                     </table>
                     <a href="#" data-dismiss="modal" aria-label="Close" onclick="deletePharmacy()" class="btn btn-primary btn-success"><span
@@ -371,17 +390,18 @@
         </div>
     </div>
 
-    <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->  
+    <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    
+
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
     <script src="DataTables/datatables.min.js"></script>
     <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
-    <script type="text/javascript" src="responsive-tables.js"></script>
+    <!-- <script type="text/javascript" src="responsive-tables.js"></script> -->
+    
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="pharmaFriendMedicineAJAX.js"></script>
