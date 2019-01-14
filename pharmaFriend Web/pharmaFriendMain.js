@@ -95,7 +95,7 @@ $("#btnMainSearch").click(function mainSearch() {
                 success: function (data) {
 
                     for (i = 0; i < data.length; i++) {
-
+                        console.log(data[i]);
                         // Marcador das Farmacias com medicamento
 
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
@@ -112,6 +112,9 @@ $("#btnMainSearch").click(function mainSearch() {
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                         var dist = distance.toPrecision(3);
                         arrayDistance[i] = ("At "+dist+ " kilometres you have:" +"<p>" +data[i].pharmacyName +"<p>Adress: " +data[i].address+";");
+                        if (arrayDistance[i] == undefined){
+                            arrayDistance[i]=="";
+                        };
                     }
                     
                     // Arranjar os valores undifined e variáveis que envia para o email
