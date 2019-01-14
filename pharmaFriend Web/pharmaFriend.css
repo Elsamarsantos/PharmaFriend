@@ -304,8 +304,11 @@ form.mypharmaformhome  {
 }
 
 .myDeleteDisplay {
-    font-size: 23px;
+    font-size: 0.7em;
+    text-align: center!important;
     margin: auto;
+    color: #FFFFFF!important;
+    background-color: #FFFFFF;
     
 }
 
