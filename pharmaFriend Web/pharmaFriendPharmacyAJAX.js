@@ -11,8 +11,6 @@ function searchAllPharmacy() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-
-
         success: function (data) {
             listAllPharmarcy = data;
             this.wait = false;
@@ -20,11 +18,9 @@ function searchAllPharmacy() {
     })
 }
 
-
 setInterval(() => {
     searchAllPharmacy();
 }, 1000 * 320);
-
 
 
 // THIS IS MY AJAX TO CREATE A PHARMACY
@@ -47,7 +43,6 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         }
     })
 });
-
 
 
 // THIS IS MY AJAX TO UPDATE A PHARMACY
@@ -77,6 +72,7 @@ function prepareToUpdatePharmacy(el) {
         }
     })
 }
+
 $("#btnUpdatePharmacy").click(function updatePharmacy() {
 
     var id = $('#pharmacytoUpdate tr').attr('id');
@@ -120,11 +116,10 @@ function prepareToDeleteP(el) {
             var pharmacy = `<tr id="${data.id}"><td>` + data.pharmacyName + '</td><td>' + data.address + '</td><tr>';
 
             $('#pharmacyTableToDelete').append(pharmacy);
-
         }
     })
-
 }
+
 // THIS IS MY AJAX TO DELETE A PHARMACY
 function deletePharmacy() {
     var id = $('#pharmacyTableToDelete tr').attr('id');
@@ -162,8 +157,5 @@ function getListPharmacies() {
             tpharmacy.draw();
         }
         $("#pharmacyTable").show();
-
-
-
     });
 }

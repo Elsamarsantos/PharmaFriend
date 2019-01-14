@@ -16,16 +16,13 @@ function searchAllMedicine() {
             listAllMedicines = data;
             this.wait = false;
         }
-
     })
-
-
 }
 
 searchAllMedicine();
 setInterval(() => {
     searchAllMedicine();
-    console.log('novo update');
+    console.log('New Update');
 }, 1000 * 360);
 
 
@@ -37,7 +34,6 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         "medicineName": $("#name").val(), "dose": $("#dose").val(),
         "volumeUnit": $("#units").val(), "pvp": $("#pvp").val(), "reImbursementRate": $("#rrate").val()
     };
-
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/create`,
         type: 'POST',
@@ -52,14 +48,11 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
             getListMedicines();
         }
     })
-
-
 });
 
 
 // THIS IS MY AJAX TO UPDATE A MEDICINE
 function prepareToUpdate(el) {
-
     $('#tableToUpdate').empty();
     var id = $(el).parent().parent().attr('id');
 
@@ -80,7 +73,6 @@ function prepareToUpdate(el) {
                 `<tr><td>` + `<input id="updaterrate" type="text" value="${data.reImbursementRate}" />` + '</td></tr>';
 
             $('#tableToUpdate').append(medicine);
-
         }
     })
 }
@@ -110,8 +102,6 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
     });
     searchAllMedicine();
     getListMedicines();
-
-
 });
 
 function prepareToDeleteM(el) {
@@ -131,18 +121,13 @@ function prepareToDeleteM(el) {
                 '</td><td>' + data.volumeUnit + '</td><tr>';
 
             $('#medicineTableToDelete').append(medicine);
-
         }
     })
-
 };
 
 // THIS IS MY AJAX TO DELETE A MEDICINE
 function deleteMedicine() {
-
     var id = $('#medicineTableToDelete tr').attr('id');
-
-
     console.log("Preparing to delete:" + id);
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/delete/${id}`,
@@ -157,8 +142,6 @@ function deleteMedicine() {
     searchAllMedicine();
     getListMedicines();
 }
-
-
 
 
 var t = $('#medicineTable').DataTable( {
@@ -179,13 +162,5 @@ function getListMedicines() {
             t.draw();
         }
         $('#medicineTable').show();
-
     });
-    
-
 };
-
-
-
-
-

@@ -310,13 +310,9 @@ function getDose() {
             for (i = 0; i < data.length; i++) {
 
                 $('#getDose').append("<option>" + data[i].dose + "</option>");
-
             }
-
         }
     })
-
-
 };
 
 function getVolume() {
@@ -346,4 +342,24 @@ function getVolume() {
     })
 
 };
+
+// THIS IS MY FUNCTION TO SEND THE EMAIL;
+
+function sendTheEmail () {
+    console.log("Sending the Email to:" + $("#theEmail").val);
+    var template_params = {
+        "reply_to": $('#theEmail'),
+        "pharmacy1": $("#pharmacy1").html().replace("<p>","").replace("</p>",""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>","").replace("</p>",""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>","").replace("</p>",""),
+        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>","").replace("</p>",""),
+        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>","").replace("</p>",""),
+        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>","").replace("</p>",""),
+        
+     }
+     
+     var service_id = "default_service";
+     var template_id = "template_QfB5vZLA";
+     emailjs.send(service_id, template_id, template_params);    
+}
 
