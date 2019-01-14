@@ -8,9 +8,6 @@ $(document).ready(function () {
   home();
   searchAllPharmacy();
   searchAllMedicine();
-  
-
-  
 });
 
 //------------ BUTTONS ----------------

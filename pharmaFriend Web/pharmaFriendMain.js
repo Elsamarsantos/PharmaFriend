@@ -13,7 +13,7 @@ $(document).ready(function () {
 });
 
 var points = [];
-
+var arrayDistance = [];
 
 $("#btnMainSearch").click(function mainSearch() {
 
@@ -36,7 +36,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var medicineDose = $("#getDose").val();
             var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
-
+            
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
             var buyMedDose = document.getElementById("buyMedDose");
@@ -94,44 +94,40 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
 
-                    var i = 0;
-                    var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy1loc");
-                    loc.innerHTML = ("<p>" + data[i].address + "</p>");
-                    var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" + data[i + 1].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy2loc");
-                    loc.innerHTML = ("<p>" + data[i + 1].address + " </p>");
-                    var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" + data[i + 2].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy3loc");
-                    loc.innerHTML = ("<p>" + data[i + 2].address + " </p>");
-
                     for (i = 0; i < data.length; i++) {
+
+                        // Marcador das Farmacias com medicamento
+
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
-                        // var latlong2 = L.latLng(data[i].latLocation, data[i].lonLocation);
 
                         // CALCULO DA DISTANCIA //
-                
-                            var p = 0.017453292519943295;    // Math.PI / 180
-                            var c = Math.cos;
-                            var a = 0.5 - c((data[i].latLocation - latitude) * p)/2 + 
-                                    c(latitude * p) * c(data[i].latLocation * p) * 
-                                    (1 - c((data[i].lonLocation - longitude) * p))/2;
-                          
-                            var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-                            console.log(distance);
-                          
 
-                    //var distancia = map.distance(latlong, latlong2);
+                        var p = 0.017453292519943295;    // Math.PI / 180
+                        var c = Math.cos;
+                        var a = 0.5 - c((data[i].latLocation - latitude) * p) / 2 +
+                            c(latitude * p) * c(data[i].latLocation * p) *
+                            (1 - c((data[i].lonLocation - longitude) * p)) / 2;
+
+                        var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
+                        var dist = distance.toPrecision(3);
+                        arrayDistance[i] = ("At "+dist+ " kilometres you have:" +"<p>" +data[i].pharmacyName +"<p>Adress: " +data[i].address+";");
+                    }
                     
+                    // Arranjar os valores undifined e variáveis que envia para o email
+                    arrayDistance.sort();
+                    var name = document.getElementById("pharmacy1");
+                    name.innerHTML = ("<p>" +arrayDistance[0] + " </p>");
+                    var name = document.getElementById("pharmacy2");
+                    name.innerHTML = ("<p>" +arrayDistance[1] + " </p>");
+                    var name = document.getElementById("pharmacy3");
+                    name.innerHTML = ("<p>" +arrayDistance[2] + " </p>");
                 }
-            }
 
             })
+            map.setView({lat: latitude, lng:longitude}, 15);
 
+            // Comandos Para o Mapa
             // getCenter()
             // map.flyTo([latitude, longitude], 17);
             // map.removeLayer(Layer)
@@ -140,22 +136,22 @@ $("#btnMainSearch").click(function mainSearch() {
         }
 
 
-function error() {
-    output.innerHTML = "Unable to retrieve your location, please check your internet connection";
-}
+        function error() {
+            output.innerHTML = "Unable to retrieve your location, please check your internet connection";
+        }
 
 
-navigator.geolocation.getCurrentPosition(success, error);
+        navigator.geolocation.getCurrentPosition(success, error);
 
     }
     else {
-    if ($("#medicineName").val() == "") {
-        alert("Please insert a medicine in search field");
+        if ($("#medicineName").val() == "") {
+            alert("Please insert a medicine in search field");
+        }
+        else {
+            alert("Please insert some distance");
+        }
     }
-    else {
-        alert("Please insert some distance");
-    }
-}
 
 });
 
