@@ -36,7 +36,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var medicineDose = $("#getDose").val();
             var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
-            
+
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
             var buyMedDose = document.getElementById("buyMedDose");
@@ -92,6 +92,12 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
+                error: function (data){
+                    var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                        alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                    
+                },
                 success: function (data) {
 
                     for (i = 0; i < data.length; i++) {
@@ -111,31 +117,33 @@ $("#btnMainSearch").click(function mainSearch() {
 
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                         var dist = distance.toPrecision(3);
-                        arrayDistance[i] = ("At "+dist+ " kilometres you have:" +"<p>" +data[i].pharmacyName +"<p>Adress: " +data[i].address+";");
-                        if (arrayDistance[i] == undefined){
-                            arrayDistance[i]=="";
-                        };
+                        arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
+                        console.log(arrayDistance[i]);
                     }
-                    
+
                     // Arranjar os valores undifined e variáveis que envia para o email
                     arrayDistance.sort();
-                    var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" +arrayDistance[0] + " </p>");
-                    var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" +arrayDistance[1] + " </p>");
-                    var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" +arrayDistance[2] + " </p>");
+                    if (arrayDistance.length > 0) {
+                        var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
+                        if (arrayDistance.length > 1) {
+                            var name = document.getElementById("pharmacy2");
+                            name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
+                        }
+                        if (arrayDistance.length > 3) {
+                            var name = document.getElementById("pharmacy3");
+                            name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
+                        }
+                    } else {
+                        var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                        alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                    }
                 }
+                
 
             })
-            map.setView({lat: latitude, lng:longitude}, 15);
-
-            // Comandos Para o Mapa
-            // getCenter()
-            // map.flyTo([latitude, longitude], 17);
-            // map.removeLayer(Layer)
-            // map.flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
-            // map.distance(<latlong> latlng1, <LatLng> latlng2)
+            map.setView({ lat: latitude, lng: longitude }, 15);
         }
 
 
@@ -344,21 +352,21 @@ function getVolume() {
 
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-function sendTheEmail () {
+function sendTheEmail() {
     console.log("Sending the Email to:" + $("#theEmail").val);
     var template_params = {
         "reply_to": $('#theEmail'),
-        "pharmacy1": $("#pharmacy1").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2": $("#pharmacy2").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3": $("#pharmacy3").html().replace("<p>","").replace("</p>",""),
-        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>","").replace("</p>",""),
-        
-     }
-     
-     var service_id = "default_service";
-     var template_id = "template_QfB5vZLA";
-     emailjs.send(service_id, template_id, template_params);    
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>", "").replace("</p>", ""),
+
+    }
+
+    var service_id = "default_service";
+    var template_id = "template_QfB5vZLA";
+    emailjs.send(service_id, template_id, template_params);
 }
 
