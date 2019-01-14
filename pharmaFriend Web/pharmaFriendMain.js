@@ -92,6 +92,8 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Content-Type': 'application/json'
                 },
                 success: function (data) {
+                    console.log(data);
+                    
 
                     var i=0;
                     var name = document.getElementById("pharmacy1");

@@ -7,7 +7,7 @@ $(document).ready(function () {
     // $("#home").show();
   home();
   searchAllPharmacy();
-  searchAllMedicine();
+  
   
 
   
@@ -17,27 +17,9 @@ $(document).ready(function () {
 $("#homeBtn").click(home);
 $("#medicineListBtn").click(medicineList);
 $("#pharmacyListBtn").click(pharmacyList);
-// $("#userListBtn").click(userList);
 $("#ourVisionBtn").click(ourVision);
-//$("#logoff").click(function reload(){
-//    location.reload();
 
 
-// $("#btnNewSearch").click(function close() {
-
-  //  $("#medicineName").val("");
-  //  $("#getDose").empty();
-  //  $("#getVolume").empty();
-  //  $("#userdistance").val("");
-  //  $("#results").hide();
-  //  home();
-
-
-// $("#btnLogin").click(function doLogin(){
-//     verificaRegisto();
-//     alert("Login efectuado");
-//     home();
-//  });
 
 
  
@@ -72,7 +54,7 @@ function home() {
 
 function medicineList() {
     $("#results").hide();
-    $("#medicineTable").hide();
+    //$("#medicineTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -81,8 +63,8 @@ function medicineList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
-    getListMedicines();
-
+    
+    getPagiation();
     
 }
 
@@ -100,18 +82,7 @@ function pharmacyList() {
     getListPharmacies();
 }
 
-// function userList() {
-//     $("#results").hide();
-//     $("#userTable").hide();
-//     $("#mypharmaform1").hide();
-//     $("#ourVision").hide();
-//     $("#home").hide();
-//     $("#tabMedicine").hide();
-//     $("#tabPharmacy").hide();
-//     $("#tabUser").show();
-//     $(".active").removeClass( "active" ).addClass( "hover" );
-//     $('#userListBtn').addClass( "active" );
-// }
+
 
 
 function ourVision() {
