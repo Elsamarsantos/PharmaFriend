@@ -45,8 +45,8 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
-             getPagiation();
-             getShortList(1);
+            getPagiation();
+            getShortList(1);
         }
     })
 });
@@ -271,4 +271,57 @@ function getShortList(el) {
         });
     }
 }
+function getMedicineName() {
+    var a = [];
 
+    $.ajax({
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+
+            for (i = 0; i < data.length; i++) {
+                console.log("ola");
+                a.push(data[i]);
+                var uniqueNames = [];
+                $.each(a, function (i, el) {
+                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                });
+
+                autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames);
+            }
+        }
+    })
+}
+getMedicineName();
+
+//THIS IS MY AJAX TO GET A MEDICINE --
+
+function searchMedicine() {
+
+    console.log("Preparing for sucess:");
+
+    var medicineName = $("#inputSearchMedicine").val();
+    console.log(medicineName);
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            for (i = 0; i < data.length; i++) {
+
+                var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                    '</td><td>' + data[i].volumeUnit + '</td><td>' +
+                    data[i].pvp + '</td><td>' +
+                    data[i].reImbursementRate + '</td><tr>';
+                $("#medicineTablebyName").append(medicine);
+            }
+        }
+    })
+}  
