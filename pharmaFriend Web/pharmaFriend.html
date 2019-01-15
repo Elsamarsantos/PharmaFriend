@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
     <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
-  
+
 
 </head>
 
@@ -111,33 +111,34 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit" style="font-size:23px">
-                <h2> YOUR MEDICINE</h2> <br>
-                
-                <div id=" buyMedicine" style="text-align:center; color:white;">
-                <div id="buyMedName" type="text"></div>
-                <div id="buyMedDose"></div>
-                <div id="buyMedVolume"></div> <hr>
-                </div>
-                
-                <h2>NEARBY PHARMACIES</h2> <br>
-            <div id="NearpharmacyList" style="text-align:center; color:white;">
-                <div id="pharmacy1"></div>
-                <div id="pharmacy1loc"></div><br>
-                <div id="pharmacy2"></div>
-                <div id="pharmacy2loc"></div><br>
-                <div id="pharmacy3"></div>
-                <div id="pharmacy3loc"></div><br>
-            </div>
-            <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
-            CLOSE </button>
-        </div>
-           
+                    <h2> YOUR MEDICINE</h2> <br>
+
+                    <div id=" buyMedicine" style="text-align:center; color:white;">
+                        <div id="buyMedName" type="text"></div>
+                        <div id="buyMedDose"></div>
+                        <div id="buyMedVolume"></div>
+                        <hr>
+                    </div>
+
+                    <h2>NEARBY PHARMACIES</h2> <br>
+                    <div id="NearpharmacyList" style="text-align:center; color:white;">
+                        <div id="pharmacy1"></div>
+                        <div id="pharmacy1loc"></div><br>
+                        <div id="pharmacy2"></div>
+                        <div id="pharmacy2loc"></div><br>
+                        <div id="pharmacy3"></div>
+                        <div id="pharmacy3loc"></div><br>
+                    </div>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+                        CLOSE </button>
                 </div>
 
             </div>
+
         </div>
     </div>
-  
+    </div>
+
 
     <!-- THIS IS MY MODAL WHEN I WANT TO SEND AN EMAIL WITH THE INFORMATION -->
     <div class="modal fade modalBox" id="sendToEmail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -149,9 +150,9 @@
                     <form class="mypharmaform">
                         <input id="theEmail" type="text" placeholder="example@pharmafriend.ps" />
                     </form>
-                    
-                    <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block" data-dismiss="modal"
-                        aria-label="Close">SEND</button>
+
+                    <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block"
+                        data-dismiss="modal" aria-label="Close">SEND</button>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
                 </div>
@@ -165,8 +166,11 @@
             <header>MEDICINE</header>
             <center>
                 <div>
-                    <form class="mypharmaform">
-
+                    <form class="mypharmaform" autocomplete="off">
+                        <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine" placeholder="Search the medicine">
+                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span
+                                class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH MEDICINE</a>
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
                     </form>
@@ -175,7 +179,7 @@
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
 
-            <table id="medicineTable" class="medicineTable" >
+            <table id="medicineTable" class="medicineTable">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -192,7 +196,7 @@
         </div>
         <div>
             <nav aria-label="Page navigation example">
-                <ul id="paginationList"class="pagination justify-content-end">
+                <ul id="paginationList" class="pagination justify-content-end">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
 
                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
@@ -200,7 +204,35 @@
             </nav>
         </div>
     </div>
+    <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
+    <div class="modal fade modalBox" id="searchMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
+                    <div id="searchMedicineModalDiv">
+                        <table id="medicineTablebyName" class="table tableplus">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">DOSE</th>
+                                    <th scope="col">UNITS</th>
+                                    <th scope="col">PVP</th>
+                                    <th scope="col">REIMBURSEMENT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
 
+                    </div> <br>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- THIS IS MY MODAL WHEN I CREATE MY MEDICINE -->
     <div class="modal fade modalBox" id="createMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -320,7 +352,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 
     <!-- THIS IS MY MODAL WHEN I UPDATE MY PHARMACY -->
     <div class="modal fade modalBox" id="updatePharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -371,21 +403,22 @@
                 <h3 style="color:rgb(43, 46, 43)">
                     Why we don’t have always the medicines we need when we need? <br>
                     When the access to the medicine is denied, the therapeutic success is compromised. </h3>
-                <hr> 
+                <hr>
                 <h3 style="color: rgb(191, 217, 255)">
-                We believe that the injured party should never be the customer, especially when we talk about health. <br>
-                Our mission is to accurately communicate where the client can pick up their medicine. <br>
-                An easy access translates into less time spent and an improve in health. <br>
-                
-                Our aim is to be there when you most need. <br> Let
-                    us help you find your medicine. <br> <br> </h3>  
-                   <h1 style="color: rgb(191, 217, 255)"> Pharmafriend <br>
-                    Simplify your search.  <br> </h1>
-                 
-            <footer id="footer" class="footer">
-            <h5>By EDA</h5>
-            <h5>2018-2019</h5>
-            </footer>
+                    We believe that the injured party should never be the customer, especially when we talk about
+                    health. <br>
+                    Our mission is to accurately communicate where the client can pick up their medicine. <br>
+                    An easy access translates into less time spent and an improve in health. <br>
+
+                    Our aim is to be there when you most need. <br> Let
+                    us help you find your medicine. <br> <br> </h3>
+                <h1 style="color: rgb(191, 217, 255)"> Pharmafriend <br>
+                    Simplify your search. <br> </h1>
+
+                <footer id="footer" class="footer">
+                    <h5>By EDA</h5>
+                    <h5>2018-2019</h5>
+                </footer>
             </div>
         </div>
     </div>
@@ -401,21 +434,22 @@
     <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
     <!-- <script type="text/javascript" src="responsive-tables.js"></script> -->
-    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="pharmaFriendMedicineAJAX.js"></script>
     <script src="pharmaFriendPharmacyAJAX.js"></script>
     <script src="pharmaFriendMain.js"></script>
     <script src="htmlInteraction.js"></script>
-    
+
     <!-- THIS IS HOW I SEND MY EMAILS -->
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     <script type="text/javascript">
-   (function(){
-      emailjs.init("user_N92MFEgFzseQe0k14q0oe");
-   })();
+        (function () {
+            emailjs.init("user_N92MFEgFzseQe0k14q0oe");
+        })();
     </script>
 
 </body>
+
 </html>

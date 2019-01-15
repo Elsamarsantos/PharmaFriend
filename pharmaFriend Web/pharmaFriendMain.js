@@ -266,7 +266,7 @@ function searchByName() {
     var a = [];
 
     $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
         type: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -275,7 +275,7 @@ function searchByName() {
         success: function (data) {
 
             for (i = 0; i < data.length; i++) {
-                a.push(data[i].medicineName);
+                a.push(data[i]);
                 var uniqueNames = [];
 
                 //to delete equal names
