@@ -189,18 +189,18 @@ tbody tr:hover {
     border-collapse: collapse;
     margin-bottom: 3em;
     width: 100%;
-    background: rgb(255, 255, 255);
+    
     font-size: 17px;
     color:rgba(12, 10, 10, 0.897);
     font-weight: 500; 
     border: #FFFFFF;
 }
 
-.medicineTable td, th {
+.medicineTable td {
     padding: 0.75em 1.5em;
     text-align: center;
     color: rgba(0, 0, 0, 0.644);
-
+background: rgb(255, 255, 255);
 }
 .medicineTable th {
     background-color:#fdfdfd2f;
