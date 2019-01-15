@@ -18,12 +18,12 @@ var arrayDistance = [];
 $("#btnMainSearch").click(function mainSearch() {
     console.log(($("#userdistance").val()) + " this is my distance");
     console.log(parseInt(($("#userdistance").val())) + " this is my distance parsed");
-   
 
 
 
-    if (($("#medicineName").val() != "") && ($("#userdistance").val() > 0) && 
-    ($("#getDose").val() != null) && ($("#getVolume").val() != null)) {
+
+    if (($("#medicineName").val() != "") && ($("#userdistance").val() > 0) &&
+        ($("#getDose").val() != null) && ($("#getVolume").val() != null)) {
 
         var output = document.getElementById("out");
 
@@ -96,15 +96,15 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                error: function (data){
+                error: function (data) {
                     var name = document.getElementById("pharmacy1");
-                        name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
-                        alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
-                    
+                    name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                    alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+
                 },
                 success: function (data) {
                     console.log(data);
-                    
+
 
                     for (i = 0; i < data.length; i++) {
                         console.log(data[i]);
@@ -146,7 +146,7 @@ $("#btnMainSearch").click(function mainSearch() {
                         alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
                     }
                 }
-                
+
 
             })
             map.setView({ lat: latitude, lng: longitude }, 15);
@@ -164,36 +164,36 @@ $("#btnMainSearch").click(function mainSearch() {
     else {
         if (($("#medicineName").val() == "") && ($("#getDose").val() == null) && ($("#getVolume").val() == null)) {
             alert("Please insert a medicine in search field. \nPlease insert a valid dose in search field. \nPlease insert a valid volume in search field.");
-           }
+        }
 
-        if (($("#medicineName").val() == "") && ($("#getDose").val() == null) &&  ($("#getVolume").val() != null)) {
+        if (($("#medicineName").val() == "") && ($("#getDose").val() == null) && ($("#getVolume").val() != null)) {
             alert("Please insert a medicine in search field. \nPlease insert a valid dose in search field.");
-           }
+        }
 
-        if (($("#medicineName").val() == "") && ($("#getDose").val() != null) &&($("#getVolume").val() == null)) {
+        if (($("#medicineName").val() == "") && ($("#getDose").val() != null) && ($("#getVolume").val() == null)) {
             alert("Please insert a medicine in search field. \nPlease insert a valid volume in search field.");
-           }
+        }
 
         if (($("#getDose").val() == null) && ($("#getVolume").val() == null) && ($("#medicineName").val() != "")) {
             alert("Please insert a valid dose in search field.\nPlease insert a valid volume in search field.");
-           }
+        }
 
-        if (($("#medicineName").val() == "")&& ($("#getDose").val() != null) &&  ($("#getVolume").val() != null)) {
+        if (($("#medicineName").val() == "") && ($("#getDose").val() != null) && ($("#getVolume").val() != null)) {
             alert("Please insert a medicine in search field.");
         }
-        
-        if (($("#getDose").val() == null) && ($("#getVolume").val() != null) && ($("#medicineName").val() != "") ) {
+
+        if (($("#getDose").val() == null) && ($("#getVolume").val() != null) && ($("#medicineName").val() != "")) {
             alert("Please insert a valid dose in search field.");
         }
-        if (($("#getVolume").val() == null) && ($("#medicineName").val() != "")&& ($("#getDose").val() != null)) {
+        if (($("#getVolume").val() == null) && ($("#medicineName").val() != "") && ($("#getDose").val() != null)) {
             alert("Please insert a valid volume in search field.");
         }
 
         if ($("#userdistance").val() <= 0) {
             alert("Please insert a valid distance in search field.");
-        }       
-        
-        
+        }
+
+
     }
 
 });
@@ -307,8 +307,8 @@ function searchByName() {
     var a = [];
     var letter = $("#medicineName").val();
     console.log(letter);
-        
-   if (letter!==''){
+
+    if (letter !== '') {
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
             type: 'GET',
@@ -328,15 +328,17 @@ function searchByName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0,10));
+                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0, 10));
                 }
-                }
-            })
+            }
+        })
 
-};
-$("#medicineName").on('input',  function() {
+    };
+}
+
+$("#medicineName").on('input', function () {
     searchByName()
-   });
+});
 
 
 
@@ -398,7 +400,7 @@ function sendTheEmail() {
         "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
         "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
         "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
-       
+
 
     }
 
