@@ -1,29 +1,29 @@
 var listAllMedicines = [];
 var wait = false;
 // THIS IS MY AJAX TO GET ALL MEDICINES IN MY SQL TABLE
-function searchAllMedicine() {
-    wait = true;
+// function searchAllMedicine() {
+//     wait = true;
 
-    return $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: (data) => {
+//     return $.ajax({
+//         url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
+//         type: 'GET',
+//         headers: {
+//             'Accept': 'application/json',
+//             'Content-Type': 'application/json'
+//         },
+//         success: (data) => {
 
-            listAllMedicines = data;
-            this.wait = false;
-        }
-    })
-}
+//             listAllMedicines = data;
+//             this.wait = false;
+//         }
+//     })
+// }
 
-//searchAllMedicine();
-setInterval(() => {
-    searchAllMedicine();
-    console.log('New Update');
-}, 1000 * 360);
+// //searchAllMedicine();
+// setInterval(() => {
+//     searchAllMedicine();
+//     console.log('New Update');
+// }, 1000 * 360);
 
 
 
@@ -45,7 +45,8 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
-            getListMedicines();
+             getPagiation();
+             getShortList(1);
         }
     })
 });
@@ -100,8 +101,8 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
             console.log("medicine update");
         }
     });
-    searchAllMedicine();
-    getListMedicines();
+    getPagiation();
+    getShortList(1);
 });
 
 function prepareToDeleteM(el) {
@@ -139,8 +140,8 @@ function deleteMedicine() {
         contentType: 'application/json',
 
     })
-    searchAllMedicine();
-    getListMedicines();
+    getPagiation();
+    getShortList(1);
 }
 
 
@@ -166,8 +167,8 @@ function getPagiation() {
 
             }
 
-
-            $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
+            //nao esquecer de ver este botao
+            // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
 
 
 
@@ -183,8 +184,8 @@ function getShortList(el) {
 
 
     if (el == 1) {
-        console.log("1");
-        
+
+
         numberId = 1
         var numberOffset = 1 + 30 * (numberId - 1);
 
@@ -225,8 +226,8 @@ function getShortList(el) {
         });
     }
     else {
-        console.log("2");
-        
+
+
         var numberId = $(el).parent().attr('id');
 
 
@@ -270,4 +271,4 @@ function getShortList(el) {
         });
     }
 }
-    getShortList(1);
+

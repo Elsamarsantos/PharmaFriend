@@ -61,7 +61,7 @@ function medicineList() {
     $('#medicineListBtn').addClass( "active" );
     
    getPagiation();
-    
+   getShortList(1);
 }
 
 function pharmacyList() {
