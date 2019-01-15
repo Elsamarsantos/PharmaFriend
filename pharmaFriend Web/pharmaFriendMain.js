@@ -305,31 +305,38 @@ function autocomplete(inp, arr) {
 
 function searchByName() {
     var a = [];
+    var letter = $("#medicineName").val();
+    console.log(letter);
+        
+   if (letter!==''){
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log(data.length);
 
-    $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    a.push(data[i]);
+                    var uniqueNames = [];
 
-            for (i = 0; i < data.length; i++) {
-                a.push(data[i]);
-                var uniqueNames = [];
+                    //to delete equal names
+                    $.each(a, function (i, el) {
+                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                    });
 
-                //to delete equal names
-                $.each(a, function (i, el) {
-                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-                });
+                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0,10));
+                }
+                }
+            })
 
-                autocomplete(document.getElementById("medicineName"), uniqueNames);
-            }
-        }
-    })
 };
-searchByName();
+$("#medicineName").on('input',  function() {
+    searchByName()
+   });
 
 
 
