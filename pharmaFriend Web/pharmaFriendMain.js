@@ -14,16 +14,16 @@ $(document).ready(function () {
 
 var points = [];
 var arrayDistance = [];
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
 $("#btnMainSearch").click(function mainSearch() {
+    console.log(($("#userdistance").val()) + " this is my distance");
+    console.log(parseInt(($("#userdistance").val())) + " this is my distance parsed");
+   
 
 
 
-    if (($("#medicineName").val() != "") && ($("#userdistance").val() != "")) {
+    if (($("#medicineName").val() != "") && ($("#userdistance").val() > 0) && 
+    ($("#getDose").val() != null) && ($("#getVolume").val() != null)) {
 
         var output = document.getElementById("out");
 
@@ -96,23 +96,6 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-<<<<<<< HEAD
-                success: function (data) {
-
-                    // var i = 0;
-                    // var name = document.getElementById("pharmacy1");
-                    // name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
-                    // var loc = document.getElementById("pharmacy1loc");
-                    // loc.innerHTML = ("<p>" + data[i].address + "</p>");
-                    // var name = document.getElementById("pharmacy2");
-                    // name.innerHTML = ("<p>" + data[i + 1].pharmacyName + " </p>");
-                    // var loc = document.getElementById("pharmacy2loc");
-                    // loc.innerHTML = ("<p>" + data[i + 1].address + " </p>");
-                    // var name = document.getElementById("pharmacy3");
-                    // name.innerHTML = ("<p>" + data[i + 2].pharmacyName + " </p>");
-                    // var loc = document.getElementById("pharmacy3loc");
-                    // loc.innerHTML = ("<p>" + data[i + 2].address + " </p>");
-=======
                 error: function (data){
                     var name = document.getElementById("pharmacy1");
                         name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
@@ -122,7 +105,6 @@ $("#btnMainSearch").click(function mainSearch() {
                 success: function (data) {
                     console.log(data);
                     
->>>>>>> master
 
                     for (i = 0; i < data.length; i++) {
                         console.log(data[i]);
@@ -139,23 +121,6 @@ $("#btnMainSearch").click(function mainSearch() {
                             c(latitude * p) * c(data[i].latLocation * p) *
                             (1 - c((data[i].lonLocation - longitude) * p)) / 2;
 
-<<<<<<< HEAD
-                        var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-                        //console.log(distance);
-                        arrayDistance[i] = (data[i].pharmacyName + " - " + data[i].address + " - " + distance);
-
-                        //var distancia = map.distance(latlong, latlong2);
-
-                    }
-                    arrayDistance.sort();
-                    var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
-                    var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
-                    var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
-                }
-=======
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                         var dist = distance.toPrecision(3);
                         arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
@@ -182,7 +147,6 @@ $("#btnMainSearch").click(function mainSearch() {
                     }
                 }
                 
->>>>>>> master
 
             })
             map.setView({ lat: latitude, lng: longitude }, 15);
@@ -198,12 +162,38 @@ $("#btnMainSearch").click(function mainSearch() {
 
     }
     else {
-        if ($("#medicineName").val() == "") {
-            alert("Please insert a medicine in search field");
+        if (($("#medicineName").val() == "") && ($("#getDose").val() == null) && ($("#getVolume").val() == null)) {
+            alert("Please insert a medicine in search field. \nPlease insert a valid dose in search field. \nPlease insert a valid volume in search field.");
+           }
+
+        if (($("#medicineName").val() == "") && ($("#getDose").val() == null) &&  ($("#getVolume").val() != null)) {
+            alert("Please insert a medicine in search field. \nPlease insert a valid dose in search field.");
+           }
+
+        if (($("#medicineName").val() == "") && ($("#getDose").val() != null) &&($("#getVolume").val() == null)) {
+            alert("Please insert a medicine in search field. \nPlease insert a valid volume in search field.");
+           }
+
+        if (($("#getDose").val() == null) && ($("#getVolume").val() == null) && ($("#medicineName").val() != "")) {
+            alert("Please insert a valid dose in search field.\nPlease insert a valid volume in search field.");
+           }
+
+        if (($("#medicineName").val() == "")&& ($("#getDose").val() != null) &&  ($("#getVolume").val() != null)) {
+            alert("Please insert a medicine in search field.");
         }
-        else {
-            alert("Please insert some distance");
+        
+        if (($("#getDose").val() == null) && ($("#getVolume").val() != null) && ($("#medicineName").val() != "") ) {
+            alert("Please insert a valid dose in search field.");
         }
+        if (($("#getVolume").val() == null) && ($("#medicineName").val() != "")&& ($("#getDose").val() != null)) {
+            alert("Please insert a valid volume in search field.");
+        }
+
+        if ($("#userdistance").val() <= 0) {
+            alert("Please insert a valid distance in search field.");
+        }       
+        
+        
     }
 
 });
@@ -401,9 +391,7 @@ function sendTheEmail() {
         "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
         "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
         "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
-        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>", "").replace("</p>", ""),
-        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>", "").replace("</p>", ""),
-        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>", "").replace("</p>", ""),
+       
 
     }
 
