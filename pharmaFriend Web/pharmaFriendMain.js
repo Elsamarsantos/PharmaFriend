@@ -36,7 +36,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var medicineDose = $("#getDose").val();
             var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
-            
+
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
             var buyMedDose = document.getElementById("buyMedDose");
@@ -94,7 +94,7 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
                     console.log(data);
-                    
+
 
                     for (i = 0; i < data.length; i++) {
 
@@ -113,21 +113,21 @@ $("#btnMainSearch").click(function mainSearch() {
 
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                         var dist = distance.toPrecision(3);
-                        arrayDistance[i] = ("At "+dist+ " kilometres you have:" +"<p>" +data[i].pharmacyName +"<p>Adress: " +data[i].address+";");
+                        arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
                     }
-                    
+
                     // Arranjar os valores undifined e variáveis que envia para o email
                     arrayDistance.sort();
                     var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" +arrayDistance[0] + " </p>");
+                    name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
                     var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" +arrayDistance[1] + " </p>");
+                    name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
                     var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" +arrayDistance[2] + " </p>");
+                    name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
                 }
 
             })
-            map.setView({lat: latitude, lng:longitude}, 15);
+            map.setView({ lat: latitude, lng: longitude }, 15);
 
             // Comandos Para o Mapa
             // getCenter()
@@ -264,32 +264,42 @@ function autocomplete(inp, arr) {
 
 function searchByName() {
     var a = [];
+    var letter = $("#medicineName").val();
+    console.log(letter);
+        
+   if (letter!==''){
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log(data.length);
 
-    $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    a.push(data[i]);
+                    var uniqueNames = [];
 
-            for (i = 0; i < data.length; i++) {
-                a.push(data[i]);
-                var uniqueNames = [];
+                    //to delete equal names
+                    $.each(a, function (i, el) {
+                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                    });
 
-                //to delete equal names
-                $.each(a, function (i, el) {
-                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-                });
-
-                autocomplete(document.getElementById("medicineName"), uniqueNames);
+                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0,10));
+                }
             }
-        }
-    })
+        })
+    }
 };
-searchByName();
 
+$("#medicineName").on('input',  function() {
+ searchByName()
+});
+
+
+ 
 
 
 function getDose() {
@@ -343,21 +353,21 @@ function getVolume() {
 
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-function sendTheEmail () {
+function sendTheEmail() {
     console.log("Sending the Email to:" + $("#theEmail").val);
     var template_params = {
         "reply_to": $('#theEmail'),
-        "pharmacy1": $("#pharmacy1").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2": $("#pharmacy2").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3": $("#pharmacy3").html().replace("<p>","").replace("</p>",""),
-        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>","").replace("</p>",""),
-        
-     }
-     
-     var service_id = "default_service";
-     var template_id = "template_QfB5vZLA";
-     emailjs.send(service_id, template_id, template_params);    
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>", "").replace("</p>", ""),
+
+    }
+
+    var service_id = "default_service";
+    var template_id = "template_QfB5vZLA";
+    emailjs.send(service_id, template_id, template_params);
 }
 

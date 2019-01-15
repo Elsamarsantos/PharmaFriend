@@ -284,7 +284,7 @@ function getMedicineName() {
         success: function (data) {
 
             for (i = 0; i < data.length; i++) {
-                console.log("ola");
+                
                 a.push(data[i]);
                 var uniqueNames = [];
                 $.each(a, function (i, el) {
