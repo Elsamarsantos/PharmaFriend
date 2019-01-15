@@ -60,8 +60,8 @@ function medicineList() {
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
     
-    getPagiation();
-    
+   getPagiation();
+   getShortList(1);
 }
 
 function pharmacyList() {
