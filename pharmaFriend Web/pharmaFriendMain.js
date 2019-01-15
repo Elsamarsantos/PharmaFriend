@@ -14,7 +14,10 @@ $(document).ready(function () {
 
 var points = [];
 var arrayDistance = [];
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 $("#btnMainSearch").click(function mainSearch() {
 
@@ -93,6 +96,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
+<<<<<<< HEAD
                 success: function (data) {
 
                     // var i = 0;
@@ -108,11 +112,24 @@ $("#btnMainSearch").click(function mainSearch() {
                     // name.innerHTML = ("<p>" + data[i + 2].pharmacyName + " </p>");
                     // var loc = document.getElementById("pharmacy3loc");
                     // loc.innerHTML = ("<p>" + data[i + 2].address + " </p>");
+=======
+                error: function (data){
+                    var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                        alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                    
+                },
+                success: function (data) {
+                    console.log(data);
+                    
+>>>>>>> master
 
                     for (i = 0; i < data.length; i++) {
+                        console.log(data[i]);
+                        // Marcador das Farmacias com medicamento
+
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
                             .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
-                        // var latlong2 = L.latLng(data[i].latLocation, data[i].lonLocation);
 
                         // CALCULO DA DISTANCIA //
 
@@ -122,6 +139,7 @@ $("#btnMainSearch").click(function mainSearch() {
                             c(latitude * p) * c(data[i].latLocation * p) *
                             (1 - c((data[i].lonLocation - longitude) * p)) / 2;
 
+<<<<<<< HEAD
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
                         //console.log(distance);
                         arrayDistance[i] = (data[i].pharmacyName + " - " + data[i].address + " - " + distance);
@@ -137,14 +155,37 @@ $("#btnMainSearch").click(function mainSearch() {
                     var name = document.getElementById("pharmacy3");
                     name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
                 }
+=======
+                        var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
+                        var dist = distance.toPrecision(3);
+                        arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
+                        console.log(arrayDistance[i]);
+                    }
+
+                    // Arranjar os valores undifined e variáveis que envia para o email
+                    arrayDistance.sort();
+                    if (arrayDistance.length > 0) {
+                        var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
+                        if (arrayDistance.length > 1) {
+                            var name = document.getElementById("pharmacy2");
+                            name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
+                        }
+                        if (arrayDistance.length > 3) {
+                            var name = document.getElementById("pharmacy3");
+                            name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
+                        }
+                    } else {
+                        var name = document.getElementById("pharmacy1");
+                        name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                        alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
+                    }
+                }
+                
+>>>>>>> master
 
             })
-
-            // getCenter()
-            // map.flyTo([latitude, longitude], 17);
-            // map.removeLayer(Layer)
-            // map.flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
-            // map.distance(<latlong> latlng1, <LatLng> latlng2)
+            map.setView({ lat: latitude, lng: longitude }, 15);
         }
 
 
