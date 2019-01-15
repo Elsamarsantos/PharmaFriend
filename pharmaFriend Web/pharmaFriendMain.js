@@ -13,6 +13,7 @@ $(document).ready(function () {
 });
 
 var points = [];
+var arrayDistance = [];
 
 
 $("#btnMainSearch").click(function mainSearch() {
@@ -94,19 +95,19 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
 
-                    var i = 0;
-                    var name = document.getElementById("pharmacy1");
-                    name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy1loc");
-                    loc.innerHTML = ("<p>" + data[i].address + "</p>");
-                    var name = document.getElementById("pharmacy2");
-                    name.innerHTML = ("<p>" + data[i + 1].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy2loc");
-                    loc.innerHTML = ("<p>" + data[i + 1].address + " </p>");
-                    var name = document.getElementById("pharmacy3");
-                    name.innerHTML = ("<p>" + data[i + 2].pharmacyName + " </p>");
-                    var loc = document.getElementById("pharmacy3loc");
-                    loc.innerHTML = ("<p>" + data[i + 2].address + " </p>");
+                    // var i = 0;
+                    // var name = document.getElementById("pharmacy1");
+                    // name.innerHTML = ("<p>" + data[i].pharmacyName + " </p>");
+                    // var loc = document.getElementById("pharmacy1loc");
+                    // loc.innerHTML = ("<p>" + data[i].address + "</p>");
+                    // var name = document.getElementById("pharmacy2");
+                    // name.innerHTML = ("<p>" + data[i + 1].pharmacyName + " </p>");
+                    // var loc = document.getElementById("pharmacy2loc");
+                    // loc.innerHTML = ("<p>" + data[i + 1].address + " </p>");
+                    // var name = document.getElementById("pharmacy3");
+                    // name.innerHTML = ("<p>" + data[i + 2].pharmacyName + " </p>");
+                    // var loc = document.getElementById("pharmacy3loc");
+                    // loc.innerHTML = ("<p>" + data[i + 2].address + " </p>");
 
                     for (i = 0; i < data.length; i++) {
                         var point = L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarker }).addTo(map)
@@ -114,21 +115,28 @@ $("#btnMainSearch").click(function mainSearch() {
                         // var latlong2 = L.latLng(data[i].latLocation, data[i].lonLocation);
 
                         // CALCULO DA DISTANCIA //
-                
-                            var p = 0.017453292519943295;    // Math.PI / 180
-                            var c = Math.cos;
-                            var a = 0.5 - c((data[i].latLocation - latitude) * p)/2 + 
-                                    c(latitude * p) * c(data[i].latLocation * p) * 
-                                    (1 - c((data[i].lonLocation - longitude) * p))/2;
-                          
-                            var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-                            console.log(distance);
-                          
 
-                    //var distancia = map.distance(latlong, latlong2);
-                    
+                        var p = 0.017453292519943295;    // Math.PI / 180
+                        var c = Math.cos;
+                        var a = 0.5 - c((data[i].latLocation - latitude) * p) / 2 +
+                            c(latitude * p) * c(data[i].latLocation * p) *
+                            (1 - c((data[i].lonLocation - longitude) * p)) / 2;
+
+                        var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+                        //console.log(distance);
+                        arrayDistance[i] = (data[i].pharmacyName + " - " + data[i].address + " - " + distance);
+
+                        //var distancia = map.distance(latlong, latlong2);
+
+                    }
+                    arrayDistance.sort();
+                    var name = document.getElementById("pharmacy1");
+                    name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
+                    var name = document.getElementById("pharmacy2");
+                    name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
+                    var name = document.getElementById("pharmacy3");
+                    name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
                 }
-            }
 
             })
 
@@ -140,22 +148,22 @@ $("#btnMainSearch").click(function mainSearch() {
         }
 
 
-function error() {
-    output.innerHTML = "Unable to retrieve your location, please check your internet connection";
-}
+        function error() {
+            output.innerHTML = "Unable to retrieve your location, please check your internet connection";
+        }
 
 
-navigator.geolocation.getCurrentPosition(success, error);
+        navigator.geolocation.getCurrentPosition(success, error);
 
     }
     else {
-    if ($("#medicineName").val() == "") {
-        alert("Please insert a medicine in search field");
+        if ($("#medicineName").val() == "") {
+            alert("Please insert a medicine in search field");
+        }
+        else {
+            alert("Please insert some distance");
+        }
     }
-    else {
-        alert("Please insert some distance");
-    }
-}
 
 });
 
@@ -345,21 +353,21 @@ function getVolume() {
 
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-function sendTheEmail () {
+function sendTheEmail() {
     console.log("Sending the Email to:" + $("#theEmail").val);
     var template_params = {
         "reply_to": $('#theEmail'),
-        "pharmacy1": $("#pharmacy1").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2": $("#pharmacy2").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3": $("#pharmacy3").html().replace("<p>","").replace("</p>",""),
-        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>","").replace("</p>",""),
-        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>","").replace("</p>",""),
-        
-     }
-     
-     var service_id = "default_service";
-     var template_id = "template_QfB5vZLA";
-     emailjs.send(service_id, template_id, template_params);    
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy1loc": $("#pharmacy1loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2loc": $("#pharmacy2loc").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3loc": $("#pharmacy3loc").html().replace("<p>", "").replace("</p>", ""),
+
+    }
+
+    var service_id = "default_service";
+    var template_id = "template_QfB5vZLA";
+    emailjs.send(service_id, template_id, template_params);
 }
 
