@@ -121,12 +121,8 @@ $("#btnMainSearch").click(function mainSearch() {
                 },
                 success: function (data) {
                     console.log(data);
-<<<<<<< HEAD
                     
 >>>>>>> master
-=======
-
->>>>>>> elsa
 
                     for (i = 0; i < data.length; i++) {
                         console.log(data[i]);
@@ -144,7 +140,6 @@ $("#btnMainSearch").click(function mainSearch() {
                             (1 - c((data[i].lonLocation - longitude) * p)) / 2;
 
 <<<<<<< HEAD
-<<<<<<< HEAD
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
                         //console.log(distance);
                         arrayDistance[i] = (data[i].pharmacyName + " - " + data[i].address + " - " + distance);
@@ -152,14 +147,6 @@ $("#btnMainSearch").click(function mainSearch() {
                         //var distancia = map.distance(latlong, latlong2);
 
                     }
-=======
-                        var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
-                        var dist = distance.toPrecision(3);
-                        arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
-                    }
-
-                    // Arranjar os valores undifined e variáveis que envia para o email
->>>>>>> elsa
                     arrayDistance.sort();
                     var name = document.getElementById("pharmacy1");
                     name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
@@ -167,7 +154,6 @@ $("#btnMainSearch").click(function mainSearch() {
                     name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
                     var name = document.getElementById("pharmacy3");
                     name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
-<<<<<<< HEAD
                 }
 =======
                         var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
@@ -194,24 +180,12 @@ $("#btnMainSearch").click(function mainSearch() {
                         name.innerHTML = ("There's no nearby Pharmacys with your medicine, please select an higher distance!");
                         alert("There's no nearby Pharmacys with your medicine, please select an higher distance!");
                     }
-=======
->>>>>>> elsa
                 }
                 
 >>>>>>> master
 
             })
             map.setView({ lat: latitude, lng: longitude }, 15);
-<<<<<<< HEAD
-=======
-
-            // Comandos Para o Mapa
-            // getCenter()
-            // map.flyTo([latitude, longitude], 17);
-            // map.removeLayer(Layer)
-            // map.flyTo(<LatLng> latlng, <Number> zoom?, <Zoom/pan options> options?)
-            // map.distance(<latlong> latlng1, <LatLng> latlng2)
->>>>>>> elsa
         }
 
 
@@ -341,42 +315,32 @@ function autocomplete(inp, arr) {
 
 function searchByName() {
     var a = [];
-    var letter = $("#medicineName").val();
-    console.log(letter);
-        
-   if (letter!==''){
-        $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
-            type: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            success: function (data) {
-                console.log(data.length);
 
-                for (i = 0; i < data.length; i++) {
-                    a.push(data[i]);
-                    var uniqueNames = [];
+    $.ajax({
+        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
 
-                    //to delete equal names
-                    $.each(a, function (i, el) {
-                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-                    });
+            for (i = 0; i < data.length; i++) {
+                a.push(data[i]);
+                var uniqueNames = [];
 
-                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0,10));
-                }
+                //to delete equal names
+                $.each(a, function (i, el) {
+                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                });
+
+                autocomplete(document.getElementById("medicineName"), uniqueNames);
             }
-        })
-    }
+        }
+    })
 };
+searchByName();
 
-$("#medicineName").on('input',  function() {
- searchByName()
-});
-
-
- 
 
 
 function getDose() {
