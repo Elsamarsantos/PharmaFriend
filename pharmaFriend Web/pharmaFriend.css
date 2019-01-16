@@ -186,7 +186,7 @@ tbody tr:hover {
 }
 
 /* medicine list */
-.medicineTable{
+.listTable{
     border-collapse: collapse;
     margin-bottom: 3em;
     width: 100%;
@@ -197,13 +197,13 @@ tbody tr:hover {
     border: #FFFFFF;
 }
 
-.medicineTable td {
+.listTable td {
     padding: 0.75em 1.5em;
     text-align: center;
     color: rgba(0, 0, 0, 0.644);
 background: rgb(255, 255, 255);
 }
-.medicineTable th {
+.listTable th {
     background-color:#fdfdfd2f;
     font-weight: bold;
     color: rgb(2, 2, 2);
@@ -212,7 +212,7 @@ background: rgb(255, 255, 255);
 }
 
 
-.medicineTable tbody tr:hover {
+.listTable tbody tr:hover {
     background-color: rgba(218, 227, 255, 0.199);
 }
 

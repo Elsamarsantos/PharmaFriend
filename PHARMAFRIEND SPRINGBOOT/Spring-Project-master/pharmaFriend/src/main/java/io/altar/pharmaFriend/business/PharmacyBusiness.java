@@ -43,27 +43,15 @@ public class PharmacyBusiness {
 	//consult pharmacy by name
 	@Transactional
 	public PharmacyDto consultPharmacy(String namePharmacy) {
-		Pharmacy pharmacy= pharmacyRepository1.getPharmacyByName(namePharmacy);
-		
-		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-		
-		PharmacyDto pharmacyDto = new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto);
-		
-		 return pharmacyDto;
-		
+			
+		 return pharmacyRepository1.getPharmacyByName(namePharmacy);	
 	}
 	
 	//consult pharmacy by location
 	@Transactional
 	public PharmacyDto consultPharmacy(double lon, double lat) {
-		Pharmacy pharmacy= pharmacyRepository1.getPharmacyByLocation(lon,lat);
 		
-		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-		
-		PharmacyDto pharmacyDto = new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto);
-		
-		 return pharmacyDto;
-		
+		 return pharmacyRepository1.getPharmacyByLocation(lon,lat);
 		
 	}
 	
@@ -173,8 +161,6 @@ public class PharmacyBusiness {
 	@Transactional 
 	public void updateAll() {
 		
-		
-		
 		Iterator<Pharmacy> newList = pharmacyRepository1.getAllEntity().iterator();
 		while (newList.hasNext()) {
 			Pharmacy pharmacy = newList.next();
@@ -234,7 +220,30 @@ public class PharmacyBusiness {
 			return transformInToDto(pharmacyRepository1.getPharmacytest(name, dose));
 		}
 		
+		//get short list of Pharmacies
+		@Transactional
+		public List <PharmacyDto> shortList(int max, int offset){
+	
+			return pharmacyRepository1.getShortList(max,offset);
+		}
 		
+		
+		//get max row in the list of pharmacies
+		@Transactional
+		public Long getNumberRows (){
+		
+			return  pharmacyRepository1.getNumberOfRows();
+			
+		}
+		
+		
+		//get a list of pharmacy name
+		@Transactional
+		public List<PharmacyDto> getAllPharmacyNames (String letter){
+		
+			return  pharmacyRepository1.getAllPharmacyName(letter);
+			
+		}
 		
 	
 	

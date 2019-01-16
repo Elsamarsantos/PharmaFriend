@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   home();
-  //searchAllPharmacy();
+  
   
   
 
@@ -66,7 +66,7 @@ function medicineList() {
 
 function pharmacyList() {
     $("#results").hide();
-    $("#pharmacyTable").hide();
+   // $("#pharmacyTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();
@@ -75,7 +75,9 @@ function pharmacyList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#pharmacyListBtn').addClass( "active" );
-    getListPharmacies();
+    getPagiationPharmacy();
+   getShortListPharmacy(1);
+
 }
 
 

@@ -6,6 +6,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import io.altar.pharmaFriend.Dtos.MedicineDto;
+import io.altar.pharmaFriend.Dtos.PharmacyDto;
+import io.altar.pharmaFriend.models.Medicine;
 import  io.altar.pharmaFriend.models.Pharmacy;
 
 @Repository
@@ -33,13 +36,13 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		return Pharmacy.QUERYNAME;
 	}
 
-	public Pharmacy getPharmacyByName(String pharmacyName) {
-		return em.createNamedQuery(Pharmacy.QUERYNAME, Pharmacy.class).setParameter("pharmacyName", pharmacyName).getSingleResult();
+	public PharmacyDto getPharmacyByName(String pharmacyName) {
+		return em.createNamedQuery(Pharmacy.QUERYNAME, PharmacyDto.class).setParameter("pharmacyName", pharmacyName).getSingleResult();
 		
 	}
 	
-	public Pharmacy getPharmacyByLocation(double lon, double lat) {
-		return em.createNamedQuery(Pharmacy.QUERYLOCATION, Pharmacy.class).setParameter("lonLocation", lon).setParameter("latLocation", lat).getSingleResult();
+	public PharmacyDto getPharmacyByLocation(double lon, double lat) {
+		return em.createNamedQuery(Pharmacy.QUERYLOCATION, PharmacyDto.class).setParameter("lonLocation", lon).setParameter("latLocation", lat).getSingleResult();
 		
 	}
 	
@@ -56,6 +59,21 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	}
 	public List<Pharmacy> getPharmacytest(String name, String dose) {
 		return em.createNamedQuery(Pharmacy.QUERY_TEST, Pharmacy.class).setParameter("name", name).setParameter("dose", dose).getResultList();
+		
+	}
+	
+	public List<PharmacyDto> getShortList(int max, int offset){
+
+		return em.createNamedQuery(Pharmacy.QUERY_ALL, PharmacyDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
+	}
+	
+	public Long getNumberOfRows () {
+		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW,Long.class).getSingleResult();
+	}
+	
+public List<PharmacyDto> getAllPharmacyName(String letter){
+		
+		return em.createNamedQuery(Pharmacy.QUERY_PHARMACY_NAME,PharmacyDto.class).setParameter("letter", letter + "%").setMaxResults(20).getResultList();
 		
 	}
 }

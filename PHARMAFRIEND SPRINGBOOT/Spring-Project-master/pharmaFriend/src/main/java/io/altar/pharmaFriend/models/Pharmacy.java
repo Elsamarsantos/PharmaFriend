@@ -14,15 +14,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name= "Pharmacy")
-@NamedQueries({@NamedQuery(name=Pharmacy.QUERYLOCATION, query="SELECT p From Pharmacy p WHERE p.lonLocation= :lonLocation and p.latLocation= :latLocation"),
-				@NamedQuery(name=Pharmacy.QUERY_ALL, query="SELECT p From Pharmacy p"), 
-				@NamedQuery(name=Pharmacy.QUERYNAME, query="SELECT p From Pharmacy p WHERE p.pharmacyName= :pharmacyName"),
+@NamedQueries({@NamedQuery(name=Pharmacy.QUERYLOCATION, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE p.lonLocation= :lonLocation and p.latLocation= :latLocation"),
+				@NamedQuery(name=Pharmacy.QUERY_ALL, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p"), 
+				@NamedQuery(name=Pharmacy.QUERYNAME, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE p.pharmacyName= :pharmacyName"),
 				@NamedQuery(name=Pharmacy.QUERY_BIGGEST_F, query="SELECT MAX(p.id) FROM Pharmacy p"),
-				@NamedQuery(name=Pharmacy.QUERY_TEST, query="SELECT distinct p From Pharmacy p join p.listStock m WHERE m.medicineName= :name AND m.dose= :dose")
+				@NamedQuery(name=Pharmacy.QUERY_TEST, query="SELECT distinct p From Pharmacy p join p.listStock m WHERE m.medicineName= :name AND m.dose= :dose"),
+				@NamedQuery(name=Pharmacy.QUERY_MAX_ROW, query="SELECT COUNT(*) FROM Pharmacy"),
+				@NamedQuery(name=Pharmacy.QUERY_PHARMACY_NAME, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE pharmacyName LIKE  :letter"),
+				
 })
 
 public class Pharmacy extends BaseEntity{
-	
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -31,6 +33,10 @@ public class Pharmacy extends BaseEntity{
 	public static final String QUERY_ALL = "findAllPharmacy";	
 	public static final String QUERY_BIGGEST_F = "getBiggestId";
 	public static final String QUERY_TEST = "getteest";
+	public static final String QUERY_MAX_ROW = "getNumberOfRows";
+	public static final String QUERY_PHARMACY_NAME="getPharmacy";
+	
+	
 	
 	@Column(name="pharmacyName")
 	private String pharmacyName;

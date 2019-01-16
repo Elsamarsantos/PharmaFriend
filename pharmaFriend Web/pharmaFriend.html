@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
         crossorigin='anonymous'>
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css">
-    <link type="text/css" media="screen" rel="stylesheet" href="responsive-tables.css" />
     <link rel="stylesheet" type="text/css" href="pharmaFriend.css">
 
 
@@ -54,7 +52,7 @@
                     </div>
                     <div class="getSearch">
                         <label for="getDose">DOSE</label>
-                        <select class="form-control" id="getDose" >
+                        <select class="form-control" id="getDose">
                             <option value="" id="" disabled selected>Select one option</option>
                         </select>
                     </div>
@@ -153,7 +151,8 @@
 
                     <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block shake"
                         data-dismiss="modal" aria-label="Close">SEND</button>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block shake" data-dismiss="modal" aria-label="Close">
+                    <button value="submit" class="btn btn-danger btn-lg btn-block shake" data-dismiss="modal"
+                        aria-label="Close">
                         CLOSE </button>
                 </div>
             </div>
@@ -168,8 +167,8 @@
                 <div>
                     <form class="mypharmaform" autocomplete="off">
                         <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine" placeholder="Search the medicine">
-                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span
-                                class="glyphicon glyphicon-zoom-in"></span>
+                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()"
+                            id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH MEDICINE</a>
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
@@ -179,7 +178,7 @@
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
 
-            <table id="medicineTable" class="medicineTable">
+            <table id="medicineTable" class="listTable">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -197,12 +196,10 @@
         <div style="text-align: center">
             <nav aria-label="Page navigation example">
                 <ul id="paginationList" class="pagination justify-content-end">
-                   <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item nav-right"><a class="page-link" href="#">Next</a></li>-->
                 </ul>
             </nav>
 
-           
+
         </div>
     </div>
     <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
@@ -311,7 +308,11 @@
             <header>PHARMACY</header>
             <center>
                 <div>
-                    <form class="mypharmaform">
+                    <form class="mypharmaform" autocomplete="off">
+                        <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy" placeholder="Search the pharmacy">
+                        <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" onclick="searchPharmacy()"
+                            id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH MEDICINE</a>
                         <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                     </form>
@@ -319,7 +320,7 @@
             </center> <br>
 
             <!-- THIS IS MY PHARMACY PAGE: DINAMIC TABALE -->
-            <table id="pharmacyTable" class="table">
+            <table id="pharmacyTable" class="listTable">
                 <thead>
                     <tr>
                         <th scope="col">NAME</th>
@@ -331,8 +332,46 @@
                 </thead>
             </table>
         </div>
+        <div style="text-align: center">
+            <nav aria-label="Page navigation example">
+                <ul id="paginationListPharmacy" class="pagination justify-content-end">
+                </ul>
+            </nav>
+
+
+        </div>
     </div>
 
+    <!-- THIS IS MY MODAL WHEN I SEARCH MY Pharmacy -->
+    <div class="modal fade modalBox" id="searchPharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
+                    <div id="searchPharmacyModalDiv">
+                        <table id="pharmacyTablebyName" class="table tableplus">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">LOCATION</th>
+                                    <th scope="col">LONGITUDE</th>
+                                    <th scope="col">LATITUDE</th>
+                                    <th scope="col">ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div> <br>
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- THIS IS MY MODAL WHEN I CREATE MY PHARMACY -->
     <div class="modal fade modalBox" id="createPharmacyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -430,15 +469,12 @@
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
-    <script src="DataTables/datatables.min.js"></script>
-    <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
-    <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
+   
 
 
     <link rel="stylesheet" type="text/css" href="csshake.min.css">
-    
-   
-    <!-- <script type="text/javascript" src="responsive-tables.js"></script> -->
+
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 

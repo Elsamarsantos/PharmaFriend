@@ -1,5 +1,5 @@
 var listAllMedicines = [];
-var wait = false;
+
 
 
 

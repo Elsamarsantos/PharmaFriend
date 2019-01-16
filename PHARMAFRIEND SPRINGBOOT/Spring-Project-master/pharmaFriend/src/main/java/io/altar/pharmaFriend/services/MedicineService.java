@@ -15,7 +15,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 
 import  io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.business.MedicineBusiness;
@@ -36,14 +36,6 @@ public class MedicineService {
 		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
 	}
 	
-	
-	@GET
-	@Path("consultbyname")
-	@Produces (MediaType.APPLICATION_JSON)
-	public MedicineDto consultMedicine(@QueryParam("medicineName") String name) {
-		
-		return medicineBusiness1.consultMedicine(name);
-	}
 	
 	@GET
 	@Path("consultid/{id}")

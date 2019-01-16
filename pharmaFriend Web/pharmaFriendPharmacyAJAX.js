@@ -1,27 +1,4 @@
 var listAllPharmarcy = [];
-var wait = false;
-// THIS IS MY AJAX TO GET ALL PHARMACY IN MY SQL TABLE
-function searchAllPharmacy() {
-    wait = true;
-
-    return $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/pharmacies/consultall",
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            listAllPharmarcy = data;
-            this.wait = false;
-        }
-    })
-}
-
-// setInterval(() => {
-//     searchAllPharmacy();
-// }, 1000 * 320);
-
 
 // THIS IS MY AJAX TO CREATE A PHARMACY
 $("#btnCreatePharmacy").click(function createPharmacy() {
@@ -37,9 +14,7 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         },
         data: JSON.stringify(newPharmacy),
         success: function (data) {
-            console.log(data);
-            searchAllPharmacy();
-            getListPharmacies();
+
         }
     })
 });
@@ -94,8 +69,7 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
             console.log("update:" + data);
         }
     })
-    searchAllPharmacy()
-    getListPharmacies();
+
 });
 //prepare to delete 
 function prepareToDeleteP(el) {
@@ -135,27 +109,259 @@ function deletePharmacy() {
         contentType: 'application/json',
 
     })
-    getListPharmacies();
+
 }
 
+// ------------------------------------------- Pharmacy NAV  UNDERCONSTRUCTION---------------------------------//
+var aP = 11;
+var yP = 1;
+var numberOfPagesP = 0;
+var positionNavP = 1;
 
-var tpharmacy = $('#pharmacyTable').DataTable();
+function getPagiationPharmacy() {
+    $("#paginationListPharmacy").empty();
 
-function getListPharmacies() {
-
-    var promise = searchAllPharmacy();
-    promise.then(() => {
-
-        tpharmacy.clear().draw();
-        for (i = 0; i < listAllPharmarcy.length; i++) {
-
-            const element = listAllPharmarcy[i];
-
-            tpharmacy.row.add([element.pharmacyName, element.address, element.lonLocation, element.latLocation, `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT </a>` +
-                ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
-            ]).node().id = element.id;
-            tpharmacy.draw();
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/numberrow`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            numberOfPagesP = 1 + Math.floor(data / 30);
+            console.log(data + " texto");
+            //nao esquecer de ver este botao ai botao filho
+            // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
+            fazNavPharmacy();
         }
-        $("#pharmacyTable").show();
-    });
+
+    })
+    return numberOfPagesP;
 }
+
+
+function cleanNavPharmacy() {
+    $("#paginationListPharmacy").empty();
+
+}
+
+function fazNavPharmacy() {
+
+    $("#paginationListPharmacy").append(`<li class="page-item" onclick="firstPharmacy()"><a>First</a></li>`);
+    $("#paginationListPharmacy").append(`<li class="page-item" onclick="previousPharmacy()"><a>Previous</a></li>`);
+
+    for (i = yP; i < numberOfPagesP; i++) {
+        if (yP < aP) {
+            $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
+            y++;
+        }
+        console.log(yP);
+        console.log(aP + " A");
+    }
+
+    $("#paginationListPharmacy").append(`<li class="page-item"><a onclick="nextPharmacy()" >Next</a></li>`);
+    $("#paginationListPharmacy").append(`<li class="page-item"><a onclick="lastPharmacy()" >Last</a></li>`);
+}
+
+function nextPharmacy() {
+    if (aP != numberOfPagesP) {
+        cleanNavPharmacy();
+        aP = yP + 10;
+        fazNavPharmacy();
+    };
+    return (aP)
+}
+
+function previousPharmacy() {
+
+    if (aP != 11) {
+        cleanNavPharmacy();
+        yP = aP - 20;
+        aP = aP - 10;
+        fazNavPharmacy();
+    }
+    return (yP, aP);
+}
+
+function lastPhamarcy() {
+
+    cleanNavPharmacy();
+    aP = numberOfPagesP;
+    yP = numberOfPagesP - 10;
+    fazNavPharmacy();
+    return (aP, yP)
+}
+
+function firstPharmacy() {
+    cleanNavPharmacy();
+    aP = 11;
+    yP = 1;
+    fazNavPharmacy();
+    return (aP, yP)
+}
+
+
+//--------------------------------------------------------------------------------------------------
+
+
+
+function getShortListPharmacy(el) {
+    $('#pharmacyTable').empty();
+    console.log("ver el:", el);
+
+    if (el == 1) {
+
+
+        var numberId = 1
+        var numberOffset = 1 + 30 * (numberId - 1);
+
+        $('#pharmacyTable').append("<thead>" +
+            "<tr>" +
+            '<th scope="col">NAME</th>' +
+            '<th scope="col">ADDRESS</th>' +
+            '<th scope="col">LONGITUDE</th>' +
+            '<th scope="col">LATITUDE</th>' +
+            '<th scope="col">ACTION</th>' +
+            +"</tr>" +
+            "</thead>")
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log(data);
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + '</td><td>' + element.address +
+                        '</td><td>' + element.lonLocation + '</td><td>' +
+                        element.latLocation + '</td><td>' +
+                        `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT </a>` +
+                        ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+                        + '</td></tr>';
+
+
+
+                    $('#pharmacyTable').append(pharmacy);
+                }
+
+            }
+        });
+    }
+    else {
+        console.log("saida");
+        var numberId = $(el).parent().attr('id');
+        var numberOffset = 1 + 30 * (numberId - 1);
+
+        $('#pharmacyTable').append("<thead>" +
+            "<tr>" +
+            '<th scope="col">NAME</th>' +
+            '<th scope="col">ADDRESS</th>' +
+            '<th scope="col">LONGITUDE</th>' +
+            '<th scope="col">LATITUDE</th>' +
+            '<th scope="col">ACTION</th>' +
+            +"</tr>" +
+            "</thead>")
+
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                for (i = 0; i < data.length; i++) {
+                    const element = data[i];
+
+                    var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + '</td><td>' + element.address +
+                        '</td><td>' + element.lonLocation + '</td><td>' +
+                        element.latLocation + '</td><td>' +
+                        `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT </a>` +
+                        ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+                        + '</td></tr>';
+
+                    $('#pharmacyTable').append(pharmacy);
+                }
+
+            }
+
+
+        });
+    }
+
+
+
+}
+
+function getPharmacyName() {
+    var a = [];
+
+    var letter = $("#inputSearchPharmacy").val();
+
+
+    if (letter !== '') {
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultallname?letter=${letter}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log(data.length);
+
+                for (i = 0; i < data.length; i++) {
+                    a.push(data[i]);
+                    var uniqueNames = [];
+
+                    //to delete equal names
+                    $.each(a, function (i, el) {
+                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                    });
+
+                    autocomplete(document.getElementById("inputSearchPharmacy"), uniqueNames.slice(0, 10));
+                }
+            }
+        })
+
+    };
+}
+$("#inputSearchPharmacy").on('input', function () {
+    getPharmacyName()
+});
+
+//THIS IS MY AJAX TO GET A MEDICINE --
+
+function searchPharmacy() {
+
+    console.log("Preparing for sucess:");
+
+    var pharmacyName = $("#inputSearchPharmacy").val();
+    console.log(pharmacyName);
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+           
+                var pharmacy = '<tr><td>' + data.pharmacyName + '</td><td>' + data.address +
+                    '</td><td>' + data.lonLocation + '</td><td>' +
+                    data.latLocation + '</td><tr>';
+                $("#pharmacyTablebyName").append(pharmacy);
+            
+        }
+    })
+}
+
+
+
+
+

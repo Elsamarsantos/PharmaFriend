@@ -126,4 +126,28 @@ public class PharmacyService {
 		return pharmacyBusiness1.test(name, dose);
 	}
 	
+	
+	@GET
+	@Path("consultshort")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<PharmacyDto> consultShortList(@QueryParam("max")int max,@QueryParam("offset") int offset) {
+		return pharmacyBusiness1.shortList(max, offset);
+	}
+	
+	
+	@GET
+	@Path("numberrow")
+	@Produces (MediaType.APPLICATION_JSON)
+	public Long consultNumberRows() {
+		return pharmacyBusiness1.getNumberRows();
+	}
+	@GET
+	@Path("consultallname")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List <PharmacyDto> consultAllPharmacyName(@QueryParam("letter") String letter) {
+		
+		return pharmacyBusiness1.getAllPharmacyNames(letter);
+	}
+	
+	
 }
