@@ -146,12 +146,15 @@ function deleteMedicine() {
 
 
 
-
-
+// ------------------------------------------- MEDICINE NAV  UNDERCONSTRUCTION---------------------------------//
+var a = 11;
+var y = 1;
+var numberOfPages = 0;
+var positionNav = 1;
 
 function getPagiation() {
     $("#paginationList").empty();
-    $("#paginationList").append(`<li id="previousLi"class="page-item"><a class="page-link" href="#">Previous</a></li>`);
+
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/numberrow`,
         type: 'GET',
@@ -160,23 +163,81 @@ function getPagiation() {
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            numberOfPages = (data / 30) + 1;
-            for (i = 1; i < numberOfPages; i++) {
-
-                $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
-
-            }
-
-            //nao esquecer de ver este botao
+            numberOfPages = 1 + Math.floor(data / 30);
+            console.log(data + " texto");
+            //nao esquecer de ver este botao ai botao filho
             // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
-
-
-
+            fazNav();
         }
 
     })
+    return numberOfPages;
+}
+
+
+function cleanNav() {
+    $("#paginationList").empty();
 
 }
+
+function fazNav() {
+
+    $("#paginationList").append(`<li class="page-item" onclick="first()"><a>First</a></li>`);
+    $("#paginationList").append(`<li class="page-item" onclick="previous()"><a>Previous</a></li>`);
+
+    for (i = y; i < numberOfPages; i++) {
+        if (y < a) {
+            $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
+            y++;
+        }
+        console.log(y);
+        console.log(a + " A");
+    }
+
+    $("#paginationList").append(`<li class="page-item"><a onclick="next()" >Next</a></li>`);
+    $("#paginationList").append(`<li class="page-item"><a onclick="last()" >Last</a></li>`);
+}
+
+function next() {
+    if (a != numberOfPages) {
+    cleanNav();
+    a = y + 10;
+    fazNav();
+    };
+    return (a)
+}
+
+function previous() {
+    
+    if (a != 11) {
+        cleanNav();
+        y = a - 20;
+        a = a - 10;
+        fazNav(); 
+    }
+    return (y,a);
+}
+
+function last() {
+    
+    cleanNav();
+    a = numberOfPages;
+    y = numberOfPages - 10;
+    fazNav();
+    return (a, y)
+}
+
+function first() {
+    cleanNav();
+    a = 11;
+    y = 1;
+    fazNav();
+    return (a, y)
+}
+
+
+//--------------------------------------------------------------------------------------------------
+
 
 
 function getShortList(el) {
@@ -221,8 +282,6 @@ function getShortList(el) {
                 }
 
             }
-
-
         });
     }
     else {
