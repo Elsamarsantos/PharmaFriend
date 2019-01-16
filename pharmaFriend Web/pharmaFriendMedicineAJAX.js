@@ -1,29 +1,6 @@
 var listAllMedicines = [];
 var wait = false;
-// THIS IS MY AJAX TO GET ALL MEDICINES IN MY SQL TABLE
-// function searchAllMedicine() {
-//     wait = true;
 
-//     return $.ajax({
-//         url: "http://localhost:8080/pharmafriend/api/medicines/consultall",
-//         type: 'GET',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         success: (data) => {
-
-//             listAllMedicines = data;
-//             this.wait = false;
-//         }
-//     })
-// }
-
-// //searchAllMedicine();
-// setInterval(() => {
-//     searchAllMedicine();
-//     console.log('New Update');
-// }, 1000 * 360);
 
 
 
@@ -160,7 +137,7 @@ function getPagiation() {
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            numberOfPages = (data / 30) + 1;
+            var numberOfPages = (data / 30) + 1;
             for (i = 1; i < numberOfPages; i++) {
 
                 $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
@@ -170,7 +147,7 @@ function getPagiation() {
             //nao esquecer de ver este botao
             // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
 
-
+            
 
         }
 
@@ -181,12 +158,12 @@ function getPagiation() {
 
 function getShortList(el) {
     $('#medicineTable').empty();
-
+    console.log("ver el:", el);
 
     if (el == 1) {
 
 
-        numberId = 1
+        var numberId = 1
         var numberOffset = 1 + 30 * (numberId - 1);
 
         $('#medicineTable').append("<thead>" +
@@ -207,6 +184,7 @@ function getShortList(el) {
                 'Content-Type': 'application/json'
             },
             success: function (data) {
+                console.log(data);
                 for (i = 0; i < data.length; i++) {
                     const element = data[i];
 
@@ -226,6 +204,7 @@ function getShortList(el) {
         });
     }
     else {
+        console.log("saida");
 
 
         var numberId = $(el).parent().attr('id');
@@ -270,33 +249,47 @@ function getShortList(el) {
 
         });
     }
+
+
+   
 }
+
 function getMedicineName() {
     var a = [];
 
-    $.ajax({
-        url: "http://localhost:8080/pharmafriend/api/medicines/consultallname",
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
+    var letter = $("#inputSearchMedicine").val();
+    
 
-            for (i = 0; i < data.length; i++) {
-                console.log("ola");
-                a.push(data[i]);
-                var uniqueNames = [];
-                $.each(a, function (i, el) {
-                    if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
-                });
+    if (letter !== '') {
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log(data.length);
 
-                autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames);
+                for (i = 0; i < data.length; i++) {
+                    a.push(data[i]);
+                    var uniqueNames = [];
+
+                    //to delete equal names
+                    $.each(a, function (i, el) {
+                        if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+                    });
+
+                    autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
+                }
             }
-        }
-    })
+        })
+
+    };
 }
-getMedicineName();
+$("#inputSearchMedicine").on('input', function () {
+    getMedicineName()
+});
 
 //THIS IS MY AJAX TO GET A MEDICINE --
 

@@ -1,0 +1,269 @@
+id,address,lat_location,lon_location,pharmacy_name
+1,Avenida François Mitterrand 39B,38.745603611078707,-9.118793925181478,Farmácia Pontes Leite
+2,Rua Cidade de Cabinda 16A,38.768054610627985,-9.11197400896925,Farmácia Simões
+3,Rua Gregório Lopes 44B,38.711925740773154,-9.213581989021934,Farmácia Fénix
+4,Rua Pedro Ivo 1A,38.745873050039364,-9.137639636611254,Farmácia São João de Deus
+5,Calçada dos Mestres 30A,38.726986926468399,-9.165424607400816,Farmácia Pátria
+6,Campo dos Mártires da Pátria 117,38.722533901044535,-9.139221823151518,Farmácia Peninsular
+7,Rua de Campo de Ourique 131,38.721003500172898,-9.164659972210762,Farmácia Pinheiro
+8,Rua de Campolide 11A,38.725812706116258,-9.162728394025619,Farmácia Pinto
+9,Rua Francisco Metrass 59B,38.717176497049358,-9.166547978511391,Farmácia Porfírio
+10,Rua Rebelo da Silva 11,38.731704731654034,-9.138322187343931,Farmácia Portugal
+11,Rua da Beneficência 91,38.741615059183381,-9.156296331725494,Farmácia Prates e Mota
+12,Rua da Escola Politécnica 16,38.717272261519511,-9.149486734460922,Farmácia Principe Real
+13,Praça Francisco de Morais 1,38.745912826477948,-9.143751108152809,Farmácia São Miguel
+14,Rua Professor Francisco Gentil 36A,38.760607323385507,-9.170120336749541,Farmácia Quejas ou Progresso Telheiras
+15,Rua Ten. Coronel Ribeiro dos Reis 12B,38.7460012904927,-9.189596607118251,Farmácia Rebocho Unipessoal
+16,Rua Cidade de Nampula - Lote 534 A,38.76360760600604,-9.120111211120863,Farmácia Reis Oliveira
+17,Avenida do Rio de Janeiro 4C,38.750024324530926,-9.137228014175049,Farmácia Rio de Janeiro
+18,Avenida de Roma 85B,38.751177803013725,-9.143238806132775,Farmácia Roma
+19,Rua Passos Manuel 8,38.727369050784446,-9.136710016836117,Farmácia Romano Baptista
+20,Estrada de Moscavide 34A,38.773078354992244,-9.099962524812497,Farmácia São Paulo
+21,Rua de Belém 89-91,38.697210996763019,-9.203008010542423,Farmácia dos Jerónimos
+22,Avenida Gomes Pereira 34B,38.748864196295095,-9.197798356816305,Farmácia Santa Cruz
+23,Jardim dos Jacarandás 6A R/C - antigo 4.28.01.H,38.778744390636923,-9.094469882907276,Farmácia Parque das Nações
+24,Rua Filinto Elísio 29B,38.70363053672628,-9.184504082925409,Farmácia Santo Amaro
+25,"Avenida Paulo VI, 14A",38.742900549635451,-9.111607066938609,Farmácia Santo António
+26,Alameda António Sérgio 8C,38.780801693831961,-9.160044611537291,Farmácia Santos
+27,Rua Keil do Amaral - Lote 226 Lj 22,38.759792084870291,-9.124313895634298,Farmácia Santos Silva
+28,Praça do Duque de Saldanha 14,38.734082264970034,-9.144136110812191,Farmácia Cruz Nunes
+29,"Rua Galileu Galilei, 2 - Piso 0 Loja 077",38.754210393096301,-9.189934595548976,Farmácia Colombo
+30,Avenida da Igreja 9E,38.754131996930006,-9.140345541910103,Farmácia Zil
+31,"Avenida de Roma 104A, R/C",38.756052730054968,-9.145276164535931,Farmácia Marbel
+32,Rua Garrett 92,38.710771052126972,-9.141438654168647,Farmácia Sacoor do Chiado
+33,Avenida da Igreja 28B,38.753723755846018,-9.142573031438058,Farmácia Alentejo
+34,Rua Silva Carvalho 136,38.72014201706402,-9.161246438809833,Farmácia Almeida
+35,Rua Morais Soares 91D,38.732665326472215,-9.130844860650559,Farmácia Alves da Graça
+36,Rua Augusto Costa (Costinha) 6A,38.754156307120468,-9.205170387483632,Farmácia Gouveia
+37,Rua Dom Pedro V 123-125,38.715956569269984,-9.147478998004287,Farmácia Jardim Real (Oliveira)
+38,Rua Cristóvão Falcão 7B,38.737725408059113,-9.127516057245526,Farmácia Ibéria
+39,Rua do Conde de Redondo 9A e B,38.727583059944109,-9.142583928002452,Farmácia Salutar
+40,Rua João de Freitas Branco 15A,38.751126283033763,-9.180483380020572,Farmácia Alto dos Moinhos
+41,Alameda das Linhas de Torres 262A,38.773512319222732,-9.161209697714714,Farmácia Patuleia
+42,Rua de Dona Estefânia 197C,38.734904505197022,-9.141741895764142,Farmácia Palma
+43,Travessa da Memória 45B,38.702163073223616,-9.201649260166182,Farmácia Moura
+44,Rua Fernão de Magalhães 33,38.718897186216893,-9.12181109672626,Farmácia Costa Ferreira
+45,Avenida Sérgio Vieira de Mello 17B,38.781039151305514,-9.150160346058181,Farmácia do Largo
+46,Avenida João Paulo II - Lote 531 Lj B,38.746520447654689,-9.112515875443556,Farmácia Serejo Lda.
+47,Calçada da Boa-Hora 94A,38.701099159583016,-9.19150196258199,Farmácia Sepol
+48,Avenida Almirante Reis 145C,38.732805071747535,-9.134475580636071,Farmácia Aliança
+49,Rua Barata Feyo 13A,38.792466429370492,-9.154920236677729,Farmácia São Bartolomeu
+50,Avenida Cinco de Outubro 283A,38.7464693229646,-9.150200321088318,Farmácia Santa Maria
+51,Avenida Visconde de Valmor 60B,38.737818625266947,-9.149536855962173,Farmácia Valle
+52,Rua do Salitre 118,38.719917718467038,-9.1508465565273,Farmácia APDP
+53,Rua Viriato 29B,38.731900845841487,-9.147623873801711,Farmácia Picoas
+54,Estrada de A-da-Maia 64C,38.750861207455273,-9.20958249983252,Farmácia Progresso
+55,Rua Reinaldo Ferreira 5A,38.757772232794387,-9.137936429201355,Farmácia Paris
+56,Rua Tristão Vaz 33A,38.707640620748933,-9.206106698809348,Farmácia Belém
+57,Rua Coelho da Rocha 119,38.716170208883518,-9.16930437092581,Farmácia Condestável Lda.
+58,Avenida de Paris 2,38.741143452309693,-9.133792415455781,Farmácia Central do Areeiro
+59,Rua de Santa Justa 8,38.712795184040004,-9.13699203752968,Farmácia Homeopática de Santa Justa
+60,Rua Silva Carvalho 232C,38.722665265746407,-9.160242758329392,Farmácia Ivone
+61,Rua Eduarda Lapa Lote 36 - Loja,38.741877216502516,-9.108572175226548,Farmácia de Marvila
+62,Rua da Madalena 20-22,38.708888737584196,-9.134599115157318,Farmácia Priv. Assoc. Soc. Mutuos Emp. Estado
+63,Rua das Magnólias Quarteirão Central A - Bloco C R/C Loja 1 e Loja 2,38.734737052890196,-9.204359003966193,Farmácia da Boavista
+64,Rua Pedro Bandeira 2A,38.762769339229706,-9.153757023487687,Farmácia Lambert
+65,Rua Bispo de Cochim 1,38.724429274423535,-9.11276274685669,Farmácia Estácio Xabregas
+66,Estrada da Luz 128A R/C,38.753585811277425,-9.174284823998764,Farmácia da Luz
+67,Rua João de Barros 2A,38.705646240580748,-9.185186577064201,Farmácia Teles
+68,Rua Bartolomeu Dias 172B,38.69515079274089,-9.214459916142395,Farmácia Grijó
+69,Rua Prof. Simões Raposo 1C  Loja A,38.761136473044637,-9.174683614001166,Farmácia Nova Telheiras
+70,Rua de Sant'Ana (Santana) à Lapa 133,38.711764767530866,-9.164527927948845,Farmácia Alb
+71,Rua Serpa Pinto 7,38.70872795868663,-9.141434259610245,Farmácia Priv. Veneravel O T São Francisco Cidade
+72,Rua Manuel da Silva Leal 11B,38.749514296975114,-9.170885407622487,Farmácia Bruxellas
+73,Avenida dos Estados Unidos da América 16B,38.749610940072635,-9.133772783673546,Farmácia Estados Unidos
+74,Avenida das Forças Armadas 34A R/C,38.748035475087086,-9.151208760843113,Farmácia Santa Maria
+75,Alameda dos Oceanos 1B,38.755452536453319,-9.097230223417371,Farmácia Vila Rio
+76,Largo dos Arautos 5A R/C,38.759964825220493,-9.095839828986909,Farmácia Expo Sul
+77,Cais do Gás  Nova Estação Fluvial ,38.704906438570376,-9.144698811912916,Farmácia Cais do Sodré
+78,Avenida Óscar Monteiro Torres 38A,38.743075518294702,-9.141652207966166,Farmácia Galeno
+79,Alameda dos Oceanos 1.07.1.1 - Loja G - 65B,38.771072539131445,-9.09619748603075,Farmácia Vasco da Gama
+80,Avenida da Peregrinação 5C,38.781921010838907,-9.095643784252582,Farmácia Vila Expo
+81,Rua Frederico George 31C,38.76946514568607,-9.167205198549681,Farmácia Planalto
+82,"Campo Grande 414C 
+Rua Cipriano Dourado, 3-3A",38.759902578753028,-9.157445974964848,Farmácia Holon Campo Grande
+83,Rua Rodrigo da Fonseca 155,38.729036917949955,-9.158802324144347,Farmácia Ronil
+84,Rua da Mouraria 12,38.71548784409935,-9.135554682769451,"Farmácia Ferrão, Lda"
+85,Avenida Marquês de Tomar 20,38.736453010506835,-9.149206729586847,Farmácia Figueiras
+86,"Alameda das Comunidades Portuguesas Aeroporto, Terminal 1,Piso 0",38.769924354224081,-9.129381119675488,Farmácia Aeroporto
+87,Rua José Farinha 30B,38.760580484564223,-9.196667377873611,Farmácia Carnide
+88,Rua Alexandre Herculano 30,38.722763395937818,-9.149766276702593,Farmácia Vieira Borges
+89,Estrada de Benfica 373B,38.744692283727673,-9.180023063506033,Farmácia Vitex
+90,Rua do Jardim do Tabaco 94,38.711697944546941,-9.126955881309078,"Farmácia Cruz de Malta, Lda"
+91,Rua Luís de Camões 42B,38.70291264953142,-9.181194371415121,Farmácia Correia de Azevedo
+92,Rua Luís Cristino da Silva Lote 248,38.757297660204543,-9.121972594949744,Farmácia Almeida Vaz 
+93,Avenida de Berna 44A,38.738678333403826,-9.154241537022676,Farmácia Berne
+94,Rua Braamcamp 52C,38.72235701428918,-9.152050559519445,Farmácia Braamcamp
+95,Avenida do Rio de Janeiro 66,38.757965976343748,-9.140539115379079,Farmácia Brisália
+96,Rua José Dias Coelho 2,38.705083479275309,-9.177179607272594,Farmácia do Calvário
+97,Estrada das Laranjeiras 202B,38.745320971269756,-9.169128162789589,Farmácia Sete Rios
+98,Avenida Madame Curie 15A,38.739048134516729,-9.162389674366258,Farmácia Curie
+99,Avenida Rainha Dona Amélia 34B,38.76691170101082,-9.161076232317987,Farmácia Matos Viegas
+100,Avenida da Boa Esperança 8A R/C Loja S5 e 8B R/C Loja S7,38.775291252504722,-9.096600401995254,Farmácia Oriental de Lisboa
+101,Avenida da Boa Esperança 8A R/C Loja S5 e 8B R/C Loja S7,38.775319591509792,-9.096699582290826,Farmácia Oriental de Lisboa
+102,Rua Andrade 34,38.722654040926713,-9.134549131996586,Farmácia Guerra 
+103,Rua Neves Costa 35,38.759910347130855,-9.188891341585334,Farmácia Guimarães Morais
+104,Rua Cidade de Vila Cabral Lote 43 Loja A,38.766096282368352,-9.120956081137169,Farmácia Higiene Olivais
+105,Avenida Guerra Junqueiro 30B,38.73985688901395,-9.136317462040134,Farmácia Imperial
+106,Rua de Infantaria 16 98B,38.718398468835254,-9.167760065442783,Farmácia Lobel
+107,Largo de São Sebastião da Pedreira 2,38.732156671739318,-9.151433704380166,Farmácia São Sebastião
+108,Estrada do Desvio 12C,38.779288535649556,-9.163259661277907,Farmácia SãoTomé
+109,Rua Actriz Palmira Bastos - Lote 42 D,38.754340330692251,-9.113640618281565,Farmácia Sacramento
+110,Avenida Duque d''Ávila 125,38.734989874413799,-9.145954898326941,Farmácia Dalva
+111,Rua Cesário Verde 31A,38.728370919732797,-9.128712671594478,Farmácia Dimar Lda.
+112,Rua do Cruzeiro 52A,38.706332784097619,-9.190498623461345,Farmácia do Cruzeiro
+113,Avenida Duque de Loulé 61-65,38.727427928123156,-9.145772940972861,Farmácia do Marquês
+114,Rua da Graça 82A,38.719802054700324,-9.129803307197758,Farmácia do Monte
+115,Rua Duarte Pacheco Pereira 11C,38.69852216705943,-9.218485080979249,Farmácia do Restelo
+116,Rua Mário de Azevedo Gomes 1A,38.747998132320511,-9.17739988855331,Farmácia dos Lusíadas
+117,Avenida Duque de Loulé 1E,38.728941630364019,-9.143810537997052,Farmácia Ducal Lda.
+118,Avenida General Roçadas 27A,38.724994985299951,-9.128683436821872,Farmácia Europa
+119,Rua Rui de Sousa Lote 65A,38.751724573148302,-9.110772775483122,Farmácia Falcão
+120,Rua Gregório Lopes 44A,38.711925740773154,-9.213581989021934,Farmácia Fénix
+121,Rua Fernando Namora 44C,38.760253075349283,-9.178951500034531,Farmácia Geny
+122,Rua Rodrigo da Fonseca 101A,38.7247562227926,-9.155057233351814,Farmácia Gomes
+123,Rua da Junqueira 326,38.697581991227537,-9.195921415963356,Farmácia Gomes Sucessores
+124,Avenida da Igreja 9D,38.754139531254481,-9.140324181769286,Farmácia Zil
+125,Rua Morais Soares 69C,38.732355095776953,-9.129724469251791,Farmácia Vitalis
+126,Rua Morais Soares 111,38.733035489471753,-9.132267772297689,Farmácia Veral
+127,Praça Afrânio Peixoto 2B,38.744981540686609,-9.135801449977988,Farmácia Vera Cruz
+128,Rua Tomás da Fonseca 44A,38.755292046562751,-9.166337301119379,Farmácia Várzea
+129,Avenida do Uruguai 18A,38.751734563207727,-9.197150870024133,Farmácia Uruguai
+130,Rua Actor Taborda 5,38.732166876866025,-9.142717549706006,Farmácia Universal
+131,Rua Saraiva de Carvalho 145F,38.715303908249545,-9.164393948715812,Farmácia União
+132,Rua Áurea 154,38.710708450142029,-9.138470558486128,Farmácia Teixeira Lopes Lda
+133,Rua Sousa Martins 21A,38.730034987717914,-9.145739337693037,Farmácia Sousa Martins
+134,Estrada de Benfica 429A,38.746686440977804,-9.184857405598022,Farmácia Sousa
+135,Rua de Pedrouços 52,38.696210337916298,-9.219617469378655,Farmácia Sociedade Higilux Lda
+136,Avenida Álvares Cabral 1,38.719496428309263,-9.155761752384739,Farmácia Largo do Rato
+137,Rua da Venezuela 37A,38.744948017568269,-9.201501296859099,Farmácia Labor
+138,Rua da Escola Politécnica 59,38.717354316211569,-9.150407718731229,Farmácia Albano
+139,Alameda das Linhas de Torres 201B,38.770151957086931,-9.159939433190566,Farmácia Alameda
+140,Avenida Columbano Bordalo Pinheiro 98A,38.739040349854669,-9.16531087080441,Farmácia Aguiar
+141,Rua Carvalho Araújo 46C,38.734001163571477,-9.131214906360505,Farmácia Alcalis
+142,Estrada de Benfica 180A,38.743107502263967,-9.173915402617968,Farmácia Alegria
+143,Largo da Graça 39,38.717456572893454,-9.12965100502786,Farmácia Almeida Dias
+144,Alameda da Música 7A,38.774876881249632,-9.151877591606455,Farmácia Alto do Lumiar
+145,Avenida da Igreja 18A,38.754156915190379,-9.141440281017625,Farmácia Alvalade
+146,Avenida António Augusto de Aguiar 17A,38.730161534103736,-9.150624138154523,Farmácia Latina
+147,Rua Engº Paulo de Barros 28A,38.747890258478634,-9.206767398921027,Farmácia Lavinha
+148,Rua de Dona Filipa de Vilhena 9C,38.738537596224454,-9.142462358995052,Farmácia Leonel Pinheiro
+149,Avenida da Igreja 4B,38.754713700485503,-9.139550010064145,Farmácia Líbia
+150,Calçada da Ajuda 170,38.703739233828273,-9.199334911635075,Farmácia Lídia Almeida
+151,Rua Leão de Oliveira 2B,38.704720670351449,-9.17831113239099,Farmácia Lisbonense
+152,Rua da República da Bolívia 69C,38.75391842529524,-9.197701006388954,Farmácia Eusébio
+153,Rua da Margem 15B,38.730838430825244,-9.109903906075694,Farmácia Madre Deus
+154,Largo José João Farinha Júnior 6A,38.765369524861079,-9.181175757424096,Farmácia Maia Palma
+155,Calçada da Picheleira 140A,38.737700518397965,-9.123462370000064,Farmácia Marluz
+156,Campo Pequeno 36B e C,38.743215943850927,-9.144161600508399,Farmácia Miranda
+157,Rua Rodrigues Sampaio 21A,38.721894079530706,-9.145865246461581,Farmácia Morais Sarmento
+158,Avenida dos Estados Unidos da América 140B,38.748691974141273,-9.147356218067868,Farmácia Nova Iorque
+159,Rua Dom Domingos Jardo 28A,38.726672129858486,-9.11873660637815,Farmácia Nova Luz
+160,Rua Dom Jerónimo Osório 18D,38.700443615433436,-9.225590639892273,Farmácia Ocidental
+161,Avenida Almirante Reis 121B,38.7314440345273,-9.134611348414859,Farmácia Silva Pinto
+162,Rua de São Lázaro 128,38.719351403184419,-9.13719030110277,Farmácia Silmar
+163,Rua Poço dos Negros 115,38.709804273356404,-9.151611133326874,Farmácia Moz Teixeira
+164,Largo de Dona Estefânia 10,38.731869322157891,-9.141103343615802,Farmácia Mundial
+165,Rua Barão de Sabrosa 104,38.734315022536542,-9.128557254067148,Farmácia Eusil (Holon Barão de Sabrosa)
+166,Rua Professor Eduardo Araújo Coelho 5A,38.76119997858536,-9.164969915238306,Farmácia Central de Telheiras
+167,Avenida Júlio Dinis 10A,38.742295902774728,-9.148008855799898,Farmácia Apolo 70
+168,Rua Cidade de Bolama 4 (Centro Comercial) 1º Loja 141,38.762301619562592,-9.113760961088627,Farmácia Chemist Store (Fernandes Borges)
+169,Rua de Alcântara 15A,38.706344526723186,-9.174885047728882,Farmácia Probidade
+170,Rua Afonso Lopes Vieira 57B,38.75522059594779,-9.149657498806533,Farmácia Rainha Santa
+171,Rua da Lapa 54,38.710463024849808,-9.159702631891761,Farmácia da Lapa
+172,Rua Fernando Lopes Graça 23C,38.769014309522227,-9.171589434378673,Farmácia Rualto Lda.
+173,Rua Morais Soares 56C,38.732351418213199,-9.128756978300919,Farmácia São João
+174,Avenida Almirante Reis 76A,38.728090921703291,-9.134566304191567,Farmácia Castro
+175,Rua do Quatro de Infantaria 28A,38.71806651642175,-9.164709664317336,Farmácia Castro Fonseca
+176,Rua de São Paulo 108,38.707972918101866,-9.144807851218731,Farmácia Central
+177,Rua da Penha de França 58,38.722774865336682,-9.129049520961383,Farmácia Central da Penha
+178,Rua General Taborda 17,38.728531802314457,-9.162870982712334,Farmácia Central de Campolide
+179,Alameda das Linhas de Torres 254B,38.772902963319737,-9.160794716477627,Farmácia Central do Lumiar
+180,Rua Alferes Barrilaro Ruas 7C,38.775358165874373,-9.11280776682546,Farmácia Central dos Olivais
+181,Avenida Almirante Reis 46B,38.725271464006461,-9.134869997639671,Farmácia Confiança
+182,Praça das Flores 59,38.715198425641489,-9.15113656773531,Farmácia Confiança
+183,Rua Luciano Cordeiro 73,38.72554409272837,-9.14474834681433,Farmácia Luciano Cordeiro
+184,Avenida da Igreja 31C,38.753205100818874,-9.143175399446781,Farmácia Sanex
+185,Rua de Campolide 297C,38.735057079239581,-9.165517954935266,Farmácia Nova
+186,Rua de Manhiça - Lote 469 Lj A,38.759161738510713,-9.107761834653141,Farmácia Nova dos Olivais
+187,Avenida de Roma 56B,38.748456980884491,-9.141210424594279,Farmácia Avis
+188,Avenida Ressano Garcia 7A,38.734498987235717,-9.155239973138494,Farmácia Bairro Azul
+189,Rua Augusta 225,38.711949282364458,-9.138306018567141,Farmácia Barral
+190,Rua do Loreto 28,38.710713373037137,-9.144438627467297,Farmácia Barreto
+191,Avenida de Roma 53D,38.747456941304101,-9.141230844199001,Farmácia Belo
+192,Estrada de Benfica 444A,38.749158678870707,-9.190176373514435,Farmácia Benfiluz
+193,Rua dos Quartéis 27,38.702921517036536,-9.19417281112684,Farmácia Boa-Hora
+194,Rua do Salitre 7,38.719500878906011,-9.145953946112716,Farmácia Nacional
+195,Campo Grande 152A,38.752421131245995,-9.149433670977075,Farmácia Campo Grande
+196,Calçada de Carriche - Lote 4  - Lj Esq,38.781289267560631,-9.163998860670681,Farmácia Nicolau
+197,Rua da Prata 220,38.71226092085292,-9.137343866303986,Farmácia Normal 
+198,Rua Abade Faria 22A,38.739050310858623,-9.1310258595022,Farmácia Paes
+199,Rua do Vale Formoso de Cima 79B,38.747238468553924,-9.104327555559044,Farmácia Barros Gouveia
+200,Avenida Visconde de Valmor 28B,38.738258535636874,-9.146598820604062,"Farmácia Cardote, Lda"
+201,Praça do Oriente 1.15.01 (Gare do Oriente) 0 G 220,38.76776449180754,-9.098396034535218,Farmácia Gare do Oriente
+202,Azinhaga da Torre do Fato 29,38.763468270534723,-9.177555435438022,Farmácia Lisboa
+203,Rua Inácio Pardelhas Sanchez 182,38.731415400595004,-9.17088194102382,Farmácia Zenel
+204,Estrada de Benfica 592,38.750802752262423,-9.199564162593875,Farmácia União
+205,Rua de Santo António à Estrela 96,38.713377397455609,-9.163505593053245,Farmácia Marques Freire
+206,Rua da Palma 194,38.717076340579474,-9.135686707268432,Farmácia Martim Moniz
+207,Rua da Lapa 105,38.709248337993941,-9.16159363946376,Farmácia Paiva da Costa Lda
+208,Rua Cidade de Cabinda 16A,38.768054610627985,-9.11197400896925,Farmácia Simão
+209,Rua Luciano Cordeiro 2A,38.723373995719008,-9.14246337229468,Farmácia dos Capuchos
+210,Rua António Lopes Ribeiro 6A,38.76737837416195,-9.152972421443817,Farmácia Alta de Lisboa
+211,Rua da Escola Politécnica 82B,38.718261118369504,-9.152074061243908,Farmácia São Mamede
+212,Rua da Beneficência 235C,38.744702193497652,-9.158617769760793,Farmácia Gomes da Silva
+213,Calçada da Estrela 139,38.712636554625092,-9.157384638895563,Farmácia Aurélio Rego
+214,Praça Cidade do Luso Lote 199,38.765703476413194,-9.11606232447229,Farmácia Antunes Rosas
+215,Praça D. Pedro IV 31,38.713320181688523,-9.139750846412223,"Farmácia Azevedo, Filhos"
+216,Rua das Portas de Santo Antão 70,38.716086805673768,-9.140280767988227,Farmácia Frazão
+217,Praça D. Pedro IV 60,38.714176330912757,-9.140122600717815,Farmácia Estácio
+218,Avenida Almirante Reis 199A,38.73587058847616,-9.13417747291242,Farmácia Lusa
+219,Avenida de Roma 18A,38.743704274722177,-9.138728063257272,Farmácia Lusitana
+220,Largo do Conde Barão 2,38.708793131520892,-9.150838001870842,Farmácia Açoreana
+221,Praça do Norte 11A,38.777433083680755,-9.118644813827474,Farmácia Ascenso
+222,Avenida Fontes Pereira de Melo 15A,38.728968357741607,-9.147996773459303,Farmácia Fontes Pereira de Melo
+223,Rua Cidade da Beira 46C,38.766239571497223,-9.124193231230379,Farmácia Lemos
+224,Calçada da Estrela 130,38.7132100510036,-9.158718748483588,Farmácia Gama
+225,Rua Fialho de Almeida 38A,38.734603805089506,-9.157668076232316,Farmácia Sirius
+226,Calçada do Tojal 102A,38.756792117477914,-9.204565656905743,Farmácia Simões
+227,Calçada Marquês de Abrantes 36A,38.708336164765477,-9.153223857196869,Farmácia Conde Barão
+228,Avenida Infante Santo 66B,38.709515927517245,-9.165635917206787,Farmácia Andrade Ribeiro
+229,Avenida Almirante Reis 88B,38.729362006376157,-9.134472694349064,Farmácia Atena
+230,Travessa da Légua da Póvoa 5B,38.723158016490736,-9.156285474686973,Farmácia Britânica
+231,Avenida Duque d''Ávila 32C/D,38.735293385612067,-9.144705243850366,Farmácia Duque de Ávila
+232,Avenida da Ilha da Madeira 47,38.707844323367787,-9.210169944129428,Farmácia Central do Restelo
+233,Calçada de Dom Gastão 29B,38.728545673805385,-9.109174491132974,Farmácia Conceição Lda.
+234,Avenida Cinco de Outubro 147A,38.740122935951021,-9.148695468714248,Farmácia Fátima
+235,Rua de São José 187,38.720237065472475,-9.144159135531265,Farmácia Fernandes
+236,Rua das Pretas 12,38.718974264851902,-9.143215929635756,Farmácia Galénica
+237,Rua dos Sapadores 87,38.721074979421168,-9.127360370223633,Farmácia Branquinho
+238,Rua do Olival 290,38.705032331937758,-9.167788188999378,Farmácia Infante Santo
+239,Rua Áurea 228,38.711831109596133,-9.138905061012673,Farmácia Internacional
+240,Estrada da Luz 199A,38.756653722102271,-9.177957610292388,Farmácia J Ribeiro
+241,Rua do Alecrim 125,38.710314437284119,-9.14314304213023,Farmácia Andrade
+242,Rua Prof. Francisco Pereira de Moura Lote 138 B,38.768377140068239,-9.190724402431599,Farmácia Padre Cruz
+243,Rua do Forno do Tijolo 40,38.725341199540317,-9.133515627448745,Farmácia Colonial
+244,"Avenida República da Bulgária Lote 12, Loja C",38.748627162069567,-9.116288625363723,Farmácia Bela Vista
+245,Estrada de Benfica 648,38.750655015006849,-9.200802587231101,Farmácia Marques
+246,Calçada da Estrela 167,38.712730253176382,-9.157964575971629,Farmácia Martins
+247,Calçada da Ajuda 222,38.704561674609273,-9.199239074868967,Farmácia Mendes Gomes
+248,Largo da Graça 63F,38.71670397114061,-9.130226583478176,Farmácia Morão Herd.
+249,Rua de Alcântara 5A,38.706422947307601,-9.174622780090127,Farmácia Nogueira
+250,Rua de Campolide 54A,38.727879488801044,-9.162275131981023,Farmácia Oliveira
+251,Avenida João XXI 13A,38.742219954236901,-9.136406859682248,Farmácia Onilda
+252,Rua do Vale de Santo António 9,38.717641180973494,-9.122137224700275,Farmácia Alves de Carvalho
+253,Avenida de Roma 7B,38.742275083427323,-9.138374432462523,Farmácia Algarve
+254,"Avenida Luís Bivar, 69-75;",38.733649276740444,-9.150180209605734,Farmácia Sagres
+255,Alameda das Linhas de Torres 93B,38.763488466605544,-9.157011736543016,Farmácia Douro
+256,Rua Carlos Mardel 101B,38.73835807313128,-9.132971401100161,Farmácia Esperança
+257,Rua dos Caminhos de Ferro 102,38.713855741402064,-9.123641803986494,Farmácia Santa Apolónia
+258,Estrada de Benfica 678E,38.752014769793888,-9.204919740451398,Farmácia Benfica
+259,Avenida Padre Manuel da Nóbrega 5A,38.74307088839867,-9.133819363117643,Farmácia Garantia
+260,Avenida Mouzinho de Albuquerque 7A,38.730316636863442,-9.126661829478921,Farmácia Dalton
+261,Rua de São Bento 199A,38.715548777914542,-9.15464277313761,Farmácia Castro Sucessor
+262,Avenida Almirante Reis 46B,38.725325522804802,-9.134856011768994,Farmácia Confiança
+263,Rua António Enes 10A,38.73424897673177,-9.147761109427689,"Farmácia Império, Lda"
+264,Rua Álvaro Coutinho 10,38.724892527754115,-9.134274190925781,Farmácia Jaime de Matos
+265,Avenida da República 27A,38.73656206271086,-9.145907755639129,Farmácia das Avenidas
+266,Praça de Luís de Camões 24,38.710494014726038,-9.143924816277607,Farmácia Camões 
+267,Avenida da Igreja 21C,38.753630949605373,-9.141846996855749,Farmácia Cartaxo
