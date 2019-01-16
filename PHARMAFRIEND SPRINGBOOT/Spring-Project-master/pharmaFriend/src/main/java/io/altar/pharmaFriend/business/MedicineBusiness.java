@@ -56,22 +56,7 @@ public class MedicineBusiness {
 		return medicine;
 	}
 	
-	//consult medicine by name
-		public Medicine consultMedicineWithoutDto(String name) {
-			
-			Medicine medicine = medicineRepository1.getMedicineByName(name);
-			return medicine;
-		}
 	
-	
-	//consult medicine by name and return medicineDto
-	public MedicineDto consultMedicine(String name) {
-		
-		Medicine medicine = medicineRepository1.getMedicineByName(name);
-		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
-		
-		return medicineDto;
-	}
 	
 	//consult medicine by Id
 	@Transactional 
@@ -104,21 +89,7 @@ public class MedicineBusiness {
 		 medicineRepository1.update(medicine);
 	}
 	
-	//get list of medicines with equal names
 	
-	@Transactional 
-	public List<MedicineDto> getListMedicinewithEqualName(String name){
-		Iterator<Medicine> listMedicines = medicineRepository1.getListMedicineByName(name).iterator();
-		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
-		
-		while (listMedicines.hasNext()) {
-			Medicine medicine = listMedicines.next();
-			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
-		}
-		return listMedicineDto;
-		 
-		
-	}
 	
 	//get list of medicines by name and dose
 	

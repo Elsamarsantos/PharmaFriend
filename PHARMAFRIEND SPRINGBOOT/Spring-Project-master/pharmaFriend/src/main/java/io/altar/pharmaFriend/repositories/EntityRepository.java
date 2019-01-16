@@ -24,7 +24,7 @@ public abstract class EntityRepository  <T extends BaseEntity> {
 	}
 		
 	public T consultEntityId(long id) {
-
+		
 		return em.find(getEntityClass(),id);
 	}
 	

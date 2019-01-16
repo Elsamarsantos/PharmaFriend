@@ -92,13 +92,7 @@ public class MedicineService {
 		medicineBusiness1.removeMedicineById(id);
 	}
 	
-	@GET
-	@Path("listmedicine")
-	@Produces (MediaType.APPLICATION_JSON)
-	public List<MedicineDto> consultMedicineName(@QueryParam("medicineName") String name) {
-		
-		return medicineBusiness1.getListMedicinewithEqualName(name);
-	}
+	
 	@GET
 	@Path("medicinebydose")
 	@Produces (MediaType.APPLICATION_JSON)
