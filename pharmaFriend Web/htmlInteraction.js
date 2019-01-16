@@ -2,7 +2,7 @@
 $(document).ready(function () {
 
   home();
-  searchAllPharmacy();
+  //searchAllPharmacy();
   
   
 

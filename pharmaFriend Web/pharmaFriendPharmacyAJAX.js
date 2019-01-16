@@ -18,9 +18,9 @@ function searchAllPharmacy() {
     })
 }
 
-setInterval(() => {
-    searchAllPharmacy();
-}, 1000 * 320);
+// setInterval(() => {
+//     searchAllPharmacy();
+// }, 1000 * 320);
 
 
 // THIS IS MY AJAX TO CREATE A PHARMACY
