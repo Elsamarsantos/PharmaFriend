@@ -38,7 +38,7 @@
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12"> <br>
                 <header> PharmaFriend </header>
-                <h1>Simplify your search.</h1>
+                <h1 class="shake-slow">Simplify your search.</h1>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                         <label for="getDistance">DISTANCE</label>
                         <input id="userdistance" type="number" min="0" value="5" style="text-align:center" />
                     </div> <br>
-                    <button id="btnMainSearch" class="btn btn-success btn-lg btn-inline-block" style='font-size:24px'>
+                    <button id="btnMainSearch" class="btn btn-success btn-lg btn-inline-block shake-little" style='font-size:24px'>
                         <i class='fas fa-pills'> </i> SEARCH <i class='fas fa-search'>
                         </i></button>
                 </form> <br> <br>
@@ -151,9 +151,9 @@
                         <input id="theEmail" type="text" placeholder="example@pharmafriend.ps" />
                     </form>
 
-                    <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block"
+                    <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block shake"
                         data-dismiss="modal" aria-label="Close">SEND</button>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
+                    <button value="submit" class="btn btn-danger btn-lg btn-block shake" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
                 </div>
             </div>
@@ -399,11 +399,11 @@
         <div class="row text-center">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <header> Our Vision <br> </header> <br> <br>
-                <h3 style="color:rgb(43, 46, 43)">
+                <h3 class="shake-little" style="color:rgb(43, 46, 43)">
                     Why we don’t have always the medicines we need when we need? <br>
                     When the access to the medicine is denied, the therapeutic success is compromised. </h3>
                 <hr>
-                <h3 style="color: rgb(191, 217, 255)">
+                <h3 class="shake-little" style="color: rgb(191, 217, 255)">
                     We believe that the injured party should never be the customer, especially when we talk about
                     health. <br>
                     Our mission is to accurately communicate where the client can pick up their medicine. <br>
@@ -425,13 +425,17 @@
     <!-- MY SCRIPTS - BOOTSTRAP AND JQUERY! -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-
     <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
     <script src="leaflet.awesome-markers.js"></script>
     <script src="leaflet.js"> </script>
     <script src="DataTables/datatables.min.js"></script>
     <script src="DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js">    </script>
+
+
+    <link rel="stylesheet" type="text/css" href="csshake.min.css">
+    
+   
     <!-- <script type="text/javascript" src="responsive-tables.js"></script> -->
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
