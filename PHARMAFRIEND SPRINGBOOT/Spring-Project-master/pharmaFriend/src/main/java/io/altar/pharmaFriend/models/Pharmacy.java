@@ -21,10 +21,17 @@ import javax.persistence.Table;
 				@NamedQuery(name=Pharmacy.QUERY_BIGGEST_F, query="SELECT MAX(p.id) FROM Pharmacy p"),
 				@NamedQuery(name=Pharmacy.QUERY_TEST, query="SELECT distinct p From Pharmacy p join p.listStock m WHERE m.medicineName= :name AND m.dose= :dose"),
 				@NamedQuery(name=Pharmacy.QUERY_MAX_ROW, query="SELECT COUNT(*) FROM Pharmacy"),
-				@NamedQuery(name=Pharmacy.QUERY_PHARMACY_NAME, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE pharmacyName LIKE  :letter"),
-				 
+				@NamedQuery(name=Pharmacy.QUERY_PHARMACY_NAME, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE pharmacyName LIKE  :letter"),	 
 				@NamedQuery(name=Pharmacy.QUERY_BY_ID, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE p.id= :id"),
+				@NamedQuery(name=Pharmacy.QUERY_STOCK, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m join m.listPharmacyInMedicine p WHERE p.id= :id"),
+
 })
+
+
+
+
+
+
 
 public class Pharmacy extends BaseEntity{
 	
@@ -39,7 +46,7 @@ public class Pharmacy extends BaseEntity{
 	public static final String QUERY_MAX_ROW = "getNumberOfRows";
 	public static final String QUERY_PHARMACY_NAME="getPharmacy";
 	public static final String QUERY_BY_ID="getPharmacyById";
-	
+	public static final String QUERY_STOCK="getPharmacyStock";
 	
 	@Column(name="pharmacyName")
 	private String pharmacyName;

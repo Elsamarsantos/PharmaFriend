@@ -62,21 +62,21 @@ public class PharmacyBusiness {
 	}
 	
 	//to get all the pharmacies on the DB
-	@Transactional
-	public List<PharmacyDto> consultAll() {
-
-		Iterator<Pharmacy> listPharmacy = pharmacyRepository1.getAllEntity().iterator();
-		List <PharmacyDto> listPharmacyDto= new ArrayList<PharmacyDto>();
-		
-		while (listPharmacy.hasNext()) {
-			Pharmacy pharmacy = listPharmacy.next();
-			List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-			
-			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto));
-		}
-		return listPharmacyDto;
-	
-	}
+//	@Transactional
+//	public List<PharmacyDto> consultAll() {
+//
+//		Iterator<Pharmacy> listPharmacy = pharmacyRepository1.getAllEntity().iterator();
+//		List <PharmacyDto> listPharmacyDto= new ArrayList<PharmacyDto>();
+//		
+//		while (listPharmacy.hasNext()) {
+//			Pharmacy pharmacy = listPharmacy.next();
+//			List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
+//			
+//			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto));
+//		}
+//		return listPharmacyDto;
+//	
+//	}
 	
 
 	
@@ -168,15 +168,16 @@ public class PharmacyBusiness {
 	@Transactional
 	public List<MedicineDto> getStockListPharmacy (long id){
 	
-		Iterator <Medicine> listMedicine = pharmacyRepository1.consultEntityId(id).getListStock().iterator();
-		
-		List<MedicineDto> listMedicineDto = new ArrayList<>();
-		
-		while(listMedicine.hasNext()) {
-			Medicine medicine = listMedicine.next();
-			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
-		}
-		return listMedicineDto;
+//		Iterator <Medicine> listMedicine = pharmacyRepository1.getPharmacyStock(id).iterator();
+//				
+//		
+//		List<MedicineDto> listMedicineDto = new ArrayList<>();
+//		
+//		while(listMedicine.hasNext()) {
+//			Medicine medicine = listMedicine.next();
+//			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
+//		}
+		return pharmacyRepository1.getPharmacyStock(id);
 		
 	}
 	
