@@ -343,3 +343,11 @@ form.mypharmaformhome  {
     background-color: #FFFFFF;
     
 }
+
+
+.scrollable
+{
+    width: 1300px;
+    height: 700px;
+    overflow: auto;
+}
