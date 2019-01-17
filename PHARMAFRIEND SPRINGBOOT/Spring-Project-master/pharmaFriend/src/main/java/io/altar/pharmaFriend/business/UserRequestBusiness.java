@@ -13,7 +13,7 @@ import io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.Dtos.PharmacyDto;
 import  io.altar.pharmaFriend.models.Medicine;
 import  io.altar.pharmaFriend.models.Pharmacy;
-import io.altar.pharmaFriend.repositories.MedicineRepository;
+
 import io.altar.pharmaFriend.repositories.PharmacyRepository;
 
 @Component
@@ -24,8 +24,7 @@ public class UserRequestBusiness {
 	MedicineBusiness medicineBusiness1;
 	@Inject
 	PharmacyRepository pharmacyRepository1; 
-	@Inject
-	MedicineRepository medicineRepository1;
+	
 	
 	
 	@Transactional
@@ -50,23 +49,9 @@ public class UserRequestBusiness {
 				
 			}	
 			}
-		}
-		
-		
-		Iterator<Pharmacy> listpharmacy1= listToAdd.iterator();
-		
-		List<PharmacyDto> listToAddDto =new ArrayList<>();
-		
-		
-		while (listpharmacy1.hasNext()) {
-			Pharmacy pharmacy1 = listpharmacy1.next();
-
-			PharmacyDto pharmacyDto = new PharmacyDto(pharmacy1.getId(),pharmacy1.getPharmacyName(),pharmacy1.getaddress(),pharmacy1.getLonLocation(),pharmacy1.getLatLocation());
-			listToAddDto.add(pharmacyDto);
-		}
-
+		}	
 	
-		return listToAddDto;
+		return pharmacyBusiness1.transformInToDto(listToAdd);
 
 	}
 	
@@ -105,23 +90,26 @@ public class UserRequestBusiness {
 	public List<PharmacyDto> pharmacyWithoutMedicine(String name,String dose, String volume,double userLon, double userLat, double userdistance) {
 		
 		List <Pharmacy> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
+		int size=nearestList.size();
 		
-		
-	
-			Medicine medicine1 = medicineRepository1.getMedicineByNameDoseUnit(name, dose, volume);
-		
-			for (Pharmacy pharmacy: nearestList){
-				
+			
+			Medicine medicine1 = medicineBusiness1.consultMedicineWithoutDto(name, dose, volume);
+			for(int i=0;i<size;i++) {
+				Pharmacy pharmacy=nearestList.get(i);
 				List <Medicine> listMedicineInPharmacy=pharmacy.getListStock();
 				
 				for(Medicine medicine2: listMedicineInPharmacy) {
 					
 					
 				if(medicine2.getId().equals(medicine1.getId())) {
+					size--;
+					i--;
 					nearestList.remove(pharmacy);
 					
 				}	
+				
 			}
+		
 	}
 	return pharmacyBusiness1.transformInToDto(nearestList);
 	}
