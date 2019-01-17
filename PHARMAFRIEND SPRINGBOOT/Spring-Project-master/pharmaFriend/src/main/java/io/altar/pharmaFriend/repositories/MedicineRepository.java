@@ -43,6 +43,11 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 	
+	public MedicineDto getMedicineId(Long id){
+		
+		return em.createNamedQuery(Medicine.QUERY_BY_ID, MedicineDto.class).setParameter("id", id) .getSingleResult();
+		
+	}
 
 	
 	public long getBiggestId() {
@@ -60,7 +65,7 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 
 	public List<MedicineDto> getShortList(int max, int offset){
 
-		return em.createNamedQuery(Medicine.QUERY_ALL, MedicineDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
+		return em.createNamedQuery(Medicine.QUERY_ALL_DTO, MedicineDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
 	}
 	
 	

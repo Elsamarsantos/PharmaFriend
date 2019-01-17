@@ -62,11 +62,9 @@ public class MedicineBusiness {
 	@Transactional 
 	public MedicineDto consultMedicine(Long id) {
 		
-		Medicine medicine = medicineRepository1.consultEntityId(id);
+		return medicineRepository1.getMedicineId(id);
 		
-		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
 		
-		return medicineDto;
 		
 	
 	}

@@ -14,6 +14,8 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         },
         data: JSON.stringify(newPharmacy),
         success: function (data) {
+            getPagiationPharmacy();
+            getShortListPharmacy(1);
 
         }
     })
@@ -67,6 +69,8 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
         data: JSON.stringify(myPharmacy),
         success: function (data) {
             console.log("update:" + data);
+            getPagiationPharmacy();
+            getShortListPharmacy(1);
         }
     })
 
@@ -107,7 +111,11 @@ function deletePharmacy() {
             'Content-Type': 'application/json'
         },
         contentType: 'application/json',
-
+        success: function (data) {
+            getPagiationPharmacy();
+            getShortListPharmacy(1);
+            
+        }
     })
 
 }

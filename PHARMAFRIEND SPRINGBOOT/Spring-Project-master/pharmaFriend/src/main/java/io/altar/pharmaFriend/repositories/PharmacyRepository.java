@@ -41,6 +41,13 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 	}
 	
+	public PharmacyDto getPharmacyById(Long pharmacyId) {
+		return em.createNamedQuery(Pharmacy.QUERY_BY_ID, PharmacyDto.class).setParameter("id", pharmacyId).getSingleResult();
+		
+	}
+
+	
+	
 	public PharmacyDto getPharmacyByLocation(double lon, double lat) {
 		return em.createNamedQuery(Pharmacy.QUERYLOCATION, PharmacyDto.class).setParameter("lonLocation", lon).setParameter("latLocation", lat).getSingleResult();
 		
@@ -64,7 +71,7 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	
 	public List<PharmacyDto> getShortList(int max, int offset){
 
-		return em.createNamedQuery(Pharmacy.QUERY_ALL, PharmacyDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
+		return em.createNamedQuery(Pharmacy.QUERY_ALL_DTO, PharmacyDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
 	}
 	
 	public Long getNumberOfRows () {

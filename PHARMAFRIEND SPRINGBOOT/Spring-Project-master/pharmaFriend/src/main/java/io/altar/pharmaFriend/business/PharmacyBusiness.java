@@ -58,12 +58,7 @@ public class PharmacyBusiness {
 	//consult pharmacy by Id
 	@Transactional
 	public PharmacyDto consultPharmacy(long id) {
-		Pharmacy pharmacy= pharmacyRepository1.consultEntityId(id);
-		List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-		
-		PharmacyDto pharmacyDto = new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto);
-		
-		 return pharmacyDto;
+		return pharmacyRepository1.getPharmacyById(id);
 	}
 	
 	//to get all the pharmacies on the DB
@@ -190,8 +185,6 @@ public class PharmacyBusiness {
 		public Pharmacy listStockInPharmacy(Pharmacy pharmacy){
 			Random rand = new Random();
 			int number = rand.nextInt(10) + 1;
-			
-		
 
 			List<Medicine> medicineInPharmacy = new ArrayList<Medicine>();
 

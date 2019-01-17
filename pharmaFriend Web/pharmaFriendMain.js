@@ -417,19 +417,26 @@ $("#medicineName").on('input', function () {
 
 function getDose() {
     var medicineName = $("#medicineName").val();
-    
+    var medicineDose=[];
 
     for (i = 0; i < medicineToSearch.length; i++) {
 
         if (medicineName == medicineToSearch[i].medicineName) {
+            medicineDose.push(medicineToSearch[i].dose);
+            var uniqueNames = [];
 
-            $('#getDose').append("<option>" + medicineToSearch[i].dose + "</option>");
+            //to delete equal names
+            $.each(medicineDose, function (i, el) {
+                if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+            });
+           
 
         }
     }
 
-
-
+    for (i = 0; i < uniqueNames.length; i++) {
+         $('#getDose').append("<option>" + uniqueNames[i] + "</option>");
+    }
 
 };
 
