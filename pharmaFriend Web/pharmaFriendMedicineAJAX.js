@@ -233,7 +233,7 @@ function getShortList(el) {
             '<th scope="col">DOSE</th>' +
             '<th scope="col">UNITS</th>' +
             '<th scope="col">PVP</th>' +
-            '<th scope="col">REIMBURSEMENT</th>' +
+            '<th scope="col">RR</th>' +
             '<th scope="col">ACTION</th>' +
             +"</tr>" +
             "</thead>")
@@ -253,8 +253,8 @@ function getShortList(el) {
                         '</td><td>' + element.volumeUnit + '</td><td>' +
                         element.pvp + '</td><td>' +
                         element.reImbursementRate + '</td><td>' +
-                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT</a>` +
-                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
+                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
                         + '</td></tr>';
                     $('#medicineTable').append(medicine);
                 }
@@ -278,7 +278,7 @@ function getShortList(el) {
             '<th scope="col">DOSE</th>' +
             '<th scope="col">UNITS</th>' +
             '<th scope="col">PVP</th>' +
-            '<th scope="col">REIMBURSEMENT</th>' +
+            '<th scope="col">RR</th>' +
             '<th scope="col">ACTION</th>' +
             +"</tr>" +
             "</thead>")
@@ -297,8 +297,8 @@ function getShortList(el) {
                         '</td><td>' + element.volumeUnit + '</td><td>' +
                         element.pvp + '</td><td>' +
                         element.reImbursementRate + '</td><td>' +
-                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span> EDIT</a>` +
-                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span> DELETE</a>`
+                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
+                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
                         + '</td></tr>';
                     $('#medicineTable').append(medicine);
                 }
