@@ -91,10 +91,10 @@ public class PharmacyService {
 	@GET
 	@Path("consultnear")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<PharmacyDto> consultnear(@QueryParam("lon") double lon,@QueryParam("lat") double lat, @QueryParam("distance") double distance) {
+	public List<Pharmacy> consultnear(@QueryParam("lon") double lon,@QueryParam("lat") double lat, @QueryParam("distance") double distance) {
 		
 		
-		return pharmacyBusiness1.transformInToDto(pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance));
+		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance);
 	}
 	
 	

@@ -33,7 +33,7 @@ public class MedicineService {
 	@Produces (MediaType.APPLICATION_JSON)
 	public MedicineDto consultMedicine(@QueryParam("medicineName") String name,@QueryParam("dose") String dose ,@QueryParam("volumeUnit") String volumeUnit) {
 		
-		return medicineBusiness1.consultMedicine(name,dose,volumeUnit);
+		return medicineBusiness1.consultMedicineByNameDoseUnit(name, dose, volumeUnit);
 	}
 	
 	
