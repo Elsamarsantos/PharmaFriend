@@ -27,12 +27,6 @@ import javax.persistence.Table;
 
 })
 
-
-
-
-
-
-
 public class Pharmacy extends BaseEntity{
 	
 	private static final long serialVersionUID = 1L;
@@ -48,16 +42,12 @@ public class Pharmacy extends BaseEntity{
 	public static final String QUERY_BY_ID="getPharmacyById";
 	public static final String QUERY_STOCK="getPharmacyStock";
 	
-	@Column(name="pharmacyName")
 	private String pharmacyName;
 	
-	@Column(name="address")
 	private String address;
 	
-	@Column(name="lonLocation")
 	private double lonLocation;
 	
-	@Column(name="latLocation")
 	private double latLocation;
 	
 	@ManyToMany(mappedBy = "listPharmacyInMedicine",fetch = FetchType.EAGER)

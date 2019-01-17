@@ -114,7 +114,7 @@ function deletePharmacy() {
         success: function (data) {
             getPaginationPharmacy();
             getShortListPharmacy(1);
-            
+
         }
     })
 
@@ -139,13 +139,13 @@ function getPaginationPharmacy() {
         success: function (data) {
             numberOfPagesP = 1 + Math.floor(data / 30);
             console.log(data + " texto");
-           
+
             aP = 11;
             yP = 1;
             fazNavPharmacy();
         }
     })
-    return (numberOfPagesP, aP,yP);
+    return (numberOfPagesP, aP, yP);
 }
 
 
@@ -352,34 +352,35 @@ function searchPharmacy() {
     console.log("Preparing for sucess:" + pharmacyName);
 
     var pharmacyName = $("#inputSearchPharmacy").val();
-    if (pharmacyName == undefined) {alert("Not a valid input for search field."); }
-        
+    if (pharmacyName == undefined) { alert("Not a valid input for search field."); }
+
     if (pharmacyName != undefined) {
-    
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-           
+
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+
                 var pharmacy = '<tr><td>' + data.pharmacyName + '</td><td>' + data.address +
                     '</td><td>' + data.lonLocation + '</td><td>' +
                     data.latLocation + '</td><tr>';
                 $("#pharmacyTablebyName").append(pharmacy);
-            
-        }
-    }) }
-    
-            
+
+            }
+        })
     }
-    
+
+
 }
+    
 
 
-function showPharmacyStock(el){
+
+function showPharmacyStock(el) {
     console.log("ola");
 
     var id = $(el).parent().parent().attr('id');
@@ -392,13 +393,13 @@ function showPharmacyStock(el){
         },
         success: function (data) {
             console.log(data);
-           for (i = 0; i < data.length; i++) {            
-           
-                var pharmacy = '<tr><td>'  + data[i].medicineName +
+            for (i = 0; i < data.length; i++) {
+
+                var pharmacy = '<tr><td>' + data[i].medicineName +
                     '</td><td>' + data[i].dose + '</td><td>' +
                     data[i].volumeUnit + '</td><tr>';
                 $("#pharmacyStockTable").append(pharmacy);
-           } 
+            }
         }
     })
 

@@ -143,7 +143,7 @@ function getPagination() {
         success: function (data) {
             numberOfPages = 1 + Math.floor(data / 30);
             console.log(data + " texto");
-            
+
             a = 11;
             y = 1;
             fazNav();
@@ -317,7 +317,7 @@ function getMedicineName() {
     var a = [];
 
     var letter = $("#inputSearchMedicine").val();
-    
+
     if (letter != "") {
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
@@ -345,8 +345,8 @@ function getMedicineName() {
 
     }
 
-   
-    
+
+
 }
 $("#inputSearchMedicine").on('input', function () {
     getMedicineName()
@@ -354,47 +354,48 @@ $("#inputSearchMedicine").on('input', function () {
 
 //THIS IS MY AJAX TO GET A MEDICINE --
 
-function searchMedicine() {    
+function searchMedicine() {
     
-    
-    if (medicineName == undefined) {
+    var medicineName = $("#inputSearchMedicine").val();
+
+    if (medicineName == undefined && medicine=="") {
         alert("Not a valid input for search field.");
         console.log("STOP MY MODAL!");
         $("#searchMedicineModal").close();
+
+
+
+
+    }
+
+    else {
         
-    
-    
-    
-}
+        console.log(medicineName);
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log("entrou pro for");
 
-    if (medicineName != undefined) {
-    var medicineName = $("#inputSearchMedicine").val();
-    console.log(medicineName);
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            console.log("entrou pro for");
-            
-            for (i = 0; i < data.length; i++) {
+                for (i = 0; i < data.length; i++) {
 
-                var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
-                    '</td><td>' + data[i].volumeUnit + '</td><td>' +
-                    data[i].pvp + '</td><td>' +
-                    data[i].reImbursementRate + '</td><tr>';
-                $("#medicineTablebyName").append(medicine);
+                    var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                        '</td><td>' + data[i].volumeUnit + '</td><td>' +
+                        data[i].pvp + '</td><td>' +
+                        data[i].reImbursementRate + '</td><tr>';
+                    $("#medicineTablebyName").append(medicine);
+                }
             }
-        }
-    })
-    
+        })
 
-  }
+
+    }
 
 }
 
 
- 
+
