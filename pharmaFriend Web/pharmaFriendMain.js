@@ -503,15 +503,6 @@ function getVolume() {
 }
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-<<<<<<< HEAD
-function sendTheEmail() {
-    console.log("Sending the Email to:" + $("#theEmail").val);
-    var template_params = {
-        "reply_to": $('#theEmail'),
-        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
-        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
-        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
-=======
     function sendTheEmail() {
         console.log("Sending the Email to:" + $("#theEmail").val);
         var template_params = {
@@ -519,7 +510,6 @@ function sendTheEmail() {
             "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
             "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
             "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),          
->>>>>>> Diogo
 
 
     }
