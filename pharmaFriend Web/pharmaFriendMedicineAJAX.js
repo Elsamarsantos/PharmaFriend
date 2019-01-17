@@ -331,7 +331,7 @@ function getMedicineName() {
                 console.log(data.length);
 
                 for (i = 0; i < data.length; i++) {
-                    a.push(data[i]);
+                    a.push(data[i].medicineName);
                     var uniqueNames = [];
 
                     //to delete equal names
