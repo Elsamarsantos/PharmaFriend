@@ -349,10 +349,11 @@ $("#inputSearchPharmacy").on('input', function () {
 
 function searchPharmacy() {
 
-    console.log("Preparing for sucess:");
+    console.log("Preparing for sucess:" + pharmacyName);
 
     var pharmacyName = $("#inputSearchPharmacy").val();
-    console.log(pharmacyName);
+    if (pharmacyName != undefined) {
+    
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
         type: 'GET',
@@ -368,7 +369,12 @@ function searchPharmacy() {
                 $("#pharmacyTablebyName").append(pharmacy);
             
         }
-    })
+    }) }
+    else {
+        alert("Not a valid input for search field.");   
+            
+    }
+    
 }
 
 

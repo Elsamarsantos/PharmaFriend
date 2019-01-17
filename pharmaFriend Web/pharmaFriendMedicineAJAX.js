@@ -317,9 +317,14 @@ function getMedicineName() {
     var a = [];
 
     var letter = $("#inputSearchMedicine").val();
+<<<<<<< HEAD
 
 
     if (letter !== '') {
+=======
+    
+    if (letter != "") {
+>>>>>>> Diogo
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
             type: 'GET',
@@ -344,7 +349,10 @@ function getMedicineName() {
             }
         })
 
-    };
+    }
+
+   
+    
 }
 $("#inputSearchMedicine").on('input', function () {
     getMedicineName()
@@ -352,10 +360,20 @@ $("#inputSearchMedicine").on('input', function () {
 
 //THIS IS MY AJAX TO GET A MEDICINE --
 
-function searchMedicine() {
+function searchMedicine() {    
+    
+    
+    if (medicineName == undefined) {
+        alert("Not a valid input for search field.");
+        console.log("STOP MY MODAL!");
+        $("#searchMedicineModal").close();
+        
+    
+    
+    
+}
 
-    console.log("Preparing for sucess:");
-
+    if (medicineName != undefined) {
     var medicineName = $("#inputSearchMedicine").val();
     console.log(medicineName);
     $.ajax({
@@ -376,4 +394,11 @@ function searchMedicine() {
             }
         }
     })
-}  
+    
+
+  }
+
+}
+
+
+ 
