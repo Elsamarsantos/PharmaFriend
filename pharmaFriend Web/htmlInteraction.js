@@ -66,7 +66,6 @@ function medicineList() {
 
 function pharmacyList() {
     $("#results").hide();
-   // $("#pharmacyTable").hide();
     $("#mypharmaform1").hide();
     $("#ourVision").hide();
     $("#home").hide();

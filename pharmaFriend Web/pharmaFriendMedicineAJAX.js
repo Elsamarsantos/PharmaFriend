@@ -131,11 +131,7 @@ var positionNav = 1;
 
 function getPagination() {
 
-
-
     $("#paginationList").empty();
-
-
 
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/numberrow`,
@@ -147,8 +143,7 @@ function getPagination() {
         success: function (data) {
             numberOfPages = 1 + Math.floor(data / 30);
             console.log(data + " texto");
-            //nao esquecer de ver este botao ai botao filho
-            // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
+            
             a = 11;
             y = 1;
             fazNav();
@@ -174,8 +169,6 @@ function fazNav() {
             $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
             y++;
         }
-        console.log(y);
-        console.log(a + " A");
     }
 
     $("#paginationList").append(`<li class="page-item"><a onclick="next()" >Next</a></li>`);

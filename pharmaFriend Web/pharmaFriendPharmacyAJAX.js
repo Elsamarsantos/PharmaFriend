@@ -139,13 +139,13 @@ function getPaginationPharmacy() {
         success: function (data) {
             numberOfPagesP = 1 + Math.floor(data / 30);
             console.log(data + " texto");
-            //nao esquecer de ver este botao ai botao filho
-            // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
+           
+            aP = 11;
+            yP = 1;
             fazNavPharmacy();
         }
-
     })
-    return numberOfPagesP;
+    return (numberOfPagesP, aP,yP);
 }
 
 
@@ -164,8 +164,6 @@ function fazNavPharmacy() {
             $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
             y++;
         }
-        console.log(yP);
-        console.log(aP + " A");
     }
 
     $("#paginationListPharmacy").append(`<li class="page-item"><a onclick="nextPharmacy()" >Next</a></li>`);
@@ -175,17 +173,17 @@ function fazNavPharmacy() {
 function nextPharmacy() {
     if (aP != numberOfPagesP) {
         cleanNavPharmacy();
-        aP = yP + 10;
+        aP = yP + 11;
         fazNavPharmacy();
     };
-    return (aP)
+    return (aP);
 }
 
 function previousPharmacy() {
 
     if (aP != 11) {
         cleanNavPharmacy();
-        yP = aP - 20;
+        yP = aP - 21;
         aP = aP - 10;
         fazNavPharmacy();
     }
@@ -196,9 +194,9 @@ function lastPhamarcy() {
 
     cleanNavPharmacy();
     aP = numberOfPagesP;
-    yP = numberOfPagesP - 10;
+    yP = numberOfPagesP - 11;
     fazNavPharmacy();
-    return (aP, yP)
+    return (aP, yP);
 }
 
 function firstPharmacy() {
@@ -206,7 +204,7 @@ function firstPharmacy() {
     aP = 11;
     yP = 1;
     fazNavPharmacy();
-    return (aP, yP)
+    return (aP, yP);
 }
 
 
