@@ -237,7 +237,12 @@ background: rgb(255, 255, 255);
       margin-top: 10px;
       margin-left: -15px;
     }
-
+    .fa-plus-square {
+        font-size:40px;
+        color:black;
+        margin-top: 10px;
+        margin-left: -15px;
+      }
     .fa-plus-squareNav {
         font-size:55px;
         color:green;

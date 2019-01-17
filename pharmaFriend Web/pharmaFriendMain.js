@@ -76,13 +76,14 @@ $("#btnMainSearch").click(function mainSearch() {
             var pharmacyMarker = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
-                spin: true
+                spin: true,
+                iconColor: 'green'
             });
 
             var pharmacyMarkeroff = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
-                color: 'black',
+                iconColor: 'black'
 
             });
 
@@ -238,7 +239,7 @@ $("#btnMainSearch").click(function mainSearch() {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
-                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkerOff }).addTo(map)
+                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
                                 .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
                         }
                     }
