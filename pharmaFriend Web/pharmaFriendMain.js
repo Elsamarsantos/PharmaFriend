@@ -193,7 +193,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
                             var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                             var dist = distance.toPrecision(3);
-                            arrayDistance[i] = ("At " + dist + " kilometres you have:" + "<p>" + data[i].pharmacyName + "<p>Adress: " + data[i].address + ";");
+                            arrayDistance[i] = ("At " + dist + " kilometres you have: " + data[i].pharmacyName + " with the adress: " + data[i].address + ";");
                             console.log(arrayDistance[i]);
                         }
 
@@ -201,14 +201,14 @@ $("#btnMainSearch").click(function mainSearch() {
                         arrayDistance.sort();
                         if (arrayDistance.length > 0) {
                             var name = document.getElementById("pharmacy1");
-                            name.innerHTML = ("<p>" + arrayDistance[0] + " </p>");
+                            name.innerHTML = (arrayDistance[0]);
                             if (arrayDistance.length > 1) {
                                 var name = document.getElementById("pharmacy2");
-                                name.innerHTML = ("<p>" + arrayDistance[1] + " </p>");
+                                name.innerHTML = (arrayDistance[1]);
                             }
                             if (arrayDistance.length > 3) {
                                 var name = document.getElementById("pharmacy3");
-                                name.innerHTML = ("<p>" + arrayDistance[2] + " </p>");
+                                name.innerHTML = (arrayDistance[2]);
                             }
                         } else {
                             var name = document.getElementById("pharmacy1");
@@ -464,7 +464,7 @@ function getVolume() {
             "reply_to": $('#theEmail'),
             "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
             "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
+            "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),          
 
 
         }
