@@ -45,10 +45,11 @@
         <div class="col-sm-5">
             <div id="mypharmaform1">
 
-                <form class="mypharmaformhome" autocomplete="off">
-                    <div class="getSearch">
+                <form class="mypharmaformhome" >
+                    <div class="getSearch" >
                         <label for="getName">MEDICINE NAME</label>
-                        <input class="autocomplete" id="medicineName" type="text" />
+                        <div autocomplete="off">
+                        <input class="autocomplete" id="medicineName" type="text" /></div>
                     </div>
                     <div class="getSearch">
                         <label for="getDose">DOSE</label>
@@ -305,11 +306,13 @@
             <header>PHARMACY</header>
             <center>
                 <div>
-                    <form class="mypharmaform" autocomplete="off">
+                    <form class="mypharmaform" >
+                        <div autocomplete="off">
                         <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy" placeholder="Search the pharmacy">
+                        </div>
                         <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" onclick="searchPharmacy()"
                             id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
-                            SEARCH MEDICINE</a>
+                            SEARCH PHARMACY</a>
                         <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
                                 class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                     </form>
@@ -325,6 +328,7 @@
                         <th scope="col">LOCATION</th>
                         <th scope="col">LONGITUDE</th>
                         <th scope="col">LATITUDE</th>
+                        <th scope="col">STOCK</th>
                         <th scope="col">ACTION</th>
                     </tr>
                 </thead>
@@ -439,7 +443,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
+                    <h2 class="modal-title" style="color: white"> <br> STOCK LIST</h2> <br>
                     <div id="stockPharmacyModalDiv">
                         <table id="pharmacyStockTable" class="table tableplus">
                             <thead>

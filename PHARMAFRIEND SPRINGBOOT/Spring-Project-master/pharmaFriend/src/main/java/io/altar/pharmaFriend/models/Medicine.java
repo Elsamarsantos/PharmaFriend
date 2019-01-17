@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Medicine")
-@NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m WHERE m.medicineName= :medicineName"),
+@NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m WHERE m.medicineName= :medicineName"),			
 				@NamedQuery(name=Medicine.QUERY_NAME_DOSE_UNIT, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m WHERE m.medicineName= :medicineName and m.dose= :dose and m.volumeUnit= :volumeUnit"),
 				@NamedQuery(name=Medicine.QUERY_ALL, query="SELECT m FROM Medicine m "),
 				@NamedQuery(name=Medicine.QUERY_ALL_DTO, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) FROM Medicine m "),
@@ -36,19 +36,14 @@ public class Medicine extends BaseEntity {
 	public static final String QUERY_TEST = "gettest";
 	public static final String QUERY_BY_ID = "getMedicineById";
 	
-	@Column(name="`medicineName`")
 	private String medicineName;
 	
-	@Column(name="dose")
 	private String dose;
 	
-	@Column(name="`volumeUnit`")
 	private String volumeUnit;
 	
-	@Column(name="pvp")
 	private double pvp;
 	
-	@Column(name="`reImbursementRate`")
 	private String reImbursementRate;
 	
 	

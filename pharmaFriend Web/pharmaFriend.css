@@ -277,7 +277,8 @@ background: rgb(255, 255, 255);
     padding: 10px;
     cursor: pointer;
     background-color: #fff; 
-    border-bottom: 1px solid #d4d4d4; 
+    border-bottom: 1px solid #d4d4d4;
+    width: 50%; 
   }
   
   /*when hovering an item:*/

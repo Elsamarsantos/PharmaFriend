@@ -463,12 +463,12 @@ $("#medicineName").on('input', function () {
 function getDose() {
     var medicineName = $("#medicineName").val();
     var medicineDose = [];
-
-    for (i = 0; i < medicineToSearch.length; i++) {
+    var uniqueNames = [];
+    for (i = 0; i < medicineToSearch.length-1; i++) {
 
         if (medicineName == medicineToSearch[i].medicineName) {
             medicineDose.push(medicineToSearch[i].dose);
-            var uniqueNames = [];
+            
 
             //to delete equal names
             $.each(medicineDose, function (i, el) {
