@@ -60,7 +60,7 @@ function medicineList() {
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#medicineListBtn').addClass( "active" );
     
-   getPagiation();
+   getPagination();
    getShortList(1);
 }
 
@@ -75,8 +75,8 @@ function pharmacyList() {
     $("#tabUser").hide();
     $(".active").removeClass( "active" ).addClass( "hover" );
     $('#pharmacyListBtn').addClass( "active" );
-    getPagiationPharmacy();
-   getShortListPharmacy(1);
+    getPaginationPharmacy();
+    getShortListPharmacy(1);
 
 }
 

@@ -14,7 +14,7 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         },
         data: JSON.stringify(newPharmacy),
         success: function (data) {
-            getPagiationPharmacy();
+            getPaginationPharmacy();
             getShortListPharmacy(1);
 
         }
@@ -69,7 +69,7 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
         data: JSON.stringify(myPharmacy),
         success: function (data) {
             console.log("update:" + data);
-            getPagiationPharmacy();
+            getPaginationPharmacy();
             getShortListPharmacy(1);
         }
     })
@@ -112,7 +112,7 @@ function deletePharmacy() {
         },
         contentType: 'application/json',
         success: function (data) {
-            getPagiationPharmacy();
+            getPaginationPharmacy();
             getShortListPharmacy(1);
             
         }
@@ -126,7 +126,7 @@ var yP = 1;
 var numberOfPagesP = 0;
 var positionNavP = 1;
 
-function getPagiationPharmacy() {
+function getPaginationPharmacy() {
     $("#paginationListPharmacy").empty();
 
     $.ajax({

@@ -22,7 +22,7 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         data: JSON.stringify(newMedicine),
         success: function (data) {
             console.log("Sucess:" + data);
-            getPagiation();
+            getPagination();
             getShortList(1);
         }
     })
@@ -78,7 +78,7 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
             console.log("medicine update");
         }
     });
-    getPagiation();
+    getPagination();
     getShortList(1);
 });
 
@@ -117,7 +117,7 @@ function deleteMedicine() {
         contentType: 'application/json',
 
     })
-    getPagiation();
+    getPagination();
     getShortList(1);
 }
 
@@ -129,8 +129,13 @@ var y = 1;
 var numberOfPages = 0;
 var positionNav = 1;
 
-function getPagiation() {
+function getPagination() {
+
+
+
     $("#paginationList").empty();
+
+
 
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/medicines/numberrow`,
@@ -144,11 +149,13 @@ function getPagiation() {
             console.log(data + " texto");
             //nao esquecer de ver este botao ai botao filho
             // $(`#${parseInt(numberOfPages)}`).after('<li id="nextLi" class="page-item"><a class="page-link" href="#">Next</a></li>');
+            a = 11;
+            y = 1;
             fazNav();
         }
 
     })
-    return numberOfPages;
+    return (numberOfPages, a, y);
 }
 
 
@@ -177,29 +184,29 @@ function fazNav() {
 
 function next() {
     if (a != numberOfPages) {
-    cleanNav();
-    a = y + 10;
-    fazNav();
+        cleanNav();
+        a = y + 11;
+        fazNav();
     };
     return (a)
 }
 
 function previous() {
-    
+
     if (a != 11) {
         cleanNav();
-        y = a - 20;
+        y = a - 21;
         a = a - 10;
-        fazNav(); 
+        fazNav();
     }
-    return (y,a);
+    return (y, a);
 }
 
 function last() {
-    
+
     cleanNav();
     a = numberOfPages;
-    y = numberOfPages - 10;
+    y = numberOfPages - 11;
     fazNav();
     return (a, y)
 }
@@ -310,14 +317,14 @@ function getShortList(el) {
     }
 
 
-   
+
 }
 
 function getMedicineName() {
     var a = [];
 
     var letter = $("#inputSearchMedicine").val();
-    
+
 
     if (letter !== '') {
         $.ajax({
