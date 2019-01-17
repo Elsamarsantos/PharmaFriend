@@ -56,7 +56,7 @@ public class MedicineService {
 	@GET
 	@Path("listequalnames")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List <Medicine> listMedicineEqualName(@QueryParam("name") String name) {
+	public List <MedicineDto> listMedicineEqualName(@QueryParam("name") String name) {
 		
 		return medicineBusiness1.getListOfMedicinesWithEqualNames(name);
 	}

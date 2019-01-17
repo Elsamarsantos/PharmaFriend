@@ -61,7 +61,7 @@ public class MedicineBusiness {
 	
 	//consult list medicine with equal names
 	@Transactional 
-	public List<Medicine> getListOfMedicinesWithEqualNames(String name){
+	public List<MedicineDto> getListOfMedicinesWithEqualNames(String name){
 		return medicineRepository1.getListMedicineEqualNames(name);
 	}
 	
