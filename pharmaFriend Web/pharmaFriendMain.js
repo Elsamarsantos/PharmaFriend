@@ -156,6 +156,25 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
+                $.ajax({
+
+                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                    type: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    success: function (data) {
+
+                        for (i = 0; i < data.length; i++) {
+                            console.log("farmacias sem medicamento");
+                            // Marcador das Farmacias sem medicamento
+
+                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
+                                .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        }
+                    }
+                })
             }
             else {
 
@@ -223,9 +242,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
-                
-            }
-            $.ajax({
+                $.ajax({
 
                     url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
                     type: 'GET',
@@ -244,6 +261,8 @@ $("#btnMainSearch").click(function mainSearch() {
                         }
                     }
                 })
+            }
+
 
 
             map.setView({ lat: latitude, lng: longitude }, 15);
@@ -443,7 +462,7 @@ $("#medicineName").on('input', function () {
 
 function getDose() {
     var medicineName = $("#medicineName").val();
-    var medicineDose=[];
+    var medicineDose = [];
 
     for (i = 0; i < medicineToSearch.length; i++) {
 
@@ -455,13 +474,13 @@ function getDose() {
             $.each(medicineDose, function (i, el) {
                 if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
             });
-           
+
 
         }
     }
 
     for (i = 0; i < uniqueNames.length; i++) {
-         $('#getDose').append("<option>" + uniqueNames[i] + "</option>");
+        $('#getDose').append("<option>" + uniqueNames[i] + "</option>");
     }
 
 };
@@ -482,21 +501,21 @@ function getVolume() {
 
     };
 }
-    // THIS IS MY FUNCTION TO SEND THE EMAIL;
+// THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-    function sendTheEmail() {
-        console.log("Sending the Email to:" + $("#theEmail").val);
-        var template_params = {
-            "reply_to": $('#theEmail'),
-            "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
+function sendTheEmail() {
+    console.log("Sending the Email to:" + $("#theEmail").val);
+    var template_params = {
+        "reply_to": $('#theEmail'),
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
 
 
-        }
-
-        var service_id = "default_service";
-        var template_id = "template_QfB5vZLA";
-        emailjs.send(service_id, template_id, template_params);
     }
+
+    var service_id = "default_service";
+    var template_id = "template_QfB5vZLA";
+    emailjs.send(service_id, template_id, template_params);
+}
 

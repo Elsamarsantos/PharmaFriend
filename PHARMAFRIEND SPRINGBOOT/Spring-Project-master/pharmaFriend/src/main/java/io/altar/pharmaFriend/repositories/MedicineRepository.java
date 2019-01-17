@@ -37,9 +37,9 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 	
-	public Medicine getMedicineByNameDoseUnit(String name,String dose, String volumeUnit){
+	public MedicineDto getMedicineByNameDoseUnit(String name,String dose, String volumeUnit){
 		
-		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE_UNIT, Medicine.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
+		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE_UNIT, MedicineDto.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
 		
 	}
 	

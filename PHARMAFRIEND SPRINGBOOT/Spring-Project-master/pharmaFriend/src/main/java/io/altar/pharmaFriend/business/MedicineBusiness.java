@@ -34,19 +34,12 @@ public class MedicineBusiness {
 	}
 	
 	//consult medicine by name,dose,volume
-	@Transactional 
-	public MedicineDto consultMedicine(String name,String dose, String volumeUnit) {
-		
-		Medicine medicine = medicineRepository1.getMedicineByNameDoseUnit(name,dose,volumeUnit);
-		MedicineDto medicineDto=  new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate());
-		return medicineDto;
-	}
 	
 	@Transactional 
-	public Medicine consultMedicineWithoutDto(String name,String dose, String volumeUnit) {
+	public MedicineDto consultMedicineByNameDoseUnit(String name,String dose, String volumeUnit) {
 		
-		Medicine medicine = medicineRepository1.getMedicineByNameDoseUnit(name,dose,volumeUnit);
-		return medicine;
+		return  medicineRepository1.getMedicineByNameDoseUnit(name,dose,volumeUnit);
+		
 	}
 	
 	@Transactional 

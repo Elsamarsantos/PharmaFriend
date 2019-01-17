@@ -58,4 +58,12 @@ public class UserRequestService {
 		return UserRequestBusiness1.pharmacyWithoutMedicine(name,dose,volume,lon, lat, distance);
 	}
 
+	@GET
+	@Path("pharmacyWithout2")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List<PharmacyDto> phamarcyWithout2(@QueryParam("medicinename") String name,@QueryParam("dose") String dose, @QueryParam("lonlocation") double lon,@QueryParam("latlocation") double lat, @QueryParam("userdistance") double distance) {
+		
+		
+		return UserRequestBusiness1.pharmacyWithoutMedicine2(name,dose,lon, lat, distance);
+	}
 }

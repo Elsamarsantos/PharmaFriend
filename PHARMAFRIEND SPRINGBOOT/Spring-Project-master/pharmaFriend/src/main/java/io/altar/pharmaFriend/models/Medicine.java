@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="Medicine")
 @NamedQueries({@NamedQuery(name=Medicine.QUERYNAME, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName"),
-				@NamedQuery(name=Medicine.QUERY_NAME_DOSE_UNIT, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName and m.dose= :dose and m.volumeUnit= :volumeUnit"),
+				@NamedQuery(name=Medicine.QUERY_NAME_DOSE_UNIT, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m WHERE m.medicineName= :medicineName and m.dose= :dose and m.volumeUnit= :volumeUnit"),
 				@NamedQuery(name=Medicine.QUERY_ALL, query="SELECT m FROM Medicine m "),
 				@NamedQuery(name=Medicine.QUERY_ALL_DTO, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) FROM Medicine m "),
 				@NamedQuery(name=Medicine.QUERY_NAME_DOSE, query="SELECT m From Medicine m WHERE m.medicineName= :medicineName and m.dose= :dose"),
