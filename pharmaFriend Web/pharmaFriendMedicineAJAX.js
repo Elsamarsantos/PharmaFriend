@@ -371,13 +371,15 @@ function searchMedicine() {
     var medicineName = $("#inputSearchMedicine").val();
     console.log(medicineName);
     $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
+        url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         success: function (data) {
+            console.log("entrou pro for");
+            
             for (i = 0; i < data.length; i++) {
 
                 var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
