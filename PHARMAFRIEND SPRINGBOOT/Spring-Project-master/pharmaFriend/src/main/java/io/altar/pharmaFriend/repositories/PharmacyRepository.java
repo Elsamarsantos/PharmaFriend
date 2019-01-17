@@ -69,6 +69,11 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 	}
 	
+	public List<MedicineDto> getPharmacyStock(Long id) {
+		return em.createNamedQuery(Pharmacy.QUERY_STOCK,MedicineDto.class).setParameter("id", id).getResultList();
+		
+	}
+	
 	public List<PharmacyDto> getShortList(int max, int offset){
 
 		return em.createNamedQuery(Pharmacy.QUERY_ALL_DTO, PharmacyDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
