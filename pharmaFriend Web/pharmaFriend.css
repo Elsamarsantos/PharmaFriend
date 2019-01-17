@@ -356,3 +356,7 @@ form.mypharmaformhome  {
     height: 700px;
     overflow: auto;
 }
+
+.alert {
+    font-size: 320px;
+}

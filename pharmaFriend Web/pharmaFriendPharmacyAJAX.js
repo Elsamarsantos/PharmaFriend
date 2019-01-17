@@ -345,13 +345,15 @@ $("#inputSearchPharmacy").on('input', function () {
     getPharmacyName()
 });
 
-//THIS IS MY AJAX TO GET A MEDICINE --
+//THIS IS MY AJAX TO GET A PHARMACY --
 
 function searchPharmacy() {
 
     console.log("Preparing for sucess:" + pharmacyName);
 
     var pharmacyName = $("#inputSearchPharmacy").val();
+    if (pharmacyName == undefined) {alert("Not a valid input for search field."); }
+        
     if (pharmacyName != undefined) {
     
     $.ajax({
@@ -370,8 +372,7 @@ function searchPharmacy() {
             
         }
     }) }
-    else {
-        alert("Not a valid input for search field.");   
+    
             
     }
     
