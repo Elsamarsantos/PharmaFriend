@@ -82,6 +82,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var pharmacyMarkeroff = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
+                color: 'black',
 
             });
 
@@ -156,6 +157,8 @@ $("#btnMainSearch").click(function mainSearch() {
                 })
             }
             else {
+
+                // pharmacy with medicine //
                 $.ajax({
 
                     url: `http://localhost:8080/pharmafriend/api/request/threeparameters?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -219,7 +222,29 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
+                
             }
+            $.ajax({
+
+                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                    type: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    success: function (data) {
+
+                        for (i = 0; i < data.length; i++) {
+                            console.log("farmacias sem medicamento");
+                            // Marcador das Farmacias sem medicamento
+
+                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkerOff }).addTo(map)
+                                .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        }
+                    }
+                })
+
+
             map.setView({ lat: latitude, lng: longitude }, 15);
         }
 

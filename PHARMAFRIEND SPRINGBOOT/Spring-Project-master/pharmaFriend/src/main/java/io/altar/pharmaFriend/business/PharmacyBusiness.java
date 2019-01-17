@@ -168,15 +168,6 @@ public class PharmacyBusiness {
 	@Transactional
 	public List<MedicineDto> getStockListPharmacy (long id){
 	
-//		Iterator <Medicine> listMedicine = pharmacyRepository1.getPharmacyStock(id).iterator();
-//				
-//		
-//		List<MedicineDto> listMedicineDto = new ArrayList<>();
-//		
-//		while(listMedicine.hasNext()) {
-//			Medicine medicine = listMedicine.next();
-//			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
-//		}
 		return pharmacyRepository1.getPharmacyStock(id);
 		
 	}

@@ -9,9 +9,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
 
+import io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.Dtos.PharmacyDto;
 import  io.altar.pharmaFriend.models.Medicine;
 import  io.altar.pharmaFriend.models.Pharmacy;
+import io.altar.pharmaFriend.repositories.MedicineRepository;
 import io.altar.pharmaFriend.repositories.PharmacyRepository;
 
 @Component
@@ -22,6 +24,9 @@ public class UserRequestBusiness {
 	MedicineBusiness medicineBusiness1;
 	@Inject
 	PharmacyRepository pharmacyRepository1; 
+	@Inject
+	MedicineRepository medicineRepository1;
+	
 	
 	@Transactional
 	public List<PharmacyDto> userRequest(String name,String dose,String volumeUnit,double lon, double lat, double distance) {
@@ -95,4 +100,30 @@ public class UserRequestBusiness {
 	return pharmacyBusiness1.transformInToDto(nearestList);
 	
 	}
+	
+	@Transactional
+	public List<PharmacyDto> pharmacyWithoutMedicine(String name,String dose, String volume,double userLon, double userLat, double userdistance) {
+		
+		List <Pharmacy> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
+		
+		
+	
+			Medicine medicine1 = medicineRepository1.getMedicineByNameDoseUnit(name, dose, volume);
+		
+			for (Pharmacy pharmacy: nearestList){
+				
+				List <Medicine> listMedicineInPharmacy=pharmacy.getListStock();
+				
+				for(Medicine medicine2: listMedicineInPharmacy) {
+					
+					
+				if(medicine2.getId().equals(medicine1.getId())) {
+					nearestList.remove(pharmacy);
+					
+				}	
+			}
+	}
+	return pharmacyBusiness1.transformInToDto(nearestList);
+	}
+	
 }
