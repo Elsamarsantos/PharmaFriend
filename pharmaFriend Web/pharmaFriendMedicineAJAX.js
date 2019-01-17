@@ -317,14 +317,8 @@ function getMedicineName() {
     var a = [];
 
     var letter = $("#inputSearchMedicine").val();
-<<<<<<< HEAD
-
-
-    if (letter !== '') {
-=======
     
     if (letter != "") {
->>>>>>> Diogo
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
             type: 'GET',
