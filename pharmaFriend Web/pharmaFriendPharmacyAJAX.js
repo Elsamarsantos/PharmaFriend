@@ -91,7 +91,7 @@ function prepareToDeleteP(el) {
         },
         success: function (data) {
             console.log("ver preparar", data)
-            var pharmacy = `<tr id="${data.id}"><td>` + data.pharmacyName + '</td><td>' + data.address + '</td><tr>';
+            var pharmacy = `<tr class="mySearchModal" id="${data.id}"><td>` + data.pharmacyName + '</td><td>' + data.address + '</td><tr>';
 
             $('#pharmacyTableToDelete').append(pharmacy);
         }
@@ -366,7 +366,7 @@ function searchPharmacy() {
             },
             success: function (data) {
 
-                var pharmacy = '<tr><td>' + data.pharmacyName + '</td><td>' + data.address +
+                var pharmacy = '<tr class="mySearchModal"><td>' + data.pharmacyName + '</td><td>' + data.address +
                     '</td><td>' + data.lonLocation + '</td><td>' +
                     data.latLocation + '</td><tr>';
                 $("#pharmacyTablebyName").append(pharmacy);

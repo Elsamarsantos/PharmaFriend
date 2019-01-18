@@ -16,6 +16,8 @@ footer {
     top: 20;
     text-align: center;
     color: white; 
+
+    
 }
 
 
@@ -232,17 +234,12 @@ background: rgb(255, 255, 255);
     }
 
     .fa-plus-square {
-      font-size:40px;
+      font-size:2.7em;
       color:green;
       margin-top: 10px;
       margin-left: -15px;
     }
-    .fa-plus-square {
-        font-size:40px;
-        color:black;
-        margin-top: 10px;
-        margin-left: -15px;
-      }
+   
     .fa-plus-squareNav {
         font-size:55px;
         color:green;
@@ -342,12 +339,9 @@ form.mypharmaformhome  {
 }
 
 .myDeleteDisplay {
-    font-size: 0.7em;
+    font-size: 0.9em;
     text-align: center!important;
-    margin: auto;
-    color: #FFFFFF!important;
-    background-color: #FFFFFF;
-    
+    margin: auto;   
 }
 
 
@@ -362,7 +356,10 @@ form.mypharmaformhome  {
     font-size: 320px;
 }
 
-.mySearchModal {
-    background-color: #FFFFFF;
+.mySearchModal td{
+    color: white!important;
+    font-size: 0.8em;
+    text-align: center!important;
+    margin: auto;
     
 }
