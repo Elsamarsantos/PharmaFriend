@@ -172,9 +172,9 @@ public class PharmacyBusiness {
 		
 	}
 	
-	//get max row in the list Stock of pharmacies
+	//get number row in the list Stock of pharmacies
 			@Transactional
-			public Long getNumberRowsStock (Long id){
+			public long getNumberRowsStock (long id){
 			
 				return  pharmacyRepository1.getNumberOfRowsStock(id);
 				

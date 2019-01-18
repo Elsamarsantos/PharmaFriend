@@ -83,10 +83,14 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW,Long.class).getSingleResult();
 	}
 	
-	public Long getNumberOfRowsStock (Long id) {
-		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW_STOCK,Long.class).setParameter("id", id).getSingleResult();
+	
+	public long getNumberOfRowsStock (Long id) {
+		return em.createNamedQuery(Pharmacy.QUERY_STOCK,MedicineDto.class).setParameter("id", id).getResultList().size();
+		
 	}
 	
+	
+
 	public List<PharmacyDto> getAllPharmacyName(String letter){
 		
 		return em.createNamedQuery(Pharmacy.QUERY_PHARMACY_NAME,PharmacyDto.class).setParameter("letter", letter + "%").setMaxResults(20).getResultList();

@@ -247,7 +247,7 @@ function getShortListPharmacy(el) {
                     var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + '</td><td>' + element.address +
                         '</td><td>' + element.lonLocation + '</td><td>' +
                         element.latLocation + '</td><td>' +
-                        `<a href="#" id="btnStockPharmacy${element.id}" data-toggle="modal" data-target="#stockPharmacyModal" onclick="showPharmacyStock(this)" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> SHOW </a>` + '</td><td>' +
+                        `<a href="#" id="btnStockPharmacy${element.id}" data-toggle="modal" data-target="#stockPharmacyModal" onclick="showPharmacyStock(this);fazNavPharmacyStock(this);" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> SHOW </a>` + '</td><td>' +
                         `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
                         ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
                         + '</td></tr>';
@@ -355,7 +355,7 @@ function searchPharmacy() {
         alert("Please enter a valid input in the search field.");
         console.log("Not a valid input.")
     }
-   
+
     else {
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
@@ -374,63 +374,52 @@ function searchPharmacy() {
             }
         })
         $('#pharmacyTablebyName').append("<thead>" +
-        "<tr>" +
-        '<th scope="col">NAME</th>' +
-        '<th scope="col">ADDRESS</th>' +
-        '<th scope="col">LONGITUDE</th>' +
-        '<th scope="col">LATITUDE</th>' +
-        
-        +"</tr>" +
-        "</thead>");
+            "<tr>" +
+            '<th scope="col">NAME</th>' +
+            '<th scope="col">ADDRESS</th>' +
+            '<th scope="col">LONGITUDE</th>' +
+            '<th scope="col">LATITUDE</th>' +
+
+            +"</tr>" +
+            "</thead>");
 
         $("#searchPharmacyModal").modal();
     }
 
 
 
-      
-    }
-
-
-
-    
-
-
-
-var maxResult= 10;
-
-function fazNavPharmacyStock() {
-    $("#paginationListStock").empty();
-    var id = $(el).parent().attr('id');
-
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/pharmacies/numberrowstock/${id}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            numberOfPagesP = 1 + Math.floor(data / maxResult);
-            console.log(data + " texto");
-
-            for (i = 0; i < numberOfPagesP; i++) {
-
-                $("#paginationListStock").append(`<li id="${i}" class="page-item"><a  onclick="showPharmacyStock(this)" class="page-link">${i}</a></li>`);
-
-
-            }
-        }
-    })
-
 
 }
+
+
+
+
+
+
+
+
+
+
 function showPharmacyStock(el) {
-    console.log("ola");
+    $("#pharmacyStockTable").empty();
+
+
+
+
 
     var id = $(el).parent().parent().attr('id');
-    
-    var numberOffset = 1 + maxResult * (id - 1);
+    var maxResult = $("#inputStockMax").val();
+    var numberOffset = $("#inputStockOffSet").val();
+
+
+    $("#pharmacyStockTable").append("<thead>" +
+        "<tr>" +
+        "<th scope='col'>NAME</th>" +
+        "<th scope='col'>DOSE</th>" +
+        "<th scope='col'>UNIT</th>" +
+        "</tr>" +
+        "</thead>");
+
     $.ajax({
         url: `http://localhost:8080/pharmafriend/api/pharmacies/consultstock/${id}?max=${maxResult}&offset=${numberOffset}`,
         type: 'GET',
@@ -449,7 +438,7 @@ function showPharmacyStock(el) {
             }
         }
     })
-    
+
 
 }
 
