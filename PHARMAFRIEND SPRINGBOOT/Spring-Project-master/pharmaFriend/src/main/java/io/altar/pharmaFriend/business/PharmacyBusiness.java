@@ -166,11 +166,21 @@ public class PharmacyBusiness {
 
 	//get list of stock in a pharmacy
 	@Transactional
-	public List<MedicineDto> getStockListPharmacy (long id){
+	public List<MedicineDto> getStockListPharmacy (long id,int max, int offset){
 	
-		return pharmacyRepository1.getPharmacyStock(id);
+		return pharmacyRepository1.getPharmacyStock(id,max,offset);
 		
 	}
+	
+	//get max row in the list Stock of pharmacies
+			@Transactional
+			public Long getNumberRowsStock (Long id){
+			
+				return  pharmacyRepository1.getNumberOfRowsStock(id);
+				
+			}
+	
+	
 	
 	//method to generate pharmacy stock 
 		@Transactional

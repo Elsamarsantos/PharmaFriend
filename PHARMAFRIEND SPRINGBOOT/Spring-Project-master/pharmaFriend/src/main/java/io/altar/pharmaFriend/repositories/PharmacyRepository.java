@@ -69,8 +69,8 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 	}
 	
-	public List<MedicineDto> getPharmacyStock(Long id) {
-		return em.createNamedQuery(Pharmacy.QUERY_STOCK,MedicineDto.class).setParameter("id", id).getResultList();
+	public List<MedicineDto> getPharmacyStock(Long id, int max, int offset) {
+		return em.createNamedQuery(Pharmacy.QUERY_STOCK,MedicineDto.class).setParameter("id", id).setFirstResult(offset).setMaxResults(max).getResultList();
 		
 	}
 	
@@ -81,6 +81,10 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 	
 	public Long getNumberOfRows () {
 		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW,Long.class).getSingleResult();
+	}
+	
+	public Long getNumberOfRowsStock (Long id) {
+		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW_STOCK,Long.class).setParameter("id", id).getSingleResult();
 	}
 	
 	public List<PharmacyDto> getAllPharmacyName(String letter){
