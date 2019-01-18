@@ -167,7 +167,7 @@
                         <div autocomplete="off">
                         <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine" placeholder="Search the medicine">
                     </div>
-                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()"
+                        <a href="#"  onclick="searchMedicine()"
                             id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH MEDICINE</a>
                         <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
@@ -208,7 +208,7 @@
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
                     <div id="searchMedicineModalDiv">
-                        <table id="medicineTablebyName" class="table tableplus">
+                        <table id="medicineTablebyName" class="table mySearchModal">
                             <thead>
                                 <tr>
                                     <th scope="col">NAME</th>
@@ -222,7 +222,7 @@
                             </tbody>
                         </table>
 
-                    </div> <br>
+                    </div>
                     <button id="closeMyModal" value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
                     </button>
                 </div>
@@ -310,7 +310,7 @@
                         <div autocomplete="off">
                         <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy" placeholder="Search the pharmacy">
                         </div>
-                        <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" onclick="searchPharmacy()"
+                        <a href="#"  onclick="searchPharmacy()"
                             id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
                             SEARCH PHARMACY</a>
                         <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
@@ -353,7 +353,7 @@
                 <div class="modal-body modalEdit">
                     <h2 class="modal-title" style="color: white"> <br> YOUR PHARMACY</h2> <br>
                     <div id="searchPharmacyModalDiv">
-                        <table id="pharmacyTablebyName" class="table tableplus">
+                        <table id="pharmacyTablebyName" class="table mySearchModal">
                             <thead>
                                 <tr>
                                     <th scope="col">NAME</th>
@@ -367,7 +367,7 @@
                             </tbody>
                         </table>
 
-                    </div> <br>
+                    </div>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
                     </button>
                 </div>

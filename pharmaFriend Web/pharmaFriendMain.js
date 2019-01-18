@@ -504,7 +504,7 @@ function getVolume() {
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
     function sendTheEmail() {
-        console.log("Sending the Email to:" + $("#theEmail").val);
+        console.log("Sending the Email to:" + $("#theEmail").val());
         var template_params = {
             "reply_to": $('#theEmail'),
             "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),

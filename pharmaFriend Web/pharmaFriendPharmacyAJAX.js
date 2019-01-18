@@ -348,14 +348,15 @@ $("#inputSearchPharmacy").on('input', function () {
 //THIS IS MY AJAX TO GET A PHARMACY --
 
 function searchPharmacy() {
-
-    console.log("Preparing for sucess:" + pharmacyName);
-
+    $("#pharmacyTablebyName").empty();
     var pharmacyName = $("#inputSearchPharmacy").val();
-    if (pharmacyName == undefined) { alert("Not a valid input for search field."); }
 
-    if (pharmacyName != undefined) {
-
+    if (pharmacyName == "") {
+        alert("Please enter a valid input in the search field.");
+        console.log("Not a valid input.")
+    }
+   
+    else {
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/pharmacies/consult/${pharmacyName}`,
             type: 'GET',
@@ -372,10 +373,26 @@ function searchPharmacy() {
 
             }
         })
+        $('#pharmacyTablebyName').append("<thead>" +
+        "<tr>" +
+        '<th scope="col">NAME</th>' +
+        '<th scope="col">ADDRESS</th>' +
+        '<th scope="col">LONGITUDE</th>' +
+        '<th scope="col">LATITUDE</th>' +
+        
+        +"</tr>" +
+        "</thead>");
+
+        $("#searchPharmacyModal").modal();
     }
 
 
-}
+
+      
+    }
+
+
+
     
 
 

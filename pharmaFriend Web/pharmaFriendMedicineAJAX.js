@@ -355,17 +355,12 @@ $("#inputSearchMedicine").on('input', function () {
 //THIS IS MY AJAX TO GET A MEDICINE --
 
 function searchMedicine() {
-    
+    $("#medicineTablebyName").empty();
     var medicineName = $("#inputSearchMedicine").val();
-
-    if (medicineName == undefined && medicine=="") {
-        alert("Not a valid input for search field.");
-        console.log("STOP MY MODAL!");
-        $("#searchMedicineModal").close();
-
-
-
-
+    console.log("MODAL" + medicineName);
+    if (medicineName == "") {
+        alert("Please enter a valid input in the search field.");
+        console.log("Not valid input.");
     }
 
     else {
@@ -391,8 +386,20 @@ function searchMedicine() {
                 }
             }
         })
-
-
+        
+        $('#medicineTablebyName').append("<thead>" +
+        "<tr>" +
+        '<th scope="col">NAME</th>' +
+        '<th scope="col">DOSE</th>' +
+        '<th scope="col">UNITS</th>' +
+        '<th scope="col">PVP</th>' +
+        '<th scope="col">RR</th>' +
+        "</tr>" +
+        "</thead>")
+        console.log("MODAL IS TOOGLED!");
+        $("#searchMedicineModal").modal();
+        
+        
     }
 
 }

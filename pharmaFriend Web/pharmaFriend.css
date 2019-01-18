@@ -162,7 +162,7 @@ table {
     width: 100%;
     background: rgba(255, 255, 255, 0);
     font-size: 17px;
-    color:rgba(12, 10, 10, 0.897);
+    color:rgba(255, 255, 255, 0.897);
     font-weight: 500; 
     border: #FFFFFF;
 }
@@ -360,4 +360,9 @@ form.mypharmaformhome  {
 
 .alert {
     font-size: 320px;
+}
+
+.mySearchModal {
+    background-color: #FFFFFF;
+    
 }
