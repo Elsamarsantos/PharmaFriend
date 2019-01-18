@@ -121,7 +121,7 @@ public class PharmacyService {
 	@GET
 	@Path("numberrowstock/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public Long consultNumberRowsStock(Long id) {
+	public long consultNumberRowsStock(@PathParam("id") long id) {
 		return pharmacyBusiness1.getNumberRowsStock(id);
 	}
 	
