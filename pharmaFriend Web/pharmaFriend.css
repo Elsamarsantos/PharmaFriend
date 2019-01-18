@@ -367,3 +367,9 @@ form.mypharmaformhome  {
     
 }
 
+
+/*stock list css*/
+.inputStock{
+    width:10rem;
+    font-size: 0.7em;
+}
