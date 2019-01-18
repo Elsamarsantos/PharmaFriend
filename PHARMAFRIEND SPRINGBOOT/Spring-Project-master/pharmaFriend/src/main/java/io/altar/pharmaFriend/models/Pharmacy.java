@@ -24,7 +24,7 @@ import javax.persistence.Table;
 				@NamedQuery(name=Pharmacy.QUERY_PHARMACY_NAME, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE pharmacyName LIKE  :letter"),	 
 				@NamedQuery(name=Pharmacy.QUERY_BY_ID, query="SELECT new io.altar.pharmaFriend.Dtos.PharmacyDto(p.id,p.pharmacyName,p.address,p.lonLocation, p.latLocation) From Pharmacy p WHERE p.id= :id"),
 				@NamedQuery(name=Pharmacy.QUERY_STOCK, query="SELECT new io.altar.pharmaFriend.Dtos.MedicineDto(m.id, m.medicineName, m.dose, m.volumeUnit, m.pvp, m.reImbursementRate ) From Medicine m join m.listPharmacyInMedicine p WHERE p.id= :id"),
-
+				@NamedQuery(name=Pharmacy.QUERY_MAX_ROW_STOCK, query="SELECT COUNT(*) From Medicine m join m.listPharmacyInMedicine p WHERE p.id= :id"),
 })
 
 public class Pharmacy extends BaseEntity{
@@ -41,6 +41,7 @@ public class Pharmacy extends BaseEntity{
 	public static final String QUERY_PHARMACY_NAME="getPharmacy";
 	public static final String QUERY_BY_ID="getPharmacyById";
 	public static final String QUERY_STOCK="getPharmacyStock";
+	public static final String QUERY_MAX_ROW_STOCK="getNumberRowPharmacyStock"; 
 	
 	private String pharmacyName;
 	

@@ -290,7 +290,7 @@ function getShortListPharmacy(el) {
                     var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + '</td><td>' + element.address +
                         '</td><td>' + element.lonLocation + '</td><td>' +
                         element.latLocation + '</td><td>' +
-                        `<a href="#" id="btnStockPharmacy${element.id}" data-toggle="modal" data-target="#stockPharmacyModal" onclick="showPharmacyStock(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> SHOW </a>` + '</td><td>' +
+                        `<a href="#" id="btnStockPharmacy${element.id}" data-toggle="modal" data-target="#stockPharmacyModal" onclick="fazNavPharmacyStock(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-search"></span> SHOW </a>` + '</td><td>' +
                         `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
                         ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
                         + '</td></tr>';
@@ -376,16 +376,45 @@ function searchPharmacy() {
 
 
 }
-    
 
 
 
+var maxResult= 10;
+
+function fazNavPharmacyStock() {
+    $("#paginationListStock").empty();
+    var id = $(el).parent().attr('id');
+
+    $.ajax({
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/numberrowstock/${id}`,
+        type: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        success: function (data) {
+            numberOfPagesP = 1 + Math.floor(data / maxResult);
+            console.log(data + " texto");
+
+            for (i = 0; i < numberOfPagesP; i++) {
+
+                $("#paginationListStock").append(`<li id="${i}" class="page-item"><a  onclick="showPharmacyStock(this)" class="page-link">${i}</a></li>`);
+
+
+            }
+        }
+    })
+
+
+}
 function showPharmacyStock(el) {
     console.log("ola");
 
     var id = $(el).parent().parent().attr('id');
+    
+    var numberOffset = 1 + maxResult * (id - 1);
     $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/pharmacies/consultstock/${id}`,
+        url: `http://localhost:8080/pharmafriend/api/pharmacies/consultstock/${id}?max=${maxResult}&offset=${numberOffset}`,
         type: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -402,7 +431,9 @@ function showPharmacyStock(el) {
             }
         }
     })
+    
 
 }
+
 
 

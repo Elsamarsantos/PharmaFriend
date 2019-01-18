@@ -113,10 +113,18 @@ public class PharmacyService {
 	@GET
 	@Path("consultstock/{id}")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<MedicineDto> consultStock(@PathParam("id") long id) {
+	public List<MedicineDto> consultStock(@PathParam("id") long id,@QueryParam("max")int max,@QueryParam("offset") int offset) {
 		
-		return pharmacyBusiness1.getStockListPharmacy(id);
+		return pharmacyBusiness1.getStockListPharmacy(id, max, offset);
 	}
+	
+	@GET
+	@Path("numberrowstock/{id}")
+	@Produces (MediaType.APPLICATION_JSON)
+	public Long consultNumberRowsStock(Long id) {
+		return pharmacyBusiness1.getNumberRowsStock(id);
+	}
+	
 	
 	@GET
 	@Path("consulttest")
@@ -141,6 +149,7 @@ public class PharmacyService {
 	public Long consultNumberRows() {
 		return pharmacyBusiness1.getNumberRows();
 	}
+	
 	@GET
 	@Path("consultallname")
 	@Produces (MediaType.APPLICATION_JSON)

@@ -45,11 +45,11 @@
         <div class="col-sm-5">
             <div id="mypharmaform1">
 
-                <form class="mypharmaformhome" >
-                    <div class="getSearch" >
+                <form class="mypharmaformhome">
+                    <div class="getSearch autocomplete" autocomplete="off">
                         <label for="getName">MEDICINE NAME</label>
-                        <div autocomplete="off">
-                        <input class="autocomplete" id="medicineName" type="text" /></div>
+
+                        <input id="medicineName" type="text" />
                     </div>
                     <div class="getSearch">
                         <label for="getDose">DOSE</label>
@@ -149,8 +149,7 @@
 
                     <button value="submit" onclick="sendTheEmail()" class="btn btn-success btn-lg btn-block"
                         data-dismiss="modal" aria-label="Close">SEND</button>
-                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"
-                        aria-label="Close">
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">
                         CLOSE </button>
                 </div>
             </div>
@@ -160,24 +159,28 @@
     <!-- THIS IS MY MEDICINES PAGE----------------------------------------------------------------------->
     <div class="container" id="tabMedicine" style="margin-bottom: 65px">
         <div class="row">
-            <header>MEDICINE</header>
-            <center>
-                <div>
-                    <form class="mypharmaform" >
-                        <div autocomplete="off">
-                        <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine" placeholder="Search the medicine">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <header>MEDICINE</header>
+                <center>
+                    <div>
+                        <form class="mypharmaform">
+                            <div autocomplete="off">
+                                <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine"
+                                    placeholder="Search the medicine">
+                            </div>
+                            <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()"
+                                id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
+                                SEARCH MEDICINE</a>
+                            <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
+                                    class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
+                        </form>
                     </div>
-                        <a href="#" data-toggle="modal" data-target="#searchMedicineModal" onclick="searchMedicine()"
-                            id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
-                            SEARCH MEDICINE</a>
-                        <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
-                                class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
-                    </form>
-                </div>
+            </div>
             </center> <br>
 
             <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
-            <div class="scrollable">
+            <div class="scrollable" style="overflow-x:auto;">
+
                 <table id="medicineTable" class="listTable">
                     <thead>
                         <tr>
@@ -189,8 +192,8 @@
                             <th scope="col">ACTION</th>
                         </tr>
                     </thead>
-
                 </table>
+
             </div>
         </div>
         <div style="text-align: center">
@@ -223,7 +226,8 @@
                         </table>
 
                     </div> <br>
-                    <button id="closeMyModal" value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
+                    <button id="closeMyModal" value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"
+                        aria-label="Close">CLOSE
                     </button>
                 </div>
             </div>
@@ -306,9 +310,10 @@
             <header>PHARMACY</header>
             <center>
                 <div>
-                    <form class="mypharmaform" >
+                    <form class="mypharmaform">
                         <div autocomplete="off">
-                        <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy" placeholder="Search the pharmacy">
+                            <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy"
+                                placeholder="Search the pharmacy">
                         </div>
                         <a href="#" data-toggle="modal" data-target="#searchPharmacyModal" onclick="searchPharmacy()"
                             id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
@@ -321,19 +326,19 @@
 
             <!-- THIS IS MY PHARMACY PAGE: DINAMIC TABALE -->
             <div class="scrollable">
-            <table id="pharmacyTable" class="listTable">
-                <thead>
-                    <tr>
-                        <th scope="col">NAME</th>
-                        <th scope="col">LOCATION</th>
-                        <th scope="col">LONGITUDE</th>
-                        <th scope="col">LATITUDE</th>
-                        <th scope="col">STOCK</th>
-                        <th scope="col">ACTION</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+                <table id="pharmacyTable" class="listTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">LOCATION</th>
+                            <th scope="col">LONGITUDE</th>
+                            <th scope="col">LATITUDE</th>
+                            <th scope="col">STOCK</th>
+                            <th scope="col">ACTION</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
         <div style="text-align: center">
             <nav aria-label="Page navigation example">
@@ -360,7 +365,7 @@
                                     <th scope="col">LOCATION</th>
                                     <th scope="col">LONGITUDE</th>
                                     <th scope="col">LATITUDE</th>
-                                
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -456,6 +461,12 @@
                             <tbody>
                             </tbody>
                         </table>
+                        <div style="text-align: center">
+                                <nav aria-label="Page navigation example">
+                                    <ul id="paginationListStock" class="pagination justify-content-end">
+                                    </ul>
+                                </nav>
+                            </div>
 
                     </div> <br>
                     <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
@@ -510,7 +521,7 @@
     <script src="pharmaFriendMain.js"></script>
     <script src="pharmaFriendMedicineAJAX.js"></script>
     <script src="pharmaFriendPharmacyAJAX.js"></script>
-    
+
     <script src="htmlInteraction.js"></script>
 
     <!-- THIS IS HOW I SEND MY EMAILS -->
