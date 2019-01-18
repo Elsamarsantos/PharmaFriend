@@ -45,8 +45,13 @@
         <div class="col-sm-5">
             <div id="mypharmaform1">
 
+<<<<<<< HEAD
                 <form class="mypharmaformhome">
                     <div class="getSearch" autocomplete="off">
+=======
+                <form class="mypharmaformhome" autocomplete="off">
+                    <div class="getSearch autocomplete">
+>>>>>>> Diogo
                         <label for="getName">MEDICINE NAME</label>
 
                         <input id="medicineName" class="autocompletetype" type="text" />
@@ -167,6 +172,34 @@
                             <div autocomplete="off">
                                 <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine"
                                     placeholder="Search the medicine">
+<<<<<<< HEAD
+=======
+                           
+                        <a href="#"  onclick="searchMedicine()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span class="glyphicon glyphicon-zoom-in"></span>
+                            SEARCH MEDICINE</a>
+                        <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
+                                class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
+                                
+                    </form>
+                </div>
+            </center> <br>
+
+            <!-- THIS IS MY MEDICINE PAGE: DINAMIC TABLE -->
+            <div class="scrollable" style="overflow-x:auto;">
+
+                <table id="medicineTable" class="listTable">
+                    <thead>
+                        <tr>
+                            <th scope="col">NAME</th>
+                            <th scope="col">DOSE</th>
+                            <th scope="col">UNITS</th>
+                            <th scope="col">PVP</th>
+                            <th scope="col">RR</th>
+                            <th scope="col">ACTION</th>
+                        </tr>
+                    </thead>
+                </table>
+>>>>>>> Diogo
 
                                 <a href="#" onclick="searchMedicine()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span
                                         class="glyphicon glyphicon-zoom-in"></span>
@@ -202,6 +235,7 @@
                 </nav>
             </div>
         </div>
+<<<<<<< HEAD
     </div>  
         <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
         <div class="modal fade modalBox" id="searchMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -224,6 +258,37 @@
                                 <tbody>
                                 </tbody>
                             </table>
+=======
+        <div style="text-align: center">
+            <nav aria-label="Page navigation example">
+                <ul id="paginationList" class="pagination justify-content-end">
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </div>
+    <!-- THIS IS MY MODAL WHEN I SEARCH MY MEDICINE -->
+    <div class="modal fade modalBox" id="searchMedicineModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="modal-body modalEdit">
+                    <h2 class="modal-title" style="color: white"> <br> YOUR MEDICINE</h2> <br>
+                    <div id="searchMedicineModalDiv">
+                        <table id="medicineTablebyName" class="table mySearchModal">
+                            <thead>
+                                <tr>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col">DOSE</th>
+                                    <th scope="col">UNITS</th>
+                                    <th scope="col">PVP</th>
+                                    <th scope="col">REIMBURSEMENT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+>>>>>>> Diogo
 
                         </div>
                         <button id="closeMyModal" value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal"

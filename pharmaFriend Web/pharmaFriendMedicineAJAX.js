@@ -95,7 +95,7 @@ function prepareToDeleteM(el) {
         },
         success: function (data) {
             console.log("ver preparar", data)
-            var medicine = `<tr id="${data.id}"><td>` + data.medicineName + '</td><td>' + data.dose +
+            var medicine = `<tr class="mySearchModal" id="${data.id}"><td>` + data.medicineName + '</td><td>' + data.dose +
                 '</td><td>' + data.volumeUnit + '</td><tr>';
 
             $('#medicineTableToDelete').append(medicine);
@@ -378,7 +378,7 @@ function searchMedicine() {
 
                 for (i = 0; i < data.length; i++) {
 
-                    var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                    var medicine = '<tr class="mySearchModal"><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
                         '</td><td>' + data[i].volumeUnit + '</td><td>' +
                         data[i].pvp + '</td><td>' +
                         data[i].reImbursementRate + '</td><tr>';
