@@ -281,7 +281,8 @@ function getShortList(el) {
             '<th scope="col">RR</th>' +
             '<th scope="col">ACTION</th>' +
             +"</tr>" +
-            "</thead>")
+            "</thead>");
+
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
             type: 'GET',

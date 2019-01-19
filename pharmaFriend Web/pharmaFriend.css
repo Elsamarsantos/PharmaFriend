@@ -244,18 +244,18 @@ background: rgb(255, 255, 255);
         font-size:55px;
         color:green;
        
-      }
+}
 
 
- /*input shearch:*/
-    /*the container must be positioned relative:*/
+/*input shearch:*/
+/*the container must be positioned relative:*/
 .autocomplete {
     position: relative;
     display: inline-block;
-  }
+}
   
   
-  .autocomplete-items {
+.autocomplete-items {
     position: absolute;
     border: 1px solid #d4d4d4;
     border-bottom: none;
@@ -268,26 +268,27 @@ background: rgb(255, 255, 255);
     
     color:grey;
     font-size:initial;
-  }
+}
   
-  .autocomplete-items div {
+.autocomplete-items div {
     padding: 10px;
     cursor: pointer;
     background-color: #fff; 
     border-bottom: 1px solid #d4d4d4;
     width: 50rem;
-  }
+}
   
-  /*when hovering an item:*/
-  .autocomplete-items div:hover {
+/*when hovering an item:*/
+.autocomplete-items div:hover {
     background-color: #e9e9e9; 
-  }
+}
   
-  /*when navigating through the items using the arrow keys:*/
-  .autocomplete-active {
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
     background-color: DodgerBlue !important; 
     color: #ffffff; 
-  }
+  
+}
 
 form.getSearch{
     width: 100%;
@@ -345,11 +346,12 @@ form.mypharmaformhome  {
 }
 
 
-.scrollable
-{
-    width: 1200px;
-    height: 700px;
-    overflow: auto;
+
+.scrollable{
+    display: block;
+    max-height: 600px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 .alert {

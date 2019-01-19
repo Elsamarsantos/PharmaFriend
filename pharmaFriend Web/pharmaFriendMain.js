@@ -164,7 +164,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     },
                     success: function (data) {
 
-                        for (i = 0; i < data.length; i++) {
+                        for (i = 0; i < 5; i++) {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
@@ -250,7 +250,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     },
                     success: function (data) {
 
-                        for (i = 0; i < data.length; i++) {
+                        for (i = 0; i < 5; i++) {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
@@ -453,7 +453,7 @@ function searchByName() {
 }
 
 $("#medicineName").on('input', function () {
-    searchByName()
+    searchByName();
 });
 
 
