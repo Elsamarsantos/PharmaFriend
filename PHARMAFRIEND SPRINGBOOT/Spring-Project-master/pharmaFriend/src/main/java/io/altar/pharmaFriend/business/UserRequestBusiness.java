@@ -32,26 +32,26 @@ public class UserRequestBusiness {
 		
 		MedicineDto medicine =medicineBusiness1.consultMedicineByNameDoseUnit(name, dose, volumeUnit);
 		
-		Iterator<Pharmacy> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
+		Iterator<PharmacyDto> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
 		
-		List<Pharmacy> listToAdd =new ArrayList<>();
+		List<PharmacyDto> listToAdd =new ArrayList<>();
 		
 		while(listpharmacy.hasNext()) {
 			
-			Pharmacy pharmacy =listpharmacy.next();
-			Iterator <Medicine> listMedicineInPharmacy=pharmacy.getListStock().iterator();
+			PharmacyDto pharmacy =listpharmacy.next();
+			Iterator <MedicineDto> listMedicineInPharmacy= pharmacyRepository1.getPharmacyStockAll(pharmacy.getId()).iterator();
 			
 			while(listMedicineInPharmacy.hasNext()) {
 				
 				
-			if(listMedicineInPharmacy.next().getId().equals(medicine.getId())) {
+			if(listMedicineInPharmacy.next().getId()== medicine.getId()) {
 				listToAdd.add(pharmacy);
 				
 			}	
 			}
 		}	
 	
-		return pharmacyBusiness1.transformInToDto(listToAdd);
+		return listToAdd;
 
 	}
 	
@@ -60,13 +60,13 @@ public class UserRequestBusiness {
 		
 		
 			
-			Iterator <Pharmacy> pharmacyList = pharmacyRepository1.getPharmacytest(name, dose).iterator();
+			Iterator <PharmacyDto> pharmacyList = pharmacyRepository1.getPharmacytest(name, dose).iterator();
 			
-			List <Pharmacy> nearestList = new ArrayList<Pharmacy>() ;
+			List <PharmacyDto> nearestList = new ArrayList<PharmacyDto>() ;
 			
 			while (pharmacyList.hasNext()) {
 				
-				Pharmacy pharmacyToAdd = pharmacyList.next();
+				PharmacyDto pharmacyToAdd = pharmacyList.next();
 				
 				NearLocationBusiness userlocation = new NearLocationBusiness(userLon,userLat);
 				
@@ -82,26 +82,26 @@ public class UserRequestBusiness {
 			
 		
 
-	return pharmacyBusiness1.transformInToDto(nearestList);
+	return nearestList;
 	
 	}
 	
 	@Transactional
 	public List<PharmacyDto> pharmacyWithoutMedicine(String name,String dose, String volume,double userLon, double userLat, double userdistance) {
 		
-		List <Pharmacy> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
+		List <PharmacyDto> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
 		int size=nearestList.size();
 		
 			
 		MedicineDto medicine1 =medicineBusiness1.consultMedicineByNameDoseUnit(name, dose, volume);
 			for(int i=0;i<size;i++) {
-				Pharmacy pharmacy=nearestList.get(i);
-				List <Medicine> listMedicineInPharmacy=pharmacy.getListStock();
+				PharmacyDto pharmacy=nearestList.get(i);
+				List <MedicineDto> listMedicineInPharmacy= pharmacyRepository1.getPharmacyStockAll(pharmacy.getId());
 				
-				for(Medicine medicine2: listMedicineInPharmacy) {
+				for(MedicineDto medicine2: listMedicineInPharmacy) {
 					
 					
-				if(medicine2.getId().equals(medicine1.getId())) {
+				if(medicine2.getId()==medicine1.getId()) {
 					size--;
 					i--;
 					nearestList.remove(pharmacy);
@@ -111,13 +111,13 @@ public class UserRequestBusiness {
 			}
 		
 	}
-	return pharmacyBusiness1.transformInToDto(nearestList);
+	return nearestList;
 	}
 	
 	@Transactional
 	public List<PharmacyDto> pharmacyWithoutMedicine2(String name,String dose,double userLon, double userLat, double userdistance) {
 		
-		List <Pharmacy> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
+		List <PharmacyDto> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
 		int size=nearestList.size();
 		
 		
@@ -128,13 +128,13 @@ public class UserRequestBusiness {
 			MedicineDto medicine1 =  medicineList.next();
 			
 			for(int i=0;i<size;i++) {
-				Pharmacy pharmacy=nearestList.get(i);
-				List <Medicine> listMedicineInPharmacy=pharmacy.getListStock();
+				PharmacyDto pharmacy=nearestList.get(i);
+				List <MedicineDto> listMedicineInPharmacy=pharmacyRepository1.getPharmacyStockAll(pharmacy.getId());
 				
-				for(Medicine medicine2: listMedicineInPharmacy) {
+				for(MedicineDto medicine2: listMedicineInPharmacy) {
 					
 					
-				if(medicine2.getId().equals(medicine1.getId())) {
+				if(medicine2.getId()==medicine1.getId()) {
 					size--;
 					i--;
 					nearestList.remove(pharmacy);
@@ -144,6 +144,6 @@ public class UserRequestBusiness {
 			}
 			}
 	}
-	return pharmacyBusiness1.transformInToDto(nearestList);
+	return nearestList;
 	}
 }

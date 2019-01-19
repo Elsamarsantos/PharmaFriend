@@ -91,7 +91,7 @@ public class PharmacyService {
 	@GET
 	@Path("consultnear")
 	@Produces (MediaType.APPLICATION_JSON)
-	public List<Pharmacy> consultnear(@QueryParam("lon") double lon,@QueryParam("lat") double lat, @QueryParam("distance") double distance) {
+	public List<PharmacyDto> consultnear(@QueryParam("lon") double lon,@QueryParam("lat") double lat, @QueryParam("distance") double distance) {
 		
 		
 		return pharmacyBusiness1.getTheNeartsPharmacy(lon, lat,distance);
@@ -126,13 +126,6 @@ public class PharmacyService {
 	}
 	
 	
-	@GET
-	@Path("consulttest")
-	@Produces (MediaType.APPLICATION_JSON)
-	public List<PharmacyDto> consulttest(@QueryParam("medicinename") String name,@QueryParam("dose") String dose) {
-		
-		return pharmacyBusiness1.test(name, dose);
-	}
 	
 	
 	@GET
