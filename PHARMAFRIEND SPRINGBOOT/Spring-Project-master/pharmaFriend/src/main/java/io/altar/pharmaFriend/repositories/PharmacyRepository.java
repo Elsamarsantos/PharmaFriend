@@ -64,8 +64,8 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 		return biggestId;
 	}
-	public List<Pharmacy> getPharmacytest(String name, String dose) {
-		return em.createNamedQuery(Pharmacy.QUERY_TEST, Pharmacy.class).setParameter("name", name).setParameter("dose", dose).getResultList();
+	public List<PharmacyDto> getPharmacytest(String name, String dose) {
+		return em.createNamedQuery(Pharmacy.QUERY_PHARMA_WITH_MED_NAME_DOSE, PharmacyDto.class).setParameter("name", name).setParameter("dose", dose).getResultList();
 		
 	}
 	
@@ -74,10 +74,18 @@ public class PharmacyRepository extends EntityRepository<Pharmacy> {
 		
 	}
 	
+	public List<MedicineDto> getPharmacyStockAll (Long id) {
+		return em.createNamedQuery(Pharmacy.QUERY_STOCK,MedicineDto.class).setParameter("id", id).getResultList();
+		
+	}
+	
+	
 	public List<PharmacyDto> getShortList(int max, int offset){
 
 		return em.createNamedQuery(Pharmacy.QUERY_ALL_DTO, PharmacyDto.class).setFirstResult(offset).setMaxResults(max).getResultList();
 	}
+	
+	
 	
 	public Long getNumberOfRows () {
 		return  em.createNamedQuery(Pharmacy.QUERY_MAX_ROW,Long.class).getSingleResult();
