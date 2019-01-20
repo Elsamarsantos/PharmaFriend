@@ -83,10 +83,8 @@ $("#btnMainSearch").click(function mainSearch() {
             var pharmacyMarkeroff = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
-                iconColor: 'black'
-
+                iconColor: 'grey',                 
             });
-
 
             L.marker([latitude, longitude], { icon: personMarker }).addTo(map)
                 .bindPopup('You ! ')
@@ -166,7 +164,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     },
                     success: function (data) {
 
-                        for (i = 0; i < data.length; i++) {
+                        for (i = 0; i < 5; i++) {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
@@ -252,7 +250,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     },
                     success: function (data) {
 
-                        for (i = 0; i < data.length; i++) {
+                        for (i = 0; i < 5; i++) {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
@@ -455,7 +453,7 @@ function searchByName() {
 }
 
 $("#medicineName").on('input', function () {
-    searchByName()
+    searchByName();
 });
 
 
@@ -463,12 +461,12 @@ $("#medicineName").on('input', function () {
 function getDose() {
     var medicineName = $("#medicineName").val();
     var medicineDose = [];
-
-    for (i = 0; i < medicineToSearch.length; i++) {
+    var uniqueNames = [];
+    for (i = 0; i < medicineToSearch.length-1; i++) {
 
         if (medicineName == medicineToSearch[i].medicineName) {
             medicineDose.push(medicineToSearch[i].dose);
-            var uniqueNames = [];
+            
 
             //to delete equal names
             $.each(medicineDose, function (i, el) {
@@ -504,9 +502,10 @@ function getVolume() {
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
     function sendTheEmail() {
-        console.log("Sending the Email to:" + $("#theEmail").val);
+        console.log("Sending the Email to:" + $("#theEmail").val());
+        
         var template_params = {
-            "reply_to": $('#theEmail'),
+            "email": $('#theEmail').val(),
             "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
             "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
             "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),          
@@ -515,6 +514,7 @@ function getVolume() {
     }
 
     var service_id = "default_service";
+    console.log("SERVICE ID=" + service_id);
     var template_id = "template_QfB5vZLA";
     emailjs.send(service_id, template_id, template_params);
 }

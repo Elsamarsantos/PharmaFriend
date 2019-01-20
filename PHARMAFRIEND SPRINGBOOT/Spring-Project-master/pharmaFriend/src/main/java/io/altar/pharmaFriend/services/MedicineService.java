@@ -53,6 +53,14 @@ public class MedicineService {
 		return medicineBusiness1.getAllMedicineNames(letter);
 	}
 	
+	@GET
+	@Path("listequalnames")
+	@Produces (MediaType.APPLICATION_JSON)
+	public List <MedicineDto> listMedicineEqualName(@QueryParam("medicineName") String name) {
+		
+		return medicineBusiness1.getListOfMedicinesWithEqualNames(name);
+	}
+	
 	
 	
 	@POST

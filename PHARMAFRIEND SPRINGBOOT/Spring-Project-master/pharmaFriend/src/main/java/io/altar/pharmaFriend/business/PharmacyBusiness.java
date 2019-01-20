@@ -109,15 +109,16 @@ public class PharmacyBusiness {
 	
 	//method to get the list of pharmacies nearest to the user
 	@Transactional 
-	public List<Pharmacy> getTheNeartsPharmacy(double userLon, double userLat, double userdistance) {
+	public List<PharmacyDto> getTheNeartsPharmacy(double userLon, double userLat, double userdistance) {
 		
-		Iterator <Pharmacy> pharmacyList = pharmacyRepository1.getAllEntity().iterator();
 		
-		List <Pharmacy> nearestList = new ArrayList<Pharmacy>() ;
+		Iterator <PharmacyDto> pharmacyListDto = pharmacyRepository1.getAllPharmaciesDto().iterator();
 		
-		while (pharmacyList.hasNext()) {
+		List <PharmacyDto> nearestList = new ArrayList<PharmacyDto>() ;
+		
+		while (pharmacyListDto.hasNext()) {
 			
-			Pharmacy pharmacyToAdd = pharmacyList.next();
+			PharmacyDto pharmacyToAdd = pharmacyListDto.next();
 			
 			NearLocationBusiness userlocation = new NearLocationBusiness(userLon,userLat);
 			
@@ -130,26 +131,24 @@ public class PharmacyBusiness {
 			}		
 		}
 		
-		
-			
 		return nearestList;
 	}
 	
 	// method to transform pharmacy in a phamracy dto
-	@Transactional
-	public List<PharmacyDto> transformInToDto(List<Pharmacy> newList){
-		Iterator<Pharmacy> newlist1 = newList.iterator();
-		ArrayList<PharmacyDto> listPharmacyDto = new ArrayList(); 
-		while (newlist1.hasNext()) {
-			Pharmacy pharmacy = newlist1.next();
-			//List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-			
-			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation()));
-		}
-		return listPharmacyDto;
-	
-		
-	}
+//	@Transactional
+//	public List<PharmacyDto> transformInToDto(List<Pharmacy> newList){
+//		Iterator<Pharmacy> newlist1 = newList.iterator();
+//		ArrayList<PharmacyDto> listPharmacyDto = new ArrayList(); 
+//		while (newlist1.hasNext()) {
+//			Pharmacy pharmacy = newlist1.next();
+//			//List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
+//			
+//			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation()));
+//		}
+//		return listPharmacyDto;
+//	
+//		
+//	}
 	
 	
 	//this method is to create stock in all pharmacies
@@ -166,11 +165,21 @@ public class PharmacyBusiness {
 
 	//get list of stock in a pharmacy
 	@Transactional
-	public List<MedicineDto> getStockListPharmacy (long id){
+	public List<MedicineDto> getStockListPharmacy (long id,int max, int offset){
 	
-		return pharmacyRepository1.getPharmacyStock(id);
+		return pharmacyRepository1.getPharmacyStock(id,max,offset);
 		
 	}
+	
+	//get number row in the list Stock of pharmacies
+			@Transactional
+			public long getNumberRowsStock (long id){
+			
+				return  pharmacyRepository1.getNumberOfRowsStock(id);
+				
+			}
+	
+	
 	
 	//method to generate pharmacy stock 
 		@Transactional
@@ -196,14 +205,7 @@ public class PharmacyBusiness {
 					
 		}
 	
-		//get list of pharmacy with a medicine
 		
-		@Transactional
-		public List<PharmacyDto> test(String name, String dose){
-			
-			
-			return transformInToDto(pharmacyRepository1.getPharmacytest(name, dose));
-		}
 		
 		//get short list of Pharmacies
 		@Transactional

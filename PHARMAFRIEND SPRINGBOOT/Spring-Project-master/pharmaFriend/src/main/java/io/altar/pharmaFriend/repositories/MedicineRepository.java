@@ -37,6 +37,12 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		
 	}
 	
+	public List<MedicineDto> getListMedicineEqualNames(String name){
+		
+		return em.createNamedQuery(Medicine.QUERYNAME, MedicineDto.class).setParameter("medicineName", name).getResultList();
+		
+	}
+
 	public MedicineDto getMedicineByNameDoseUnit(String name,String dose, String volumeUnit){
 		
 		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE_UNIT, MedicineDto.class).setParameter("medicineName", name).setParameter("dose", dose).setParameter("volumeUnit", volumeUnit).getSingleResult();
@@ -57,7 +63,7 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 		if (em.createNamedQuery(Medicine.QUERY_MAX_ROW,Long.class).getSingleResult() > 0) {
 			biggestId =(long) em.createNamedQuery(Medicine.QUERY_BIGGEST_M).getSingleResult();
 		}
-		;
+		
 
 		return biggestId;
 	}

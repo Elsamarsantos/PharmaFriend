@@ -95,7 +95,7 @@ function prepareToDeleteM(el) {
         },
         success: function (data) {
             console.log("ver preparar", data)
-            var medicine = `<tr id="${data.id}"><td>` + data.medicineName + '</td><td>' + data.dose +
+            var medicine = `<tr class="mySearchModal" id="${data.id}"><td>` + data.medicineName + '</td><td>' + data.dose +
                 '</td><td>' + data.volumeUnit + '</td><tr>';
 
             $('#medicineTableToDelete').append(medicine);
@@ -143,7 +143,7 @@ function getPagination() {
         success: function (data) {
             numberOfPages = 1 + Math.floor(data / 30);
             console.log(data + " texto");
-            
+
             a = 11;
             y = 1;
             fazNav();
@@ -281,7 +281,8 @@ function getShortList(el) {
             '<th scope="col">RR</th>' +
             '<th scope="col">ACTION</th>' +
             +"</tr>" +
-            "</thead>")
+            "</thead>");
+
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
             type: 'GET',
@@ -317,7 +318,7 @@ function getMedicineName() {
     var a = [];
 
     var letter = $("#inputSearchMedicine").val();
-    
+
     if (letter != "") {
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/consultallname?letter=${letter}`,
@@ -345,8 +346,8 @@ function getMedicineName() {
 
     }
 
-   
-    
+
+
 }
 $("#inputSearchMedicine").on('input', function () {
     getMedicineName()
@@ -354,45 +355,55 @@ $("#inputSearchMedicine").on('input', function () {
 
 //THIS IS MY AJAX TO GET A MEDICINE --
 
-function searchMedicine() {    
-    
-    
-    if (medicineName == undefined) {
-        alert("Not a valid input for search field.");
-        console.log("STOP MY MODAL!");
-        $("#searchMedicineModal").close();
-        
-    
-    
-    
-}
-
-    if (medicineName != undefined) {
+function searchMedicine() {
+    $("#medicineTablebyName").empty();
     var medicineName = $("#inputSearchMedicine").val();
-    console.log(medicineName);
-    $.ajax({
-        url: `http://localhost:8080/pharmafriend/api/medicines/listmedicine?medicineName=${medicineName}`,
-        type: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        success: function (data) {
-            for (i = 0; i < data.length; i++) {
+    console.log("MODAL" + medicineName);
+    if (medicineName == "") {
+        alert("Please enter a valid input in the search field.");
+        console.log("Not valid input.");
+    }
 
-                var medicine = '<tr><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
-                    '</td><td>' + data[i].volumeUnit + '</td><td>' +
-                    data[i].pvp + '</td><td>' +
-                    data[i].reImbursementRate + '</td><tr>';
-                $("#medicineTablebyName").append(medicine);
+    else {
+        
+        console.log(medicineName);
+        $.ajax({
+            url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
+            type: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                console.log("entrou pro for");
+
+                for (i = 0; i < data.length; i++) {
+
+                    var medicine = '<tr class="mySearchModal"><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                        '</td><td>' + data[i].volumeUnit + '</td><td>' +
+                        data[i].pvp + '</td><td>' +
+                        data[i].reImbursementRate + '</td><tr>';
+                    $("#medicineTablebyName").append(medicine);
+                }
             }
-        }
-    })
-    
-
-  }
+        })
+        
+        $('#medicineTablebyName').append("<thead>" +
+        "<tr>" +
+        '<th scope="col">NAME</th>' +
+        '<th scope="col">DOSE</th>' +
+        '<th scope="col">UNITS</th>' +
+        '<th scope="col">PVP</th>' +
+        '<th scope="col">RR</th>' +
+        "</tr>" +
+        "</thead>")
+        console.log("MODAL IS TOOGLED!");
+        $("#searchMedicineModal").modal();
+        
+        
+    }
 
 }
 
 
- 
+

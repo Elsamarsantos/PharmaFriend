@@ -56,13 +56,14 @@ public class MedicineBusiness {
 	public MedicineDto consultMedicine(Long id) {
 		
 		return medicineRepository1.getMedicineId(id);
-		
-		
-		
-	
+
 	}
 	
-	
+	//consult list medicine with equal names
+	@Transactional 
+	public List<MedicineDto> getListOfMedicinesWithEqualNames(String name){
+		return medicineRepository1.getListMedicineEqualNames(name);
+	}
 	
 	
 	
