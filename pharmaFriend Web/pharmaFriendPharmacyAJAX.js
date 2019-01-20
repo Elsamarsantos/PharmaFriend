@@ -137,7 +137,7 @@ function getPaginationPharmacy() {
             'Content-Type': 'application/json'
         },
         success: function (data) {
-            numberOfPagesP = 1 + Math.floor(data / 30);
+            numberOfPagesP = 1 + Math.floor(data / 10);
             console.log(data + " texto");
            
             aP = 11;
