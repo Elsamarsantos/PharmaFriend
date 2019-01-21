@@ -46,10 +46,9 @@
             <div id="mypharmaform1">
 
                 <form class="mypharmaformhome" autocomplete="off">
-                    <div class="getSearch">
+                    <div class="getSearch" class="autocomplete">
                         <label for="getName">MEDICINE NAME</label>
-
-                        <input id="medicineName" class="autocompletetype" type="text" />
+                        <input id="medicineName" type="text" />
                     </div>
                     <div class="getSearch">
                         <label for="getDose">DOSE</label>
@@ -163,17 +162,16 @@
                 <header>MEDICINE</header>
                 <center>
                     <div>
-                        <form class="mypharmaform">
-                            <div autocomplete="off">
-                                <input id="inputSearchMedicine" type="text" class="autocomplete" name="medicine"
-                                    placeholder="Search the medicine">
+                        <form class="mypharmaform" autocomplete="off">
+                            <div class="autocomplete">
+                                <input id="inputSearchMedicine" type="text" name="medicine" placeholder="Search the medicine">
 
                                 <a href="#" onclick="searchMedicine()" id="btnSearchMedicine" class="btn btn-primary btn-info btn-inline-block"><span
                                         class="glyphicon glyphicon-zoom-in"></span>
                                     SEARCH MEDICINE</a>
                                 <a href="#" data-toggle="modal" data-target="#createMedicineModal" class="btn btn-primary btn-success btn-inline-block"><span
                                         class="glyphicon glyphicon-ok"></span> CREATE MEDICINE</a> <br>
-
+                            </div>
                         </form>
                     </div>
                 </center> <br>
@@ -195,7 +193,7 @@
                     </table>
 
                 </div>
-                
+
 
                 <div style="text-align: center">
                     <nav aria-label="Page navigation example">
@@ -313,16 +311,16 @@
             <header>PHARMACY</header>
             <center>
                 <div>
-                    <form class="mypharmaform">
-                        <div autocomplete="off">
-                            <input id="inputSearchPharmacy" type="text" class="autocomplete" name="pharmacy"
-                                placeholder="Search the pharmacy">
+                    <form class="mypharmaform" autocomplete="off">
+                        <div class="autocomplete">
+                            <input id="inputSearchPharmacy" type="text" name="pharmacy" placeholder="Search the pharmacy">
+
+                            <a href="#" onclick="searchPharmacy()" id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span
+                                    class="glyphicon glyphicon-zoom-in"></span>
+                                SEARCH PHARMACY</a>
+                            <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
+                                    class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                         </div>
-                        <a href="#" onclick="searchPharmacy()" id="btnSearchPharmacy" class="btn btn-primary btn-info btn-inline-block"><span
-                                class="glyphicon glyphicon-zoom-in"></span>
-                            SEARCH PHARMACY</a>
-                        <a href="#" data-toggle="modal" data-target="#createPharmacyModal" class="btn btn-primary btn-success btn-inline-block"><span
-                                class="glyphicon glyphicon-ok"></span> CREATE PHARMACY</a> <br>
                     </form>
                 </div>
             </center> <br>
@@ -455,10 +453,10 @@
                     <div id="stockPharmacyModalDiv">
                         <label for="" class="inputStock">Results</label>
                         <select id="inputStockMax" class="inputStock">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
                         </select>
                         <label for="" class="inputStock">Starts at:</label>
                         <input type="text" name="" id="inputStockOffSet" class="inputStock" value=1><a id="createButton"></a>
@@ -466,8 +464,8 @@
                     </div>
                     <table id="pharmacyStockTable" class="table mySearchModal scrollable">
                     </table>
-                 <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
-                </button> 
+                    <button value="submit" class="btn btn-danger btn-lg btn-block" data-dismiss="modal" aria-label="Close">CLOSE
+                    </button>
 
                 </div>
             </div>

@@ -339,8 +339,9 @@ function getMedicineName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
+                    
                 }
+                autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
             }
         })
 
@@ -358,15 +359,14 @@ $("#inputSearchMedicine").on('input', function () {
 function searchMedicine() {
     $("#medicineTablebyName").empty();
     var medicineName = $("#inputSearchMedicine").val();
-    console.log("MODAL" + medicineName);
+  
     if (medicineName == "") {
         alert("Please enter a valid input in the search field.");
         console.log("Not valid input.");
     }
-
     else {
-        
-        console.log(medicineName);
+        medicineName= medicineName.replace('+','%2B')
+       
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
             type: 'GET',
@@ -376,6 +376,7 @@ function searchMedicine() {
             },
             success: function (data) {
                 console.log("entrou pro for");
+                console.log(data);
 
                 for (i = 0; i < data.length; i++) {
 

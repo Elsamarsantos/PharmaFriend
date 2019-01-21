@@ -93,13 +93,7 @@ public class MedicineService {
 	}
 	
 	
-	@GET
-	@Path("medicinebydose")
-	@Produces (MediaType.APPLICATION_JSON)
-	public List<MedicineDto> consultMedicineNameDose(@QueryParam("medicineName") String name, @QueryParam("dose") String dose) {
-		
-		return medicineBusiness1.getListMedicineByNameDose(name,dose);
-	}
+
 	
 
 

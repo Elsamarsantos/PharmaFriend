@@ -60,24 +60,7 @@ public class PharmacyBusiness {
 	public PharmacyDto consultPharmacy(long id) {
 		return pharmacyRepository1.getPharmacyById(id);
 	}
-	
-	//to get all the pharmacies on the DB
-//	@Transactional
-//	public List<PharmacyDto> consultAll() {
-//
-//		Iterator<Pharmacy> listPharmacy = pharmacyRepository1.getAllEntity().iterator();
-//		List <PharmacyDto> listPharmacyDto= new ArrayList<PharmacyDto>();
-//		
-//		while (listPharmacy.hasNext()) {
-//			Pharmacy pharmacy = listPharmacy.next();
-//			List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-//			
-//			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation(),listDto));
-//		}
-//		return listPharmacyDto;
-//	
-//	}
-	
+		
 
 	
 	//to remove pharmacy
@@ -134,21 +117,6 @@ public class PharmacyBusiness {
 		return nearestList;
 	}
 	
-	// method to transform pharmacy in a phamracy dto
-//	@Transactional
-//	public List<PharmacyDto> transformInToDto(List<Pharmacy> newList){
-//		Iterator<Pharmacy> newlist1 = newList.iterator();
-//		ArrayList<PharmacyDto> listPharmacyDto = new ArrayList(); 
-//		while (newlist1.hasNext()) {
-//			Pharmacy pharmacy = newlist1.next();
-//			//List<MedicineDto> listDto = getStockListPharmacy (pharmacy.getId());
-//			
-//			listPharmacyDto.add(new PharmacyDto(pharmacy.getId(),pharmacy.getPharmacyName(),pharmacy.getaddress(),pharmacy.getLonLocation(), pharmacy.getLatLocation()));
-//		}
-//		return listPharmacyDto;
-//	
-//		
-//	}
 	
 	
 	//this method is to create stock in all pharmacies

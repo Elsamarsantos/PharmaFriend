@@ -31,15 +31,20 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 	}
 	
 	
-	public List<Medicine> getListMedicineByNameDose(String name,String dose){
+	public List<MedicineDto> getListMedicineByNameDose(String name,String dose){
 		
-		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE, Medicine.class).setParameter("medicineName", name).setParameter("dose", dose).getResultList();
+		return em.createNamedQuery(Medicine.QUERY_NAME_DOSE, MedicineDto.class).setParameter("medicineName", name).setParameter("dose", dose).getResultList();
 		
 	}
 	
 	public List<MedicineDto> getListMedicineEqualNames(String name){
 		
+		System.out.println(name);
+		int a = em.createNamedQuery(Medicine.QUERYNAME, MedicineDto.class).setParameter("medicineName", name).getResultList().size();
+		System.out.println(a);
+		
 		return em.createNamedQuery(Medicine.QUERYNAME, MedicineDto.class).setParameter("medicineName", name).getResultList();
+		
 		
 	}
 

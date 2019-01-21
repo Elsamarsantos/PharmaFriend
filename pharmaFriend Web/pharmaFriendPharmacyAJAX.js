@@ -221,7 +221,7 @@ function getShortListPharmacy(el) {
 
 
         var numberId = 1
-        var numberOffset = 1 + 10 * (numberId - 1);
+        var numberOffset = 1 + 30 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +
@@ -234,7 +234,7 @@ function getShortListPharmacy(el) {
             +"</tr>" +
             "</thead>")
         $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=10&offset=${numberOffset}`,
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
             type: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -264,7 +264,7 @@ function getShortListPharmacy(el) {
     else {
         console.log("saida");
         var numberId = $(el).parent().attr('id');
-        var numberOffset = 1 + 10 * (numberId - 1);
+        var numberOffset = 1 + 30 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +
@@ -278,7 +278,7 @@ function getShortListPharmacy(el) {
             "</thead>")
 
         $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=10&offset=${numberOffset}`,
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
             type: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -335,8 +335,9 @@ function getPharmacyName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("inputSearchPharmacy"), uniqueNames.slice(0, 10));
+                    
                 }
+                autocomplete(document.getElementById("inputSearchPharmacy"), uniqueNames.slice(0, 10));
             }
         })
 

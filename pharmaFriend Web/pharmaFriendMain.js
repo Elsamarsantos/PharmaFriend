@@ -42,6 +42,9 @@ $("#btnMainSearch").click(function mainSearch() {
             var medicineDose = $("#getDose").val();
             var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
+        
+            inputmedicine = inputmedicine.replace('+','%2B');
+            medicineDose =medicineDose.replace('+','%2B');
 
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
@@ -49,7 +52,14 @@ $("#btnMainSearch").click(function mainSearch() {
             var buyMedVolume = document.getElementById("buyMedVolume");
             buyMedNameOutput.innerHTML = ("<p>" + inputmedicine + " </p>");
             buyMedDose.innerHTML = ("<p>" + medicineDose + " </p>");
-            buyMedVolume.innerHTML = ("<p>" + medicineVolume + "</p>");
+
+            if(medicineVolume!=null){
+                
+            buyMedVolume.innerHTML = ("<p>" + medicineVolume + "</p>")
+            }
+            else{
+                $("#buyMedVolume").remove();
+            }
 
             var distance = $("#userdistance").val();
             $("#mypharmaform1").hide();
@@ -158,8 +168,9 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
+                
                 $.ajax({
-
+                    
                     url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
                     type: 'GET',
                     headers: {
@@ -324,6 +335,7 @@ function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
+
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
@@ -369,6 +381,7 @@ function autocomplete(inp, arr) {
             /*If the arrow DOWN key is pressed,
             increase the currentFocus variable:*/
             currentFocus++;
+        
             /*and and make the current item more visible:*/
             addActive(x);
         } else if (e.keyCode == 38) { //up
@@ -390,11 +403,17 @@ function autocomplete(inp, arr) {
         /*a function to classify an item as "active":*/
         if (!x) return false;
         /*start by removing the "active" class on all items:*/
-        removeActive(x);
+        
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         /*add class "autocomplete-active":*/
-        x[currentFocus].classList.add("autocomplete-active");
+        if (x[currentFocus]){
+            removeActive(x);
+            x[currentFocus].classList.add('autocomplete-active');
+        
+        }
+        
+        return x;
     }
 
     function removeActive(x) {
@@ -448,8 +467,9 @@ function searchByName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0, 10));
+
                 }
+                autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0, 10));
             }
         })
 
@@ -458,6 +478,8 @@ function searchByName() {
 
 $("#medicineName").on('input', function () {
     searchByName();
+    console.log("1ver");
+    
 });
 
 

@@ -8,12 +8,11 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.SocketUtils;
 
 import io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.Dtos.PharmacyDto;
-import  io.altar.pharmaFriend.models.Medicine;
-import  io.altar.pharmaFriend.models.Pharmacy;
-
+import io.altar.pharmaFriend.repositories.MedicineRepository;
 import io.altar.pharmaFriend.repositories.PharmacyRepository;
 
 @Component
@@ -24,12 +23,14 @@ public class UserRequestBusiness {
 	MedicineBusiness medicineBusiness1;
 	@Inject
 	PharmacyRepository pharmacyRepository1; 
-	
+	@Inject
+	MedicineRepository medicineRepository1;
 	
 	
 	@Transactional
 	public List<PharmacyDto> userRequest(String name,String dose,String volumeUnit,double lon, double lat, double distance) {
 		
+		System.out.println(name);
 		MedicineDto medicine =medicineBusiness1.consultMedicineByNameDoseUnit(name, dose, volumeUnit);
 		
 		Iterator<PharmacyDto> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
@@ -116,13 +117,14 @@ public class UserRequestBusiness {
 	
 	@Transactional
 	public List<PharmacyDto> pharmacyWithoutMedicine2(String name,String dose,double userLon, double userLat, double userdistance) {
+		System.out.println(name);
 		
 		List <PharmacyDto> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
 		int size=nearestList.size();
 		
 		
 			
-		Iterator<MedicineDto> medicineList =medicineBusiness1.getListMedicineByNameDose(name, dose).iterator();
+		Iterator<MedicineDto> medicineList =medicineRepository1.getListMedicineByNameDose(name, dose).iterator();
 		
 		while(medicineList.hasNext()) {
 			MedicineDto medicine1 =  medicineList.next();
