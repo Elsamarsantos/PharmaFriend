@@ -49,7 +49,14 @@ $("#btnMainSearch").click(function mainSearch() {
             var buyMedVolume = document.getElementById("buyMedVolume");
             buyMedNameOutput.innerHTML = ("<p>" + inputmedicine + " </p>");
             buyMedDose.innerHTML = ("<p>" + medicineDose + " </p>");
-            buyMedVolume.innerHTML = ("<p>" + medicineVolume + "</p>");
+
+            if(medicineVolume!=null){
+                
+            buyMedVolume.innerHTML = ("<p>" + medicineVolume + "</p>")
+            }
+            else{
+                $("#buyMedVolume").remove();
+            }
 
             var distance = $("#userdistance").val();
             $("#mypharmaform1").hide();
