@@ -134,7 +134,7 @@ function getPaginationPharmacy() {
         type: 'GET',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'`
+            'Content-Type': 'application/json'
         },
         success: function (data) {
             numberOfPagesP = 1 + Math.floor(data / 10);
@@ -162,7 +162,7 @@ function fazNavPharmacy() {
     for (i = yP; i < numberOfPagesP; i++) {
         if (yP < aP) {
             $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
-            y++;
+            yP++;
         }
     }
 
@@ -190,7 +190,7 @@ function previousPharmacy() {
     return (yP, aP);
 }
 
-function lastPhamarcy() {
+function lastPharmacy() {
 
     cleanNavPharmacy();
     aP = numberOfPagesP;
