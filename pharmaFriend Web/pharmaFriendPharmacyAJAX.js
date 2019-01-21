@@ -161,7 +161,7 @@ function fazNavPharmacy() {
 
     for (i = yP; i < numberOfPagesP; i++) {
         if (yP < aP) {
-            $("#paginationListPharmacy").append(`< li id = "${i}" class= "page-item" > <a onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li > `);
+            $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
             yP++;
         }
     }
@@ -437,7 +437,7 @@ function showPharmacyStock(el) {
         }
     })
 
-    $("#createButton").append(`<a id=${id}>` + `<p>` + "<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" + "</button>" + "</p>" + "</a>")
+    $("#createButton").append(`<a id=${id}>`+`<p>`+"<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" +"</button>"+"</p>"+"</a>")
 
 }
 
