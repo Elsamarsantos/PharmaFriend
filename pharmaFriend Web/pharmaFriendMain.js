@@ -58,7 +58,10 @@ $("#btnMainSearch").click(function mainSearch() {
 
             /*  ------------------------------------- MAP ----------------------------------------------- */
 
-            var map = L.map('map', { center: [latitude, longitude], zoom: 17 });
+            var map = L.map('map', { center: [latitude, longitude], zoom: 17, 
+                minZoom: 11
+            });
+           
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
