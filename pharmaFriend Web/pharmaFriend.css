@@ -160,7 +160,7 @@ a:hover{
 /* TABLE */
 table {
     border-collapse: collapse;
-    margin-bottom: 3em;
+    /* margin-bottom: 3em; */
     width: 100%;
     background: rgba(255, 255, 255, 0);
     font-size: 17px;
@@ -189,8 +189,8 @@ tbody tr:hover {
 
 /* medicine list */
 .listTable{
-    border-collapse: collapse;
-    margin-bottom: 3em;
+   /* border-collapse: collapse; */
+   /* margin-bottom: 3em; */
     width: 100%;
     
     font-size: 17px;
@@ -205,6 +205,7 @@ tbody tr:hover {
     color: rgba(0, 0, 0, 0.644);
 background: rgb(255, 255, 255);
 }
+
 .listTable th {
     background-color:#fdfdfd2f;
     font-weight: bold;
@@ -301,6 +302,7 @@ form.getSearch{
     color:grey;
     font-size:23px;
 }
+
 form.mypharmaformhome  {
     width: 60%;
     margin: 0;
@@ -346,14 +348,6 @@ form.mypharmaformhome  {
 }
 
 
-
-.scrollable{
-    display: block;
-    max-height: 600px;
-    overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
 .alert {
     font-size: 320px;
 }
@@ -369,7 +363,7 @@ form.mypharmaformhome  {
 
 .scrollable
 {
-    width: 1400px;
+    width: 115rem;
     height: 500px;
     overflow: auto;
 }

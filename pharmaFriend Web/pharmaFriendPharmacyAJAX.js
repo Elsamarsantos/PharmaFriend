@@ -134,11 +134,11 @@ function getPaginationPharmacy() {
         type: 'GET',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'`
+            'Content-Type': 'application/json'
         },
         success: function (data) {
             numberOfPagesP = 1 + Math.floor(data / 10);
-            console.log(data + " texto");
+            console.log(data + " Farmacias get OK");
 
             aP = 11;
             yP = 1;
@@ -156,18 +156,18 @@ function cleanNavPharmacy() {
 
 function fazNavPharmacy() {
 
-    $("#paginationListPharmacy").append(`<li class="page-item" onclick="firstPharmacy()"><a>First</a></li>`);
-    $("#paginationListPharmacy").append(`<li class="page-item" onclick="previousPharmacy()"><a>Previous</a></li>`);
+    $("#paginationListPharmacy").append(`< li class= "page-item" onclick="firstPharmacy()" > <a>First</a></li> `);
+    $("#paginationListPharmacy").append(`< li class= "page-item" onclick="previousPharmacy()" > <a>Previous</a></li> `);
 
     for (i = yP; i < numberOfPagesP; i++) {
         if (yP < aP) {
-            $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
-            y++;
+            $("#paginationListPharmacy").append(`< li id = "${i}" class= "page-item" > <a onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li > `);
+            yP++;
         }
     }
 
-    $("#paginationListPharmacy").append(`<li class="page-item"><a onclick="nextPharmacy()" >Next</a></li>`);
-    $("#paginationListPharmacy").append(`<li class="page-item"><a onclick="lastPharmacy()" >Last</a></li>`);
+    $("#paginationListPharmacy").append(`< li class= "page-item" > <a onclick="nextPharmacy()" >Next</a></li > `);
+    $("#paginationListPharmacy").append(`< li class= "page-item" > <a onclick="lastPharmacy()" >Last</a></li > `);
 }
 
 function nextPharmacy() {
@@ -190,7 +190,7 @@ function previousPharmacy() {
     return (yP, aP);
 }
 
-function lastPhamarcy() {
+function lastPharmacy() {
 
     cleanNavPharmacy();
     aP = numberOfPagesP;
@@ -404,8 +404,8 @@ function showPharmacyStock(el) {
     $("#pharmacyStockTable").empty();
     $("#createButton").empty();
 
-   var id = $(el).parent().parent().attr('id');
-    
+    var id = $(el).parent().parent().attr('id');
+
     var maxResult = $("#inputStockMax").val();
     var numberOffset = $("#inputStockOffSet").val();
 
@@ -437,7 +437,7 @@ function showPharmacyStock(el) {
         }
     })
 
-    $("#createButton").append(`<a id=${id}>`+`<p>`+"<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>"+"</button>"+"</p>"+"</a>")
+    $("#createButton").append(`<a id=${id}>` + `<p>` + "<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" + "</button>" + "</p>" + "</a>")
 
 }
 

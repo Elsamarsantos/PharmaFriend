@@ -142,7 +142,7 @@ function getPagination() {
         },
         success: function (data) {
             numberOfPages = 1 + Math.floor(data / 30);
-            console.log(data + " texto");
+            console.log(data + " Medicamentos get OK");
 
             a = 11;
             y = 1;
