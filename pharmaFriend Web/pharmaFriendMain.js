@@ -44,7 +44,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var inputmedicine = $("#medicineName").val();
         
             inputmedicine = inputmedicine.replace('+','%2B');
-           
+            medicineDose =medicineDose.replace('+','%2B');
 
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
