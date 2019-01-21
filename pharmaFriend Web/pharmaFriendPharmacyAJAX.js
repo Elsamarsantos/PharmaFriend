@@ -156,37 +156,38 @@ function cleanNavPharmacy() {
 
 function fazNavPharmacy() {
 
-    $("#paginationListPharmacy").append(`< li class= "page-item" onclick="firstPharmacy()" > <a>First</a></li> `);
-    $("#paginationListPharmacy").append(`< li class= "page-item" onclick="previousPharmacy()" > <a>Previous</a></li> `);
+    $("#paginationListPharmacy").append(`<li class= "page-item" onclick="firstPharmacy()" > <a>First</a></li> `);
+    $("#paginationListPharmacy").append(`<li class= "page-item" onclick="previousPharmacy()" > <a>Previous</a></li> `);
 
-    for (i = yP; i < numberOfPagesP; i++) {
+    for (i = yP; i <= numberOfPagesP; i++) {
         if (yP < aP) {
             $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
             yP++;
         }
+        console.log(numberOfPagesP +"Paginas" +yP+" Y" +aP +" A");
     }
-
-    $("#paginationListPharmacy").append(`< li class= "page-item" > <a onclick="nextPharmacy()" >Next</a></li > `);
-    $("#paginationListPharmacy").append(`< li class= "page-item" > <a onclick="lastPharmacy()" >Last</a></li > `);
+    
+    $("#paginationListPharmacy").append(`<li class= "page-item" > <a onclick="nextPharmacy()" >Next</a></li > `);
+    $("#paginationListPharmacy").append(`<li class= "page-item" > <a onclick="lastPharmacy()" >Last</a></li > `);
 }
 
 function nextPharmacy() {
-    if (aP != numberOfPagesP) {
+    if (aP+ 11 < numberOfPagesP) {
         cleanNavPharmacy();
         aP = yP + 11;
         fazNavPharmacy();
-    };
+    } else lastPharmacy();
     return (aP);
 }
 
 function previousPharmacy() {
 
-    if (aP != 11) {
+    if (aP != 11 && (aP- 11 >10)) {
         cleanNavPharmacy();
         yP = aP - 21;
         aP = aP - 10;
         fazNavPharmacy();
-    }
+    } else {firstPharmacy();}
     return (yP, aP);
 }
 

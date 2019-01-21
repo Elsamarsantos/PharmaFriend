@@ -164,7 +164,7 @@ function fazNav() {
     $("#paginationList").append(`<li class="page-item" onclick="first()"><a>First</a></li>`);
     $("#paginationList").append(`<li class="page-item" onclick="previous()"><a>Previous</a></li>`);
 
-    for (i = y; i < numberOfPages; i++) {
+    for (i = y; i <= numberOfPages; i++) {
         if (y < a) {
             $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
             y++;
@@ -176,22 +176,22 @@ function fazNav() {
 }
 
 function next() {
-    if (a != numberOfPages) {
+    if (a +11 < numberOfPages) {
         cleanNav();
         a = y + 11;
         fazNav();
-    };
+    } else last();
     return (a)
 }
 
 function previous() {
 
-    if (a != 11) {
+    if (a != 11 && ( a-11>10 )) {
         cleanNav();
         y = a - 21;
         a = a - 10;
         fazNav();
-    }
+    } else {first();};
     return (y, a);
 }
 
