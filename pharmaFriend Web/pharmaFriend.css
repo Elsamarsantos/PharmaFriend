@@ -245,7 +245,7 @@ background: rgb(255, 255, 255);
         font-size:55px;
         color:green;
        
-}
+    }
 
 
 /*input shearch:*/
@@ -276,7 +276,7 @@ background: rgb(255, 255, 255);
     cursor: pointer;
     background-color: #fff; 
     border-bottom: 1px solid #d4d4d4;
-    width: 50rem;
+ /*   width: 50rem;*/
 }
   
 /*when hovering an item:*/
@@ -288,7 +288,6 @@ background: rgb(255, 255, 255);
 .autocomplete-active {
     background-color: DodgerBlue !important; 
     color: #ffffff; 
-  
 }
 
 form.getSearch{

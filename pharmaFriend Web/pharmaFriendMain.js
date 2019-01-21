@@ -86,7 +86,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var pharmacyMarkeroff = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
-                iconColor: 'grey',                 
+                iconColor: 'grey',
             });
 
             L.marker([latitude, longitude], { icon: personMarker }).addTo(map)
@@ -323,6 +323,7 @@ function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
+
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function (e) {
         var a, b, i, val = this.value;
@@ -368,6 +369,7 @@ function autocomplete(inp, arr) {
             /*If the arrow DOWN key is pressed,
             increase the currentFocus variable:*/
             currentFocus++;
+        
             /*and and make the current item more visible:*/
             addActive(x);
         } else if (e.keyCode == 38) { //up
@@ -389,11 +391,17 @@ function autocomplete(inp, arr) {
         /*a function to classify an item as "active":*/
         if (!x) return false;
         /*start by removing the "active" class on all items:*/
-        removeActive(x);
+        
         if (currentFocus >= x.length) currentFocus = 0;
         if (currentFocus < 0) currentFocus = (x.length - 1);
         /*add class "autocomplete-active":*/
-        x[currentFocus].classList.add("autocomplete-active");
+        if (x[currentFocus]){
+            removeActive(x);
+            x[currentFocus].classList.add('autocomplete-active');
+        
+        }
+        
+        return x;
     }
 
     function removeActive(x) {
@@ -447,8 +455,9 @@ function searchByName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0, 10));
+
                 }
+                autocomplete(document.getElementById("medicineName"), uniqueNames.slice(0, 10));
             }
         })
 
@@ -457,6 +466,8 @@ function searchByName() {
 
 $("#medicineName").on('input', function () {
     searchByName();
+    console.log("1ver");
+    
 });
 
 
@@ -465,11 +476,11 @@ function getDose() {
     var medicineName = $("#medicineName").val();
     var medicineDose = [];
     var uniqueNames = [];
-    for (i = 0; i < medicineToSearch.length-1; i++) {
+    for (i = 0; i < medicineToSearch.length - 1; i++) {
 
         if (medicineName == medicineToSearch[i].medicineName) {
             medicineDose.push(medicineToSearch[i].dose);
-            
+
 
             //to delete equal names
             $.each(medicineDose, function (i, el) {
@@ -504,14 +515,14 @@ function getVolume() {
 }
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-    function sendTheEmail() {
-        console.log("Sending the Email to:" + $("#theEmail").val());
-        
-        var template_params = {
-            "email": $('#theEmail').val(),
-            "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),          
+function sendTheEmail() {
+    console.log("Sending the Email to:" + $("#theEmail").val());
+
+    var template_params = {
+        "email": $('#theEmail').val(),
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
 
 
     }
