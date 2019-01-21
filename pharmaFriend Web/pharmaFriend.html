@@ -451,11 +451,16 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content card card-image" style="background-image: url('https://images.pexels.com/photos/953214/pexels-photo-953214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
                 <div class="modal-body modalEdit">
-                    <h2 class="modal-title" style="color: white">STOCK LIST</h2>
+                    <h2 class="modal-title" style="color: white">STOCK LIST</h2> <br>
                     <div id="stockPharmacyModalDiv">
-                        <label for="" class="inputStock">Max Result</label>
-                        <input type="text" id="inputStockMax" class="inputStock" value=10>
-                        <label for="" class="inputStock">Start at</label>
+                        <label for="" class="inputStock">Results</label>
+                        <select id="inputStockMax" class="inputStock">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        </select>
+                        <label for="" class="inputStock">Starts at:</label>
                         <input type="text" name="" id="inputStockOffSet" class="inputStock" value=1><a id="createButton"></a>
 
                     </div>

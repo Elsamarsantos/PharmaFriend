@@ -437,7 +437,7 @@ function showPharmacyStock(el) {
         }
     })
 
-    $("#createButton").append(`<a id=${id}>`+`<p>`+"<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>"+"</button>"+"</p>"+"</a>")
+    $("#createButton").append(`<a id=${id}>`+`<p>`+"<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" +"</button>"+"</p>"+"</a>")
 
 }
 
