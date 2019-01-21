@@ -58,10 +58,11 @@ $("#btnMainSearch").click(function mainSearch() {
 
             /*  ------------------------------------- MAP ----------------------------------------------- */
 
-            var map = L.map('map', { center: [latitude, longitude], zoom: 17, 
+            var map = L.map('map', {
+                center: [latitude, longitude], zoom: 17,
                 minZoom: 11
             });
-           
+
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -86,7 +87,7 @@ $("#btnMainSearch").click(function mainSearch() {
             var pharmacyMarkeroff = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
-                iconColor: 'grey',                 
+                iconColor: 'grey',
             });
 
             L.marker([latitude, longitude], { icon: personMarker }).addTo(map)
@@ -465,11 +466,11 @@ function getDose() {
     var medicineName = $("#medicineName").val();
     var medicineDose = [];
     var uniqueNames = [];
-    for (i = 0; i < medicineToSearch.length-1; i++) {
+    for (i = 0; i < medicineToSearch.length - 1; i++) {
 
         if (medicineName == medicineToSearch[i].medicineName) {
             medicineDose.push(medicineToSearch[i].dose);
-            
+
 
             //to delete equal names
             $.each(medicineDose, function (i, el) {
@@ -497,21 +498,18 @@ function getVolume() {
             $('#getVolume').append("<option>" + medicineToSearch[i].volumeUnit + "</option>");
 
         }
-
-
-
     };
 }
 // THIS IS MY FUNCTION TO SEND THE EMAIL;
 
-    function sendTheEmail() {
-        console.log("Sending the Email to:" + $("#theEmail").val());
-        
-        var template_params = {
-            "email": $('#theEmail').val(),
-            "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
-            "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),          
+function sendTheEmail() {
+    console.log("Sending the Email to:" + $("#theEmail").val());
+
+    var template_params = {
+        "email": $('#theEmail').val(),
+        "pharmacy1": $("#pharmacy1").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy2": $("#pharmacy2").html().replace("<p>", "").replace("</p>", ""),
+        "pharmacy3": $("#pharmacy3").html().replace("<p>", "").replace("</p>", ""),
 
 
     }
@@ -520,5 +518,6 @@ function getVolume() {
     console.log("SERVICE ID=" + service_id);
     var template_id = "template_QfB5vZLA";
     emailjs.send(service_id, template_id, template_params);
+    alert("Email enviado com sucesso!");
 }
 
