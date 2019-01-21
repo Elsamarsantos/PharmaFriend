@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
 import  io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.Dtos.PharmacyDto;
 import  io.altar.pharmaFriend.business.PharmacyBusiness;
-import io.altar.pharmaFriend.models.Medicine;
+
 import  io.altar.pharmaFriend.models.Pharmacy;
 
 @Component
@@ -50,13 +50,6 @@ public class PharmacyService {
 	public PharmacyDto consutlPharmacy(@PathParam("id") long id) {
 		return pharmacyBusiness1.consultPharmacy(id);
 	}
-	
-//	@GET
-//	@Path("consultall")
-//	@Produces (MediaType.APPLICATION_JSON)
-//	public List<PharmacyDto> consultAll() {
-//		return pharmacyBusiness1.consultAll();
-//	}
 	
 	
 	

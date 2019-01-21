@@ -42,6 +42,9 @@ $("#btnMainSearch").click(function mainSearch() {
             var medicineDose = $("#getDose").val();
             var medicineVolume = $("#getVolume").val();
             var inputmedicine = $("#medicineName").val();
+        
+            inputmedicine = inputmedicine.replace('+','%2B');
+           
 
             /*------ Buy Medicine Construtor------*/
             var buyMedNameOutput = document.getElementById("buyMedName");
@@ -164,8 +167,9 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
+                
                 $.ajax({
-
+                    
                     url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
                     type: 'GET',
                     headers: {

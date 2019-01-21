@@ -2,7 +2,7 @@ package  io.altar.pharmaFriend.services;
 
 
 
-import javax.ws.rs.Path;
+
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;

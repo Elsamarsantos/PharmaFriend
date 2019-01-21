@@ -1,8 +1,5 @@
 package io.altar.pharmaFriend.business;
 
-import java.util.ArrayList;
-
-import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -42,12 +39,7 @@ public class MedicineBusiness {
 		
 	}
 	
-	@Transactional 
-	public List<Medicine> consultMedicineWithoutDto(String name,String dose) {
-		
-		List<Medicine> medicine = medicineRepository1.getListMedicineByNameDose(name,dose);
-		return medicine;
-	}
+	
 	
 	
 	
@@ -83,31 +75,13 @@ public class MedicineBusiness {
 	
 	
 	
-	//get list of medicines by name and dose
-	
-	@Transactional 
-	public List<MedicineDto> getListMedicineByNameDose(String name, String dose){
-		Iterator<Medicine> listMedicines = medicineRepository1.getListMedicineByNameDose(name,dose).iterator();
-		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
-		
-		while (listMedicines.hasNext()) {
-			Medicine medicine = listMedicines.next();
-			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));
-		}
-		return listMedicineDto;
-	}
 	
 	//get short list of medicines
 	@Transactional
 	public List <MedicineDto> shortList(int max, int offset){
 		
 		List <MedicineDto> listMedicine= medicineRepository1.getShortList(max,offset);
-		List <MedicineDto> listMedicineDto= new ArrayList<MedicineDto>();
 
-//		for(Medicine medicine: listMedicine) {
-//			System.out.println("pedido");
-//			listMedicineDto.add(new MedicineDto(medicine.getId(),medicine.getMedicineName(),medicine.getDose(),medicine.getVolumeUnit(),medicine.getPvp(),medicine.getReImbursementRate()));		
-//		}
 		return listMedicine;
 	}
 	

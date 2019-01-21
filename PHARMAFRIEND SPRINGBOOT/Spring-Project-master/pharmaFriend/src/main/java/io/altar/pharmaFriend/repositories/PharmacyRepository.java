@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import io.altar.pharmaFriend.Dtos.MedicineDto;
 import io.altar.pharmaFriend.Dtos.PharmacyDto;
-import io.altar.pharmaFriend.models.Medicine;
+
 import  io.altar.pharmaFriend.models.Pharmacy;
 
 @Repository
