@@ -339,8 +339,9 @@ function getMedicineName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
+                    
                 }
+                autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
             }
         })
 
