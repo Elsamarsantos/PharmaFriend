@@ -241,13 +241,13 @@ function getShortListPharmacy(el) {
                 'Content-Type': 'application/json'
             },
             success: function (data) {
-                console.log(data);
+                console.log(data[1]);
                 for (i = 0; i < data.length; i++) {
                     const element = data[i];
 
                     var pharmacy = `<tr id="${element.id}"><td>` + element.pharmacyName + '</td><td>' + element.address +
-                        '</td><td>' + element.lonLocation + '</td><td>' +
-                        element.latLocation + '</td><td>' +
+                        '</td><td>' + element.lonLocation.toFixed(4) + '</td><td>' +
+                        element.latLocation.toFixed(4) + '</td><td>' +
                         `<a href="#" id="btnStockPharmacy${element.id}" data-toggle="modal" data-target="#stockPharmacyModal" onclick="showPharmacyStock(this)" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-search"></span> SHOW </a>` + '</td><td>' +
                         `<a href="#" id="btnUpdatePharmacy${element.id}" data-toggle="modal" data-target="#updatePharmacyModal" onclick="prepareToUpdatePharmacy(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
                         ` <a href="#" id="btnDeletePharmacy${element.id}" data-toggle="modal" data-target="#deletePharmacyModal" onclick="prepareToDeleteP(this)" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
