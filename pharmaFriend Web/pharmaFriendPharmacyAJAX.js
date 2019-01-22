@@ -15,7 +15,7 @@ $("#btnCreatePharmacy").click(function createPharmacy() {
         data: JSON.stringify(newPharmacy),
         success: function (data) {
             getPaginationPharmacy();
-            getShortListPharmacy(1);
+            getShortListPharmacy(1).then();
 
         }
     })
@@ -70,7 +70,7 @@ $("#btnUpdatePharmacy").click(function updatePharmacy() {
         success: function (data) {
             console.log("update:" + data);
             getPaginationPharmacy();
-            getShortListPharmacy(1);
+            getShortListPharmacy(1).then();
         }
     })
 
@@ -113,7 +113,7 @@ function deletePharmacy() {
         contentType: 'application/json',
         success: function (data) {
             getPaginationPharmacy();
-            getShortListPharmacy(1);
+            getShortListPharmacy(1).then();
 
         }
     })
@@ -221,7 +221,7 @@ function getShortListPharmacy(el) {
 
 
         var numberId = 1
-        var numberOffset = 1 + 10 * (numberId - 1);
+        var numberOffset = 10 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +
@@ -264,7 +264,7 @@ function getShortListPharmacy(el) {
     else {
         console.log("saida");
         var numberId = $(el).parent().attr('id');
-        var numberOffset = 1 + 10 * (numberId - 1);
+        var numberOffset = 10 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +

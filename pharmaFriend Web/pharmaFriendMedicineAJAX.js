@@ -2,8 +2,6 @@ var listAllMedicines = [];
 
 
 
-
-
 // THIS IS MY AJAX TO CREATE A MEDICINE
 $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
 
@@ -21,11 +19,16 @@ $("#btnCreateMedicine").click(function createMedicine(newMedicine) {
         contentType: 'application/json',
         data: JSON.stringify(newMedicine),
         success: function (data) {
+        
             console.log("Sucess:" + data);
             getPagination();
-            getShortList(1);
+            getShortList(1).then();
+   
         }
     })
+
+
+
 });
 
 
@@ -76,10 +79,12 @@ $("#btnUpdateMedicine").click(function updateMedicine() {
         data: JSON.stringify(myMedicine),
         success: function (data) {
             console.log("medicine update");
+            getShortList(1).then();
+            getPagination();
         }
     });
-    getPagination();
-    getShortList(1);
+    
+    
 });
 
 function prepareToDeleteM(el) {
@@ -115,10 +120,13 @@ function deleteMedicine() {
             'Content-Type': 'application/json'
         },
         contentType: 'application/json',
+        success: function(){
+           getPagination();
+            getShortList(1).then(); 
+        }
 
     })
-    getPagination();
-    getShortList(1);
+    
 }
 
 
@@ -220,99 +228,103 @@ function first() {
 
 
 function getShortList(el) {
+    
     $('#medicineTable').empty();
     console.log("ver el:", el);
+    
+    
+        if (el == 1) {
 
-    if (el == 1) {
+
+            var numberId = 1
+            var numberOffset = 30 * (numberId - 1);
+            console.log("offset", numberOffset);
 
 
-        var numberId = 1
-        var numberOffset = 1 + 30 * (numberId - 1);
+            $('#medicineTable').append("<thead>" +
+                "<tr>" +
+                '<th scope="col">NAME</th>' +
+                '<th scope="col">DOSE</th>' +
+                '<th scope="col">UNITS</th>' +
+                '<th scope="col">PVP</th>' +
+                '<th scope="col">RR</th>' +
+                '<th scope="col">ACTION</th>' +
+                +"</tr>" +
+                "</thead>")
+            $.ajax({
+                url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
+                type: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                success: function (data) {
+                    console.log(data);
+                    for (i = 0; i < data.length; i++) {
+                        const element = data[i];
 
-        $('#medicineTable').append("<thead>" +
-            "<tr>" +
-            '<th scope="col">NAME</th>' +
-            '<th scope="col">DOSE</th>' +
-            '<th scope="col">UNITS</th>' +
-            '<th scope="col">PVP</th>' +
-            '<th scope="col">RR</th>' +
-            '<th scope="col">ACTION</th>' +
-            +"</tr>" +
-            "</thead>")
-        $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
-            type: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            success: function (data) {
-                console.log(data);
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
+                        var medicine = `<tr id="${element.id}"><td>` + element.medicineName + '</td><td>' + element.dose +
+                            '</td><td>' + element.volumeUnit + '</td><td>' +
+                            element.pvp + '</td><td>' +
+                            element.reImbursementRate + '</td><td>' +
+                            `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
+                            ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
+                            + '</td></tr>';
+                        $('#medicineTable').append(medicine);
+                    }
 
-                    var medicine = `<tr id="${element.id}"><td>` + element.medicineName + '</td><td>' + element.dose +
-                        '</td><td>' + element.volumeUnit + '</td><td>' +
-                        element.pvp + '</td><td>' +
-                        element.reImbursementRate + '</td><td>' +
-                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
-                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
-                        + '</td></tr>';
-                    $('#medicineTable').append(medicine);
+                }
+            });
+        }
+        else {
+            console.log("saida");
+
+
+            var numberId = $(el).parent().attr('id');
+
+
+
+            var numberOffset = 30 * (numberId - 1);
+
+
+            $('#medicineTable').append("<thead>" +
+                "<tr>" +
+                '<th scope="col">NAME</th>' +
+                '<th scope="col">DOSE</th>' +
+                '<th scope="col">UNITS</th>' +
+                '<th scope="col">PVP</th>' +
+                '<th scope="col">RR</th>' +
+                '<th scope="col">ACTION</th>' +
+                +"</tr>" +
+                "</thead>");
+
+            $.ajax({
+                url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
+                type: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                success: function (data) {
+                    for (i = 0; i < data.length; i++) {
+                        const element = data[i];
+
+                        var medicine = `<tr id="${element.id}"><td>` + element.medicineName + '</td><td>' + element.dose +
+                            '</td><td>' + element.volumeUnit + '</td><td>' +
+                            element.pvp + '</td><td>' +
+                            element.reImbursementRate + '</td><td>' +
+                            `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
+                            ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
+                            + '</td></tr>';
+                        $('#medicineTable').append(medicine);
+                    }
+
                 }
 
-            }
-        });
-    }
-    else {
-        console.log("saida");
 
-
-        var numberId = $(el).parent().attr('id');
-
-
-
-        var numberOffset = 1 + 30 * (numberId - 1);
-
-        $('#medicineTable').append("<thead>" +
-            "<tr>" +
-            '<th scope="col">NAME</th>' +
-            '<th scope="col">DOSE</th>' +
-            '<th scope="col">UNITS</th>' +
-            '<th scope="col">PVP</th>' +
-            '<th scope="col">RR</th>' +
-            '<th scope="col">ACTION</th>' +
-            +"</tr>" +
-            "</thead>");
-
-        $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/medicines/consultshort?max=30&offset=${numberOffset}`,
-            type: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            success: function (data) {
-                for (i = 0; i < data.length; i++) {
-                    const element = data[i];
-
-                    var medicine = `<tr id="${element.id}"><td>` + element.medicineName + '</td><td>' + element.dose +
-                        '</td><td>' + element.volumeUnit + '</td><td>' +
-                        element.pvp + '</td><td>' +
-                        element.reImbursementRate + '</td><td>' +
-                        `<a href="#" data-toggle="modal" data-target="#updateMedicineModal" id="btnUpdateMedicine${element.id}" onclick= "prepareToUpdate(this)" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-refresh"></span></a>` +
-                        ` <a data-toggle="modal" data-target="#deleteMedicineModal" id="btnDeleteMedicine${element.id}" onclick="prepareToDeleteM(this)"class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></a>`
-                        + '</td></tr>';
-                    $('#medicineTable').append(medicine);
-                }
-
-            }
-
-
-        });
-    }
-
-
+            });
+        }
+    
 
 }
 
