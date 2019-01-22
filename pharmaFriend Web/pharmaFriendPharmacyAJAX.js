@@ -160,19 +160,19 @@ function fazNavPharmacy() {
     $("#paginationListPharmacy").append(`<li class= "page-item" onclick="previousPharmacy()" > <a>Previous</a></li> `);
 
     for (i = yP; i <= numberOfPagesP; i++) {
-        if (yP < aP) {
+        if (yP <= aP) {
             $("#paginationListPharmacy").append(`<li id="${i}" class="page-item"><a  onclick="getShortListPharmacy(this)" class="page-link">${i}</a></li>`);
             yP++;
         }
-        console.log(numberOfPagesP +"Paginas" +yP+" Y" +aP +" A");
+        console.log(numberOfPagesP + "Paginas" + yP + " Y" + aP + " A");
     }
-    
+
     $("#paginationListPharmacy").append(`<li class= "page-item" > <a onclick="nextPharmacy()" >Next</a></li > `);
     $("#paginationListPharmacy").append(`<li class= "page-item" > <a onclick="lastPharmacy()" >Last</a></li > `);
 }
 
 function nextPharmacy() {
-    if (aP+ 11 < numberOfPagesP) {
+    if (aP + 11 < numberOfPagesP) {
         cleanNavPharmacy();
         aP = yP + 11;
         fazNavPharmacy();
@@ -182,12 +182,12 @@ function nextPharmacy() {
 
 function previousPharmacy() {
 
-    if (aP != 11 && (aP- 11 >10)) {
+    if (aP != 11 && (aP - 11 > 10)) {
         cleanNavPharmacy();
         yP = aP - 21;
         aP = aP - 10;
         fazNavPharmacy();
-    } else {firstPharmacy();}
+    } else { firstPharmacy(); }
     return (yP, aP);
 }
 
@@ -221,7 +221,7 @@ function getShortListPharmacy(el) {
 
 
         var numberId = 1
-        var numberOffset = 1 + 30 * (numberId - 1);
+        var numberOffset = 1 + 10 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +
@@ -234,7 +234,7 @@ function getShortListPharmacy(el) {
             +"</tr>" +
             "</thead>")
         $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=10&offset=${numberOffset}`,
             type: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -264,7 +264,7 @@ function getShortListPharmacy(el) {
     else {
         console.log("saida");
         var numberId = $(el).parent().attr('id');
-        var numberOffset = 1 + 30 * (numberId - 1);
+        var numberOffset = 1 + 10 * (numberId - 1);
 
         $('#pharmacyTable').append("<thead>" +
             "<tr>" +
@@ -278,7 +278,7 @@ function getShortListPharmacy(el) {
             "</thead>")
 
         $.ajax({
-            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=30&offset=${numberOffset}`,
+            url: `http://localhost:8080/pharmafriend/api/pharmacies/consultshort?max=10&offset=${numberOffset}`,
             type: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -335,7 +335,7 @@ function getPharmacyName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    
+
                 }
                 autocomplete(document.getElementById("inputSearchPharmacy"), uniqueNames.slice(0, 10));
             }
@@ -366,14 +366,24 @@ function searchPharmacy() {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
+
+            error: function (data) {
+                alert("Please enter a valid input in the search field.");
+                $("#searchPharmacyModal").modal('toggle');
+             
+            },
             success: function (data) {
+
+
 
                 var pharmacy = '<tr class="mySearchModal"><td>' + data.pharmacyName + '</td><td>' + data.address +
                     '</td><td>' + data.lonLocation + '</td><td>' +
                     data.latLocation + '</td><tr>';
                 $("#pharmacyTablebyName").append(pharmacy);
 
+
             }
+
         })
         $('#pharmacyTablebyName').append("<thead>" +
             "<tr>" +
@@ -439,7 +449,7 @@ function showPharmacyStock(el) {
         }
     })
 
-    $("#createButton").append(`<a id=${id}>`+`<p>`+"<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" +"</button>"+"</p>"+"</a>")
+    $("#createButton").append(`<a id=${id}>` + `<p>` + "<button onclick='showPharmacyStock(this)' class='btn btn-info glyphicon glyphicon-search'>" + "</button>" + "</p>" + "</a>")
 
 }
 

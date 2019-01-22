@@ -39,9 +39,6 @@ public class MedicineRepository extends EntityRepository<Medicine>{
 	
 	public List<MedicineDto> getListMedicineEqualNames(String name){
 		
-		System.out.println(name);
-		int a = em.createNamedQuery(Medicine.QUERYNAME, MedicineDto.class).setParameter("medicineName", name).getResultList().size();
-		System.out.println(a);
 		
 		return em.createNamedQuery(Medicine.QUERYNAME, MedicineDto.class).setParameter("medicineName", name).getResultList();
 		
