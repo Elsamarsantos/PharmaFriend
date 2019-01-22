@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Component;
-import org.springframework.util.SocketUtils;
+
 
 import io.altar.pharmaFriend.Dtos.MedicineDto;
 import  io.altar.pharmaFriend.Dtos.PharmacyDto;
@@ -30,7 +30,7 @@ public class UserRequestBusiness {
 	@Transactional
 	public List<PharmacyDto> userRequest(String name,String dose,String volumeUnit,double lon, double lat, double distance) {
 		
-		System.out.println(name);
+		
 		MedicineDto medicine =medicineBusiness1.consultMedicineByNameDoseUnit(name, dose, volumeUnit);
 		
 		Iterator<PharmacyDto> listpharmacy= pharmacyBusiness1.getTheNeartsPharmacy(lon,lat,distance).iterator();
@@ -117,7 +117,7 @@ public class UserRequestBusiness {
 	
 	@Transactional
 	public List<PharmacyDto> pharmacyWithoutMedicine2(String name,String dose,double userLon, double userLat, double userdistance) {
-		System.out.println(name);
+		
 		
 		List <PharmacyDto> nearestList = pharmacyBusiness1.getTheNeartsPharmacy(userLon, userLat, userdistance);
 		int size=nearestList.size();

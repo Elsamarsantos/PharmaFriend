@@ -142,7 +142,8 @@ function getPagination() {
         },
         success: function (data) {
             numberOfPages = 1 + Math.floor(data / 30);
-            console.log(data + " Medicamentos get OK");
+
+            console.log(numberOfPages + " Medicamentos get OK");
 
             a = 11;
             y = 1;
@@ -165,7 +166,7 @@ function fazNav() {
     $("#paginationList").append(`<li class="page-item" onclick="previous()"><a>Previous</a></li>`);
 
     for (i = y; i <= numberOfPages; i++) {
-        if (y < a) {
+        if (y <= a) {
             $("#paginationList").append(`<li id="${i}" class="page-item"><a  onclick="getShortList(this)" class="page-link">${i}</a></li>`);
             y++;
         }
@@ -176,7 +177,7 @@ function fazNav() {
 }
 
 function next() {
-    if (a +11 < numberOfPages) {
+    if (a + 11 < numberOfPages) {
         cleanNav();
         a = y + 11;
         fazNav();
@@ -186,12 +187,12 @@ function next() {
 
 function previous() {
 
-    if (a != 11 && ( a-11>10 )) {
+    if (a != 11 && (a - 11 > 10)) {
         cleanNav();
         y = a - 21;
         a = a - 10;
         fazNav();
-    } else {first();};
+    } else { first(); };
     return (y, a);
 }
 
@@ -201,6 +202,7 @@ function last() {
     a = numberOfPages;
     y = numberOfPages - 11;
     fazNav();
+
     return (a, y)
 }
 
@@ -339,7 +341,7 @@ function getMedicineName() {
                         if ($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
                     });
 
-                    
+
                 }
                 autocomplete(document.getElementById("inputSearchMedicine"), uniqueNames.slice(0, 10));
             }
@@ -359,14 +361,14 @@ $("#inputSearchMedicine").on('input', function () {
 function searchMedicine() {
     $("#medicineTablebyName").empty();
     var medicineName = $("#inputSearchMedicine").val();
-  
+
     if (medicineName == "") {
         alert("Please enter a valid input in the search field.");
         console.log("Not valid input.");
     }
     else {
-        medicineName= medicineName.replace('+','%2B')
-       
+        medicineName = medicineName.replace('+', '%2B')
+
         $.ajax({
             url: `http://localhost:8080/pharmafriend/api/medicines/listequalnames?medicineName=${medicineName}`,
             type: 'GET',
@@ -377,31 +379,35 @@ function searchMedicine() {
             success: function (data) {
                 console.log("entrou pro for");
                 console.log(data);
+                if (data.length == 0) {
+                    alert("Please enter a valid input in the search field.");
+                    $("#searchMedicineModal").modal("hide");
+                } else {
+                    for (i = 0; i < data.length; i++) {
 
-                for (i = 0; i < data.length; i++) {
-
-                    var medicine = '<tr class="mySearchModal"><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
-                        '</td><td>' + data[i].volumeUnit + '</td><td>' +
-                        data[i].pvp + '</td><td>' +
-                        data[i].reImbursementRate + '</td><tr>';
-                    $("#medicineTablebyName").append(medicine);
+                        var medicine = '<tr class="mySearchModal"><td>' + data[i].medicineName + '</td><td>' + data[i].dose +
+                            '</td><td>' + data[i].volumeUnit + '</td><td>' +
+                            data[i].pvp + '</td><td>' +
+                            data[i].reImbursementRate + '</td><tr>';
+                        $("#medicineTablebyName").append(medicine);
+                    }
                 }
             }
         })
-        
+
         $('#medicineTablebyName').append("<thead>" +
-        "<tr>" +
-        '<th scope="col">NAME</th>' +
-        '<th scope="col">DOSE</th>' +
-        '<th scope="col">UNITS</th>' +
-        '<th scope="col">PVP</th>' +
-        '<th scope="col">RR</th>' +
-        "</tr>" +
-        "</thead>")
+            "<tr>" +
+            '<th scope="col">NAME</th>' +
+            '<th scope="col">DOSE</th>' +
+            '<th scope="col">UNITS</th>' +
+            '<th scope="col">PVP</th>' +
+            '<th scope="col">RR</th>' +
+            "</tr>" +
+            "</thead>")
         console.log("MODAL IS TOOGLED!");
         $("#searchMedicineModal").modal();
-        
-        
+
+
     }
 
 }
