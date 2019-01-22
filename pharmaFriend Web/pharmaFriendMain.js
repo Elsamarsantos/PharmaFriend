@@ -229,7 +229,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
                             var distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km                        
                             var dist = distance.toPrecision(3);
-                            arrayDistance[i] = ("At " + dist + " kilometres you have: " + data[i].pharmacyName + " with the adress: " + data[i].address + ";");
+                            arrayDistance[i] = ("At " + dist + " kilometres you have " + data[i].pharmacyName + " with the adress " + data[i].address + ";");
                             console.log(arrayDistance[i]);
                         }
 
