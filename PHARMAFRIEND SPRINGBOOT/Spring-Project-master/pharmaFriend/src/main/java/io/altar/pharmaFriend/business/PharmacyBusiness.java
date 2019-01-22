@@ -162,7 +162,7 @@ public class PharmacyBusiness {
 			while (listMedicine.hasNext()) {
 				Medicine medicine1 = listMedicine.next();
 
-				if(medicine1.getId()%number==0) {
+				if(medicine1.getId()%number==0 || medicine1.getId()%number==1) {
 					medicineInPharmacy.add(medicine1);
 					medicine1.getListPharmacyInMedicine().add(pharmacy);
 					
