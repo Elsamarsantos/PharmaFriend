@@ -105,6 +105,27 @@ $("#btnMainSearch").click(function mainSearch() {
                 .openPopup();
 
             if (medicineVolume == "" || medicineVolume == null) {
+                // pharmacy without medicine //
+                $.ajax({
+                    
+                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                    type: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    success: function (data) {
+
+                        for (i = 0; i < data.length; i++) {
+                            console.log("farmacias sem medicamento");
+                            // Marcador das Farmacias sem medicamento
+
+                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
+                                .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                        }
+                    }
+                })
+
                 $.ajax({
 
                     url: `http://localhost:8080/pharmafriend/api/request/twoparameters?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
@@ -169,9 +190,32 @@ $("#btnMainSearch").click(function mainSearch() {
 
                 })
                 
-                $.ajax({
+                // $.ajax({
                     
-                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                //     url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout2?medicinename=${inputmedicine}&dose=${medicineDose}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                //     type: 'GET',
+                //     headers: {
+                //         'Accept': 'application/json',
+                //         'Content-Type': 'application/json'
+                //     },
+                //     success: function (data) {
+
+                //         for (i = 0; i < 5; i++) {
+                //             console.log("farmacias sem medicamento");
+                //             // Marcador das Farmacias sem medicamento
+
+                //             L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
+                //                 .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                //         }
+                //     }
+                // })
+            }
+            else {
+
+                // pharmacy without medicine //
+                $.ajax({
+
+                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
                     type: 'GET',
                     headers: {
                         'Accept': 'application/json',
@@ -179,7 +223,7 @@ $("#btnMainSearch").click(function mainSearch() {
                     },
                     success: function (data) {
 
-                        for (i = 0; i < 5; i++) {
+                        for (i = 0; i < data.length; i++) {
                             console.log("farmacias sem medicamento");
                             // Marcador das Farmacias sem medicamento
 
@@ -188,8 +232,6 @@ $("#btnMainSearch").click(function mainSearch() {
                         }
                     }
                 })
-            }
-            else {
 
                 // pharmacy with medicine //
                 $.ajax({
@@ -255,25 +297,26 @@ $("#btnMainSearch").click(function mainSearch() {
 
 
                 })
-                $.ajax({
 
-                    url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
-                    type: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    success: function (data) {
+                // $.ajax({
 
-                        for (i = 0; i < 5; i++) {
-                            console.log("farmacias sem medicamento");
-                            // Marcador das Farmacias sem medicamento
+                //     url: `http://localhost:8080/pharmafriend/api/request/pharmacyWithout?medicinename=${inputmedicine}&dose=${medicineDose}&volume=${medicineVolume}&lonlocation=${longitude}&latlocation=${latitude}&userdistance=${distance}`,
+                //     type: 'GET',
+                //     headers: {
+                //         'Accept': 'application/json',
+                //         'Content-Type': 'application/json'
+                //     },
+                //     success: function (data) {
 
-                            L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
-                                .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
-                        }
-                    }
-                })
+                //         for (i = 0; i < 5; i++) {
+                //             console.log("farmacias sem medicamento");
+                //             // Marcador das Farmacias sem medicamento
+
+                //             L.marker([data[i].latLocation, data[i].lonLocation], { icon: pharmacyMarkeroff }).addTo(map)
+                //                 .bindPopup(data[i].pharmacyName + ' <br> ' + data[i].address).openPopup();
+                //         }
+                //     }
+                // })
             }
 
 
