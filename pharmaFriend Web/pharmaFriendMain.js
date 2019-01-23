@@ -70,7 +70,7 @@ $("#btnMainSearch").click(function mainSearch() {
 
             var map = L.map('map', {
                 center: [latitude, longitude], zoom: 17,
-                minZoom: 11
+                minZoom: 14
             });
 
 
