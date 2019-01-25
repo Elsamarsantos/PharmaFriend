@@ -87,6 +87,9 @@ $("#btnMainSearch").click(function mainSearch() {
             });
 
             /*------------ Pharmacy Marker ------------ */
+
+           
+
             var pharmacyMarker = L.AwesomeMarkers.icon({
                 icon: 'plus-square',
                 prefix: 'fa',
@@ -94,11 +97,9 @@ $("#btnMainSearch").click(function mainSearch() {
                 iconColor: 'green'
             });
 
-            var pharmacyMarkeroff = L.AwesomeMarkers.icon({
-                icon: 'plus-square',
-                prefix: 'fa',
-                iconColor: 'grey',
-            });
+           
+
+           
 
             L.marker([latitude, longitude], { icon: personMarker }).addTo(map)
                 .bindPopup('You ! ')

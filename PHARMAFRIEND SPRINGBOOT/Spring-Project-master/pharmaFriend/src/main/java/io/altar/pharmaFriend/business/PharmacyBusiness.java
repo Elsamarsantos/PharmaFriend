@@ -36,8 +36,8 @@ public class PharmacyBusiness {
 		newpharmacy.setId(novoId);
 		
 		newpharmacy=pharmacyRepository1.saveEntity(newpharmacy);
-		newpharmacy=listStockInPharmacy(newpharmacy);
-		pharmacyRepository1.saveEntity(newpharmacy);
+//		newpharmacy=listStockInPharmacy(newpharmacy);
+//		pharmacyRepository1.saveEntity(newpharmacy);
 	}
 	
 	//consult pharmacy by name

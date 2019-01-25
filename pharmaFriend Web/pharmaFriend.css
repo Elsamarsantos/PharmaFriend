@@ -124,7 +124,7 @@ form.mypharmaform input[type="submit"] {
 
 form.mypharmaform input[type="submit"]:hover {
     transition: background-color 0.5s ease;
-   
+       
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
